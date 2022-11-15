@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/sitemap': 1.0.0
-  '@astrojs/tailwind': 2.1.1
+  '@astrojs/tailwind': 2.1.2
   astro: 1.6.1
   autoprefixer: 10.4.13
   canvas-confetti: 1.6.0
@@ -11,7 +11,7 @@ specifiers:
 
 dependencies:
   '@astrojs/sitemap': 1.0.0
-  '@astrojs/tailwind': 2.1.1_tailwindcss@3.2.1
+  '@astrojs/tailwind': 2.1.2_tailwindcss@3.2.1
   astro: 1.6.1
   autoprefixer: 10.4.13_postcss@8.4.18
   canvas-confetti: 1.6.0
@@ -113,8 +113,8 @@ packages:
       zod: 3.19.1
     dev: false
 
-  /@astrojs/tailwind/2.1.1_tailwindcss@3.2.1:
-    resolution: {integrity: sha512-Il6FODtu4AlwadleJS3VWmAOOmeCDKvAo3iof46p4iHtdeWLClyuH9kJXWrlzCS+QOfBSIfXxvwPJ3cbK5COlA==}
+  /@astrojs/tailwind/2.1.2_tailwindcss@3.2.1:
+    resolution: {integrity: sha512-nIrlT+WWp/Wv2VQ29Nvncq608E+j3qB9k1f7yiAjY2ijxizZo4OnQzdRPQcIjIZHL5YxPtzbcoSP2u3v+Domqw==}
     peerDependencies:
       tailwindcss: ^3.0.24
     dependencies:

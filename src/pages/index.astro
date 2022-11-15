@@ -1,30 +1,29 @@
 ---
-let title = "Welcome to Long Nhat Nguyen's site";
-let description = "Long Nhat Nguyen's site";
-let banner = "https://torn4dom4n.github.io/banner.jpg";
+let title = "Long Nhat Nguyen - Home";
+let description = "Welcome to Long Nhat Nguyen's home";
+let banner = "https://torn4dom4n.github.io/banner.png";
+let author = "Long Nhat Nguyen";
 ---
-<style>
-  .skip-nav {
-    @apply absolute px-4 py-3 transition-transform duration-200 transform -translate-y-12 -left-1/4 focus:top-4 focus:translate-y-3 -top-8;
-  }
-
-  #skip {
-    scroll-margin-top: 1.125rem;
-  }
-</style>
-
-<html lang="en">
+<html lang = "en">
   <head>
     <!-- Global Metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" type="image/svg+xml" href="favicon.png">
-    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="follow, index">
+    <meta name="generator" content={Astro.generator}>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
   
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title}>
     <meta name="description" content={description}>
+    <meta name="author" content={author}>
   
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -38,20 +37,26 @@ let banner = "https://torn4dom4n.github.io/banner.jpg";
     <meta name="twitter:title" content={title}>
     <meta name="twitter:description" content={description}>
     <meta name="twitter:image" content={new URL(banner, Astro.url)}>
+    <meta name="twitter:site" content="@torn4dom4n">
+    <meta name="twitter:card" content="summary_large_image">
   </head>
 
   <body class="bg-black text-white">
     <!--Header -->
-    <div class="flex flex-col justify-center">
+    <div class="flex flex-col justify-center px-8">
       <nav class="flex items-center justify-between w-full relative max-w-2xl border-gray-700 mx-auto pt-8 pb-8 sm:pb-16  bg-black bg-opacity-60 text-gray-100">
-        <a href="#skip" class="skip-nav">
-          Skip to content
+        <a href="/">
+          <img
+            alt="logo"
+            src="/favicon.ico"
+            class="w-9 h-9 rounded-lg"
+          >
         </a>
       </nav>
     </div>
     
     <!--Content -->
-    <main class="flex flex-col justify-center min-h-max	px-8 bg-black">
+    <main class="flex flex-col justify-center min-h-max	px-8">
       <div class="flex flex-col justify-center items-start max-w-2xl border-gray-700 mx-auto py-16">
         <div class="flex flex-col-reverse sm:flex-row items-start">
           <div class="flex flex-col pr-8">
@@ -60,7 +65,7 @@ let banner = "https://torn4dom4n.github.io/banner.jpg";
             </h1>
             <h2 class="text-gray-200 mb-4">
               🥰
-              <span class="font-semibold">An open source lover</span>
+              <span class="font-semibold">A man who loves open source and music</span>
             </h2>
             <p class="text-gray-400 mb-16">
               If we'll ever be remembered, I know it'll be for the way that we love.
@@ -68,28 +73,28 @@ let banner = "https://torn4dom4n.github.io/banner.jpg";
           </div>
           <div class="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
             <img
-              alt="Lee Robinson"
+              alt="Long Nhat Nguyen"
               height={176}
               width={176}
-              src="/images/avatar.png"
+              src="/images/avatar.jpg"
               sizes="30vw"
               class="rounded-full filter grayscale"
             />
           </div>
         </div>
       </div>
-    </main>
 
-    <!--Footer -->
+      <!--Footer -->
     <footer class="flex flex-col justify-center items-start max-w-2xl mx-auto w-full mb-8">
       <hr class="w-full border-1 border-gray-800 mb-8" />
-      <div class="w-full max-w-2xl">
-        <div class="flex flex-col space-y-4">
-          <p class="capsize text-gray-200 font-medium">
-            &copy; 2022 Long Nhat Nguyen. All Rights Reserved.
+      <div class="flex flex-row-reverse items-center sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">
+        <div class="inline-flex flex-col sm:flex-row w-full max-w-full truncate">
+          <p class="capsize text-gray-200">
+            Made with 💖 by <strong>Long Nhat Nguyen</strong>
           </p>
         </div>
       </div>
     </footer>
+    </main>
   </body>
 </html>

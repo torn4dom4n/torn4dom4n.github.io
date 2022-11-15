@@ -1,3 +1,18 @@
-# My portfolio
+<p align="center">
+    <img src="public/favicon.png" width="96" height="96" alt="Logo"/>
+</p>
 
-My portfolio built with Astro, Tailwind, and GitHub.
+---
+
+My portfolio built with [Astro](https://astro.build), [Tailwind](https://tailwindcss.com), and [GitHub](https://github.com).
+
+## Running Locally
+
+This application requires Node.js v18+.
+
+```sh
+git clone https://github.com/torn4dom4n/torn4dom4n.github.io
+cd torn4dom4n.github.io
+pnpm install
+pnpm dev
+```

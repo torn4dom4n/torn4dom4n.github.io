@@ -1,7 +1,7 @@
 {
   "name": "torn4dom4n.github.io",
   "description": "My portfolio built with Astro, Tailwind, and GitHub.",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "private": true,
   "author": {
     "name": "Long Nhat Nguyen",

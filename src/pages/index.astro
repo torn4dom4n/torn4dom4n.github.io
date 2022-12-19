@@ -4,105 +4,115 @@ let description = "Welcome to Long Nhat Nguyen's home";
 let banner = "https://torn4dom4n.github.io/banner.png";
 let author = "Long Nhat Nguyen";
 ---
-<html lang = "en">
+
+<html lang="en">
   <head>
     <!-- Global Metadata -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="robots" content="follow, index">
-    <meta name="generator" content={Astro.generator}>
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="follow, index" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
     <!-- Primary Meta Tags -->
     <title>{title}</title>
-    <meta name="title" content={title}>
-    <meta name="description" content={description}>
-    <meta name="author" content={author}>
-  
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content={Astro.url}>
-    <meta property="og:title" content={title}>
-    <meta property="og:description" content={description}>
-    <meta property="og:image" content={new URL(banner, Astro.url)}>
-  
-    <!-- Twitter -->
-    <meta name="twitter:url" content={Astro.url}>
-    <meta name="twitter:title" content={title}>
-    <meta name="twitter:description" content={description}>
-    <meta name="twitter:image" content={new URL(banner, Astro.url)}>
-    <meta name="twitter:site" content="@torn4dom4n">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={author} />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(banner, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta name="twitter:url" content={Astro.url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(banner, Astro.url)} />
+    <meta name="twitter:site" content="@torn4dom4n" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
   </head>
 
   <body class="bg-black text-white">
     <!--Header -->
-    <div class="flex flex-col justify-center px-8">
-      <nav class="flex items-center justify-between w-full relative max-w-2xl border-gray-700 mx-auto pt-8 pb-8 sm:pb-16  bg-black bg-opacity-60 text-gray-100">
-        <a href="/">
-          <img
-            alt="logo"
-            src="/favicon.ico"
-            class="w-9 h-9 rounded-lg"
-          >
+    <div class="flex flex-col px-8">
+      <nav class="max-w-2xl mx-auto pt-8 pb-8">
+        <a href="#">
+          <img alt="logo" src="/favicon.ico" class="w-9 h-9 rounded-lg" />
         </a>
       </nav>
     </div>
-    
+
     <!--Content -->
-    <main class="flex flex-col justify-center min-h-max	px-8">
-      <div class="flex flex-col justify-center items-start max-w-2xl border-gray-700 mx-auto py-16">
-        <div class="flex flex-col-reverse sm:flex-row items-start">
-          <div class="flex flex-col pr-8">
-            <h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-white">
-              Long Nhat Nguyen
+    <main class="flex flex-col px-6">
+      <div class="items-start max-w-2xl mx-auto py-16">
+        <div class="flex flex-col-reverse sm:flex-row py-2">
+          <div class="pr-8">
+            <h1 class="font-bold text-2xl sm:text-3xl">
+              Hi 👋, I'm Long Nhat Nguyen
             </h1>
-            <h2 class="text-gray-200 mb-4">
-              🥰
-              <span class="font-semibold">A man who loves open source and music</span>
+            <h2 class="font-semibold text-gray-200">
+              I love music 🎵 and photography 📸
             </h2>
-            <p class="text-gray-400 mb-16">
-              If we'll ever be remembered, I know it'll be for the way that we love.<br>
-            </p>
-            <p class="justify-center">
-              <a href="https://github.com/torn4dom4n"><i class="fa-brands fa-github text-3xl pr-2 text-gray-400 hover:text-gray-200"></i></a>
-              <a href="https://facebook.com/torn4dom4n"><i class="fa-brands fa-facebook text-3xl pr-2 text-gray-400 hover:text-gray-200"></i></a>
-              <a href="https://twitter.com/torn4dom4n"><i class="fa-brands fa-twitter text-3xl pr-2 text-gray-400 hover:text-gray-200"></i></a>
-              <a href="https://youtube.com/@torn4dom4n"><i class="fa-brands fa-youtube text-3xl pr-2 text-gray-400 hover:text-gray-200"></i></a>
+            <p class="text-gray-400">
+              If we'll ever be remembered, I know it'll be for the way that we
+              love.<br />
             </p>
           </div>
-          <div class="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
+          <div class="w-[96px] sm:w-[176px] mb-4">
             <img
               alt="Long Nhat Nguyen"
-              height={176}
-              width={176}
-              src="/images/avatar.jpg"
-              sizes="30vw"
-              class="rounded-full filter grayscale"
+              src="/avatar.jpg"
+              class="rounded-full"
             />
           </div>
+        </div>
+
+        <div class="py-2">
+          <a href="https://github.com/torn4dom4n">
+            <i
+              class="fa-brands fa-github text-2xl sm:text-3xl pr-2 text-gray-400 hover:text-gray-200"
+            ></i>
+          </a>
+          <a href="https://facebook.com/torn4dom4n">
+            <i
+              class="fa-brands fa-facebook text-2xl sm:text-3xl pr-2 text-gray-400 hover:text-gray-200"
+            ></i>
+          </a>
+          <a href="https://twitter.com/torn4dom4n">
+            <i
+              class="fa-brands fa-twitter text-2xl sm:text-3xl pr-2 text-gray-400 hover:text-gray-200"
+            ></i>
+          </a>
+          <a href="https://youtube.com/@torn4dom4n">
+            <i
+              class="fa-brands fa-youtube text-2xl sm:text-3xl pr-2 text-gray-400 hover:text-gray-200"
+            ></i>
+          </a>
         </div>
       </div>
 
       <!--Footer -->
-    <footer class="flex flex-col justify-center items-start max-w-2xl mx-auto w-full mb-8">
-      <hr class="w-full border-1 border-gray-800 mb-8" />
-      <div class="flex flex-row-reverse items-center sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">
-        <div class="inline-flex flex-col sm:flex-row w-full max-w-full truncate">
-          <p class="capsize text-gray-200">
-            Made with 💖 by <strong>Long Nhat Nguyen</strong>
-          </p>
-        </div>
-      </div>
-    </footer>
+      <footer class="items-start w-full max-w-2xl mx-auto">
+        <hr class="border-1 border-gray-800 mb-8" />
+        <p class="capsize text-gray-200">
+          Made with 💖 by <strong>Long Nhat Nguyen</strong>
+        </p>
+      </footer>
     </main>
   </body>
 </html>

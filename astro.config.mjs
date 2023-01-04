@@ -10,7 +10,7 @@ export default defineConfig({
     sitemap(),
     tailwind(),
     image({
-      serviceEntryPoint: "@astrojs/image/sharp",
+      serviceEntryPoint: "@astrojs/image/sharp"
     }),
   ],
 });

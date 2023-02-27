@@ -20,7 +20,7 @@
     "@astrojs/image": "^0.15.0",
     "@astrojs/sitemap": "^1.0.1",
     "@astrojs/tailwind": "^3.0.1",
-    "astro": "^2.0.14",
+    "astro": "^2.0.15",
     "astro-icon": "^0.8.0",
     "autoprefixer": "^10.4.13",
     "canvas-confetti": "^1.6.0",

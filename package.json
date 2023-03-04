@@ -1,7 +1,7 @@
 {
   "name": "torn4dom4n.github.io",
   "description": "My portfolio built with Astro and TailwindCSS",
-  "version": "2.0.0",
+  "version": "2023.3.5",
   "private": true,
   "author": {
     "name": "Long Nhat Nguyen",
@@ -20,7 +20,7 @@
     "@astrojs/image": "^0.15.1",
     "@astrojs/sitemap": "^1.1.0",
     "@astrojs/tailwind": "^3.0.1",
-    "astro": "^2.0.15",
+    "astro": "^2.0.17",
     "astro-icon": "^0.8.0",
     "autoprefixer": "^10.4.13",
     "canvas-confetti": "^1.6.0",

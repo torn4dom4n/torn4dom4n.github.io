@@ -6,7 +6,7 @@
 
 My portfolio built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com), and [GitHub](https://github.com).
 
-## Running Locally
+## Running locally
 
 This application requires Node.js v18+.
 

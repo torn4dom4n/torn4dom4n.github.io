@@ -1,175 +1,103 @@
 ---
-import "../styles/global.css";
 import { Image } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-let title = "Long Nhat Nguyen - Home";
-let description = "Welcome to Long Nhat Nguyen's home";
+let title = "Home | Long Nhat Nguyen";
+let description = "Welcome to Long Nhat Nguyen's Home";
 let og = "og.png";
 let author = "Long Nhat Nguyen";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="robots" content="index, follow" />
-    <meta
-      name="googlebot"
-      content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
-    />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="shortcut icon" href="favicon.ico" />
-    <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
-    <meta name="author" content={author} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(og, Astro.url)} />
-    <meta name="twitter:url" content={Astro.url} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(og, Astro.url)} />
-    <meta name="twitter:site" content="@torn4dom4n" />
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <link
-      rel="preload"
-      href="fonts/Mona-Sans.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-  </head>
-
-  <body class="bg-black antialiased">
-    <div class="flex flex-col px-8">
-      <nav class="max-w-2xl mx-auto pt-8 pb-8">
+<BaseLayout title={title} description={description} author={author} og={og}>
+  <div class="items-start max-w-2xl mx-auto py-16">
+    <div class="flex flex-col-reverse sm:flex-row py-2">
+      <div class="pr-8">
+        <h1 class="font-bold text-2xl sm:text-3xl">
+          Hi 👋, I'm Long Nhat Nguyen
+        </h1>
+        <h2 class="font-semibold text-white/75">
+          I love music 🎵 and photography 📸
+        </h2>
+        <p class="text-white/70">
+          If we'll ever be remembered, I know it'll be for the way that we love.<br
+          />
+        </p>
+      </div>
+      <div class="mb-2">
         <Image
-          src={import("../assets/logo.png")}
-          alt="Logo"
-          width={480}
+          src={import("../assets/me.jpg")}
+          alt="Long Nhat Nguyen"
+          width={720}
           aspectRatio="1:1"
           format={"webp"}
-          class="w-[48px] rounded-lg"
+          class="w-[144px] sm:w-[196px] rounded-full"
         />
-      </nav>
+      </div>
     </div>
 
-    <main class="flex flex-col px-6 text-white/80">
-      <div class="items-start max-w-2xl mx-auto py-16">
-        <div class="flex flex-col-reverse sm:flex-row py-2">
-          <div class="pr-8">
-            <h1 class="font-bold text-2xl sm:text-3xl">
-              Hi 👋, I'm Long Nhat Nguyen
-            </h1>
-            <h2 class="font-semibold text-white/75">
-              I love music 🎵 and photography 📸
-            </h2>
-            <p class="text-white/70">
-              If we'll ever be remembered, I know it'll be for the way that we
-              love.<br />
-            </p>
-          </div>
-          <div class="mb-2">
-            <Image
-              src={import("../assets/me.jpg")}
-              alt="Long Nhat Nguyen"
-              width={720}
-              aspectRatio="1:1"
-              format={"webp"}
-              class="w-[144px] sm:w-[196px] rounded-full"
-            />
-          </div>
-        </div>
-
-        <div class="flex items-center gap-1">
-          <a href="mailto:torn4dom4n@gmail.com" target="_blank" title="Gmail">
-            <Icon
-              pack="tabler"
-              name="brand-gmail"
-              class="transition w-[36px] text-gray-400 hover:text-[#ea4335] hover:-translate-y-1 hover:scale-110 duration-150"
-            />
-          </a>
-          <a
-            href="https://github.com/torn4dom4n"
-            target="_blank"
-            title="GitHub"
-          >
-            <Icon
-              pack="tabler"
-              name="brand-github"
-              class="transition w-[36px] text-gray-400 hover:text-[#fafafa] hover:-translate-y-1 hover:scale-110 duration-150"
-            />
-          </a>
-          <a
-            href="https://facebook.com/torn4dom4n"
-            target="_blank"
-            title="Facebook"
-          >
-            <Icon
-              pack="tabler"
-              name="brand-facebook"
-              class="transition w-[36px] text-gray-400 hover:text-[#1877f2] hover:-translate-y-1 hover:scale-110 duration-150"
-            />
-          </a>
-          <a
-            href="https://instagram.com/torn4dom4n"
-            target="_blank"
-            title="Instagram"
-          >
-            <Icon
-              pack="tabler"
-              name="brand-instagram"
-              class="transition w-[36px] text-gray-400 hover:text-[#fd1d1d] hover:-translate-y-1 hover:scale-110 duration-150"
-            />
-          </a>
-          <a
-            href="https://twitter.com/torn4dom4n"
-            target="_blank"
-            title="Twitter"
-          >
-            <Icon
-              pack="tabler"
-              name="brand-twitter"
-              class="transition w-[36px] text-gray-400 hover:text-[#1da1f2] hover:-translate-y-1 hover:scale-110 duration-150"
-            />
-          </a>
-          <a
-            href="https://youtube.com/@torn4dom4n"
-            target="_blank"
-            title="YouTube"
-          >
-            <Icon
-              pack="tabler"
-              name="brand-youtube"
-              class="transition w-[36px] text-gray-400 hover:text-[#ff0000] hover:-translate-y-1 hover:scale-110 duration-150"
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/torn4dom4n"
-            target="_blank"
-            title="linkedin"
-          >
-            <Icon
-              pack="tabler"
-              name="brand-linkedin"
-              class="transition w-[36px] text-gray-400 hover:text-[#0a66c2] hover:-translate-y-1 hover:scale-110 duration-150"
-            />
-          </a>
-        </div>
-      </div>
-
-      <footer class="items-start w-full max-w-2xl mx-auto">
-        <hr class="border-1 border-gray-800 mb-8" />
-        <p class="capsize text-gray-200">
-          made with 💖 by {" "}
-          <strong>Long Nhat Nguyen</strong>
-        </p>
-      </footer>
-    </main>
-  </body>
-</html>
+    <div class="flex items-center gap-1">
+      <a href="mailto:torn4dom4n@gmail.com" target="_blank" title="Gmail">
+        <Icon
+          pack="tabler"
+          name="brand-gmail"
+          class="transition w-[36px] text-gray-400 hover:text-[#ea4335] hover:-translate-y-1 hover:scale-110 duration-150"
+        />
+      </a>
+      <a href="https://github.com/torn4dom4n" target="_blank" title="GitHub">
+        <Icon
+          pack="tabler"
+          name="brand-github"
+          class="transition w-[36px] text-gray-400 hover:text-[#fafafa] hover:-translate-y-1 hover:scale-110 duration-150"
+        />
+      </a>
+      <a
+        href="https://facebook.com/torn4dom4n"
+        target="_blank"
+        title="Facebook"
+      >
+        <Icon
+          pack="tabler"
+          name="brand-facebook"
+          class="transition w-[36px] text-gray-400 hover:text-[#1877f2] hover:-translate-y-1 hover:scale-110 duration-150"
+        />
+      </a>
+      <a
+        href="https://instagram.com/torn4dom4n"
+        target="_blank"
+        title="Instagram"
+      >
+        <Icon
+          pack="tabler"
+          name="brand-instagram"
+          class="transition w-[36px] text-gray-400 hover:text-[#fd1d1d] hover:-translate-y-1 hover:scale-110 duration-150"
+        />
+      </a>
+      <a href="https://twitter.com/torn4dom4n" target="_blank" title="Twitter">
+        <Icon
+          pack="tabler"
+          name="brand-twitter"
+          class="transition w-[36px] text-gray-400 hover:text-[#1da1f2] hover:-translate-y-1 hover:scale-110 duration-150"
+        />
+      </a>
+      <a href="https://youtube.com/@torn4dom4n" target="_blank" title="YouTube">
+        <Icon
+          pack="tabler"
+          name="brand-youtube"
+          class="transition w-[36px] text-gray-400 hover:text-[#ff0000] hover:-translate-y-1 hover:scale-110 duration-150"
+        />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/torn4dom4n"
+        target="_blank"
+        title="linkedin"
+      >
+        <Icon
+          pack="tabler"
+          name="brand-linkedin"
+          class="transition w-[36px] text-gray-400 hover:text-[#0a66c2] hover:-translate-y-1 hover:scale-110 duration-150"
+        />
+      </a>
+    </div>
+  </div>
+</BaseLayout>

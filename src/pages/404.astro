@@ -1,41 +1,31 @@
 ---
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+let title = "404 - Not Found | Long Nhat Nguyen";
+let description = "Welcome to Long Nhat Nguyen's Home";
+let og = "og.png";
+let author = "Long Nhat Nguyen";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="shortcut icon" href="favicon.ico" />
-    <title>404 | This page could not be found</title>
-
-    <link
-      rel="preload"
-      href="fonts/Mona-Sans.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-  </head>
-
-  <body class="bg-black antialiased">
-    <main class="flex flex-col px-6 text-white/80">
-      <div class="items-start max-w-2xl mx-auto py-16">
-        <div class="flex flex-col-reverse sm:flex-row py-2">
-          <div class="grid h-96 min-h-full px-4 place-content-center">
-            <h1 class="tracking-widest uppercase">404 | Not Found</h1>
-          </div>
+<BaseLayout title={title} description={description} author={author} og={og}>
+  <div class="items-start max-w-2xl mx-auto py-16">
+    <div class="flex flex-col-reverse py-2">
+      <div class="grid px-4 place-content-center">
+        <div class="text-center">
+          <h1 class="font-black text-8xl sm:text-10xl text-white/80">404</h1>
+          <p
+            class="font-bold text-2xl sm:text-4xl tracking-tight text-white/75"
+          >
+            Uh-oh!
+          </p>
+          <p class="mt-4 text-white/70">
+            We can't find that page.
+            <a href="/" class="text-sky-400">
+              Do you want to visit the homepage?
+            </a>
+          </p>
         </div>
       </div>
-
-      <footer class="items-start w-full max-w-2xl mx-auto">
-        <hr class="border-1 border-gray-800 mb-8" />
-        <p class="capsize text-gray-200">
-          made with 💖 by {" "}
-          <strong>Long Nhat Nguyen</strong>
-        </p>
-      </footer>
-    </main>
-  </body>
-</html>
+    </div>
+  </div>
+</BaseLayout>

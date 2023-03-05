@@ -1,0 +1,14 @@
+---
+import { Image } from "@astrojs/image/components";
+---
+
+<div class="flex flex-col mx-auto pt-8 pb-8">
+  <Image
+    src={import("../assets/logo.png")}
+    alt="Logo"
+    width={480}
+    aspectRatio="1:1"
+    format={"webp"}
+    class="w-[48px] rounded-lg"
+  />
+</div>

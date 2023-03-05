@@ -1,0 +1,26 @@
+---
+import "../styles/global.css";
+import MainHead from "../components/MainHead.astro";
+import Logo from "../components/Logo.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title?: string | undefined;
+  description?: string | undefined;
+  author?: string | undefined;
+  og?: string | undefined;
+}
+
+const { title, description, author, og } = Astro.props;
+---
+
+<html lang="en">
+  <MainHead title={title} description={description} author={author} og={og} />
+  <body class="bg-black antialiased">
+    <main class="flex flex-col px-6 text-white/80">
+      <Logo />
+      <slot />
+      <Footer />
+    </main>
+  </body>
+</html>

@@ -1,15 +1,14 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
+import logo from "../assets/me.jpg";
 import { Icon } from "astro-icon";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 let title = "Home | Long Nhat Nguyen";
 let description = "Welcome to Long Nhat Nguyen's Home";
-let og = "og.png";
-let author = "Long Nhat Nguyen";
 ---
 
-<BaseLayout title={title} description={description} author={author} og={og}>
+<BaseLayout title={title} description={description}>
   <div class="items-start max-w-2xl mx-auto py-16">
     <div class="flex flex-col-reverse sm:flex-row py-2">
       <div class="pr-8">
@@ -26,10 +25,9 @@ let author = "Long Nhat Nguyen";
       </div>
       <div class="mb-2">
         <Image
-          src={import("../assets/me.jpg")}
+          src={logo}
           alt="Long Nhat Nguyen"
           width={720}
-          aspectRatio="1:1"
           format={"webp"}
           class="w-[144px] sm:w-[196px] rounded-full"
         />

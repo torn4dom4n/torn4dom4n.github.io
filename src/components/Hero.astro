@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  tagline: string;
+}
+
+const { title, tagline } = Astro.props;
+---
+
+<header
+  class="text-lg sm:text-xl text-center flex flex-col gap-4 sm:text-start sm:mx-auto"
+>
+  <div class="flex flex-col gap-2">
+    <h1
+      class="max-w-[37ch] mx-[unset] text-[2.625rem] sm:text-7xl sm:text-start"
+    >
+      {title}
+    </h1>
+    <p class="max-w-[37ch] mx-[unset] sm:text-start">{tagline}</p>
+  </div>
+  <slot />
+</header>

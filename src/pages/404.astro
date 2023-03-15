@@ -1,29 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-let title = "404 - Not Found | Long Nhat Nguyen";
-let description = "Welcome to Long Nhat Nguyen's Home";
+import Hero from "../components/Hero.astro";
 ---
 
-<BaseLayout title={title} description={description}>
-  <div class="items-start max-w-2xl mx-auto py-16">
-    <div class="flex flex-col-reverse py-2">
-      <div class="grid px-4 place-content-center">
-        <div class="text-center">
-          <h1 class="font-black text-8xl sm:text-10xl text-white/80">404</h1>
-          <p
-            class="font-bold text-2xl sm:text-4xl tracking-tight text-white/75"
-          >
-            Uh-oh!
-          </p>
-          <p class="mt-4 text-white/70">
-            We can't find that page.
-            <a href="/" class="text-sky-400">
-              Do you want to visit the homepage?
-            </a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+<BaseLayout title="Not Found" description="404 Error — this page was not found">
+  <Hero title="Page Not Found" tagline="Not found" />
 </BaseLayout>

@@ -1,8 +1,4 @@
-<p align="center">
-  <img src="src/assets/logo.png" width="96" height="96" alt="Logo" style="border-radius:0.5rem"/>
-</p>
-
----
+# Long Nhat Nguyen | Porfolio
 
 My portfolio built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com), and [GitHub](https://github.com).
 

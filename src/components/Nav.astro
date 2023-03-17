@@ -1,6 +1,8 @@
 ---
 import Icon, { Props as IconProps } from "./Icon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
+import { Image } from "astro:assets";
+import Logo from "../assets/logo.png";
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
@@ -46,11 +48,13 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
 <nav>
   <div class="menu-header">
     <a href="/" class="site-title">
-      <Icon
-        icon="triangle"
-        color="var(--accent-regular)"
-        size="1.6em"
-        gradient
+      <Image
+        src={Logo}
+        width="35"
+        quality="100"
+        format="webp"
+        alt="Logo"
+        class="logo"
       />
       Long Nhat Nguyen
     </a>
@@ -163,6 +167,11 @@ const iconLinks: { label: string; href: string; icon: IconProps["icon"] }[] = [
     line-height: 1.1;
     color: var(--gray-0);
     text-decoration: none;
+  }
+
+  .logo {
+    border-radius: 25%;
+    width: 1.6em;
   }
 
   .menu-button {

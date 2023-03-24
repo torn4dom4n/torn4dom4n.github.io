@@ -1,8 +1,8 @@
-import { defineConfig } from "astro/config";
-import sitemap from "@astrojs/sitemap";
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: "https://torn4dom4n.github.io",
+  site: 'https://torn4dom4n.github.io',
   experimental: {
     assets: true,
   },

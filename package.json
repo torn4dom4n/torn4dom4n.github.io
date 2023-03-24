@@ -14,10 +14,15 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "format": "prettier -w ."
   },
   "dependencies": {
     "@astrojs/sitemap": "^1.2.1",
-    "astro": "^2.1.3"
+    "astro": "^2.1.7"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.7",
+    "prettier-plugin-astro": "^0.8.0"
   }
 }

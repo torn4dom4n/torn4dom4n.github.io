@@ -1,7 +1,7 @@
 {
   "name": "@torn4dom4n/portfolio",
   "description": "Long Nhat Nguyen's portfolio",
-  "version": "23.03.17",
+  "version": "23.03.28",
   "private": true,
   "author": {
     "name": "Long Nhat Nguyen",
@@ -25,5 +25,5 @@
     "prettier": "^2.8.7",
     "prettier-plugin-astro": "^0.8.0"
   },
-  "packageManager": "pnpm@7.30.3"
+  "packageManager": "pnpm@7.30.5"
 }

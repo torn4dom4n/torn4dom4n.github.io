@@ -1,6 +1,6 @@
-# Long Nhat Nguyen | Porfolio
+# Hello 👋, my name is Long Nhat Nguyen
 
-My portfolio built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com), and [GitHub](https://github.com).
+This is my site which built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com).
 
 ## Running locally
 

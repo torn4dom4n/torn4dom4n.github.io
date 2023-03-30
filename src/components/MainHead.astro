@@ -38,34 +38,3 @@ const {
 <meta name="twitter:card" content="summary_large_image" />
 
 <link rel="icon" type="image/png" href="/favicon.ico" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-  rel="stylesheet"
-/>
-
-<script is:inline>
-  // This code is inlined in the head to make dark mode instant & blocking.
-  const getThemePreference = () => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme');
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
-  };
-  const isDark = getThemePreference() === 'dark';
-  document.documentElement.classList[isDark ? 'add' : 'remove']('theme-dark');
-  if (typeof localStorage !== 'undefined') {
-    // Watch the document element and persist user preference when it changes.
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains('theme-dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-  }
-</script>

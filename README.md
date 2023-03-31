@@ -1,12 +1,12 @@
 # Hello 👋, my name is Long Nhat Nguyen
 
-This is my site which was built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com).
+This is my personal site which was built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com).
 
-## Running locally
+## Develop locally
 
 This application requires Node.js v18+.
 
-```sh
+```bash
 git clone https://github.com/torn4dom4n/torn4dom4n.github.io
 cd torn4dom4n.github.io
 pnpm install

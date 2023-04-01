@@ -5,20 +5,35 @@ const currentYear = new Date().getFullYear();
 <footer class="mt-32">
   <div class="sm:px-8">
     <div class="mx-auto max-w-7xl lg:px-8">
-      <div class="border-t border-slate-300 pb-16 pt-10 dark:border-slate-700">
+      <div class="border-t border-zinc-100 pb-16 pt-10 dark:border-zinc-700/40">
         <div class="relative px-4 sm:px-8 lg:px-12">
           <div class="mx-auto max-w-2xl lg:max-w-5xl">
             <div
               class="flex flex-col items-center justify-between gap-6 sm:flex-row"
             >
-              <div
-                class="flex gap-6 text-sm font-medium text-slate-950 dark:text-slate-200"
-              >
-                <a
-                  class="underline decoration-transparent decoration-solid decoration-1 underline-offset-2 transition duration-200 ease-in-out hover:decoration-current focus:decoration-current"
-                  href="https://github.com/torn4dom4n">GitHub</a
+              <a aria-label="Back to Home" href="/">
+                <div
+                  class="flex flex-row gap-1 fill-zinc-600 hover:fill-zinc-900 dark:fill-zinc-400 dark:hover:fill-zinc-100"
                 >
-              </div><p class="text-sm text-slate-950 dark:text-slate-200">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M1 21h22L12 2"></path>
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M15 2.013H9V9H2v6h7v6.987h6V15h7V9h-7z"></path>
+                  </svg>
+                </div>
+              </a>
+              <p class="text-sm text-zinc-800 dark:text-zinc-400">
                 &copy; {currentYear} Long Nhat Nguyen. All rights reserved.
               </p>
             </div>

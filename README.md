@@ -1,4 +1,4 @@
-# Hello 👋, my name is Long Nhat Nguyen
+# Hello, my name is Long Nhat Nguyen
 
 This is my personal site which was built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com).
 

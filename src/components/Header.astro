@@ -1,8 +1,10 @@
 <header
-  class="pointer-events-none relative z-50 flex flex-col h-[180] mb-[-116]"
+  data-animate
+  style="--stagger:0"
+  class="pointer-events-none relative z-50 mb-[-116] flex h-[180] flex-col"
 >
-  <div class="top-0 z-10 h-16 pt-6 sticky">
-    <div class="sm:px-8 top-0 w-full">
+  <div class="sticky top-0 z-10 h-16 pt-6">
+    <div class="top-0 w-full sm:px-8">
       <div class="mx-auto max-w-7xl lg:px-8">
         <div class="relative px-4 sm:px-8 lg:px-12">
           <div class="mx-auto max-w-2xl lg:max-w-5xl">
@@ -15,38 +17,34 @@
                     id="theme-toggle"
                     type="button"
                     aria-label="Toggle dark mode"
-                    class="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+                    class="relative focus:outline-none"
                   >
-                    <svg
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                      class="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600"
+                    <div
+                      class="absolute h-8 w-12 rounded-full border-4 border-solid bg-gradient-to-r from-cyan-500 to-blue-500 transition duration-200"
                     >
-                      <path
-                        d="M8 12.25A4.25 4.25 0 0 1 12.25 8v0a4.25 4.25 0 0 1 4.25 4.25v0a4.25 4.25 0 0 1-4.25 4.25v0A4.25 4.25 0 0 1 8 12.25v0Z"
-                      ></path>
-                      <path
-                        d="M12.25 3v1.5M21.5 12.25H20M18.791 18.791l-1.06-1.06M18.791 5.709l-1.06 1.06M12.25 20v1.5M4.5 12.25H3M6.77 6.77 5.709 5.709M6.77 17.73l-1.061 1.061"
-                        fill="none"
-                      >
-                      </path>
-                    </svg>
-                    <svg
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                      class="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500"
+                    </div>
+                    <div
+                      class="relative grid h-8 w-8 items-center justify-center transition duration-200 dark:translate-x-4"
                     >
-                      <path
-                        d="M17.25 16.22a6.937 6.937 0 0 1-9.47-9.47 7.451 7.451 0 1 0 9.47 9.47ZM12.75 7C17 7 17 2.75 17 2.75S17 7 21.25 7C17 7 17 11.25 17 11.25S17 7 12.75 7Z"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 256 256"
+                        class="h-6 w-6 fill-amber-200 dark:hidden"
                       >
-                      </path>
-                    </svg>
+                        <path
+                          d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm8,24a64,64,0,1,0,64,64A64.07,64.07,0,0,0,128,64ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"
+                        ></path>
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 256 256"
+                        class="hidden h-6 w-6 fill-zinc-100 dark:block"
+                      >
+                        <path
+                          d="M160,206.4a8,8,0,0,1-4.36,7.13A94.93,94.93,0,0,1,112,224a96,96,0,0,1,0-192,94.93,94.93,0,0,1,43.64,10.47,8,8,0,0,1,0,14.25,80,80,0,0,0,0,142.56A8,8,0,0,1,160,206.4Zm91.17-85.75-26.5-11.43-2.31-29.84a8,8,0,0,0-14.14-4.47L189.63,97.42l-27.71-6.85a8,8,0,0,0-8.81,11.82L168.18,128l-15.07,25.61a8,8,0,0,0,8.81,11.82l27.71-6.85,18.59,22.51a8,8,0,0,0,14.14-4.47l2.31-29.84,26.5-11.43a8,8,0,0,0,0-14.7Z"
+                        ></path>
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </div>

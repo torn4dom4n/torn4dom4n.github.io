@@ -1,6 +1,6 @@
-# Hello, my name is Long Nhat Nguyen
+# Hello humans, my name is Long Nhat Nguyen
 
-This is my personal site which was built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com).
+This is my website which was built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com).
 
 ## Develop locally
 

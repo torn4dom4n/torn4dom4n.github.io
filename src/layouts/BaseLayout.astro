@@ -6,14 +6,15 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
+  ogImage?: URL | undefined;
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogImage } = Astro.props;
 ---
 
 <html lang="en" class="dark h-full antialiased">
   <head>
-    <MainHead title={title} description={description} />
+    <MainHead title={title} description={description} ogImage={ogImage} />
   </head>
   <body class="flex h-full flex-col bg-zinc-50 dark:bg-black">
     <div class="fixed inset-0 flex justify-center sm:px-8">

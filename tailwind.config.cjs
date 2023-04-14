@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['JetBrains Mono', ...defaultTheme.fontFamily.sans],
+        sans: ['Mona Sans', 'sans-serif'],
+        heading: ['Hubot Sans', 'sans-serif'],
       },
     },
   },

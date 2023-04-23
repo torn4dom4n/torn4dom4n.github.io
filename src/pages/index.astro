@@ -1,4 +1,6 @@
 ---
+import { motion } from 'framer-motion';
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon';
 import { Image } from 'astro:assets';
@@ -16,160 +18,166 @@ import Portrait from '../assets/portrait.jpg';
           <div
             class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12"
           >
-            <div data-animate style="--stagger:1" class="lg:pl-20">
-              <div class="max-w-xs px-2.5 lg:max-w-none">
-                <Image
-                  src={Portrait}
-                  width={1024}
-                  sizes="(min-width: 1024px) 32rem, 20rem"
-                  alt="My name is Long Nhat Nguyen"
-                  class="duration-400 aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover shadow shadow-cyan-500 transition dark:bg-zinc-800"
-                />
+            <motion.div
+              client:load
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div class="lg:pl-20">
+                <div class="max-w-xs px-2.5 lg:max-w-none">
+                  <Image
+                    src={Portrait}
+                    width={1024}
+                    sizes="(min-width: 1024px) 32rem, 20rem"
+                    alt="My name is Long Nhat Nguyen"
+                    class="duration-400 aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover shadow shadow-cyan-500 transition dark:bg-zinc-800"
+                  />
+                </div>
               </div>
-            </div>
+            </motion.div>
             <div class="lg:order-first lg:row-span-2">
-              <h1
-                data-animate
-                style="--stagger:2"
-                class="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text py-3 font-['Hubot_Sans'] text-4xl font-bold tracking-tight text-transparent sm:text-5xl"
+              <motion.div
+                client:load
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
               >
-                Hello humans, my name is Long Nhat Nguyen
-              </h1>
-              <div
-                data-animate
-                style="--stagger:3"
-                class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400"
-              >
-                <p>I come from Vietnam, a land of beauty and diversity.</p>
-                <p>
-                  Music and photography are my hobbies and my ways of expressing
-                  myself. I love to explore different kinds of music and to take
-                  photos of the amazing scenes and people around me. I also have
-                  a curiosity for the world and its wonders. I like to learn
-                  about new places, cultures, or technologies that can enrich my
-                  knowledge and experience.
-                </p>
-                <p>
-                  My favorite quote is “If we'll ever be remembered, I know
-                  it'll be for the way that we love”. It reflects my belief that
-                  love is the most important thing in life and the legacy we
-                  leave behind.
-                </p>
-              </div>
-              <div
-                data-animate
-                style="--stagger:4"
-                class="mt-6 flex flex-wrap gap-1"
-              >
-                <a
-                  class="group m-1 p-1"
-                  aria-label="Me on GitHub"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://github.com/torn4dom4n"
+                <h1
+                  class="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text py-3 font-['Hubot_Sans'] text-4xl font-bold tracking-tight text-transparent sm:text-5xl"
                 >
-                  <Icon
-                    name="simple-icons:github"
-                    class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#333] dark:hover:text-[#f5f5f5]"
-                  />
-                </a>
-                <a
-                  class="group m-1 p-1"
-                  aria-label="Me on YouTube"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.youtube.com/@torn4dom4n"
+                  Hello humans, my name is Long Nhat Nguyen
+                </h1>
+                <div
+                  class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400"
                 >
-                  <Icon
-                    name="simple-icons:youtube"
-                    class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#ff0000]"
-                  />
-                </a>
-                <a
-                  class="group m-1 p-1"
-                  aria-label="Me on Facebook"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://facebook.com/torn4dom4n"
-                >
-                  <Icon
-                    name="simple-icons:facebook"
-                    class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#1877f2]"
-                  />
-                </a>
-                <a
-                  class="group m-1 p-1"
-                  aria-label="Me on Instagram"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://instagram.com/torn4dom4n"
-                >
-                  <Icon
-                    name="simple-icons:instagram"
-                    class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#fd1d1d]"
-                  />
-                </a>
-                <a
-                  class="group m-1 p-1"
-                  aria-label="Me on Twitter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://twitter.com/torn4dom4n"
-                >
-                  <Icon
-                    name="simple-icons:twitter"
-                    class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#1da1f2]"
-                  />
-                </a>
-                <a
-                  class="group m-1 p-1"
-                  aria-label="Me on LinkedIn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://linkedin.com/in/torn4dom4n"
-                >
-                  <Icon
-                    name="simple-icons:linkedin"
-                    class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#0a66c2]"
-                  />
-                </a>
-                <a
-                  class="group m-1 p-1"
-                  aria-label="Me on Reddit"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://reddit.com/user/torn4dom4n"
-                >
-                  <Icon
-                    name="simple-icons:reddit"
-                    class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#ff4500]"
-                  />
-                </a>
-                <a
-                  class="group m-1 p-1"
-                  aria-label="Me on Pinterest"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://pinterest.com/torn4dom4n"
-                >
-                  <Icon
-                    name="simple-icons:pinterest"
-                    class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#e60023]"
-                  />
-                </a>
-                <a
-                  class="group m-1 p-1"
-                  aria-label="Me on SoundCloud"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://soundcloud.com/torn4dom4n"
-                >
-                  <Icon
-                    name="simple-icons:soundcloud"
-                    class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#ff8800]"
-                  />
-                </a>
-              </div>
+                  <p>I come from Vietnam, a land of beauty and diversity.</p>
+                  <p>
+                    Music and photography are my hobbies and my ways of
+                    expressing myself. I love to explore different kinds of
+                    music and to take photos of the amazing scenes and people
+                    around me. I also have a curiosity for the world and its
+                    wonders. I like to learn about new places, cultures, or
+                    technologies that can enrich my knowledge and experience.
+                  </p>
+                  <p>
+                    My favorite quote is “If we'll ever be remembered, I know
+                    it'll be for the way that we love”. It reflects my belief
+                    that love is the most important thing in life and the legacy
+                    we leave behind.
+                  </p>
+                </div>
+                <div class="mt-6 flex flex-wrap gap-1">
+                  <a
+                    class="group m-1 p-1"
+                    aria-label="Me on GitHub"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/torn4dom4n"
+                  >
+                    <Icon
+                      name="simple-icons:github"
+                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#333] dark:hover:text-[#f5f5f5]"
+                    />
+                  </a>
+                  <a
+                    class="group m-1 p-1"
+                    aria-label="Me on YouTube"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.youtube.com/@torn4dom4n"
+                  >
+                    <Icon
+                      name="simple-icons:youtube"
+                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#ff0000]"
+                    />
+                  </a>
+                  <a
+                    class="group m-1 p-1"
+                    aria-label="Me on Facebook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://facebook.com/torn4dom4n"
+                  >
+                    <Icon
+                      name="simple-icons:facebook"
+                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#1877f2]"
+                    />
+                  </a>
+                  <a
+                    class="group m-1 p-1"
+                    aria-label="Me on Instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://instagram.com/torn4dom4n"
+                  >
+                    <Icon
+                      name="simple-icons:instagram"
+                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#fd1d1d]"
+                    />
+                  </a>
+                  <a
+                    class="group m-1 p-1"
+                    aria-label="Me on Twitter"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://twitter.com/torn4dom4n"
+                  >
+                    <Icon
+                      name="simple-icons:twitter"
+                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#1da1f2]"
+                    />
+                  </a>
+                  <a
+                    class="group m-1 p-1"
+                    aria-label="Me on LinkedIn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://linkedin.com/in/torn4dom4n"
+                  >
+                    <Icon
+                      name="simple-icons:linkedin"
+                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#0a66c2]"
+                    />
+                  </a>
+                  <a
+                    class="group m-1 p-1"
+                    aria-label="Me on Reddit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://reddit.com/user/torn4dom4n"
+                  >
+                    <Icon
+                      name="simple-icons:reddit"
+                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#ff4500]"
+                    />
+                  </a>
+                  <a
+                    class="group m-1 p-1"
+                    aria-label="Me on Pinterest"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://pinterest.com/torn4dom4n"
+                  >
+                    <Icon
+                      name="simple-icons:pinterest"
+                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#e60023]"
+                    />
+                  </a>
+                  <a
+                    class="group m-1 p-1"
+                    aria-label="Me on SoundCloud"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://soundcloud.com/torn4dom4n"
+                  >
+                    <Icon
+                      name="simple-icons:soundcloud"
+                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#ff8800]"
+                    />
+                  </a>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>

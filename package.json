@@ -1,7 +1,7 @@
 {
   "name": "@torn4dom4n/website",
   "description": "Long Nhat Nguyen's website",
-  "version": "23.04.14",
+  "version": "23.04.24",
   "private": true,
   "author": {
     "name": "Long Nhat Nguyen",
@@ -37,5 +37,5 @@
     "prettier-plugin-astro": "^0.8.0",
     "prettier-plugin-tailwindcss": "^0.2.7"
   },
-  "packageManager": "pnpm@8.2.0"
+  "packageManager": "pnpm@8.3.1"
 }

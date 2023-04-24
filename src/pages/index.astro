@@ -1,9 +1,10 @@
 ---
 import { motion } from 'framer-motion';
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Icon } from 'astro-icon';
-import { Image } from 'astro:assets';
+
 import Portrait from '../assets/portrait.jpg';
 ---
 
@@ -20,7 +21,7 @@ import Portrait from '../assets/portrait.jpg';
           >
             <motion.div
               client:load
-              initial={{ opacity: 0, x: 10 }}
+              initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
@@ -39,7 +40,7 @@ import Portrait from '../assets/portrait.jpg';
             <div class="lg:order-first lg:row-span-2">
               <motion.div
                 client:load
-                initial={{ opacity: 0, x: -10 }}
+                initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
               >

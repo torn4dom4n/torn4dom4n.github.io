@@ -15,7 +15,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "format": "prettier -w --plugin-search-dir=. ."
+    "format": "prettier -w . --cache"
   },
   "dependencies": {
     "@astrojs/react": "^2.1.3",

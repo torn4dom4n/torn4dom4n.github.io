@@ -6,10 +6,15 @@
   "schedule": ["before 3am on Monday"],
   "packageRules": [
     {
-      "groupName": "formatting & linting",
-      "labels": ["linting"],
+      "groupName": "Formatting & Linting",
       "matchPackageNames": ["eslint", "prettier"],
-      "matchPackagePatterns": ["^eslint"],
+      "matchPackagePatterns": ["^eslint-", "^prettier-"],
+      "automerge": true
+    },
+    {
+      "groupName": "TypeScript",
+      "matchPackageNames": ["typescript"],
+      "matchPackagePatterns": ["^@types"],
       "automerge": true
     }
   ]

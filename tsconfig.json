@@ -10,9 +10,13 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
     "baseUrl": ".",
     "paths": {
-      "~/assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@styles/*": ["src/styles/*"]
     },
     "ignoreDeprecations": "5.0",
     "jsx": "react-jsx",

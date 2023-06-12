@@ -1,9 +1,9 @@
 ---
-import { motion } from 'framer-motion';
-import { Image } from 'astro:assets';
-import { Icon } from 'astro-icon';
-import BaseLayout from '@layouts/BaseLayout.astro';
 import Portrait from '@assets/portrait.jpg';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon';
+import { Image } from 'astro:assets';
+import { motion } from 'framer-motion';
 ---
 
 <BaseLayout
@@ -28,6 +28,7 @@ import Portrait from '@assets/portrait.jpg';
                   <Image
                     src={Portrait}
                     width={1024}
+                    height={1024}
                     sizes="(min-width: 1024px) 32rem, 20rem"
                     alt="My name is Long Nhat Nguyen"
                     class="duration-400 aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover shadow shadow-cyan-500 transition dark:bg-zinc-800"
@@ -59,20 +60,13 @@ import Portrait from '@assets/portrait.jpg';
                 <div
                   class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400"
                 >
-                  <p>I come from Vietnam, a land of beauty and diversity.</p>
                   <p>
-                    Music and photography are my hobbies and my ways of
-                    expressing myself. I love to explore different kinds of
-                    music and to take photos of the amazing scenes and people
-                    around me. I also have a curiosity for the world and its
-                    wonders. I like to learn about new places, cultures, or
-                    technologies that can enrich my knowledge and experience.
+                    "If we'll ever be remembered, I know it'll be for the way
+                    that we love."
                   </p>
                   <p>
-                    My favorite quote is “If we'll ever be remembered, I know
-                    it'll be for the way that we love”. It reflects my belief
-                    that love is the most important thing in life and the legacy
-                    we leave behind.
+                    I come from Vietnam. I love music. I love taking photos of
+                    the amazing scenes and people around me.
                   </p>
                 </div>
                 <div class="mt-6 flex flex-wrap gap-1">

@@ -13,17 +13,14 @@
     "skipLibCheck": true,
     "strict": true,
     "verbatimModuleSyntax": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@styles/*": ["src/styles/*"]
+      "@/*": ["./*"]
     },
     "ignoreDeprecations": "5.0",
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "include": ["./src/env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["./src/env.d.ts", "**/*.ts", "**/*.tsx", "astro.config.mjs"],
   "exclude": ["node_modules"]
 }

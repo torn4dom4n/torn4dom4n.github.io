@@ -13,9 +13,9 @@
     "skipLibCheck": true,
     "strict": true,
     "verbatimModuleSyntax": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src"]
     },
     "ignoreDeprecations": "5.0",
     "jsx": "react-jsx",

@@ -26,41 +26,23 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
-
       - name: Setup Node
         uses: actions/setup-node@v3
-
       - name: Install pnpm
         uses: pnpm/action-setup@v2
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Restore Astro cache
         uses: actions/cache@v3
         with:
           path: |
             dist
-          key: ${{ runner.os }}-astro-build-${{ hashFiles('dist') }}
+          key: ${{ runner.os }}-astro-build-${{ hashFiles('dist', '**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-astro-build-
 
       - name: Install dependencies
         run: pnpm install
-
       - name: Build with Astro
         run: pnpm build
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

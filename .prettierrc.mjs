@@ -5,5 +5,5 @@ export default {
   semi: true,
   singleQuote: true,
   endOfLine: 'lf',
-  plugins: ['prettier-plugin-tailwindcss'],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
 };

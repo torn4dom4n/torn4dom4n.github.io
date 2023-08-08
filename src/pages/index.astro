@@ -1,9 +1,13 @@
 ---
-import Portrait from '@/assets/portrait.jpg';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+
 import { Icon } from 'astro-icon';
 import { Image } from 'astro:assets';
-import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
+
+import Portrait from '@/assets/portrait.jpg';
+import { buttonVariants } from '@/components/ui/button';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 ---
 
 <BaseLayout
@@ -15,171 +19,209 @@ import { motion } from 'framer-motion';
       <div class="relative px-4 sm:px-8 lg:px-12">
         <div class="mx-auto max-w-2xl lg:max-w-5xl">
           <div
-            class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12"
+            class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-1 lg:gap-y-12"
           >
-            <motion.div
-              client:load
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div class="lg:pl-20">
-                <div class="max-w-xs px-2.5 lg:max-w-none">
+            <div class="lg:pl-20">
+              <div class="max-w-xs px-2.5 lg:max-w-none">
+                <AspectRatio ratio={1 / 1}>
                   <Image
                     src={Portrait}
                     width={1024}
                     height={1024}
                     sizes="(min-width: 1024px) 32rem, 20rem"
                     alt="My name is Long Nhat Nguyen"
-                    class="duration-400 aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover shadow shadow-cyan-500 transition dark:bg-zinc-800"
+                    class="rotate-3 rounded-2xl object-cover"
                   />
-                </div>
+                </AspectRatio>
               </div>
-            </motion.div>
+            </div>
             <div class="lg:order-first lg:row-span-2">
-              <motion.div
-                client:load
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
+              <h1
+                class="py-3 font-heading scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl"
               >
-                <h1
-                  class="py-3 font-['Hubot_Sans'] text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+                <span
+                  class="bg-gradient-to-br from-amber-300 via-orange-500 to-yellow-400 bg-clip-text text-transparent"
                 >
-                  <span
-                    class="bg-gradient-to-br from-amber-300 via-orange-500 to-yellow-400 bg-clip-text text-transparent"
-                  >
-                    Hello humans,
-                  </span> my name is
-                  <span
-                    class="bg-gradient-to-bl from-blue-300 via-sky-500 to-cyan-400 bg-clip-text text-transparent"
-                  >
-                    Long Nhat Nguyen
-                  </span>
-                </h1>
-                <div
-                  class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400"
+                  Hello humans,
+                </span> my name is
+                <span
+                  class="bg-gradient-to-bl from-blue-300 via-sky-500 to-cyan-400 bg-clip-text text-transparent"
                 >
-                  <p>
-                    "If we'll ever be remembered, I know it'll be for the way
-                    that we love."
-                  </p>
-                  <p>
-                    I come from Vietnam. I love music. I love taking photos of
-                    the amazing scenes and people around me.
-                  </p>
-                </div>
-                <div class="mt-6 flex flex-wrap gap-1">
-                  <a
-                    class="group m-1 p-1"
-                    aria-label="Me on GitHub"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://github.com/torn4dom4n"
+                  Long Nhat Nguyen
+                </span>
+              </h1>
+              <p class="leading-7 [&:not(:first-child)]:mt-6 italic">
+                "If we'll ever be remembered, I know it'll be for the way that
+                we love."
+              </p>
+              <p class="leading-7 [&:not(:first-child)]:mt-6">
+                I come from Vietnam. I love music. I love taking photos of the
+                amazing scenes and people around me.
+              </p>
+              <div class="mt-6 flex flex-wrap items-center">
+                <a
+                  aria-label="Me on GitHub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/torn4dom4n"
+                >
+                  <div
+                    class={cn(
+                      buttonVariants({
+                        variant: 'ghost',
+                      }),
+                      'h-9 w-9 p-0',
+                    )}
                   >
-                    <Icon
-                      name="tabler:brand-github"
-                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#333] dark:hover:text-[#f5f5f5]"
-                    />
-                  </a>
-                  <a
-                    class="group m-1 p-1"
-                    aria-label="Me on YouTube"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.youtube.com/@torn4dom4n"
+                    <Icon name="tabler:brand-github" class="h-6 w-6" />
+                    <span class="sr-only">GitHub</span>
+                  </div>
+                </a>
+                <a
+                  aria-label="Me on YouTube"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.youtube.com/@torn4dom4n"
+                >
+                  <div
+                    class={cn(
+                      buttonVariants({
+                        variant: 'ghost',
+                      }),
+                      'h-9 w-9 p-0',
+                    )}
                   >
-                    <Icon
-                      name="tabler:brand-youtube"
-                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#ff0000]"
-                    />
-                  </a>
-                  <a
-                    class="group m-1 p-1"
-                    aria-label="Me on Facebook"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://facebook.com/torn4dom4n"
+                    <Icon name="tabler:brand-youtube" class="h-6 w-6" />
+                    <span class="sr-only">YouTube</span>
+                  </div>
+                </a>
+                <a
+                  aria-label="Me on Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://facebook.com/torn4dom4n"
+                >
+                  <div
+                    class={cn(
+                      buttonVariants({
+                        variant: 'ghost',
+                      }),
+                      'h-9 w-9 p-0',
+                    )}
                   >
-                    <Icon
-                      name="tabler:brand-facebook"
-                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#1877f2]"
-                    />
-                  </a>
-                  <a
-                    class="group m-1 p-1"
-                    aria-label="Me on Instagram"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://instagram.com/torn4dom4n"
+                    <Icon name="tabler:brand-facebook" class="h-6 w-6" />
+                    <span class="sr-only">Facebook</span>
+                  </div>
+                </a>
+                <a
+                  aria-label="Me on Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://instagram.com/torn4dom4n"
+                >
+                  <div
+                    class={cn(
+                      buttonVariants({
+                        variant: 'ghost',
+                      }),
+                      'h-9 w-9 p-0',
+                    )}
                   >
-                    <Icon
-                      name="tabler:brand-instagram"
-                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#fd1d1d]"
-                    />
-                  </a>
-                  <a
-                    class="group m-1 p-1"
-                    aria-label="Me on Twitter"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://twitter.com/torn4dom4n"
+                    <Icon name="tabler:brand-instagram" class="h-6 w-6" />
+                    <span class="sr-only">Instagram</span>
+                  </div>
+                </a>
+                <a
+                  aria-label="Me on Twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://twitter.com/torn4dom4n"
+                >
+                  <div
+                    class={cn(
+                      buttonVariants({
+                        variant: 'ghost',
+                      }),
+                      'h-9 w-9 p-0',
+                    )}
                   >
-                    <Icon
-                      name="tabler:brand-twitter"
-                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#1da1f2]"
-                    />
-                  </a>
-                  <a
-                    class="group m-1 p-1"
-                    aria-label="Me on LinkedIn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://linkedin.com/in/torn4dom4n"
+                    <Icon name="tabler:brand-twitter" class="h-6 w-6" />
+                    <span class="sr-only">Twitter</span>
+                  </div>
+                </a>
+                <a
+                  aria-label="Me on LinkedIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://linkedin.com/in/torn4dom4n"
+                >
+                  <div
+                    class={cn(
+                      buttonVariants({
+                        variant: 'ghost',
+                      }),
+                      'h-9 w-9 p-0',
+                    )}
                   >
-                    <Icon
-                      name="tabler:brand-linkedin"
-                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#0a66c2]"
-                    />
-                  </a>
-                  <a
-                    class="group m-1 p-1"
-                    aria-label="Me on Reddit"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://reddit.com/user/torn4dom4n"
+                    <Icon name="tabler:brand-linkedin" class="h-6 w-6" />
+                    <span class="sr-only">LinkedIn</span>
+                  </div>
+                </a>
+                <a
+                  aria-label="Me on Reddit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://reddit.com/user/torn4dom4n"
+                >
+                  <div
+                    class={cn(
+                      buttonVariants({
+                        variant: 'ghost',
+                      }),
+                      'h-9 w-9 p-0',
+                    )}
                   >
-                    <Icon
-                      name="tabler:brand-reddit"
-                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#ff4500]"
-                    />
-                  </a>
-                  <a
-                    class="group m-1 p-1"
-                    aria-label="Me on Pinterest"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://pinterest.com/torn4dom4n"
+                    <Icon name="tabler:brand-reddit" class="h-6 w-6" />
+                    <span class="sr-only">Reddit</span>
+                  </div>
+                </a>
+                <a
+                  aria-label="Me on Pinterest"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://pinterest.com/torn4dom4n"
+                >
+                  <div
+                    class={cn(
+                      buttonVariants({
+                        variant: 'ghost',
+                      }),
+                      'h-9 w-9 p-0',
+                    )}
                   >
-                    <Icon
-                      name="tabler:brand-pinterest"
-                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#e60023]"
-                    />
-                  </a>
-                  <a
-                    class="group m-1 p-1"
-                    aria-label="Me on SoundCloud"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://soundcloud.com/torn4dom4n"
+                    <Icon name="tabler:brand-pinterest" class="h-6 w-6" />
+                    <span class="sr-only">Pinterest</span>
+                  </div>
+                </a>
+                <a
+                  aria-label="Me on SoundCloud"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://soundcloud.com/torn4dom4n"
+                >
+                  <div
+                    class={cn(
+                      buttonVariants({
+                        variant: 'ghost',
+                      }),
+                      'h-9 w-9 p-0',
+                    )}
                   >
-                    <Icon
-                      name="tabler:brand-soundcloud"
-                      class="h-6 w-6 flex-none text-zinc-500 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-[#ff8800]"
-                    />
-                  </a>
-                </div>
-              </motion.div>
+                    <Icon name="tabler:brand-soundcloud" class="h-6 w-6" />
+                    <span class="sr-only">SoundCloud</span>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -1,8 +1,10 @@
 ---
 import { Icon } from 'astro-icon';
+import { cn } from '@/lib/utils';
+import { buttonVariants, Button } from '@/components/ui/button';
 ---
 
-<header class="relative mb-[-116] flex h-[180] flex-col">
+<header class="sticky top-0 z-50">
   <div class="h-16 pt-6">
     <div class="w-full sm:px-8">
       <div class="mx-auto max-w-7xl lg:px-8">
@@ -12,11 +14,12 @@ import { Icon } from 'astro-icon';
               <div class="flex flex-1"></div>
               <div class="flex flex-1 justify-end md:justify-center"></div>
               <div class="flex justify-end md:flex-1">
-                <button
+                <Button
+                  variant="ghost"
+                  size="icon"
                   id="theme-toggle"
                   type="button"
                   aria-label="Toggle dark mode"
-                  class="border-1 group rounded-full bg-white/90 p-3 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10"
                 >
                   <Icon
                     name="ph:sun-bold"
@@ -26,9 +29,9 @@ import { Icon } from 'astro-icon';
                   <Icon
                     name="ph:moon-stars-bold"
                     aria-hidden="true"
-                    class="hidden h-6 w-6 stroke-zinc-100 text-zinc-50 transition duration-200 dark:block [@media_not_(prefers-color-scheme:dark)]:stroke-amber-600 [@media_not_(prefers-color-scheme:dark)]:text-amber-500"
+                    class="hidden h-6 w-6 stroke-slate-100 text-slate-50 transition duration-200 dark:block [@media_not_(prefers-color-scheme:dark)]:stroke-amber-600 [@media_not_(prefers-color-scheme:dark)]:text-amber-500"
                   />
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -39,23 +42,23 @@ import { Icon } from 'astro-icon';
 </header>
 
 <script is:inline>
-  const theme = (() => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme');
-    }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    return 'light';
-  })();
-
-  if (theme === 'light') {
-    document.documentElement.classList.remove('dark');
-  } else {
-    document.documentElement.classList.add('dark');
+const theme = (() => {
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+    return localStorage.getItem('theme');
   }
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark';
+  }
+  return 'light';
+})();
 
-  window.localStorage.setItem('theme', theme);
+if (theme === 'light') {
+  document.documentElement.classList.remove('dark');
+} else {
+  document.documentElement.classList.add('dark');
+}
+
+window.localStorage.setItem('theme', theme);
 </script>
 
 <script>

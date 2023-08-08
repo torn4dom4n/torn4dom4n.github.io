@@ -9,5 +9,11 @@ export default defineConfig({
   experimental: {
     assets: true,
   },
-  integrations: [react(), sitemap(), tailwind()],
+  integrations: [
+    react(),
+    sitemap(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
 });

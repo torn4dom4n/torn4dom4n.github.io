@@ -1,32 +1,20 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { motion } from 'framer-motion';
 ---
 
 <BaseLayout title="Not Found" description="404 Error — this page was not found">
-  <motion.div
-    client:load
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-  >
-    <div class="flex h-screen flex-col items-center justify-center text-center">
-      <div class="relative">
-        <h1
-          class="m-0 mr-5 inline-block border-r border-solid border-r-[rgba(0,0,0,0.3)] py-0 pl-0 pr-[23px] align-top font-['Hubot_Sans'] text-2xl leading-[49px] text-zinc-800 dark:border-r-[rgba(255,255,255,0.3)] dark:text-zinc-100"
-        >
-          404
-        </h1>
-        <div
-          class="inline-block h-[49px] text-left align-middle leading-[49px]"
-        >
-          <h2
-            class="m-0 p-0 font-['Hubot_Sans'] text-sm leading-[49px] text-zinc-800 dark:text-zinc-100"
-          >
-            This page could not be found.
-          </h2>
-        </div>
+  <div class="flex h-screen flex-col items-center justify-center text-center">
+    <div class="relative">
+      <h1
+        class="m-0 mr-5 inline-block border-r border-solid py-0 pl-0 pr-[23px] align-top font-sans text-2xl leading-[49px]"
+      >
+        404
+      </h1>
+      <div class="inline-block h-[49px] text-left align-middle leading-[49px]">
+        <h2 class="m-0 p-0 font-heading text-sm leading-[49px]">
+          This page could not be found.
+        </h2>
       </div>
     </div>
-  </motion.div>
+  </div>
 </BaseLayout>

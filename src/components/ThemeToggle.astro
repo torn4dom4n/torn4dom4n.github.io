@@ -7,8 +7,6 @@ import { Button } from '@/components/ui/button';
   variant="ghost"
   size="icon"
   id="themeToggle"
-  type="button"
-  aria-label="Toggle dark mode"
 >
   <Icon
     name="ph:sun-bold"
@@ -20,6 +18,7 @@ import { Button } from '@/components/ui/button';
     aria-hidden="true"
     class="hidden h-6 w-6 stroke-slate-100 text-slate-50 transition duration-200 dark:block [@media_not_(prefers-color-scheme:dark)]:stroke-amber-600 [@media_not_(prefers-color-scheme:dark)]:text-amber-500"
   />
+  <span class="sr-only">Theme toggle</span>
 </Button>
 
 <script is:inline>

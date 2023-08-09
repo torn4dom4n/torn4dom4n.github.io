@@ -3,10 +3,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 import { Icon } from 'astro-icon';
 import { Image } from 'astro:assets';
-import { cn } from '@/lib/utils';
 
 import Portrait from '@/assets/portrait.jpg';
-import { buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 ---
 
@@ -65,17 +64,10 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
                   rel="noopener noreferrer"
                   href="https://github.com/torn4dom4n"
                 >
-                  <div
-                    class={cn(
-                      buttonVariants({
-                        variant: 'ghost',
-                      }),
-                      'h-9 w-9 p-0',
-                    )}
-                  >
+                  <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
                     <Icon name="tabler:brand-github" class="h-6 w-6" />
                     <span class="sr-only">GitHub</span>
-                  </div>
+                  </Button>
                 </a>
                 <a
                   aria-label="Me on YouTube"
@@ -83,17 +75,10 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
                   rel="noopener noreferrer"
                   href="https://www.youtube.com/@torn4dom4n"
                 >
-                  <div
-                    class={cn(
-                      buttonVariants({
-                        variant: 'ghost',
-                      }),
-                      'h-9 w-9 p-0',
-                    )}
-                  >
+                  <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
                     <Icon name="tabler:brand-youtube" class="h-6 w-6" />
                     <span class="sr-only">YouTube</span>
-                  </div>
+                  </Button>
                 </a>
                 <a
                   aria-label="Me on Facebook"
@@ -101,17 +86,10 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
                   rel="noopener noreferrer"
                   href="https://facebook.com/torn4dom4n"
                 >
-                  <div
-                    class={cn(
-                      buttonVariants({
-                        variant: 'ghost',
-                      }),
-                      'h-9 w-9 p-0',
-                    )}
-                  >
+                  <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
                     <Icon name="tabler:brand-facebook" class="h-6 w-6" />
                     <span class="sr-only">Facebook</span>
-                  </div>
+                  </Button>
                 </a>
                 <a
                   aria-label="Me on Instagram"
@@ -119,17 +97,10 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
                   rel="noopener noreferrer"
                   href="https://instagram.com/torn4dom4n"
                 >
-                  <div
-                    class={cn(
-                      buttonVariants({
-                        variant: 'ghost',
-                      }),
-                      'h-9 w-9 p-0',
-                    )}
-                  >
+                  <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
                     <Icon name="tabler:brand-instagram" class="h-6 w-6" />
                     <span class="sr-only">Instagram</span>
-                  </div>
+                  </Button>
                 </a>
                 <a
                   aria-label="Me on Twitter"
@@ -137,17 +108,10 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
                   rel="noopener noreferrer"
                   href="https://twitter.com/torn4dom4n"
                 >
-                  <div
-                    class={cn(
-                      buttonVariants({
-                        variant: 'ghost',
-                      }),
-                      'h-9 w-9 p-0',
-                    )}
-                  >
+                  <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
                     <Icon name="tabler:brand-twitter" class="h-6 w-6" />
                     <span class="sr-only">Twitter</span>
-                  </div>
+                  </Button>
                 </a>
                 <a
                   aria-label="Me on LinkedIn"
@@ -155,17 +119,10 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
                   rel="noopener noreferrer"
                   href="https://linkedin.com/in/torn4dom4n"
                 >
-                  <div
-                    class={cn(
-                      buttonVariants({
-                        variant: 'ghost',
-                      }),
-                      'h-9 w-9 p-0',
-                    )}
-                  >
+                  <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
                     <Icon name="tabler:brand-linkedin" class="h-6 w-6" />
                     <span class="sr-only">LinkedIn</span>
-                  </div>
+                  </Button>
                 </a>
                 <a
                   aria-label="Me on Reddit"
@@ -173,17 +130,10 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
                   rel="noopener noreferrer"
                   href="https://reddit.com/user/torn4dom4n"
                 >
-                  <div
-                    class={cn(
-                      buttonVariants({
-                        variant: 'ghost',
-                      }),
-                      'h-9 w-9 p-0',
-                    )}
-                  >
+                  <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
                     <Icon name="tabler:brand-reddit" class="h-6 w-6" />
                     <span class="sr-only">Reddit</span>
-                  </div>
+                  </Button>
                 </a>
                 <a
                   aria-label="Me on Pinterest"
@@ -191,17 +141,10 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
                   rel="noopener noreferrer"
                   href="https://pinterest.com/torn4dom4n"
                 >
-                  <div
-                    class={cn(
-                      buttonVariants({
-                        variant: 'ghost',
-                      }),
-                      'h-9 w-9 p-0',
-                    )}
-                  >
+                  <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
                     <Icon name="tabler:brand-pinterest" class="h-6 w-6" />
                     <span class="sr-only">Pinterest</span>
-                  </div>
+                  </Button>
                 </a>
                 <a
                   aria-label="Me on SoundCloud"
@@ -209,17 +152,10 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
                   rel="noopener noreferrer"
                   href="https://soundcloud.com/torn4dom4n"
                 >
-                  <div
-                    class={cn(
-                      buttonVariants({
-                        variant: 'ghost',
-                      }),
-                      'h-9 w-9 p-0',
-                    )}
-                  >
+                  <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
                     <Icon name="tabler:brand-soundcloud" class="h-6 w-6" />
                     <span class="sr-only">SoundCloud</span>
-                  </div>
+                  </Button>
                 </a>
               </div>
             </div>

@@ -1,21 +1,21 @@
 {
   "name": "@torn4dom4n/website",
-  "description": "Long Nhat Nguyen's website",
   "version": "23.8.12",
   "private": true,
+  "description": "Long Nhat Nguyen's website",
+  "repository": {
+    "url": "https://github.com/torn4dom4n/torn4dom4n.github.io"
+  },
   "author": {
     "name": "Long Nhat Nguyen",
     "url": "https://torn4dom4n.github.io"
   },
-  "repository": {
-    "url": "https://github.com/torn4dom4n/torn4dom4n.github.io"
-  },
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
+    "dev": "astro dev",
+    "format": "prettier -w . --cache",
     "preview": "astro preview",
-    "format": "prettier -w . --cache"
+    "start": "astro dev"
   },
   "dependencies": {
     "@astrojs/react": "^2.2.1",

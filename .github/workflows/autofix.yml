@@ -23,5 +23,5 @@ jobs:
       - name: Formating with Prettier
         run: pnpm format
 
-      - name: Runing autofix.ci
+      - name: Running autofix.ci
       - uses: autofix-ci/action@v1

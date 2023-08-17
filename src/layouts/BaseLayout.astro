@@ -2,6 +2,7 @@
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import MainHead from '@/components/MainHead.astro'
+import ThemeProvider from '@/components/ThemeProvider.astro'
 
 interface Props {
   title?: string | undefined
@@ -15,11 +16,12 @@ const { title, description, ogImage } = Astro.props
 <html lang="en">
   <head>
     <MainHead title={title} description={description} ogImage={ogImage} />
+    <ThemeProvider />
   </head>
-  <body class="font-sans antialiased flex flex-col h-full bg-background">
+  <body class="flex h-full flex-col bg-background font-sans antialiased">
     <div class="fixed inset-0 flex justify-center sm:px-8">
       <div class="flex w-full max-w-7xl lg:px-8">
-        <div class="w-full bg-card border"></div>
+        <div class="w-full border bg-card"></div>
       </div>
     </div>
     <div class="relative">

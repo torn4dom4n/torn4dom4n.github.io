@@ -1,6 +1,6 @@
 {
   "name": "@torn4dom4n/website",
-  "version": "23.8.30",
+  "version": "23.9.2",
   "private": true,
   "description": "Long Nhat Nguyen's website",
   "repository": {
@@ -24,7 +24,7 @@
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-dropdown-menu": "^2.0.5",
     "@radix-ui/react-slot": "^1.0.2",
-    "astro": "^3.0.3",
+    "astro": "^3.0.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.272.0",
@@ -36,7 +36,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "^20.5.7",
+    "@types/node": "^20.5.8",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "prettier": "^3.0.3",

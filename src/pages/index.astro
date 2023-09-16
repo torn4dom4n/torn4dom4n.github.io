@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { Image } from 'astro:assets'
 
-import Portrait from '@/assets/portrait.jpg'
+import portraitImage from '@/assets/portrait.jpg'
 
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import SocialLinks from '@/components/SocialLinks.astro'
@@ -23,10 +23,10 @@ import SocialLinks from '@/components/SocialLinks.astro'
               <div class="max-w-xs px-2.5 lg:max-w-none">
                 <AspectRatio ratio={1 / 1}>
                   <Image
-                    src={Portrait}
+                    src={portraitImage}
                     width={1024}
                     height={1024}
-                    sizes="(min-width: 1024px) 32rem, 20rem"
+                    sizes="(min-width: 1320px) 412px, (min-width: 1060px) calc(39.17vw - 97px), (min-width: 400px) 295px, calc(65vw + 53px)"
                     alt="My name is Long Nhat Nguyen"
                     class="rotate-3 rounded-2xl object-cover"
                   />

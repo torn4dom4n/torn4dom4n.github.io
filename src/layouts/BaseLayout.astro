@@ -24,9 +24,9 @@ const { title, description, ogImage } = Astro.props
         <div class="w-full border bg-card"></div>
       </div>
     </div>
-    <div class="relative">
+    <div class="relative flex flex-col">
       <Header />
-      <main>
+      <main class="flex-auto">
         <slot />
       </main>
       <Footer />

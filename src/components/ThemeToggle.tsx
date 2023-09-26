@@ -1,5 +1,3 @@
-import { Icons } from '@/components/Icons'
-
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -7,6 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { Icons } from '@/components/Icons'
 
 function setTheme(theme: string) {
   const currentTheme = localStorage.getItem('theme') || 'light'

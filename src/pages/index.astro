@@ -24,9 +24,8 @@ import portraitImage from '@/assets/portrait.jpg'
               <AspectRatio ratio={1 / 1}>
                 <Image
                   src={portraitImage}
-                  width={1024}
-                  height={1024}
-                  sizes="(min-width: 1320px) 412px, (min-width: 1060px) calc(39.17vw - 97px), (min-width: 400px) 295px, calc(65vw + 53px)"
+                  width={portraitImage.width}
+                  densities={[0.5, 2, 3, 4]}
                   alt="My name is Long Nhat Nguyen"
                   class="rotate-3 rounded-2xl object-cover"
                 />

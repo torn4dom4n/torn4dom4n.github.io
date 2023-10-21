@@ -1,4 +1,6 @@
 ---
+import { siteConfig } from '@/config'
+
 import { Button } from '@/components/ui/button'
 import { Icons } from '@/components/Icons'
 ---
@@ -8,7 +10,7 @@ import { Icons } from '@/components/Icons'
     aria-label="Nhat Nguyen's Gmail"
     target="_blank"
     rel="noopener noreferrer"
-    href="mailto:torn4dom4n@gmail.com"
+    href={siteConfig.links.email}
   >
     <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
       <Icons.gmail className="h-6 w-6" />
@@ -19,7 +21,7 @@ import { Icons } from '@/components/Icons'
     aria-label="Nhat Nguyen's GitHub"
     target="_blank"
     rel="noopener noreferrer"
-    href="https://github.com/torn4dom4n"
+    href={siteConfig.links.github}
   >
     <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
       <Icons.github className="h-6 w-6" />
@@ -30,7 +32,7 @@ import { Icons } from '@/components/Icons'
     aria-label="Nhat Nguyen's YouTube"
     target="_blank"
     rel="noopener noreferrer"
-    href="https://www.youtube.com/@torn4dom4n"
+    href={siteConfig.links.youtube}
   >
     <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
       <Icons.youtube className="h-6 w-6" />
@@ -41,7 +43,7 @@ import { Icons } from '@/components/Icons'
     aria-label="Nhat Nguyen's Facebook"
     target="_blank"
     rel="noopener noreferrer"
-    href="https://facebook.com/torn4dom4n"
+    href={siteConfig.links.facebook}
   >
     <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
       <Icons.facebook className="h-6 w-6" />
@@ -52,7 +54,7 @@ import { Icons } from '@/components/Icons'
     aria-label="Nhat Nguyen's Instagram"
     target="_blank"
     rel="noopener noreferrer"
-    href="https://instagram.com/torn4dom4n"
+    href={siteConfig.links.instagram}
   >
     <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
       <Icons.instagram className="h-6 w-6" />
@@ -63,7 +65,7 @@ import { Icons } from '@/components/Icons'
     aria-label="Nhat Nguyen's X"
     target="_blank"
     rel="noopener noreferrer"
-    href="https://twitter.com/torn4dom4n"
+    href={siteConfig.links.X}
   >
     <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
       <Icons.X className="h-6 w-6" />
@@ -74,7 +76,7 @@ import { Icons } from '@/components/Icons'
     aria-label="Nhat Nguyen's LinkedIn"
     target="_blank"
     rel="noopener noreferrer"
-    href="https://linkedin.com/in/torn4dom4n"
+    href={siteConfig.links.linkedin}
   >
     <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
       <Icons.linkedin className="h-6 w-6" />
@@ -85,7 +87,7 @@ import { Icons } from '@/components/Icons'
     aria-label="Nhat Nguyen's Reddit"
     target="_blank"
     rel="noopener noreferrer"
-    href="https://reddit.com/user/torn4dom4n"
+    href={siteConfig.links.reddit}
   >
     <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
       <Icons.reddit className="h-6 w-6" />
@@ -96,7 +98,7 @@ import { Icons } from '@/components/Icons'
     aria-label="Nhat Nguyen's Pinterest"
     target="_blank"
     rel="noopener noreferrer"
-    href="https://pinterest.com/torn4dom4n"
+    href={siteConfig.links.pinterest}
   >
     <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
       <Icons.pinterest className="h-6 w-6" />
@@ -107,7 +109,7 @@ import { Icons } from '@/components/Icons'
     aria-label="Nhat Nguyen's SoundCloud"
     target="_blank"
     rel="noopener noreferrer"
-    href="https://soundcloud.com/torn4dom4n"
+    href={siteConfig.links.soundcloud}
   >
     <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
       <Icons.soundcloud className="h-6 w-6" />
@@ -118,11 +120,11 @@ import { Icons } from '@/components/Icons'
     aria-label="Nhat Nguyen's Mastodon"
     target="_blank"
     rel="noopener noreferrer"
-    href="https://mstdn.social/@torn4dom4n"
+    href={siteConfig.links.mastodon}
   >
     <Button variant="ghost" size="icon" class="h-9 w-9 p-0">
       <Icons.mastodon className="h-6 w-6" />
-      <span class="sr-only">SoundCloud</span>
+      <span class="sr-only">Mastodon</span>
     </Button>
   </a>
 </div>

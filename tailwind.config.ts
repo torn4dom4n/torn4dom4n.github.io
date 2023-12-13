@@ -54,8 +54,8 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       fontFamily: {
-        sans: ['Mona Sans', ...fontFamily.sans],
-        heading: ['Hubot Sans', ...fontFamily.sans],
+        sans: ['Mona Sans', 'Mona Sans override', ...fontFamily.sans],
+        heading: ['Hubot Sans', 'Hubot Sans override', ...fontFamily.sans],
       },
       keyframes: {
         'accordion-down': {

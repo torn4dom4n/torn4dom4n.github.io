@@ -9,6 +9,13 @@ export default defineConfig({
   site: process.env.CI
     ? 'https://torn4dom4n.github.io'
     : 'http://localhost:4321',
+  integrations: [
+    react(),
+    sitemap(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
   vite: {
     plugins: [
       FontaineTransform.vite({
@@ -17,11 +24,4 @@ export default defineConfig({
       }),
     ],
   },
-  integrations: [
-    react(),
-    sitemap(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
-  ],
 })

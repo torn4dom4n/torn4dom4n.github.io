@@ -1,21 +1,5 @@
 {
-  "extends": ["config:base"],
+  "extends": ["github>area44/renovate-config"],
   "dependencyDashboard": false,
-  "labels": ["renovate"],
-  "automerge": false,
-  "schedule": ["before 4am on Monday"],
-  "packageRules": [
-    {
-      "groupName": "Formatting & Linting",
-      "matchPackageNames": ["eslint", "prettier"],
-      "matchPackagePatterns": ["^eslint-", "^prettier-"],
-      "automerge": true
-    },
-    {
-      "groupName": "TypeScript",
-      "matchPackageNames": ["typescript"],
-      "matchPackagePatterns": ["^@types"],
-      "automerge": true
-    }
-  ]
+  "automerge": false
 }

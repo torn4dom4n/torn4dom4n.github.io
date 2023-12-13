@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
-import { FontaineTransform } from 'fontaine';
+import { FontaineTransform } from 'fontaine'
 
 // https://astro.build/config
 export default defineConfig({

@@ -1,7 +1,5 @@
 export const siteConfig = {
   name: 'Long Nhat Nguyen | Website',
-  url: 'https://torn4dom4n.github.io',
-  ogImage: 'https://torn4dom4n.github.io/og-image.jpg',
   description: "Welcome to Long Nhat Nguyen's website",
   links: {
     email: 'mailto:torn4dom4n@gmail.com',

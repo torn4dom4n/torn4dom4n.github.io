@@ -2,18 +2,16 @@
 import '@/styles/globals.css'
 import '@/styles/fonts.css'
 
-import { siteConfig } from '@/config'
-
 interface Props {
   title?: string | undefined
   description?: string | undefined
-  ogImage?: URL | undefined
+  ogImage?: string | undefined
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 if (Astro.props.ogImage === undefined) {
-  Astro.props.ogImage = siteConfig.ogImage
+  Astro.props.ogImage = `${Astro.site}og-image.jpg`
 }
 
 const { title, description, ogImage } = Astro.props

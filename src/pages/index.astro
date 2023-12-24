@@ -8,7 +8,7 @@ import { siteConfig } from '@/config'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import SocialLinks from '@/components/SocialLinks.astro'
 
-import portraitImage from '@/assets/portrait.jpg'
+import Avatar from '@/assets/avatar.jpg'
 ---
 
 <BaseLayout title={siteConfig.name} description={siteConfig.description}>
@@ -22,8 +22,8 @@ import portraitImage from '@/assets/portrait.jpg'
             <div class="max-w-xs px-2.5 lg:max-w-none">
               <AspectRatio ratio={1 / 1}>
                 <Image
-                  src={portraitImage}
-                  width={portraitImage.width}
+                  src={Avatar}
+                  width={Avatar.width}
                   densities={[0.5, 2, 3, 4]}
                   alt="My name is Long Nhat Nguyen"
                   class="rotate-3 rounded-2xl object-cover"

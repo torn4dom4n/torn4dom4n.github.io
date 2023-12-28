@@ -19,17 +19,6 @@ const { title, description, ogImage } = Astro.props
     <ThemeProvider />
   </head>
   <body class="min-h-dvh bg-background font-sans antialiased">
-    <div class="fixed inset-0 flex justify-center sm:px-8">
-      <div class="flex w-full max-w-7xl lg:px-8">
-        <div class="w-full border bg-card"></div>
-      </div>
-    </div>
-    <div class="relative flex min-h-dvh flex-col">
-      <Header />
-      <main class="flex-auto">
-        <slot />
-      </main>
-      <Footer />
-    </div>
+    <slot />
   </body>
 </html>

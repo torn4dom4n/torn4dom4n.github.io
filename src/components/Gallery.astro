@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets'
 
-import { AspectRatio } from '@/components/ui/aspect-ratio'
 import {
   Card,
   CardContent,
@@ -20,25 +19,119 @@ import RealLove from '@/assets/real-love-martingarrix-lloyiso.jpg'
       Gallery
     </CardTitle>
     <CardDescription className="mt-4 text-sm">
-      Music has always been a constant source of inspiration in my life. It has
-      the power to transport me to different worlds, evoke a range of emotions,
-      and provide solace during challenging times. Whether I'm listening to a
-      catchy pop song, losing myself in the intricate melodies of classical
-      compositions, or immersing myself in the raw and heartfelt lyrics of a
-      singer-songwriter, music has the ability to touch my soul like nothing
-      else. It has taught me the importance of self-expression, allowed me to
-      connect with others on a deeper level, and provided a soundtrack to my
-      most cherished memories. Music has not only shaped my identity but has
-      also become an integral part of who I am as a person. It has given me the
-      courage to pursue my dreams, overcome obstacles, and celebrate the beauty
-      of life.
+      Living life to the fullest!
     </CardDescription>
   </CardHeader>
-  <CardContent>
-    <a href="https://www.youtube.com/watch?v=aDNRphs9MiY" target="_blank">
-      <AspectRatio ratio={1 / 1}>
-        <Image src={RealLove} alt="This is Real Love" />
-      </AspectRatio>
-    </a>
+  <CardContent className="pt-8">
+    <div
+      class="z-[1] w-1/2 origin-center rotate-[4deg] transform overflow-hidden rounded-2xl bg-white p-2"
+    >
+      <Image
+        alt="Image 0"
+        width="679"
+        height="458"
+        class="rounded-md"
+        src={RealLove}
+      />
+    </div>
+    <div
+      class="z-[2] w-1/2 origin-center rotate-3 overflow-hidden rounded-2xl bg-white p-2"
+    >
+      <Image
+        alt="Image 1"
+        width="679"
+        height="458"
+        class="rounded-md"
+        src={RealLove}
+      />
+    </div>
+    <div
+      class="z-[2] w-1/2 origin-center rotate-6 overflow-hidden rounded-2xl bg-white p-2"
+    >
+      <Image
+        alt="Image 2"
+        width="559"
+        height="379"
+        class="rounded-md"
+        src={RealLove}
+      />
+    </div>
+    <div
+      class="z-[2] w-1/2 origin-center -rotate-3 overflow-hidden rounded-2xl bg-white p-2"
+    >
+      <Image
+        alt="Image 3"
+        width="559"
+        height="379"
+        class="rounded-md"
+        src={RealLove}
+      />
+    </div>
+    <div
+      class="z-[1] w-1/2 origin-center -rotate-1 overflow-hidden rounded-2xl bg-white p-2"
+    >
+      <Image
+        alt="Image 4"
+        width="455"
+        height="308"
+        class="rounded-md"
+        src={RealLove}
+      />
+    </div>
+    <div
+      class="z-[1] w-1/2 origin-center rotate-6 overflow-hidden rounded-2xl bg-white p-2"
+    >
+      <Image
+        alt="Image 5"
+        width="455"
+        height="308"
+        class="rounded-md"
+        src={RealLove}
+      />
+    </div>
+    <div
+      class="z-[9] w-[2/1] origin-center rotate-6 overflow-hidden rounded-2xl bg-white p-2"
+    >
+      <Image
+        alt="Image 6"
+        width="307"
+        height="456"
+        class="rounded-md"
+        src={RealLove}
+      />
+    </div>
+    <div
+      class="z-10 w-[170px] origin-center overflow-hidden rounded-2xl bg-white p-2"
+    >
+      <Image
+        alt="Image 7"
+        width="307"
+        height="456"
+        class="rounded-md"
+        src={RealLove}
+      />
+    </div>
+    <div
+      class="z-[1] w-2/5 origin-center rotate-6 overflow-hidden rounded-2xl bg-white p-2"
+    >
+      <Image
+        alt="Image 8"
+        width="559"
+        height="379"
+        class="rounded-md"
+        src={RealLove}
+      />
+    </div>
+    <div
+      class="z-[1] w-2/5 origin-center -rotate-6 overflow-hidden rounded-2xl bg-white p-2"
+    >
+      <Image
+        alt="Image 9"
+        width="455"
+        height="308"
+        class="rounded-md"
+        src={RealLove}
+      />
+    </div>
   </CardContent>
 </Card>

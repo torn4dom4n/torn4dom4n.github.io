@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import { Image } from '@unpic/astro'
 
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 
@@ -11,8 +11,9 @@ import Avatar from '@/assets/avatar.jpg'
     <div class="relative flex items-center gap-x-4">
       <Image
         src={Avatar}
+        height={48}
         alt="My name is Long Nhat Nguyen"
-        class="size-12 rounded-full"
+        class="rounded-full"
       />
       <p class="text-sm font-semibold leading-6 text-primary">
         Long Nhat Nguyen

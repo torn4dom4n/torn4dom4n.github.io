@@ -18,6 +18,7 @@ export default defineConfig({
   integrations: [react(), sitemap(), tailwind({ applyBaseStyles: false })],
   image: {
     service: imageService({
+      fallbackService: "sharp",
       placeholder: "blurhash",
     }),
   },

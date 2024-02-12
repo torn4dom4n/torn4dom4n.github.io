@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
-import { imageService } from '@unpic/astro/service'
 import { FontaineTransform } from 'fontaine'
 
 const VERCEL_PREVIEW_SITE =
@@ -16,12 +15,6 @@ const site = VERCEL_PREVIEW_SITE || 'https://torn4dom4n.github.io'
 export default defineConfig({
   site: process.env.CI ? site : 'http://localhost:4321',
   integrations: [react(), sitemap(), tailwind({ applyBaseStyles: false })],
-  image: {
-    service: imageService({
-      fallbackService: 'sharp',
-      placeholder: 'blurhash',
-    }),
-  },
   vite: {
     plugins: [
       FontaineTransform.vite({

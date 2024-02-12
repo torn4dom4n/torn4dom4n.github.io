@@ -3,14 +3,14 @@ import { Image } from 'astro:assets'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
-import projectsImage from '@/assets/projects.jpg'
+import projects from '@/assets/projects.jpg'
 ---
 
 <Card className="overflow-hidden p-8 lg:row-span-2">
   <CardHeader>
     <CardTitle className="-mr-24">
       <Image
-        src={projectsImage}
+        src={projects}
         class="bg-tertiary h-64 w-full rounded-2xl object-cover ring-1 ring-primary/5 lg:h-auto"
         alt="Projects"
       />

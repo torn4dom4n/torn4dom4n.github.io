@@ -1,8 +1,11 @@
 ---
+import { siteConfig } from '@/config'
+
+import { Mail } from 'lucide-react'
+
 import { Button } from '@/components/ui/button'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
 ---
 
 <Card
@@ -16,9 +19,15 @@ import { Input } from '@/components/ui/input'
     </CardTitle>
   </CardHeader>
   <CardContent>
-    <div class="flex w-full max-w-sm items-center space-x-2">
-      <Input type="email" placeholder="Email" />
-      <Button type="submit">Send</Button>
-    </div>
+    <a
+      aria-label="Nhat Nguyen's Gmail"
+      target="_blank"
+      rel="noopener noreferrer"
+      href={`mailto:${siteConfig.links.email}`}
+    >
+      <Button>
+        <Mail className="mr-2 size-4" />Email
+      </Button>
+    </a>
   </CardContent>
 </Card>

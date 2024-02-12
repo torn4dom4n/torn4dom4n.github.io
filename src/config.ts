@@ -2,6 +2,7 @@ export const siteConfig = {
   name: 'Long Nhat Nguyen | Website',
   description: "Welcome to Long Nhat Nguyen's website",
   links: {
+    email: 'torn4dom4n@gmail.com',
     github: 'https://github.com/torn4dom4n',
     youtube: 'https://www.youtube.com/@torn4dom4n',
     facebook: 'https://facebook.com/torn4dom4n',

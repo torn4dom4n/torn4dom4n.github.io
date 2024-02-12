@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
-import { imageService } from "@unpic/astro/service";
+import { imageService } from '@unpic/astro/service'
 import { FontaineTransform } from 'fontaine'
 
 const VERCEL_PREVIEW_SITE =

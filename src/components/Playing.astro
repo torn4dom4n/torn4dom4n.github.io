@@ -1,0 +1,34 @@
+---
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+---
+
+<Card
+  className="h-full items-center justify-between overflow-hidden p-2 text-center lg:text-left"
+>
+  <CardHeader>
+    <CardTitle className="text-xl tracking-tight text-primary lg:text-7xl">
+      Playing
+    </CardTitle>
+    <CardDescription className="mt-4 text-sm">
+      I'm only human but I could feel like, this could be real love!
+    </CardDescription>
+  </CardHeader>
+  <CardContent>
+    <iframe
+      title="Spotify"
+      class="h-96 rounded-xl sm:h-lvh"
+      src="https://open.spotify.com/embed/album/45gsxfnJ5Nt2RZp82SQenc?utm_source=generator&theme=0"
+      width="100%"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    >
+    </iframe>
+  </CardContent>
+</Card>

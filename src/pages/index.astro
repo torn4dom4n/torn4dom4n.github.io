@@ -1,66 +1,32 @@
 ---
-import { Image } from 'astro:assets'
-
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import About from '@/components/About.astro'
+import FindMe from '@/components/FindMe.astro'
+import Gallery from '@/components/Gallery.astro'
+import Playing from '@/components/Playing.astro'
+import LogoCard from '@/components/LogoCard.astro'
+import Projects from '@/components/Projects.astro'
+import Contact from '@/components/Contact.astro'
+import Lyrics from '@/components/Lyrics.astro'
+import Footer from '@/components/Footer.astro'
 
 import { siteConfig } from '@/config'
-
-import { AspectRatio } from '@/components/ui/aspect-ratio'
-import SocialLinks from '@/components/SocialLinks.astro'
-
-import Avatar from '@/assets/avatar.jpg'
 ---
 
 <BaseLayout title={siteConfig.name} description={siteConfig.description}>
-  <div class="mt-4 sm:px-8">
-    <div class="px-4 sm:px-8 lg:px-12">
-      <div class="mx-auto max-w-2xl lg:max-w-5xl">
-        <div
-          class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-1 lg:gap-y-12"
-        >
-          <div class="lg:pl-20">
-            <div class="max-w-xs px-2.5 lg:max-w-none">
-              <AspectRatio ratio={1 / 1}>
-                <Image
-                  src={Avatar}
-                  width={Avatar.width}
-                  densities={[0.5, 2, 3, 4]}
-                  alt="My name is Long Nhat Nguyen"
-                  class="rotate-3 rounded-2xl object-cover"
-                />
-              </AspectRatio>
-            </div>
-          </div>
-          <div class="text-pretty lg:order-first lg:row-span-2">
-            <h1
-              class="scroll-m-20 py-3 font-heading text-4xl font-extrabold tracking-tight lg:text-5xl"
-            >
-              <span
-                class="bg-gradient-to-br from-amber-300 via-orange-500 to-yellow-400 bg-clip-text text-transparent"
-              >
-                Hello humans,
-              </span> my name is
-              <span
-                class="bg-gradient-to-bl from-blue-300 via-sky-500 to-cyan-400 bg-clip-text text-transparent"
-              >
-                Long Nhat Nguyen
-              </span>
-            </h1>
-            <p class="leading-7 [&:not(:first-child)]:mt-6">
-              Music and photography have always been my passions, filling my
-              life with joy and creativity. Recently, I have discovered an
-              interest in programming that has captivated me. Although my
-              knowledge in programming is limited, I find great enjoyment in
-              exploring this fascinating field.
-            </p>
-            <blockquote class="mt-6 italic">
-              "If we'll ever be remembered, I know it'll be for the way that we
-              love."
-            </blockquote>
-            <SocialLinks />
-          </div>
-        </div>
-      </div>
+  <main class="flex-auto p-4">
+    <div
+      class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-3 xl:grid-cols-4 xl:grid-rows-4"
+    >
+      <About />
+      <FindMe />
+      <Gallery />
+      <Playing />
+      <LogoCard />
+      <Projects />
+      <Contact />
+      <Lyrics />
+      <Footer />
     </div>
-  </div>
+  </main>
 </BaseLayout>

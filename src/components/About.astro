@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets'
+
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
+
+import Avatar from '@/assets/avatar.jpg'
+---
+
+<Card className="p-8 lg:row-span-2">
+  <CardHeader>
+    <div class="relative flex items-center gap-x-4">
+      <Image
+        src={Avatar}
+        alt="My name is Long Nhat Nguyen"
+        class="size-12 rounded-full"
+      />
+      <p class="text-sm font-semibold leading-6 text-primary">
+        Long Nhat Nguyen
+      </p>
+    </div>
+  </CardHeader>
+  <CardContent>
+    <p
+      class="mt-6 text-3xl font-medium tracking-tight text-primary lg:text-4xl"
+    >
+      Hello humans,
+    </p>
+    <p class="mt-4 text-sm font-light text-muted-foreground lg:text-xl">
+      My name is Long Nhat Nguyen. I'm only an individual who loves music,
+      photography, tech, and nature.
+      <br />
+      <br />
+      I'd like to make a positive impact in this world, no matter how small.
+    </p>
+  </CardContent>
+</Card>

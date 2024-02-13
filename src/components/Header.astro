@@ -3,13 +3,7 @@ import { ThemeToggle } from '@/components/ThemeToggle'
 ---
 
 <header class="sticky top-0 z-50 h-16 pt-6">
-  <div class="w-full sm:px-8">
-    <div class="mx-auto max-w-7xl lg:px-8">
-      <div class="px-4 sm:px-8 lg:px-12">
-        <div class="mx-auto flex max-w-2xl justify-end lg:max-w-5xl">
-          <ThemeToggle client:load />
-        </div>
-      </div>
-    </div>
+  <div class="grid grid-cols-1 justify-items-end px-4">
+    <ThemeToggle client:load />
   </div>
 </header>

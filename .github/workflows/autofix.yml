@@ -22,7 +22,7 @@ jobs:
         run: bun install --no-frozen-lockfile
 
       - name: Format with Prettier
-        run: bun exec prettier -w . "!.github"
+        run: bunx prettier -w . "!.github"
 
       - name: Run autofix.ci
         uses: autofix-ci/action@v1.3

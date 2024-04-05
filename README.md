@@ -10,5 +10,5 @@ This application requires Node.js v18+.
 git clone https://github.com/torn4dom4n/torn4dom4n.github.io
 cd torn4dom4n.github.io
 bun install
-bun dev
+bun run dev
 ```

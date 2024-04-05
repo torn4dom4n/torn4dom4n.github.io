@@ -11,11 +11,11 @@
     "url": "https://torn4dom4n.github.io"
   },
   "scripts": {
-    "build": "astro build",
-    "dev": "astro dev",
+    "build": "bunx --bun astro build",
+    "dev": "bunx --bun astro dev",
     "format": "prettier -w . --cache",
-    "preview": "astro preview",
-    "start": "astro dev"
+    "preview": "bunx --bun astro preview",
+    "start": "bunx --bun astro dev"
   },
   "dependencies": {
     "@astrojs/react": "^3.1.0",

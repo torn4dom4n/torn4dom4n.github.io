@@ -23,7 +23,7 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
 
-      - name: Install bun
+      - name: Install Bun
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
@@ -32,7 +32,7 @@ jobs:
         run: bun install
 
       - name: Build with Astro
-        run: bunx --bun astro build
+        run: bunx run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from 'astro'
 import { Image } from 'astro:assets'
 
 import {
@@ -9,18 +10,12 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
-import image_1 from '@/assets/gallery/image_1.jpg'
-import image_2 from '@/assets/gallery/image_2.jpg'
-import image_3 from '@/assets/gallery/image_3.jpg'
-import image_4 from '@/assets/gallery/image_4.jpg'
-import image_5 from '@/assets/gallery/image_5.jpg'
-import image_6 from '@/assets/gallery/image_6.jpg'
-import image_7 from '@/assets/gallery/image_7.jpg'
-import image_8 from '@/assets/gallery/image_8.jpg'
-import image_9 from '@/assets/gallery/image_9.jpg'
-import image_10 from '@/assets/gallery/image_10.jpg'
-import image_11 from '@/assets/gallery/image_11.jpg'
-import image_12 from '@/assets/gallery/image_12.jpg'
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/gallery/*',
+)
+const imagePaths = Object.keys(images).filter((imagePath) => {
+  return imagePath.startsWith(`/src/assets/gallery/`)
+})
 ---
 
 <Card
@@ -35,29 +30,17 @@ import image_12 from '@/assets/gallery/image_12.jpg'
     </CardDescription>
   </CardHeader>
   <CardContent className="columns-1 gap-4 md:columns-2">
-    <Image class="h-auto max-w-full rounded-lg" src={image_1} alt="Me 1" />
-    <Image class="mt-4 h-auto max-w-full rounded-lg" src={image_2} alt="Me 2" />
-    <Image class="mt-4 h-auto max-w-full rounded-lg" src={image_3} alt="Me 3" />
-    <Image class="mt-4 h-auto max-w-full rounded-lg" src={image_4} alt="Me 4" />
-    <Image class="mt-4 h-auto max-w-full rounded-lg" src={image_5} alt="Me 5" />
-    <Image class="mt-4 h-auto max-w-full rounded-lg" src={image_6} alt="Me 6" />
-    <Image class="mt-4 h-auto max-w-full rounded-lg" src={image_7} alt="Me 7" />
-    <Image class="mt-4 h-auto max-w-full rounded-lg" src={image_8} alt="Me 8" />
-    <Image class="mt-4 h-auto max-w-full rounded-lg" src={image_9} alt="Me 9" />
-    <Image
-      class="mt-4 h-auto max-w-full rounded-lg"
-      src={image_10}
-      alt="Me 10"
-    />
-    <Image
-      class="mt-4 h-auto max-w-full rounded-lg"
-      src={image_11}
-      alt="Me 11"
-    />
-    <Image
-      class="mt-4 h-auto max-w-full rounded-lg"
-      src={image_12}
-      alt="Me 12"
-    />
+    {
+      imagePaths.map(async (imagePath) => {
+        const image = images[imagePath]()
+        return (
+          <Image
+            class="mt-4 h-auto max-w-full rounded-lg"
+            src={image}
+            alt="Me"
+          />
+        )
+      })
+    }
   </CardContent>
 </Card>

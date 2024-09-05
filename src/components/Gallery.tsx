@@ -56,7 +56,7 @@ const GalleryCard = () => {
           alt={alt}
         />
       </DialogTrigger>
-      <DialogContent className="p-0">
+      <DialogContent className="rounded-lg p-0">
         <img className="rounded-lg object-contain" src={src} alt={alt} />
       </DialogContent>
     </Dialog>

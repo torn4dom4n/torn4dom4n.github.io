@@ -1,5 +1,6 @@
 import { useEffect, useState, useMemo } from 'react'
 import type { ImageMetadata } from 'astro'
+import { getImage } from 'astro:assets'
 
 import {
   Card,
@@ -20,7 +21,6 @@ const GalleryCard = () => {
   )
   const [isLoading, setIsLoading] = useState(true)
 
-  // Memoize the paths to avoid recalculating
   const paths = useMemo(
     () =>
       Object.keys(importImages).filter((imagePath) =>
@@ -33,9 +33,12 @@ const GalleryCard = () => {
     const loadImages = async () => {
       const images = await Promise.all(
         paths.map(async (imagePath) => {
-          const image = await importImages[imagePath]()
+          const image = importImages[imagePath]()
+          const optimizedImage = await getImage({
+            src: image,
+          })
           return {
-            src: image.default.src,
+            src: optimizedImage.src,
             alt: `Image at ${imagePath}`,
           }
         }),

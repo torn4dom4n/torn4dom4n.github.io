@@ -1,6 +1,6 @@
 {
-  "installCommand": "bun install",
-  "buildCommand": "bunx --bun astro build",
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm build",
   "outputDirectory": "dist",
   "github": {
     "silent": true

@@ -1,0 +1,46 @@
+---
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/gallery/*',
+)
+const imagePaths = Object.keys(images).filter((imagePath) => {
+  return imagePath.startsWith('/src/assets/gallery/')
+})
+---
+
+<Card
+  className="flex h-full flex-col justify-between p-2 md:grid md:grid-cols-2 md:items-center md:gap-12 lg:col-span-2 lg:col-start-2 lg:row-span-2 lg:row-start-2 lg:grid-cols-none lg:gap-0"
+>
+  <CardHeader>
+    <CardTitle className="font-medium tracking-tight text-primary md:text-6xl">
+      Gallery
+    </CardTitle>
+    <CardDescription className="mt-4 text-sm">
+      One day, you'll leave this world behind so live a life you will remember.
+    </CardDescription>
+  </CardHeader>
+  <CardContent className="columns-1 gap-4 md:columns-2">
+    {
+      imagePaths.map(async (imagePath) => {
+        const image = images[imagePath]()
+        return (
+          <Image
+            class="mt-4 h-auto max-w-full rounded-lg"
+            src={image}
+            alt="Me"
+          />
+        )
+      })
+    }
+  </CardContent>
+</Card>

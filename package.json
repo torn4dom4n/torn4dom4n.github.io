@@ -13,9 +13,9 @@
   "scripts": {
     "build": "astro build",
     "dev": "astro dev",
-    "format": "prettier -w . --cache",
     "preview": "astro preview",
-    "start": "astro dev"
+    "start": "astro dev",
+    "format": "biome format --write ."
   },
   "dependencies": {
     "@astrojs/react": "^4.1.0",
@@ -36,11 +36,10 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.10.1",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
-    "prettier": "^3.4.2",
-    "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "^5.7.2"
   },

@@ -14,6 +14,6 @@ export const siteConfig = {
     soundcloud: 'https://soundcloud.com/torn4dom4n',
     mastodon: 'https://mstdn.social/@torn4dom4n',
   },
-}
+};
 
-export type SiteConfig = typeof siteConfig
+export type SiteConfig = typeof siteConfig;

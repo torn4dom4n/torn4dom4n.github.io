@@ -1,20 +1,20 @@
 ---
-import '@/styles/globals.css'
-import '@/styles/fonts.css'
+import '@/styles/globals.css';
+import '@/styles/fonts.css';
 
 interface Props {
-  title?: string | undefined
-  description?: string | undefined
-  ogImage?: string | undefined
+  title?: string | undefined;
+  description?: string | undefined;
+  ogImage?: string | undefined;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 if (Astro.props.ogImage === undefined) {
-  Astro.props.ogImage = `${Astro.site}og-image.jpg`
+  Astro.props.ogImage = `${Astro.site}og-image.jpg`;
 }
 
-const { title, description, ogImage } = Astro.props
+const { title, description, ogImage } = Astro.props;
 ---
 
 <meta charset="utf-8" />

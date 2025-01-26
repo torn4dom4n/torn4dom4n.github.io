@@ -31,8 +31,8 @@ export function ThemeToggle() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon">
-          <Sun className="size-6 rotate-0 scale-100 text-yellow-400 transition-all dark:-rotate-90 dark:scale-0" />
-          <MoonStar className="absolute size-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <Sun className="rotate-0 scale-100 text-yellow-400 transition-all dark:-rotate-90 dark:scale-0" />
+          <MoonStar className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>

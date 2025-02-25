@@ -1,12 +1,11 @@
 ---
 import HeadSEO from "@/components/HeadSEO.astro";
 import Header from "@/components/Header.astro";
-import ThemeProvider from "@/components/ThemeProvider.astro";
 
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
-  ogImage?: URL | undefined;
+  ogImage?: string | undefined;
 }
 
 const { title, description, ogImage } = Astro.props;
@@ -15,7 +14,6 @@ const { title, description, ogImage } = Astro.props;
 <html lang="en" class="dark">
   <head>
     <HeadSEO title={title} description={description} ogImage={ogImage} />
-    <ThemeProvider />
   </head>
   <body class="min-h-dvh bg-background font-sans antialiased">
     <Header />

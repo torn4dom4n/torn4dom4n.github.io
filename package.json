@@ -36,8 +36,9 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@area44/biome-config": "^0.2.0",
     "@biomejs/biome": "^1.9.4",
-    "@types/node": "^22.13.8",
+    "@types/node": "^22.13.9",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "typescript": "^5.8.2"

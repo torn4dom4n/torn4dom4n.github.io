@@ -18,18 +18,34 @@ const { class: className, ...rest } = Astro.props;
 		private backdrop: HTMLElement;
 
 		constructor(dialogWrapper: HTMLElement, dialogNumber: number) {
-			this.dialog = dialogWrapper.querySelector("dialog") as HTMLDialogElement;
-			this.backdrop = dialogWrapper.querySelector(
-				".dialog-backdrop",
-			) as HTMLElement;
-			this.trigger = dialogWrapper.querySelector(
+			this.dialog = dialogWrapper.querySelector("dialog")!;
+			this.backdrop = dialogWrapper.querySelector(".dialog-backdrop")!;
+
+			const tempTrigger = dialogWrapper.querySelector(
 				".dialog-trigger",
-			) as HTMLButtonElement;
+			) as HTMLElement;
+			this.trigger = tempTrigger?.hasAttribute("data-as-child")
+				? (tempTrigger.firstElementChild as HTMLButtonElement)
+				: (tempTrigger as HTMLButtonElement);
+
+			const tempCloseButtons = dialogWrapper.querySelectorAll(
+				".dialog-close",
+			) as NodeListOf<HTMLElement>;
+			tempCloseButtons.forEach((button: HTMLElement) => {
+				if (button.hasAttribute("data-as-child")) {
+					const childElement = button.firstElementChild;
+					if (childElement) {
+						childElement.classList.add("dialog-close");
+						button.parentNode?.replaceChild(childElement, button);
+					}
+				}
+			});
+
 			this.closeButtons = dialogWrapper.querySelectorAll(
 				".dialog-close",
 			) as NodeListOf<HTMLButtonElement>;
 
-			if (!this.dialog || !this.trigger || !this.backdrop) return;
+			if (!this.trigger || !this.dialog || !this.backdrop) return;
 
 			this.setupAccessibility(dialogNumber);
 			this.setupEvents();
@@ -41,25 +57,42 @@ const { class: className, ...rest } = Astro.props;
 				firstHeading.id = `dialog${dialogNumber}-heading`;
 				this.dialog.setAttribute("aria-labelledby", firstHeading.id);
 			}
-			this.dialog.setAttribute("role", "dialog");
-			this.dialog.setAttribute("aria-modal", "true");
 		}
 
 		private setupEvents(): void {
-			this.trigger.addEventListener("click", () => this.open());
-			this.closeButtons.forEach((button) =>
-				button.addEventListener("click", () => this.close()),
-			);
+			this.trigger?.addEventListener("click", () => this.open());
 
-			this.backdrop.addEventListener("click", (e) => {
-				if (e.target === this.backdrop) this.close();
+			this.closeButtons?.forEach((button) => {
+				button.addEventListener("click", () => this.close());
 			});
 
-			this.dialog.addEventListener("keydown", (e: KeyboardEvent) => {
+			this.dialog.addEventListener("click", (e) => {
+				const dialogDimensions = this.dialog.getBoundingClientRect();
+				const clickedInDialog =
+					e.clientX >= dialogDimensions.left &&
+					e.clientX <= dialogDimensions.right &&
+					e.clientY >= dialogDimensions.top &&
+					e.clientY <= dialogDimensions.bottom;
+
+				if (!clickedInDialog) {
+					this.close();
+				}
+			});
+
+			this.dialog.addEventListener("keydown", (e) => {
 				if (e.key === "Escape") {
 					e.preventDefault();
 					this.close();
 				}
+			});
+
+			this.dialog.querySelectorAll("form").forEach((form) => {
+				form.addEventListener("submit", (e) => {
+					if (form.method === "dialog") {
+						e.preventDefault();
+						this.close();
+					}
+				});
 			});
 		}
 
@@ -69,32 +102,28 @@ const { class: className, ...rest } = Astro.props;
 			this.backdrop.classList.remove("hidden");
 			this.backdrop.dataset.state = "open";
 			this.dialog.dataset.state = "open";
-
-			const focusable = this.dialog.querySelector<HTMLElement>(
-				'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
-			);
-			focusable?.focus();
 		}
 
 		private close(): void {
 			document.body.classList.remove("overflow-hidden");
 			this.dialog.dataset.state = "closed";
 			this.backdrop.dataset.state = "closed";
-
-			setTimeout(() => {
-				this.backdrop.classList.add("hidden");
-				this.dialog.close();
-			});
+			this.backdrop.classList.add("hidden");
+			this.dialog.close();
 		}
 	}
 
+	const dialogInstances = new WeakMap<HTMLElement, DialogHandler>();
+
 	const setupDialogs = () => {
-		document
-			.querySelectorAll<HTMLElement>(".dialog")
-			.forEach((wrapper, idx) => {
-				new DialogHandler(wrapper, idx);
-			});
+		document.querySelectorAll(".dialog").forEach((dialogWrapper, idx) => {
+			const wrapper = dialogWrapper as HTMLElement;
+			if (!dialogInstances.has(wrapper)) {
+				dialogInstances.set(wrapper, new DialogHandler(wrapper, idx));
+			}
+		});
 	};
 
-	document.addEventListener("DOMContentLoaded", setupDialogs);
+	setupDialogs();
+	document.addEventListener("astro:after-swap", setupDialogs);
 </script>

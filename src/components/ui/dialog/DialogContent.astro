@@ -3,51 +3,35 @@ import { XIcon } from "lucide-react";
 import type { HTMLAttributes } from "astro/types";
 import { tv } from "tailwind-variants";
 
-type Props = HTMLAttributes<"dialog"> & {
-  animationDuration?: number;
-};
+import { cn } from "@/lib/utils";
 
-const dialogBackdrop = tv({
-  base: [
-    "dialog-backdrop fixed inset-0 z-50 hidden bg-black/80",
-    "data-[state=open]:animate-in data-[state=open]:fade-in-0",
-    "data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
-  ],
-});
+interface Props extends HTMLAttributes<"dialog"> {}
 
-const dialogContent = tv({
-  base: [
-    "fixed top-16 left-1/2 z-50 w-full max-w-md border bg-background p-8 shadow-lg sm:rounded-lg",
-    "transform -translate-x-1/2 sm:top-1/2 sm:-translate-y-1/2",
-    "data-[state=open]:animate-in data-[state=closed]:animate-out",
-    "data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:slide-in-from-bottom-2",
-    "data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=closed]:slide-out-to-bottom-2",
-  ],
-});
-
-const dialogCloseButton = tv({
-  base: [
-    "dialog-close absolute top-5 right-5 text-muted-foreground rounded-sm opacity-70 transition-opacity hover:opacity-100",
-    "disabled:pointer-events-none focus-visible:outline-outline focus-visible:outline-2 focus-visible:outline-offset-2",
-  ],
-});
-
-const { class: className, animationDuration = 200, ...rest } = Astro.props;
+const { class: className = "", ...rest } = Astro.props;
 ---
 
 <div
-  class={dialogBackdrop()}
+  class={cn(
+    "dialog-backdrop fixed inset-0 z-50 hidden bg-black/80 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
+    className,
+  )}
+  {...rest}
   data-state="closed"
-  style={`animation-duration: ${animationDuration}ms`}
   aria-hidden="true"
 >
 </div>
 
 <dialog
-  class={dialogContent({ class: className })}
+  class={cn(
+    "fixed top-16 left-1/2 z-50 w-full max-w-md border bg-background p-8 shadow-lg sm:rounded-lg",
+    "transform -translate-x-1/2 sm:top-1/2 sm:-translate-y-1/2",
+    "data-[state=open]:animate-in data-[state=closed]:animate-out",
+    "data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:slide-in-from-bottom-2",
+    "data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=closed]:slide-out-to-bottom-2",
+    className,
+  )}
   data-state="closed"
   {...rest}
-  style={`animation-duration: ${animationDuration}ms`}
   aria-modal="true"
   role="dialog"
 >
@@ -55,10 +39,15 @@ const { class: className, animationDuration = 200, ...rest } = Astro.props;
 
   <button
     type="button"
-    class={dialogCloseButton()}
+    class={cn(
+      "dialog-close absolute top-5 right-5 text-muted-foreground rounded-sm opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none focus-visible:outline-outline focus-visible:outline-2 focus-visible:outline-offset-2",
+      className,
+    )}
+    {...rest}
     data-dialog-close
     aria-label="Close dialog"
   >
-    <XIcon className="size-5" />
+    <XIcon />
+    <span class="sr-only">Close</span>
   </button>
 </dialog>

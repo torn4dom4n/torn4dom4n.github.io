@@ -16,7 +16,6 @@ const { class: className, ...rest } = Astro.props;
 		private dialog: HTMLDialogElement;
 		private closeButtons: NodeListOf<HTMLButtonElement>;
 		private backdrop: HTMLElement;
-		private animationDuration!: number;
 
 		constructor(dialogWrapper: HTMLElement, dialogNumber: number) {
 			this.dialog = dialogWrapper.querySelector("dialog") as HTMLDialogElement;
@@ -32,17 +31,8 @@ const { class: className, ...rest } = Astro.props;
 
 			if (!this.dialog || !this.trigger || !this.backdrop) return;
 
-			this.animationDuration = this.getAnimationDuration();
 			this.setupAccessibility(dialogNumber);
 			this.setupEvents();
-		}
-
-		private getAnimationDuration(): number {
-			const computedStyle = window.getComputedStyle(this.dialog);
-			const duration = computedStyle.animationDuration;
-			if (duration.endsWith("ms")) return parseFloat(duration);
-			if (duration.endsWith("s")) return parseFloat(duration) * 1000;
-			return 200;
 		}
 
 		private setupAccessibility(dialogNumber: number): void {
@@ -91,13 +81,10 @@ const { class: className, ...rest } = Astro.props;
 			this.dialog.dataset.state = "closed";
 			this.backdrop.dataset.state = "closed";
 
-			setTimeout(
-				() => {
-					this.backdrop.classList.add("hidden");
-					this.dialog.close();
-				},
-				Math.max(this.animationDuration - 10, 0),
-			);
+			setTimeout(() => {
+				this.backdrop.classList.add("hidden");
+				this.dialog.close();
+			});
 		}
 	}
 

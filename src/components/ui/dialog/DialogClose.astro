@@ -2,19 +2,13 @@
 import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"button"> & {
-	/**
-	 * When true, the component will render its child element instead of a button
-	 */
 	asChild?: boolean;
 };
 
-const { class: className, asChild = false, ...rest } = Astro.props;
+const props = Astro.props as Props;
+const { class: className, asChild = false, ...rest } = props;
 
-// Get the first child element if asChild is true
-let hasChildren = false;
-if (Astro.slots.has("default")) {
-	hasChildren = true;
-}
+const hasChildren = Astro.slots.has("default");
 ---
 
 {

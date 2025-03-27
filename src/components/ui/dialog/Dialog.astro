@@ -42,7 +42,7 @@ const { class: className, ...rest } = Astro.props;
 			const duration = computedStyle.animationDuration;
 			if (duration.endsWith("ms")) return parseFloat(duration);
 			if (duration.endsWith("s")) return parseFloat(duration) * 1000;
-			return 150;
+			return 200;
 		}
 
 		private setupAccessibility(dialogNumber: number): void {

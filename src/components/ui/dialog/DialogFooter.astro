@@ -1,16 +1,25 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { tv } from "tailwind-variants";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
-type Props = HTMLAttributes<"div">;
+type Props = HTMLAttributes<"div"> & VariantProps<typeof dialogFooter>;
 
-const dialogFooter = tv({
-  base: "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
+const dialogFooter = cva("flex gap-2", {
+  variants: {
+    layout: {
+      vertical: "flex-col-reverse",
+      horizontal: "sm:flex-row sm:justify-end",
+    },
+  },
+  defaultVariants: {
+    layout: "horizontal",
+  },
 });
 
-const { class: className, ...rest } = Astro.props;
+const { class: className, layout, ...rest } = Astro.props;
 ---
 
-<div class={dialogFooter({ class: className })} {...rest}>
-	<slot />
+<div class={cn(dialogFooter({ layout }), className)} {...rest}>
+  <slot />
 </div>

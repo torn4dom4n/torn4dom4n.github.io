@@ -3,9 +3,6 @@ import type { HTMLAttributes } from "astro/types";
 import { tv } from "tailwind-variants";
 
 type Props = Omit<HTMLAttributes<"h2">, "id"> & {
-  /**
-   * The content to be rendered inside the dialog title
-   */
   children: any;
 };
 
@@ -17,5 +14,5 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <h2 class={dialogTitle({ class: className })} {...rest}>
-	<slot />
+  <slot />
 </h2>

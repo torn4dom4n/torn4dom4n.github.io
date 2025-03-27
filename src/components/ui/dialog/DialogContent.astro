@@ -12,7 +12,7 @@ type Props = HTMLAttributes<"dialog"> & {
 
 const dialogBackdrop = tv({
   base: [
-    "starwind-dialog-backdrop fixed inset-0 top-0 left-0 z-50 hidden h-screen w-screen bg-black/80",
+    "dialog-backdrop fixed inset-0 top-0 left-0 z-50 hidden h-screen w-screen bg-black/80",
     "data-[state=open]:animate-in data-[state=open]:fade-in-0",
     "data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
   ],
@@ -30,7 +30,7 @@ const dialogContent = tv({
 
 const dialogCloseButton = tv({
   base: [
-    "starwind-dialog-close text-muted-foreground",
+    "dialog-close text-muted-foreground",
     "absolute top-5.5 right-5.5 rounded-sm opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none",
     "focus-visible:outline-outline focus-visible:outline-2 focus-visible:outline-offset-2",
   ],
@@ -41,25 +41,25 @@ const { class: className, animationDuration = 200, ...rest } = Astro.props;
 
 <!-- dialog overlay -->
 <div
-	class={dialogBackdrop()}
-	data-state="closed"
-	style={{ animationDuration: `${animationDuration}ms` }}
+  class={dialogBackdrop()}
+  data-state="closed"
+  style={{ animationDuration: `${animationDuration}ms` }}
 >
 </div>
 
 <dialog
-	class={dialogContent({ class: className })}
-	data-state="closed"
-	{...rest}
-	style={{ animationDuration: `${animationDuration}ms` }}
+  class={dialogContent({ class: className })}
+  data-state="closed"
+  {...rest}
+  style={{ animationDuration: `${animationDuration}ms` }}
 >
-	<slot />
-	<button
-		type="button"
-		class={dialogCloseButton()}
-		data-dialog-close
-		aria-label="Close dialog"
-	>
-		<X className="size-5" />
-	</button>
+  <slot />
+  <button
+    type="button"
+    class={dialogCloseButton()}
+    data-dialog-close
+    aria-label="Close dialog"
+  >
+    <X className="size-5" />
+  </button>
 </dialog>

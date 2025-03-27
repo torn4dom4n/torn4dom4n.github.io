@@ -1,27 +1,12 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-type Props = Omit<HTMLAttributes<"h2">, "id"> &
-  VariantProps<typeof dialogTitle>;
+type Props = Omit<HTMLAttributes<"h2">, "id">;
 
-const dialogTitle = cva("text-2xl font-semibold tracking-tight leading-none", {
-  variants: {
-    size: {
-      sm: "text-xl",
-      md: "text-2xl",
-      lg: "text-3xl",
-    },
-  },
-  defaultVariants: {
-    size: "md",
-  },
-});
-
-const { class: className, size, ...rest } = Astro.props;
+const { class: className = "", ...rest } = Astro.props as Props;
 ---
 
-<h2 class={cn(dialogTitle({ size }), className)} {...rest}>
+<h2 class={cn("text-lg leading-none font-semibold", className)} {...rest}>
   <slot />
 </h2>

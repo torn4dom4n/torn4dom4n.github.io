@@ -9,22 +9,22 @@ import DialogTrigger from "./DialogTrigger.astro";
 
 export {
   Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogFooter,
-  DialogTitle,
-  DialogDescription,
   DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
 };
 
 export default {
   Root: Dialog,
-  Trigger: DialogTrigger,
-  Content: DialogContent,
-  Header: DialogHeader,
-  Footer: DialogFooter,
-  Title: DialogTitle,
-  Description: DialogDescription,
   Close: DialogClose,
+  Content: DialogContent,
+  Description: DialogDescription,
+  Footer: DialogFooter,
+  Header: DialogHeader,
+  Title: DialogTitle,
+  Trigger: DialogTrigger,
 };

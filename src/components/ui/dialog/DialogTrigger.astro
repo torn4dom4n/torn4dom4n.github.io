@@ -2,14 +2,14 @@
 import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"button"> & {
-	asChild?: boolean;
+  asChild?: boolean;
 };
 
 const { class: className, asChild = false, ...rest } = Astro.props;
 
 let hasChildren = false;
 if (Astro.slots.has("default")) {
-	hasChildren = true;
+  hasChildren = true;
 }
 ---
 

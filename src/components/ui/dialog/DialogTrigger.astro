@@ -1,0 +1,28 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { cn } from "@/lib/utils";
+
+type Props = HTMLAttributes<"button"> & {
+  asChild?: boolean;
+};
+
+const { class: className, asChild = false, ...rest } = Astro.props;
+const hasChildren = Astro.slots.has("default");
+---
+
+{
+	asChild && hasChildren ? (
+		<div class="dialog-trigger" data-as-child>
+			<slot />
+		</div>
+	) : (
+		<button
+			type="button"
+			aria-haspopup="dialog"
+			class={cn("dialog-trigger", className)}
+			{...rest}
+		>
+			<slot />
+		</button>
+	)
+}

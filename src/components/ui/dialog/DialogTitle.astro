@@ -1,0 +1,12 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { cn } from "@/lib/utils";
+
+type Props = Omit<HTMLAttributes<"h2">, "id">;
+
+const { class: className = "", ...rest } = Astro.props as Props;
+---
+
+<h2 class={cn("text-lg leading-none font-semibold", className)} {...rest}>
+  <slot />
+</h2>

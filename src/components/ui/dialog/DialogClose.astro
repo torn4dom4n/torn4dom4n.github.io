@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"button"> & {
-  asChild?: boolean;
+	asChild?: boolean;
 };
 
 const props = Astro.props as Props;
@@ -18,7 +18,7 @@ const hasChildren = Astro.slots.has("default");
 		</div>
 	) : (
 		<button type="button" class:list={["dialog-close", className]} {...rest}>
-			<slot>Close button</slot>
+			<slot>Close</slot>
 		</button>
 	)
 }

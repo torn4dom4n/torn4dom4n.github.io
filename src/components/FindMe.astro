@@ -1,131 +1,130 @@
 ---
 import { siteConfig } from "@/site.config";
-
-import { Icons } from "@/components/Icons";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Icon } from "astro-icon/components";
 ---
 
-<Card className='p-8'>
-  <CardHeader className='w-full'>
+<Card className="p-8">
+  <CardHeader className="w-full">
     <CardTitle
-      className='text-xl font-normal tracking-tight text-primary lg:text-8xl'
+      className="text-xl font-normal tracking-tight text-primary lg:text-8xl"
     >
       Find me on
     </CardTitle>
   </CardHeader>
-  <CardContent className='w-full'>
+  <CardContent className="w-full">
     <div
-      class='mt-4 grid w-full grid-cols-5 justify-center gap-4 gap-y-4 md:grid-cols-10 lg:grid-cols-5'
+      class="mt-4 grid w-full grid-cols-5 justify-center gap-4 gap-y-4 md:grid-cols-10 lg:grid-cols-5"
     >
       <a
         aria-label="Nhat Nguyen's GitHub"
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
         href={siteConfig.links.github}
       >
-        <Button variant='ghost' size='icon'>
-          <Icons.github />
-          <span class='sr-only'>GitHub</span>
+        <Button variant="ghost" size="icon">
+          <Icon name="simple-icons:github" />
+          <span class="sr-only">GitHub</span>
         </Button>
       </a>
       <a
         aria-label="Nhat Nguyen's YouTube"
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
         href={siteConfig.links.youtube}
       >
-        <Button variant='ghost' size='icon'>
-          <Icons.youtube />
-          <span class='sr-only'>YouTube</span>
+        <Button variant="ghost" size="icon">
+          <Icon name="simple-icons:youtube" />
+          <span class="sr-only">YouTube</span>
         </Button>
       </a>
       <a
         aria-label="Nhat Nguyen's Facebook"
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
         href={siteConfig.links.facebook}
       >
-        <Button variant='ghost' size='icon'>
-          <Icons.facebook />
-          <span class='sr-only'>Facebook</span>
+        <Button variant="ghost" size="icon">
+          <Icon name="simple-icons:facebook" />
+          <span class="sr-only">Facebook</span>
         </Button>
       </a>
       <a
         aria-label="Nhat Nguyen's Instagram"
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
         href={siteConfig.links.instagram}
       >
-        <Button variant='ghost' size='icon'>
-          <Icons.instagram />
-          <span class='sr-only'>Instagram</span>
+        <Button variant="ghost" size="icon">
+          <Icon name="simple-icons:instagram" />
+          <span class="sr-only">Instagram</span>
         </Button>
       </a>
       <a
         aria-label="Nhat Nguyen's X"
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
         href={siteConfig.links.X}
       >
-        <Button variant='ghost' size='icon'>
-          <Icons.X />
-          <span class='sr-only'>X</span>
+        <Button variant="ghost" size="icon">
+          <Icon name="simple-icons:x" />
+          <span class="sr-only">X</span>
         </Button>
       </a>
       <a
         aria-label="Nhat Nguyen's LinkedIn"
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
         href={siteConfig.links.linkedin}
       >
-        <Button variant='ghost' size='icon'>
-          <Icons.linkedin />
-          <span class='sr-only'>LinkedIn</span>
+        <Button variant="ghost" size="icon">
+          <Icon name="simple-icons:linkedin" />
+          <span class="sr-only">LinkedIn</span>
         </Button>
       </a>
       <a
         aria-label="Nhat Nguyen's Reddit"
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
         href={siteConfig.links.reddit}
       >
-        <Button variant='ghost' size='icon'>
-          <Icons.reddit />
-          <span class='sr-only'>Reddit</span>
+        <Button variant="ghost" size="icon">
+          <Icon name="simple-icons:reddit" />
+          <span class="sr-only">Reddit</span>
         </Button>
       </a>
       <a
         aria-label="Nhat Nguyen's Pinterest"
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
         href={siteConfig.links.pinterest}
       >
-        <Button variant='ghost' size='icon'>
-          <Icons.pinterest />
-          <span class='sr-only'>Pinterest</span>
+        <Button variant="ghost" size="icon">
+          <Icon name="simple-icons:pinterest" />
+          <span class="sr-only">Pinterest</span>
         </Button>
       </a>
       <a
         aria-label="Nhat Nguyen's SoundCloud"
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
         href={siteConfig.links.soundcloud}
       >
-        <Button variant='ghost' size='icon'>
-          <Icons.soundcloud />
-          <span class='sr-only'>SoundCloud</span>
+        <Button variant="ghost" size="icon">
+          <Icon name="simple-icons:soundcloud" />
+          <span class="sr-only">SoundCloud</span>
         </Button>
       </a>
       <a
         aria-label="Nhat Nguyen's Mastodon"
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
         href={siteConfig.links.mastodon}
       >
-        <Button variant='ghost' size='icon'>
-          <Icons.mastodon />
-          <span class='sr-only'>Mastodon</span>
+        <Button variant="ghost" size="icon">
+          <Icon name="simple-icons:mastodon" />
+          <span class="sr-only">Mastodon</span>
         </Button>
       </a>
     </div>

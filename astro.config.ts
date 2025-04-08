@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import icon from "astro-icon";
 import { FontaineTransform } from "fontaine";
 
 const site = process.env.CI
@@ -14,7 +15,7 @@ const site = process.env.CI
 // https://astro.build/config
 export default defineConfig({
   site,
-  integrations: [react(), sitemap()],
+  integrations: [react(), sitemap(), icon()],
   vite: {
     plugins: [
       tailwindcss(),

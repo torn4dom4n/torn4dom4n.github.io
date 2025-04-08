@@ -23,20 +23,23 @@ const { class: className, ...rest } = Astro.props;
 
 			const tempTrigger = dialogWrapper.querySelector(
 				".dialog-trigger",
-			) as HTMLElement;
+			) as HTMLElement | null;
+
 			this.trigger = tempTrigger?.hasAttribute("data-as-child")
 				? (tempTrigger.firstElementChild as HTMLButtonElement)
 				: (tempTrigger as HTMLButtonElement);
 
+			// Normalize "as-child" close buttons
 			const tempCloseButtons = dialogWrapper.querySelectorAll(
 				".dialog-close",
 			) as NodeListOf<HTMLElement>;
-			tempCloseButtons.forEach((button: HTMLElement) => {
+
+			tempCloseButtons.forEach((button) => {
 				if (button.hasAttribute("data-as-child")) {
-					const childElement = button.firstElementChild;
-					if (childElement) {
-						childElement.classList.add("dialog-close");
-						button.parentNode?.replaceChild(childElement, button);
+					const child = button.firstElementChild as HTMLElement | null;
+					if (child) {
+						child.classList.add("dialog-close");
+						button.replaceWith(child);
 					}
 				}
 			});
@@ -60,25 +63,29 @@ const { class: className, ...rest } = Astro.props;
 		}
 
 		private setupEvents(): void {
-			this.trigger?.addEventListener("click", () => this.open());
+			this.trigger.addEventListener("click", () => this.open());
 
-			this.closeButtons?.forEach((button) => {
-				button.addEventListener("click", () => this.close());
-			});
+			this.closeButtons.forEach((btn) =>
+				btn.addEventListener("click", () => this.close()),
+			);
 
+			// Backdrop click closes dialog
+			this.backdrop.addEventListener("click", () => this.close());
+
+			// Click outside dialog closes it (fallback)
 			this.dialog.addEventListener("click", (e) => {
-				const dialogDimensions = this.dialog.getBoundingClientRect();
-				const clickedInDialog =
-					e.clientX >= dialogDimensions.left &&
-					e.clientX <= dialogDimensions.right &&
-					e.clientY >= dialogDimensions.top &&
-					e.clientY <= dialogDimensions.bottom;
-
-				if (!clickedInDialog) {
+				const bounds = this.dialog.getBoundingClientRect();
+				if (
+					e.clientX < bounds.left ||
+					e.clientX > bounds.right ||
+					e.clientY < bounds.top ||
+					e.clientY > bounds.bottom
+				) {
 					this.close();
 				}
 			});
 
+			// ESC key closes dialog
 			this.dialog.addEventListener("keydown", (e) => {
 				if (e.key === "Escape") {
 					e.preventDefault();
@@ -86,9 +93,10 @@ const { class: className, ...rest } = Astro.props;
 				}
 			});
 
+			// Auto-close on <form method="dialog">
 			this.dialog.querySelectorAll("form").forEach((form) => {
 				form.addEventListener("submit", (e) => {
-					if (form.method === "dialog") {
+					if ((form as HTMLFormElement).method === "dialog") {
 						e.preventDefault();
 						this.close();
 					}
@@ -116,14 +124,15 @@ const { class: className, ...rest } = Astro.props;
 	const dialogInstances = new WeakMap<HTMLElement, DialogHandler>();
 
 	const setupDialogs = () => {
-		document.querySelectorAll(".dialog").forEach((dialogWrapper, idx) => {
-			const wrapper = dialogWrapper as HTMLElement;
-			if (!dialogInstances.has(wrapper)) {
-				dialogInstances.set(wrapper, new DialogHandler(wrapper, idx));
+		document.querySelectorAll(".dialog").forEach((wrapper, idx) => {
+			if (!dialogInstances.has(wrapper as HTMLElement)) {
+				dialogInstances.set(
+					wrapper as HTMLElement,
+					new DialogHandler(wrapper as HTMLElement, idx),
+				);
 			}
 		});
 	};
 
 	setupDialogs();
-	document.addEventListener("astro:after-swap", setupDialogs);
 </script>

@@ -1,5 +1,5 @@
 ---
-import HeadSEO from "@/components/HeadSEO.astro";
+import Head from "@/components/Head.astro";
 import Header from "@/components/Header.astro";
 
 interface Props {
@@ -13,7 +13,7 @@ const { title, description, ogImage } = Astro.props;
 
 <html lang="en" class="dark">
   <head>
-    <HeadSEO title={title} description={description} ogImage={ogImage} />
+    <Head title={title} description={description} ogImage={ogImage} />
   </head>
   <body class="min-h-dvh bg-background font-sans antialiased">
     <Header />

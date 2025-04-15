@@ -4,8 +4,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
-import { defineConfig } from "astro/config";
-import { FontaineTransform } from "fontaine";
+import { defineConfig, fontProviders } from "astro/config";
 
 const site = process.env.CI
   ? process.env.VERCEL_ENV !== "production" && process.env.VERCEL_URL
@@ -17,13 +16,16 @@ const site = process.env.CI
 export default defineConfig({
   site,
   integrations: [react(), sitemap(), icon()],
-  vite: {
-    plugins: [
-      tailwindcss(),
-      FontaineTransform.vite({
-        fallbacks: ["Arial"],
-        resolvePath: (id) => new URL(`./public${id}`, import.meta.url),
-      }),
+  experimental: {
+    fonts: [
+      {
+        provider: fontProviders.google(),
+        name: "Mona Sans",
+        cssVariable: "--font-mona-sans",
+      },
     ],
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
 });

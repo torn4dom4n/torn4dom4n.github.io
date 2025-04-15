@@ -1,0 +1,57 @@
+---
+import { Font } from "astro:assets";
+import "@/styles/global.css";
+
+import SEO from "@/components/SEO.astro";
+import { siteConfig } from "@/site.config";
+
+export type Props = {
+  title?: string;
+  description?: string;
+  image?: { src: string; alt: string };
+  canonicalURL?: URL | null;
+  pageType?: "website" | "article";
+};
+
+const {
+  title = siteConfig.name,
+  description = siteConfig.description,
+  image = siteConfig.image,
+  canonicalURL = new URL(Astro.request.url, Astro.site),
+  pageType = "website",
+} = Astro.props;
+
+const twitterHandle = siteConfig.twitterHandle ?? "@torn4dom4n";
+const themeColor = siteConfig.themeColor ?? "#FFFFFF";
+
+const resolvedImage = {
+  src: new URL(image.src, Astro.site).toString(),
+  alt: image.alt,
+};
+---
+
+<!-- High-Priority Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title>{title}</title>
+<meta name="generator" content={Astro.generator} />
+<meta name="theme-color" content={themeColor} />
+
+<!-- Low-Priority Metadata -->
+<link rel="mask-icon" href="/favicon.svg" color={themeColor} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
+
+<!-- SEO & Social Sharing -->
+<SEO
+  name={siteConfig.name}
+  title={title}
+  description={description}
+  image={resolvedImage}
+  twitter={{ handle: twitterHandle }}
+  og={{ type: pageType }}
+  canonicalURL={canonicalURL}
+/>
+
+<!-- Fonts -->
+<Font cssVariable="--font-mona-sans" preload />

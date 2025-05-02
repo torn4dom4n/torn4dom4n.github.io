@@ -3,7 +3,7 @@ import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 
 export function Projects() {
   return (
-    <Card className="overflow-hidden p-8">
+    <Card className="p-8">
       <CardHeader>
         <CardTitle className="text-2xl tracking-tight text-primary lg:text-6xl">
           Projects

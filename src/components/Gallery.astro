@@ -28,7 +28,7 @@ const getAltFromPath = (path: string) => {
 };
 ---
 
-<Card className="p-8 lg:col-span-2 xl:col-span-4">
+<Card className="p-8 md:col-span-2 lg:col-span-4">
   <CardHeader>
     <CardTitle
       className="text-xl font-medium tracking-tight text-primary md:text-6xl"
@@ -40,7 +40,7 @@ const getAltFromPath = (path: string) => {
     </CardDescription>
   </CardHeader>
 
-  <CardContent className="columns-1 gap-4 md:columns-2">
+  <CardContent className="columns-1 gap-4 md:columns-2 lg:columns-4">
     {
       loadedImages.map(({ path, image }) => (
         <Image

@@ -3,9 +3,9 @@ import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 
 export function Projects() {
   return (
-    <Card className="p-0">
+    <Card>
       <CardHeader>
-        <CardTitle className="p-8 lg:pl-4 font-medium text-2xl tracking-tight text-primary md:text-4xl">
+        <CardTitle className="lg:pl-4 font-medium text-2xl tracking-tight text-primary md:text-5xl">
           Projects
         </CardTitle>
       </CardHeader>

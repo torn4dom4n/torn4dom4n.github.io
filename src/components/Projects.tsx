@@ -3,23 +3,23 @@ import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 
 export function Projects() {
   return (
-    <Card className="overflow-hidden p-8">
+    <Card>
       <CardHeader>
-        <CardTitle className="text-2xl tracking-tight text-primary lg:text-6xl">
+        <CardTitle className="lg:pl-4 font-medium text-2xl tracking-tight text-primary md:text-5xl">
           Projects
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="relative flex flex-col h-100 w-full items-center justify-center">
-          <OrbitingCircles radius={0} iconSize={50}>
-            <Icons.me />
+      <CardContent className="p-0">
+        <div className="relative flex flex-col h-100 w-full items-center justify-center overflow-hidden">
+          <OrbitingCircles radius={0} iconSize={60}>
+            <Logos.me />
           </OrbitingCircles>
-          <OrbitingCircles radius={60} iconSize={50}>
-            <Icons.area44 />
+          <OrbitingCircles radius={70} iconSize={60} speed={2}>
+            <Logos.area44 />
           </OrbitingCircles>
-          <OrbitingCircles radius={100} iconSize={40} speed={2}>
-            <Icons.microlens />
-            <Icons.medpocket />
+          <OrbitingCircles radius={110} iconSize={50}>
+            <Logos.microlens />
+            <Logos.medpocket />
           </OrbitingCircles>
         </div>
       </CardContent>
@@ -27,7 +27,7 @@ export function Projects() {
   );
 }
 
-const Icons = {
+const Logos = {
   me: () => (
     <svg
       viewBox="0 0 1e3 1e3"

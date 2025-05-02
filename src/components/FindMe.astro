@@ -3,6 +3,55 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { siteConfig } from "@/site.config";
 import { Icon } from "astro-icon/components";
+
+const socialLinks = [
+  {
+    name: "GitHub",
+    icon: "simple-icons:github",
+    href: siteConfig.links.github,
+  },
+  {
+    name: "YouTube",
+    icon: "simple-icons:youtube",
+    href: siteConfig.links.youtube,
+  },
+  {
+    name: "Facebook",
+    icon: "simple-icons:facebook",
+    href: siteConfig.links.facebook,
+  },
+  {
+    name: "Instagram",
+    icon: "simple-icons:instagram",
+    href: siteConfig.links.instagram,
+  },
+  { name: "X", icon: "simple-icons:x", href: siteConfig.links.X },
+  {
+    name: "LinkedIn",
+    icon: "simple-icons:linkedin",
+    href: siteConfig.links.linkedin,
+  },
+  {
+    name: "Reddit",
+    icon: "simple-icons:reddit",
+    href: siteConfig.links.reddit,
+  },
+  {
+    name: "Pinterest",
+    icon: "simple-icons:pinterest",
+    href: siteConfig.links.pinterest,
+  },
+  {
+    name: "SoundCloud",
+    icon: "simple-icons:soundcloud",
+    href: siteConfig.links.soundcloud,
+  },
+  {
+    name: "Mastodon",
+    icon: "simple-icons:mastodon",
+    href: siteConfig.links.mastodon,
+  },
+];
 ---
 
 <Card className="p-8">
@@ -15,118 +64,31 @@ import { Icon } from "astro-icon/components";
   </CardHeader>
   <CardContent className="w-full">
     <div
-      class="mt-4 grid w-full grid-cols-5 justify-center gap-4 gap-y-4 md:grid-cols-10 lg:grid-cols-5"
+      class="mt-4 grid w-full grid-cols-5 justify-center gap-4 md:grid-cols-10 lg:grid-cols-5"
     >
-      <a
-        aria-label="Nhat Nguyen's GitHub"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={siteConfig.links.github}
-      >
-        <Button variant="ghost" size="icon">
-          <Icon name="simple-icons:github" />
-          <span class="sr-only">GitHub</span>
-        </Button>
-      </a>
-      <a
-        aria-label="Nhat Nguyen's YouTube"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={siteConfig.links.youtube}
-      >
-        <Button variant="ghost" size="icon">
-          <Icon name="simple-icons:youtube" />
-          <span class="sr-only">YouTube</span>
-        </Button>
-      </a>
-      <a
-        aria-label="Nhat Nguyen's Facebook"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={siteConfig.links.facebook}
-      >
-        <Button variant="ghost" size="icon">
-          <Icon name="simple-icons:facebook" />
-          <span class="sr-only">Facebook</span>
-        </Button>
-      </a>
-      <a
-        aria-label="Nhat Nguyen's Instagram"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={siteConfig.links.instagram}
-      >
-        <Button variant="ghost" size="icon">
-          <Icon name="simple-icons:instagram" />
-          <span class="sr-only">Instagram</span>
-        </Button>
-      </a>
-      <a
-        aria-label="Nhat Nguyen's X"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={siteConfig.links.X}
-      >
-        <Button variant="ghost" size="icon">
-          <Icon name="simple-icons:x" />
-          <span class="sr-only">X</span>
-        </Button>
-      </a>
-      <a
-        aria-label="Nhat Nguyen's LinkedIn"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={siteConfig.links.linkedin}
-      >
-        <Button variant="ghost" size="icon">
-          <Icon name="simple-icons:linkedin" />
-          <span class="sr-only">LinkedIn</span>
-        </Button>
-      </a>
-      <a
-        aria-label="Nhat Nguyen's Reddit"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={siteConfig.links.reddit}
-      >
-        <Button variant="ghost" size="icon">
-          <Icon name="simple-icons:reddit" />
-          <span class="sr-only">Reddit</span>
-        </Button>
-      </a>
-      <a
-        aria-label="Nhat Nguyen's Pinterest"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={siteConfig.links.pinterest}
-      >
-        <Button variant="ghost" size="icon">
-          <Icon name="simple-icons:pinterest" />
-          <span class="sr-only">Pinterest</span>
-        </Button>
-      </a>
-      <a
-        aria-label="Nhat Nguyen's SoundCloud"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={siteConfig.links.soundcloud}
-      >
-        <Button variant="ghost" size="icon">
-          <Icon name="simple-icons:soundcloud" />
-          <span class="sr-only">SoundCloud</span>
-        </Button>
-      </a>
-      <a
-        aria-label="Nhat Nguyen's Mastodon"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={siteConfig.links.mastodon}
-      >
-        <Button variant="ghost" size="icon">
-          <Icon name="simple-icons:mastodon" />
-          <span class="sr-only">Mastodon</span>
-        </Button>
-      </a>
+      {
+        (() => {
+          const elements = [];
+          for (const { name, icon, href } of socialLinks) {
+            elements.push(
+              <div class="p-1">
+                <a
+                  aria-label={`Nhat Nguyen's ${name}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={href}
+                >
+                  <Button variant="ghost" size="icon">
+                    <Icon name={icon} class="size-6" />
+                    <span class="sr-only">{name}</span>
+                  </Button>
+                </a>
+              </div>,
+            );
+          }
+          return elements;
+        })()
+      }
     </div>
   </CardContent>
 </Card>

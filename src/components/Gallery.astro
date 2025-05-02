@@ -7,7 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import type { ImageMetadata } from "astro";
 
 // Load image modules (promise-based resolvers)
@@ -44,23 +43,12 @@ const getAltFromPath = (path: string) => {
   <CardContent className="columns-1 gap-4 md:columns-2">
     {
       loadedImages.map(({ path, image }) => (
-        <Dialog>
-          <DialogTrigger asChild>
-            <Image
-              class="mt-4 h-auto max-w-full rounded-lg cursor-pointer hover:opacity-80 transition duration-300"
-              src={image}
-              alt={getAltFromPath(path)}
-              loading="lazy"
-            />
-          </DialogTrigger>
-          <DialogContent class="p-0">
-            <Image
-              class="h-auto max-w-full rounded-lg"
-              src={image}
-              alt={getAltFromPath(path)}
-            />
-          </DialogContent>
-        </Dialog>
+        <Image
+          class="mt-4 h-auto max-w-full rounded-lg first:mt-0 filter grayscale hover:grayscale-0 transition duration-200"
+          src={image}
+          alt={getAltFromPath(path)}
+          loading="lazy"
+        />
       ))
     }
   </CardContent>

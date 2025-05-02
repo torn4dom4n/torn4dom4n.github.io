@@ -1,22 +1,23 @@
 ---
 import Head from "@/components/Head.astro";
 import Header from "@/components/Header.astro";
+import { GridPattern } from "@/components/ui/grid-pattern";
 
-interface Props {
-  title?: string | undefined;
-  description?: string | undefined;
-  ogImage?: string | undefined;
-}
-
-const { title, description, ogImage } = Astro.props;
+const { ...head } = Astro.props;
 ---
 
 <html lang="en" class="dark">
   <head>
-    <Head title={title} description={description} ogImage={ogImage} />
+    <Head {...head} />
   </head>
-  <body class="min-h-dvh bg-background font-sans antialiased">
+  <body class="h-full min-h-dvh bg-background font-sans antialiased relative">
     <Header />
+    <GridPattern
+      width={40}
+      height={40}
+      strokeDasharray={"4 2"}
+      className="z-0"
+    />
     <slot />
   </body>
 </html>

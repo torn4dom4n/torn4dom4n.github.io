@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import projects_image from "@/assets/projects-image.jpg";
+import projectsImageCover from "@/assets/projects/cover.jpg";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 ---
 
@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
   <CardHeader>
     <CardTitle className="-mr-24">
       <Image
-        src={projects_image}
+        src={projectsImageCover}
         class="h-64 w-full rounded-2xl object-cover ring-1 ring-primary/5 lg:h-auto"
         alt="Projects"
       />

@@ -10,14 +10,14 @@ export function Projects() {
         </CardTitle>
       </CardHeader>
       <CardContent className="p-0">
-        <div className="relative flex flex-col h-100 w-full items-center justify-center">
-          <OrbitingCircles radius={0} iconSize={50}>
+        <div className="relative flex flex-col h-100 w-full items-center justify-center overflow-hidden">
+          <OrbitingCircles radius={0} iconSize={60}>
             <Logos.me />
           </OrbitingCircles>
-          <OrbitingCircles radius={60} iconSize={50}>
+          <OrbitingCircles radius={70} iconSize={60} speed={2}>
             <Logos.area44 />
           </OrbitingCircles>
-          <OrbitingCircles radius={100} iconSize={40} speed={2}>
+          <OrbitingCircles radius={110} iconSize={50}>
             <Logos.microlens />
             <Logos.medpocket />
           </OrbitingCircles>

@@ -3,13 +3,13 @@ import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 
 export function Projects() {
   return (
-    <Card className="p-8">
+    <Card className="p-0">
       <CardHeader>
-        <CardTitle className="text-2xl tracking-tight text-primary lg:text-6xl">
+        <CardTitle className="p-8 lg:pl-4 font-medium text-2xl tracking-tight text-primary md:text-4xl">
           Projects
         </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-0">
         <div className="relative flex flex-col h-100 w-full items-center justify-center">
           <OrbitingCircles radius={0} iconSize={50}>
             <Logos.me />

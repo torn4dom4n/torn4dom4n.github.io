@@ -12,14 +12,14 @@ export function Projects() {
       <CardContent>
         <div className="relative flex flex-col h-100 w-full items-center justify-center">
           <OrbitingCircles radius={0} iconSize={50}>
-            <Icons.me />
+            <Logos.me />
           </OrbitingCircles>
           <OrbitingCircles radius={60} iconSize={50}>
-            <Icons.area44 />
+            <Logos.area44 />
           </OrbitingCircles>
           <OrbitingCircles radius={100} iconSize={40} speed={2}>
-            <Icons.microlens />
-            <Icons.medpocket />
+            <Logos.microlens />
+            <Logos.medpocket />
           </OrbitingCircles>
         </div>
       </CardContent>
@@ -27,7 +27,7 @@ export function Projects() {
   );
 }
 
-const Icons = {
+const Logos = {
   me: () => (
     <svg
       viewBox="0 0 1e3 1e3"

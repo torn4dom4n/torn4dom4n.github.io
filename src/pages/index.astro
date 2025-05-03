@@ -4,9 +4,9 @@ import Contact from "@/components/Contact.astro";
 import FindMe from "@/components/FindMe.astro";
 import Footer from "@/components/Footer.astro";
 import Gallery from "@/components/Gallery.astro";
-import { Projects } from "@/components/Projects";
+import LocalTime from "@/components/LocalTime";
+import Projects from "@/components/Projects";
 import Quotes from "@/components/Quotes.astro";
-import TimeZone from "@/components/TimeZone.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 import { siteConfig } from "@/site.config";
@@ -17,7 +17,7 @@ import { siteConfig } from "@/site.config";
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       <About />
       <FindMe />
-      <TimeZone />
+      <LocalTime client:load />
       <Projects />
       <Gallery />
       <Quotes />

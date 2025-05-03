@@ -2,7 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import About from "@/components/About.astro";
 import FindMe from "@/components/FindMe.astro";
-import TimeZone from "@/components/TimeZone";
+import LocalTime from "@/components/LocalTime";
 import Projects from "@/components/Projects";
 import Gallery from "@/components/Gallery.astro";
 import Quotes from "@/components/Quotes.astro";
@@ -17,7 +17,7 @@ import { siteConfig } from "@/site.config";
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       <About />
       <FindMe />
-      <TimeZone />
+      <LocalTime client:load />
       <Projects />
       <Gallery />
       <Quotes />

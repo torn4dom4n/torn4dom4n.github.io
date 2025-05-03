@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar } from "@/components/ui/calendar";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import * as React from "react";
 
 const LocalTime: React.FC = () => {
   const [date, setDate] = React.useState<Date | undefined>(new Date());

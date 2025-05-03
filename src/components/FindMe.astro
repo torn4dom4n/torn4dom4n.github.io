@@ -71,19 +71,17 @@ const socialLinks = [
           const elements = [];
           for (const { name, icon, href } of socialLinks) {
             elements.push(
-              <div class="p-1">
-                <a
-                  aria-label={`Nhat Nguyen's ${name}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={href}
-                >
-                  <Button variant="ghost" size="icon">
-                    <Icon name={icon} class="size-6" />
-                    <span class="sr-only">{name}</span>
-                  </Button>
-                </a>
-              </div>,
+              <a
+                aria-label={`Nhat Nguyen's ${name}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={href}
+              >
+                <Button variant="ghost" size="icon">
+                  <Icon name={icon} class="size-6" />
+                  <span class="sr-only">{name}</span>
+                </Button>
+              </a>,
             );
           }
           return elements;

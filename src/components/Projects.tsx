@@ -1,32 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 
-export function Projects() {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="lg:pl-4 font-medium text-2xl tracking-tight text-primary md:text-5xl">
-          Projects
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="p-0">
-        <div className="relative flex flex-col h-100 w-full items-center justify-center overflow-hidden">
-          <OrbitingCircles radius={0} iconSize={60}>
-            <Logos.me />
-          </OrbitingCircles>
-          <OrbitingCircles radius={70} iconSize={60} speed={2}>
-            <Logos.area44 />
-          </OrbitingCircles>
-          <OrbitingCircles radius={110} iconSize={50}>
-            <Logos.microlens />
-            <Logos.medpocket />
-          </OrbitingCircles>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
-
 const Logos = {
   me: () => (
     <svg
@@ -94,3 +68,31 @@ const Logos = {
     </svg>
   ),
 };
+
+const Projects: React.FC = () => {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="lg:pl-4 font-medium text-2xl tracking-tight text-primary md:text-5xl">
+          Projects
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="p-0">
+        <div className="relative flex flex-col h-100 w-full items-center justify-center overflow-hidden">
+          <OrbitingCircles radius={0} iconSize={60}>
+            <Logos.me />
+          </OrbitingCircles>
+          <OrbitingCircles radius={70} iconSize={60} speed={2}>
+            <Logos.area44 />
+          </OrbitingCircles>
+          <OrbitingCircles radius={110} iconSize={50}>
+            <Logos.microlens />
+            <Logos.medpocket />
+          </OrbitingCircles>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default Projects;

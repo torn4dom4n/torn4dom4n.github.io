@@ -17,6 +17,22 @@ const LocalTime: React.FC = () => {
         timeZone: "Asia/Ho_Chi_Minh",
       }).format(now);
       setCurrentTime(formattedTime);
+
+      const vnTime = new Date(
+        new Intl.DateTimeFormat("en-CA", {
+          timeZone: "Asia/Ho_Chi_Minh",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        }).format(now),
+      );
+
+      setDate((prevDate) => {
+        if (!prevDate || prevDate.toDateString() !== vnTime.toDateString()) {
+          return vnTime;
+        }
+        return prevDate;
+      });
     };
 
     updateTime();
@@ -31,10 +47,11 @@ const LocalTime: React.FC = () => {
           Local time
         </CardTitle>
       </CardHeader>
+
       <CardContent className="p-1">
-        <div className="flex items-center space-x-2 p-4 text-base">
+        <div className="flex items-center space-x-3 p-4 text-base">
           <p className="font-medium">Ha Noi, VN</p>
-          <span className="relative flex size-2">
+          <span className="relative flex size-2" aria-hidden="true">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/80 opacity-75" />
             <span className="relative inline-flex size-2 rounded-full bg-white" />
           </span>

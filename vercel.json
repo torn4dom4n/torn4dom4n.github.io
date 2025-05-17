@@ -1,13 +1,13 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "name": "@torn4dom4n/website",
+  "framework": "astro",
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm run build",
   "outputDirectory": "dist",
   "github": {
-    "silent": true,
     "enabled": true,
     "autoJobCancelation": true
-  },
-  "cache": {
-    "paths": ["node_modules/.pnpm", "dist"]
   }
 }

@@ -43,7 +43,7 @@ const LocalTime: React.FC = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-xl font-medium tracking-tight text-primary lg:text-6xl">
+        <CardTitle className="text-2xl font-normal tracking-tight text-primary md:text-4xl lg:text-6xl">
           Local time
         </CardTitle>
       </CardHeader>

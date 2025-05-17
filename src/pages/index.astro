@@ -13,16 +13,14 @@ import { siteConfig } from "@/site.config";
 ---
 
 <BaseLayout title={siteConfig.name} description={siteConfig.description}>
-  <main class="relative flex-auto p-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      <About />
-      <FindMe />
-      <LocalTime client:load />
-      <Projects />
-      <Gallery />
-      <Quotes />
-      <Contact />
-      <Footer />
-    </div>
-  </main>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <About />
+    <FindMe />
+    <LocalTime client:load />
+    <Projects />
+    <Gallery />
+    <Quotes />
+    <Contact />
+    <Footer />
+  </div>
 </BaseLayout>

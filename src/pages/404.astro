@@ -8,27 +8,23 @@ import { buttonVariants } from "@/components/ui/button";
   title="404 | Long Nhat Nguyen"
   description="404 Error — this page was not found"
 >
-  <main class="relative flex-auto p-4">
-    <div
-      class="mt-32 flex flex-col items-center justify-center text-center sm:mt-28"
+  <div
+    class="mt-32 flex flex-col items-center justify-center text-center sm:mt-28"
+  >
+    <p class="text-sm text-muted-foreground">404</p>
+    <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      Page not found
+    </h1>
+    <p class="mb-4 leading-7 not-first:mt-6">
+      Sorry, we couldn't find the page you're looking for.
+    </p>
+    <a
+      href="/"
+      rel="noreferrer"
+      class={buttonVariants()}
+      aria-label="Go back to homepage"
     >
-      <p class="text-sm text-muted-foreground">404</p>
-      <h1
-        class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl"
-      >
-        Page not found
-      </h1>
-      <p class="mb-4 leading-7 not-first:mt-6">
-        Sorry, we couldn't find the page you're looking for.
-      </p>
-      <a
-        href="/"
-        rel="noreferrer"
-        class={buttonVariants()}
-        aria-label="Go back to homepage"
-      >
-        Go back home
-      </a>
-    </div>
-  </main>
+      Go back home
+    </a>
+  </div>
 </BaseLayout>

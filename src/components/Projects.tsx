@@ -73,7 +73,7 @@ const Projects: React.FC = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="lg:pl-4 font-medium text-2xl tracking-tight text-primary md:text-5xl">
+        <CardTitle className="text-2xl font-normal tracking-tight text-primary md:text-4xl lg:text-5xl">
           Projects
         </CardTitle>
       </CardHeader>

@@ -18,6 +18,8 @@ const { ...head } = Astro.props;
       strokeDasharray={"14 2"}
       className="z-0"
     />
-    <slot />
+    <main class="relative flex-auto p-4">
+      <slot />
+    </main>
   </body>
 </html>

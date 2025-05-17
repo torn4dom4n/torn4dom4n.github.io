@@ -1,8 +1,13 @@
 {
-  "installCommand": "pnpm install",
-  "buildCommand": "pnpm build",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm run build",
   "outputDirectory": "dist",
   "github": {
-    "silent": true
+    "silent": true,
+    "enabled": true,
+    "autoJobCancelation": true
+  },
+  "cache": {
+    "paths": ["node_modules/.pnpm", "dist"]
   }
 }

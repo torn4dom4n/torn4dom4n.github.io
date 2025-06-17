@@ -1,6 +1,6 @@
+import * as React from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import * as React from "react";
 
 const LocalTime: React.FC = () => {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
@@ -48,8 +48,8 @@ const LocalTime: React.FC = () => {
         </CardTitle>
       </CardHeader>
 
-      <CardContent className="p-1">
-        <div className="flex items-center space-x-3 p-4 text-base">
+      <CardContent className="p-1 flex flex-col items-center">
+        <div className="flex justify-center items-center space-x-3 p-4 text-base w-full">
           <p className="font-medium">Ha Noi, VN</p>
           <span className="relative flex size-2" aria-hidden="true">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/80 opacity-75" />
@@ -58,12 +58,14 @@ const LocalTime: React.FC = () => {
           <p className="text-muted-foreground">{currentTime}</p>
         </div>
 
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-          className="rounded-md border shadow justify-items-center"
-        />
+        <div className="flex justify-center w-full overflow-hidden">
+          <Calendar
+            mode="single"
+            selected={date}
+            onSelect={() => {}}
+            className="rounded-md border shadow"
+          />
+        </div>
       </CardContent>
     </Card>
   );

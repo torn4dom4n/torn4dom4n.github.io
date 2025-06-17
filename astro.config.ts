@@ -3,8 +3,8 @@
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
-import icon from "astro-icon";
 import { defineConfig, fontProviders } from "astro/config";
+import icon from "astro-icon";
 
 const site = process.env.CI
   ? process.env.VERCEL_ENV !== "production" && process.env.VERCEL_URL

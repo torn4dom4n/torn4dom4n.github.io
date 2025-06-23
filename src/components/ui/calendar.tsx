@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/nursery/noNestedComponentDefinitions: <explanation> */
 import {
   ChevronDownIcon,
   ChevronLeftIcon,

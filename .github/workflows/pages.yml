@@ -1,4 +1,4 @@
-name: Deploy Astro site to Pages
+name: Deploy Astro Site
 
 on:
   push:
@@ -6,6 +6,8 @@ on:
   pull_request:
 
 permissions:
+  contents: read
+  pages: write
   id-token: write
 
 jobs:

@@ -52,8 +52,8 @@ const LocalTime: React.FC = () => {
         <div className="flex justify-center items-center space-x-3 p-4 text-base w-full">
           <p className="font-medium">Ha Noi, VN</p>
           <span className="relative flex size-2" aria-hidden="true">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/80 opacity-75" />
-            <span className="relative inline-flex size-2 rounded-full bg-white" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground/80 opacity-75" />
+            <span className="relative inline-flex size-2 rounded-full bg-foreground" />
           </span>
           <p className="text-muted-foreground">{currentTime}</p>
         </div>

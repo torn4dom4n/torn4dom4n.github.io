@@ -24,7 +24,7 @@ const LocalTime: React.FC = () => {
           year: "numeric",
           month: "2-digit",
           day: "2-digit",
-        }).format(now),
+        }).format(now)
       );
 
       setDate((prevDate) => {

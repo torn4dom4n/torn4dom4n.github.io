@@ -11,7 +11,7 @@ import {
 
 // Load image modules (promise-based resolvers)
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/gallery/*",
+  "/src/assets/gallery/*"
 );
 
 // Preload image metadata
@@ -19,7 +19,7 @@ const loadedImages = await Promise.all(
   Object.entries(images).map(async ([path, resolver]) => {
     const { default: image } = await resolver();
     return { path, image };
-  }),
+  })
 );
 
 // Helper: create alt text from filename

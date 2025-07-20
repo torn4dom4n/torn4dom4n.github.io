@@ -15,8 +15,8 @@ importers:
         specifier: ^3.4.1
         version: 3.4.1
       '@iconify-json/simple-icons':
-        specifier: ^1.2.43
-        version: 1.2.43
+        specifier: ^1.2.44
+        version: 1.2.44
       '@radix-ui/react-slot':
         specifier: ^1.2.3
         version: 1.2.3(@types/react@19.1.8)(react@19.1.0)
@@ -427,8 +427,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@iconify-json/simple-icons@1.2.43':
-    resolution: {integrity: sha512-JERgKGFRfZdyjGyTvVBVW5rftahy9tNUX+P+0QUnbaAEWvEMexXHE9863YVMVrIRhoj/HybGsibg8ZWieo/NDg==}
+  '@iconify-json/simple-icons@1.2.44':
+    resolution: {integrity: sha512-CdWgSPygwDlDbKtDWjvi3NtUefnkoepXv90n3dQxJerqzD9kI+nEJOiWUBM+eOyMYQKtxBpLWFBrgeotF0IZKw==}
 
   '@iconify/tools@4.1.2':
     resolution: {integrity: sha512-q6NzLQYEN9zkDfcyBqD3vItHcZw97w/s++3H3TBxUORr57EfHxj6tOW6fyufDjMq+Vl56WXWaPx1csBPYlI5CA==}
@@ -2834,7 +2834,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.6':
     optional: true
 
-  '@iconify-json/simple-icons@1.2.43':
+  '@iconify-json/simple-icons@1.2.44':
     dependencies:
       '@iconify/types': 2.0.0
 

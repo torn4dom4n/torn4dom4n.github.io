@@ -8,7 +8,7 @@ import icon from "astro-icon";
 
 const site = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
-  : process.env.SITE ?? "http://localhost:4321";
+  : (process.env.SITE ?? "http://localhost:4321");
 const base = "/";
 
 // https://astro.build/config

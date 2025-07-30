@@ -11,8 +11,8 @@ const site =
   process.env.VERCEL_ENV !== "production" &&
   process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
-    : (process.env.SITE ?? "http://localhost:4321");
-const base = process.env.BASE || "/";
+    : process.env.SITE;
+const base = process.env.BASE;
 
 // https://astro.build/config
 export default defineConfig({

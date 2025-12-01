@@ -22,17 +22,17 @@
   "dependencies": {
     "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.6.0",
-    "@iconify-json/simple-icons": "^1.2.59",
+    "@iconify-json/simple-icons": "^1.2.61",
     "@radix-ui/react-slot": "^1.2.4",
     "@tailwindcss/vite": "^4.1.17",
-    "astro": "^5.16.0",
+    "astro": "^5.16.3",
     "astro-icon": "^1.1.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
-    "lucide-react": "^0.554.0",
+    "lucide-react": "^0.555.0",
     "react": "^19.2.0",
-    "react-day-picker": "9.11.2",
+    "react-day-picker": "9.11.3",
     "react-dom": "^19.2.0",
     "sharp": "^0.34.5",
     "tailwind-merge": "^3.4.0",
@@ -41,9 +41,9 @@
   },
   "devDependencies": {
     "@area44/biome-config": "^2.3.2",
-    "@biomejs/biome": "^2.3.7",
+    "@biomejs/biome": "^2.3.8",
     "@types/node": "^24.10.1",
-    "@types/react": "^19.2.6",
+    "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "typescript": "^5.9.3"
   }

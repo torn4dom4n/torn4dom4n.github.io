@@ -22,7 +22,7 @@
   "dependencies": {
     "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.7.0",
-    "@iconify-json/simple-icons": "^1.2.69",
+    "@iconify-json/simple-icons": "^1.2.70",
     "@radix-ui/react-slot": "^1.2.4",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.17.1",
@@ -32,7 +32,7 @@
     "date-fns": "^4.1.0",
     "lucide-react": "^0.563.0",
     "react": "^19.2.4",
-    "react-day-picker": "9.13.1",
+    "react-day-picker": "9.13.2",
     "react-dom": "^19.2.4",
     "sharp": "^0.34.5",
     "tailwind-merge": "^3.4.0",

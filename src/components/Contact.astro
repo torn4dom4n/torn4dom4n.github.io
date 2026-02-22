@@ -1,6 +1,6 @@
 ---
 import { Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { siteConfig } from "@/site.config";
 ---
@@ -14,19 +14,16 @@ import { siteConfig } from "@/site.config";
     </CardTitle>
   </CardHeader>
 
-  <CardContent>
-    <div class="flex gap-2">
-      <Button>
-        <a
-          aria-label="Nhat Nguyen's Email"
-          target="_blank"
-          rel="noopener noreferrer"
-          href={`mailto:${siteConfig.links.email}`}
-        >
-          <Mail class="mr-2 size-4 pr-2" />
-          Email
-        </a>
-      </Button>
-    </div>
+  <CardContent className="flex flex-row gap-2">
+    <a
+      aria-label="Nhat Nguyen's Email"
+      target="_blank"
+      rel="noopener noreferrer"
+      href={`mailto:${siteConfig.links.email}`}
+      class={buttonVariants({ variant: "secondary" })}
+    >
+      <Mail className="mr-2 size-4" />
+      Email
+    </a>
   </CardContent>
 </Card>

@@ -1,6 +1,6 @@
 {
   "name": "@torn4dom4n/website",
-  "version": "25.06.24",
+  "version": "26.02.22",
   "private": true,
   "description": "Long Nhat Nguyen's website",
   "repository": {
@@ -23,7 +23,6 @@
     "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.7.0",
     "@iconify-json/simple-icons": "^1.2.71",
-    "@radix-ui/react-slot": "^1.2.4",
     "@tailwindcss/vite": "^4.2.0",
     "astro": "^5.17.3",
     "class-variance-authority": "^0.7.1",

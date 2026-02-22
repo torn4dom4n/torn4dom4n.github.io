@@ -1,92 +1,57 @@
 ---
-import { Icon } from "astro-icon/components";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { siteConfig } from "@/site.config";
+import IconFacebook from "~icons/simple-icons/facebook";
+import IconGithub from "~icons/simple-icons/github";
+import IconInstagram from "~icons/simple-icons/instagram";
+import IconLinkedin from "~icons/simple-icons/linkedin";
+import IconMastodon from "~icons/simple-icons/mastodon";
+import IconPinterest from "~icons/simple-icons/pinterest";
+import IconReddit from "~icons/simple-icons/reddit";
+import IconSoundcloud from "~icons/simple-icons/soundcloud";
+import IconX from "~icons/simple-icons/x";
+import IconYoutube from "~icons/simple-icons/youtube";
 
 const socialLinks = [
-  {
-    name: "GitHub",
-    icon: "simple-icons:github",
-    href: siteConfig.links.github,
-  },
-  {
-    name: "YouTube",
-    icon: "simple-icons:youtube",
-    href: siteConfig.links.youtube,
-  },
-  {
-    name: "Facebook",
-    icon: "simple-icons:facebook",
-    href: siteConfig.links.facebook,
-  },
-  {
-    name: "Instagram",
-    icon: "simple-icons:instagram",
-    href: siteConfig.links.instagram,
-  },
-  { name: "X", icon: "simple-icons:x", href: siteConfig.links.X },
-  {
-    name: "LinkedIn",
-    icon: "simple-icons:linkedin",
-    href: siteConfig.links.linkedin,
-  },
-  {
-    name: "Reddit",
-    icon: "simple-icons:reddit",
-    href: siteConfig.links.reddit,
-  },
-  {
-    name: "Pinterest",
-    icon: "simple-icons:pinterest",
-    href: siteConfig.links.pinterest,
-  },
+  { name: "GitHub", icon: IconGithub, href: siteConfig.links.github },
+  { name: "YouTube", icon: IconYoutube, href: siteConfig.links.youtube },
+  { name: "Facebook", icon: IconFacebook, href: siteConfig.links.facebook },
+  { name: "Instagram", icon: IconInstagram, href: siteConfig.links.instagram },
+  { name: "X", icon: IconX, href: siteConfig.links.X },
+  { name: "LinkedIn", icon: IconLinkedin, href: siteConfig.links.linkedin },
+  { name: "Reddit", icon: IconReddit, href: siteConfig.links.reddit },
+  { name: "Pinterest", icon: IconPinterest, href: siteConfig.links.pinterest },
   {
     name: "SoundCloud",
-    icon: "simple-icons:soundcloud",
+    icon: IconSoundcloud,
     href: siteConfig.links.soundcloud,
   },
-  {
-    name: "Mastodon",
-    icon: "simple-icons:mastodon",
-    href: siteConfig.links.mastodon,
-  },
+  { name: "Mastodon", icon: IconMastodon, href: siteConfig.links.mastodon },
 ];
 ---
 
 <Card>
   <CardHeader className="w-full">
-    <CardTitle
-      className="text-2xl font-normal tracking-tight text-primary md:text-4xl lg:text-6xl"
-    >
+    <CardTitle className="text-2xl font-normal tracking-tight text-primary md:text-4xl lg:text-6xl">
       Find me on
     </CardTitle>
   </CardHeader>
+
   <CardContent className="w-full">
-    <div
-      class="mt-4 grid grid-cols-5 w-full justify-center gap-4 md:grid-cols-10 lg:grid-cols-5"
-    >
-      {
-        (() => {
-          const elements = [];
-          for (const { name, icon, href } of socialLinks) {
-            elements.push(
-              <a
-                aria-label={`Nhat Nguyen's ${name}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                href={href}
-              >
-                <Button variant="ghost" size="icon">
-                  <Icon name={icon} class="size-6" />
-                  <span class="sr-only">{name}</span>
-                </Button>
-              </a>,
-            );
-          }
-          return elements;
-        })()
-      }
+    <div class="mt-4 grid w-full max-w-3xl mx-auto grid-cols-5 gap-4 md:grid-cols-10 lg:grid-cols-5 place-items-center">
+      {socialLinks.map(({ name, icon: Icon, href }) => (
+        <a
+          aria-label={`Nhat Nguyen's ${name}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          href={href}
+          class={buttonVariants({ variant: "ghost", size: "icon" })}
+        >
+          <Icon className="size-6" />
+          <span class="sr-only">{name}</span>
+        </a>
+      ))}
     </div>
   </CardContent>
 </Card>

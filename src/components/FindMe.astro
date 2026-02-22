@@ -1,5 +1,5 @@
 ---
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { siteConfig } from "@/site.config";
 import IconFacebook from "~icons/simple-icons/facebook";
@@ -41,21 +41,16 @@ const socialLinks = [
   <CardContent className="w-full">
     <div class="mt-4 grid w-full max-w-3xl mx-auto grid-cols-5 gap-4 md:grid-cols-10 lg:grid-cols-5 place-items-center">
       {socialLinks.map(({ name, icon: Icon, href }) => (
-        <Button
-          variant="ghost"
-          size="icon"
-          className="flex items-center justify-center"
+        <a
+          aria-label={`Nhat Nguyen's ${name}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          href={href}
+          class={buttonVariants({ variant: "ghost", size="icon" })}
         >
-          <a
-            aria-label={`Nhat Nguyen's ${name}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            href={href}
-          >
-            <Icon className="size-6" />
-            <span class="sr-only">{name}</span>
-          </a>
-        </Button>
+          <Icon className="size-6" />
+          <span class="sr-only">{name}</span>
+        </a>
       ))}
     </div>
   </CardContent>

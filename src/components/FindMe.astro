@@ -41,17 +41,17 @@ const socialLinks = [
   <CardContent className="w-full">
     <div class="mt-4 grid grid-cols-5 w-full justify-center gap-4 md:grid-cols-10 lg:grid-cols-5">
       {socialLinks.map(({ name, icon: Icon, href }) => (
-        <a
-          aria-label={`Nhat Nguyen's ${name}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          href={href}
-        >
           <Button variant="ghost" size="icon">
-            <Icon className="size-6" />
-            <span class="sr-only">{name}</span>
+            <a
+              aria-label={`Nhat Nguyen's ${name}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              href={href}
+            >
+              <Icon className="size-6" />
+              <span class="sr-only">{name}</span>
+            </a>
           </Button>
-        </a>
       ))}
     </div>
   </CardContent>

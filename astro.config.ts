@@ -3,7 +3,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
-import Icons from 'unplugin-icons/vite'
+import Icons from "unplugin-icons/vite";
 
 const site = process.env.VERCEL
   ? process.env.VERCEL_ENV === "production"
@@ -30,7 +30,7 @@ export default defineConfig({
     plugins: [
       tailwindcss(),
       Icons({
-        compiler: 'astro',
+        compiler: "astro",
       }),
     ],
   },

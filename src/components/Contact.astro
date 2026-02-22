@@ -14,15 +14,15 @@ import { siteConfig } from "@/site.config";
     </CardTitle>
   </CardHeader>
   <CardContent className="flex flex-col items-center justify-center space-y-4">
-    <a
-      aria-label="Nhat Nguyen's Gmail"
-      target="_blank"
-      rel="noopener noreferrer"
-      href={`mailto:${siteConfig.links.email}`}
-    >
       <Button>
-        <Mail className="mr-2 size-4" />Email
+        <a
+          aria-label="Nhat Nguyen's Gmail"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`mailto:${siteConfig.links.email}`}
+        >
+          <Mail className="mr-2 size-4" />Email
+        </a>
       </Button>
-    </a>
   </CardContent>
 </Card>

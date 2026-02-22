@@ -1,6 +1,5 @@
 ---
 import { Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { siteConfig } from "@/site.config";
 ---
@@ -13,16 +12,17 @@ import { siteConfig } from "@/site.config";
       Send me <span class="lg:block">a letter</span>
     </CardTitle>
   </CardHeader>
+
   <CardContent className="flex flex-col items-center justify-center space-y-4">
-      <Button>
-        <a
-          aria-label="Nhat Nguyen's Gmail"
-          target="_blank"
-          rel="noopener noreferrer"
-          href={`mailto:${siteConfig.links.email}`}
-        >
-          <Mail className="mr-2 size-4" />Email
-        </a>
-      </Button>
+    <a
+      aria-label="Nhat Nguyen's Email"
+      target="_blank"
+      rel="noopener noreferrer"
+      href={`mailto:${siteConfig.links.email}`}
+      class="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+    >
+      <Mail class="mr-2 size-4" />
+      Email
+    </a>
   </CardContent>
 </Card>

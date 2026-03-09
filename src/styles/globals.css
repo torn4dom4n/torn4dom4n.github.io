@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+@theme {
+  --font-sans: "Geist Variable", "Geist", sans-serif;
+  --font-mono: "Geist Mono Variable", "Geist Mono", monospace;
+}
+
+:root {
+  color-scheme: light dark;
+  @apply font-sans antialiased;
+}
+.dark {
+  color-scheme: dark;
+}
+.light {
+  color-scheme: light;
+}
+
+@variant dark {
+  &:where(.dark, .dark *) {
+    @slot;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &:where(.system, .system *) {
+      @slot;
+    }
+  }
+}
+
+@variant not-dark {
+  &:not(:where(.dark, .dark *)) {
+    @media not (prefers-color-scheme: dark) {
+      @slot;
+    }
+
+    &:not(:where(.system, .system *)) {
+      @slot;
+    }
+  }
+}
+
+@utility line-y {
+  @apply relative;
+  @apply before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-gray-950/5 dark:before:bg-white/10;
+  @apply after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-gray-950/5 dark:after:bg-white/10;
+}

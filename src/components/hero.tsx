@@ -21,9 +21,15 @@ export default function Hero() {
 
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-lg/7 font-medium text-gray-600 max-sm:px-4 dark:text-gray-400">
-          My name is <span className="text-[1.0625rem] text-amber-500 dark:text-amber-400">Long Nhat Nguyen</span>.{" "}
-          I explore{" "}
-          <span className="font-mono text-[1.0625rem] text-violet-500 dark:text-violet-400">music</span>,{" "}
+          My name is{" "}
+          <span className="text-[1.0625rem] text-amber-500 dark:text-amber-400">
+            Long Nhat Nguyen
+          </span>
+          . I explore{" "}
+          <span className="font-mono text-[1.0625rem] text-violet-500 dark:text-violet-400">
+            music
+          </span>
+          ,{" "}
           <span className="font-mono text-[1.0625rem] text-teal-500 dark:text-teal-400">
             photography
           </span>
@@ -32,8 +38,10 @@ export default function Hero() {
             technology
           </span>
           , and{" "}
-          <span className="font-mono text-[1.0625rem] text-green-500 dark:text-green-400">nature</span>.
-          Let's make and share things that bring a little positivity into the world.
+          <span className="font-mono text-[1.0625rem] text-green-500 dark:text-green-400">
+            nature
+          </span>
+          . Let's make and share things that bring a little positivity into the world.
         </p>
       </GridContainer>
     </div>

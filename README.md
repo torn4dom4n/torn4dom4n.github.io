@@ -5,8 +5,8 @@ What's up, world? My name is Long Nhat Nguyen and this is my website.
 ## Develop locally
 
 ```bash
-git clone https://github.com/torn4dom4n/website
-cd website
+git clone https://github.com/torn4dom4n/torn4dom4n.github.io
+cd torn4dom4n.github.io
 pnpm install
 pnpm dev
 ```

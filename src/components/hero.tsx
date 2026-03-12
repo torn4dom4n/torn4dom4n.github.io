@@ -6,7 +6,9 @@ export default function Hero() {
       <div
         aria-hidden="true"
         className="flex h-16 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-24 dark:text-white/25"
-      />
+      >
+        <span className="inline">[Living...]</span>
+      </div>
 
       <GridContainer>
         <h1 className="px-2 text-4xl tracking-tighter text-balance max-lg:font-medium max-sm:px-4 sm:text-5xl lg:text-6xl xl:text-8xl">

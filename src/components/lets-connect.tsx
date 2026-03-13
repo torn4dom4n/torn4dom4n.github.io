@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+
 import GridContainer from "@/components/ui/grid-container";
 
 type Brand = {
@@ -18,7 +19,7 @@ export default function LetsConnect() {
 
       <div
         aria-hidden="true"
-        className="h-6 sm:h-10 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 dark:[--pattern-fg:var(--color-white)]/10"
+        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/10"
       />
 
       <GridContainer>
@@ -46,7 +47,7 @@ export default function LetsConnect() {
                   rel="noopener noreferrer"
                   className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
                 >
-                  <div className="flex items-center gap-4 h-24 w-full max-w-80">
+                  <div className="flex h-24 w-full max-w-80 items-center gap-4">
                     <Logo className="size-12" aria-hidden="true" />
                     <span className="text-lg font-medium text-gray-700 dark:text-gray-300">
                       {name}

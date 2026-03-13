@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useTheme } from "./theme-provider";
 
 type Theme = "light" | "dark" | "system";
@@ -27,12 +28,11 @@ function ThemeToggleButton({
       tabIndex={selected ? 0 : -1}
       onClick={() => onValueChange(value)}
       title={title}
-      className={`rounded-full p-1.5 *:size-7 sm:p-0 transition-colors 
-    ${
-      selected
-        ? "bg-white ring ring-gray-950/10 dark:bg-gray-700 dark:text-white dark:ring-transparent"
-        : "hover:bg-gray-200/60 dark:hover:bg-gray-700/60"
-    }`}
+      className={`rounded-full p-1.5 transition-colors *:size-7 sm:p-0 ${
+        selected
+          ? "bg-white ring ring-gray-950/10 dark:bg-gray-700 dark:text-white dark:ring-transparent"
+          : "hover:bg-gray-200/60 dark:hover:bg-gray-700/60"
+      }`}
       {...props}
     >
       {children}

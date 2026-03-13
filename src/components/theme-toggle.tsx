@@ -7,6 +7,7 @@ type ThemeToggleButtonProps = {
   value: Theme;
   selected: boolean;
   onValueChange: (value: Theme) => void;
+  title: string;
   children: React.ReactNode;
 } & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "onSelect">;
 
@@ -14,14 +15,18 @@ function ThemeToggleButton({
   value,
   selected,
   onValueChange,
+  title,
   children,
   ...props
 }: ThemeToggleButtonProps) {
   return (
     <button
       type="button"
+      role="radio"
+      aria-checked={selected}
       tabIndex={selected ? 0 : -1}
       onClick={() => onValueChange(value)}
+      title={title}
       className={`rounded-full p-1.5 *:size-7 sm:p-0 transition-colors 
     ${
       selected
@@ -41,10 +46,12 @@ export function ModeToggle() {
   return (
     <div
       role="radiogroup"
+      aria-label="Select color theme"
       className="relative z-0 inline-grid grid-cols-3 gap-0.5 rounded-full bg-gray-950/5 p-0.75 text-gray-950 dark:bg-white/10 dark:text-white"
     >
       <ThemeToggleButton
         aria-label="System theme"
+        title="System theme"
         value="system"
         selected={theme === "system"}
         onValueChange={setTheme}
@@ -68,6 +75,7 @@ export function ModeToggle() {
 
       <ThemeToggleButton
         aria-label="Light theme"
+        title="Light theme"
         value="light"
         selected={theme === "light"}
         onValueChange={setTheme}
@@ -87,6 +95,7 @@ export function ModeToggle() {
 
       <ThemeToggleButton
         aria-label="Dark theme"
+        title="Dark theme"
         value="dark"
         selected={theme === "dark"}
         onValueChange={setTheme}

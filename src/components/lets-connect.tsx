@@ -39,20 +39,22 @@ export default function LetsConnect() {
 
           <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
             {brands.map(({ name, url, logo: Logo }) => (
-              <a
-                key={name}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
-              >
-                <div className="flex items-center gap-4 h-24 w-full max-w-80">
-                  <Logo className="size-12" aria-label={`${name} logo`} />
-                  <span className="text-lg font-medium text-gray-700 dark:text-gray-300">
-                    {name}
-                  </span>
-                </div>
-              </a>
+              <li key={name}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
+                >
+                  <div className="flex items-center gap-4 h-24 w-full max-w-80">
+                    <Logo className="size-12" aria-hidden="true" />
+                    <span className="text-lg font-medium text-gray-700 dark:text-gray-300">
+                      {name}
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </span>
+                  </div>
+                </a>
+              </li>
             ))}
           </ul>
         </div>

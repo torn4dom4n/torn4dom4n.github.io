@@ -1,11 +1,13 @@
 import { FooterMeta } from "@/components/footer";
 import Hero from "@/components/hero";
 import LetsConnect from "@/components/lets-connect";
+import { SiteHead } from "@/components/site-head";
 import { ThemeProvider } from "@/components/theme-provider";
 
 function Home() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <SiteHead />
       <main className="isolate">
         <div className="max-w-screen overflow-x-hidden">
           <div className="grid min-h-dvh grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] justify-center [--gutter-width:2.5rem] md:-mx-4 md:grid-cols-[var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)] lg:mx-0">

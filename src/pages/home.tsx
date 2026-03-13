@@ -1,6 +1,6 @@
-import { Footer } from "@/components/site-footer";
 import Hero from "@/components/hero";
 import LetsConnect from "@/components/lets-connect";
+import { Footer } from "@/components/site-footer";
 import { Head } from "@/components/site-head";
 import { ThemeProvider } from "@/components/theme-provider";
 

@@ -1,6 +1,6 @@
 import { useHead, useSeoMeta } from "@unhead/react";
 
-export function SiteHead() {
+export function Head() {
   const siteUrl =
     import.meta.env.VITE_SITE_URL ||
     (import.meta.env.VERCEL_URL ? `https://${import.meta.env.VERCEL_URL}` : "") ||

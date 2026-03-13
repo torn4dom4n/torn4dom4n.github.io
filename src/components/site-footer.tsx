@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 const year = new Date().getFullYear();
 
-export function FooterMeta({ className }: { className?: string }) {
+export function Footer({ className }: { className?: string }) {
   return (
     <div className="px-2 pt-10 pb-24">
       <div

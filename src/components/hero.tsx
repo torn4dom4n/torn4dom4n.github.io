@@ -7,7 +7,7 @@ export default function Hero() {
         aria-hidden="true"
         className="flex h-16 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-24 dark:text-white/25"
       >
-        <span className="inline">[Living...]</span>
+        <span className="inline">[Running...]</span>
       </div>
 
       <GridContainer>

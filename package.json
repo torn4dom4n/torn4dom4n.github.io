@@ -5,12 +5,13 @@
   "description": "My name is Long Nhat Nguyen and this is my website.",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "oxlint",
-    "format": "oxfmt",
-    "check": "oxlint && oxfmt"
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp preview",
+    "lint": "vp lint",
+    "format": "vp fmt",
+    "check": "vp lint && vp fmt",
+    "prepare": "vp config"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.8",
@@ -25,14 +26,21 @@
     "react-dom": "^19.2.4",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.1",
-    "vite": "^8.0.0"
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.12"
   },
   "devDependencies": {
     "@types/node": "^24.12.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "oxfmt": "^0.40.0",
-    "oxlint": "^1.55.0",
-    "typescript": "^6.0.1-rc"
+    "typescript": "^6.0.1-rc",
+    "vite-plus": "latest",
+    "vitest": "npm:@voidzero-dev/vite-plus-test@^0.1.12"
+  },
+  "packageManager": "pnpm@10.32.1",
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+      "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+    }
   }
 }

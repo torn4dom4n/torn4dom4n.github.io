@@ -29,7 +29,7 @@
       "@/*": ["./src/*"]
     },
     /* Type Declarations */
-    "types": ["node", "react", "react-dom", "vite/client"]
+    "types": ["node", "react", "react-dom", "vite/client", "unplugin-icons/types/react"]
   },
   "include": ["src"]
 }

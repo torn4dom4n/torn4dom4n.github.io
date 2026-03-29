@@ -1,6 +1,7 @@
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { FontaineTransform } from "fontaine";
+import Icons from "unplugin-icons/vite";
 import { defineConfig } from "vite-plus";
 
 const base = process.env.BASE || "/";
@@ -76,6 +77,10 @@ export default defineConfig({
     tailwindcss(),
     FontaineTransform.vite({
       fallbacks: ["Geist Variable", "Geist Mono Variable"],
+    }),
+    Icons({
+      compiler: "jsx",
+      jsx: "react",
     }),
   ],
   resolve: {

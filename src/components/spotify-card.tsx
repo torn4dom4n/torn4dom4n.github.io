@@ -1,7 +1,7 @@
 "use client";
 
-import { SiSpotify } from "@icons-pack/react-simple-icons";
 import { useState, useEffect, useRef } from "react";
+import SpotifyIcon from "~icons/simple-icons/spotify";
 
 import { cn } from "@/lib/utils";
 
@@ -282,7 +282,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
       <div className="z-10 flex w-full flex-col justify-between">
         <div className="flex self-end">
           <a href={data.link} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
-            <SiSpotify size={18} className="text-[#BAAEBA]" />
+            <SpotifyIcon width={18} height={18} className="text-[#BAAEBA]" />
           </a>
         </div>
         <div className="pl-6 text-end">

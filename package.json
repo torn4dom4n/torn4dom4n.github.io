@@ -16,26 +16,29 @@
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.8",
     "@fontsource-variable/geist-mono": "^5.2.7",
-    "@icons-pack/react-simple-icons": "^13.13.0",
     "@tailwindcss/vite": "^4.2.2",
     "@vitejs/plugin-react": "^6.0.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "fontaine": "^0.8.0",
-    "lucide-react": "^1.7.0",
+    "lucide-react": "^1.0.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.2",
-    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.14"
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.13"
   },
   "devDependencies": {
+    "@iconify-json/simple-icons": "^1.2.75",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "typescript": "^6.0.2",
+    "unplugin-icons": "^23.0.1",
     "vite-plus": "latest",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@^0.1.14"
+    "vitest": "npm:@voidzero-dev/vite-plus-test@^0.1.13"
   },
   "pnpm": {
     "overrides": {

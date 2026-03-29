@@ -1,8 +1,16 @@
 import Hero from "@/components/hero";
 import LetsConnect from "@/components/lets-connect";
 import { Footer } from "@/components/site-footer";
-import { SpotifyCard } from "@/components/spotify-card";
+import { SpotifyCard, type SpotifyData } from "@/components/spotify-card";
 import { ThemeProvider } from "@/components/theme-provider";
+
+const FAVORITE_TRACK: SpotifyData = {
+  title: "Never Gonna Give You Up",
+  artist: "Rick Astley",
+  image: "https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b273baf89eb11ec7c657805d2da0",
+  audio: "https://p.scdn.co/mp3-preview/b4c682084c3fd05538726d0a126b7e14b6e92c83",
+  link: "https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT",
+};
 
 function Home() {
   return (
@@ -15,7 +23,7 @@ function Home() {
             <div className="grid gap-24 pb-24 text-gray-950 sm:gap-40 md:pb-40 dark:text-white">
               <Hero />
               <div className="mx-auto w-full max-w-sm px-4">
-                <SpotifyCard url="https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT" />
+                <SpotifyCard data={FAVORITE_TRACK} />
               </div>
               <LetsConnect />
             </div>

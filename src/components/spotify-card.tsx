@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
-interface SpotifyData {
+export interface SpotifyData {
   title: string;
   artist: string;
   image: string;
@@ -14,68 +14,13 @@ interface SpotifyData {
 }
 
 interface SpotifyCardProps {
-  url: string;
+  data: SpotifyData;
   className?: string | undefined;
 }
 
-const SpotifyCardSkeleton = ({ className }: { className?: string | undefined }) => (
-  <div
-    className={cn(
-      "border-border bg-muted/50 relative flex h-full max-h-[100px] w-full items-stretch justify-center overflow-hidden rounded-2xl border p-3",
-      className,
-    )}
-  >
-    <div className="bg-muted aspect-square w-full max-w-[75px] animate-pulse self-center rounded-lg" />
-    <div className="z-10 flex w-full flex-col justify-end">
-      <div className="flex flex-col items-end gap-1 pl-6">
-        <div className="bg-muted h-4 w-24 animate-pulse rounded" />
-        <div className="bg-muted h-4 w-16 animate-pulse rounded" />
-      </div>
-    </div>
-  </div>
-);
-
-const SpotifyCardError = ({ className }: { className?: string | undefined }) => (
-  <div
-    className={cn(
-      "border-border bg-muted/50 text-muted-foreground flex h-[100px] w-full items-center justify-center rounded-2xl border p-6",
-      className,
-    )}
-  >
-    <p className="text-sm">Failed to load Spotify data</p>
-  </div>
-);
-
-export function SpotifyCard({ url, className }: SpotifyCardProps) {
-  const [data, setData] = useState<SpotifyData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
+export function SpotifyCard({ data, className }: SpotifyCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
-    const fetchSpotifyData = async () => {
-      try {
-        setIsLoading(true);
-        setError(false);
-
-        const response = await fetch(`/api/spotify?url=${encodeURIComponent(url)}`);
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch");
-        }
-
-        const spotifyData = await response.json();
-        setData(spotifyData);
-      } catch {
-        setError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    void fetchSpotifyData();
-  }, [url]);
 
   useEffect(() => {
     return () => {
@@ -86,7 +31,7 @@ export function SpotifyCard({ url, className }: SpotifyCardProps) {
   }, []);
 
   const handlePlayPause = () => {
-    if (!data?.audio) return;
+    if (!data.audio) return;
 
     if (!audioRef.current) {
       audioRef.current = new Audio(data.audio);
@@ -102,14 +47,6 @@ export function SpotifyCard({ url, className }: SpotifyCardProps) {
       setIsPlaying(true);
     }
   };
-
-  if (isLoading) {
-    return <SpotifyCardSkeleton className={className} />;
-  }
-
-  if (error || !data) {
-    return <SpotifyCardError className={className} />;
-  }
 
   return (
     <div

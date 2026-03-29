@@ -10,54 +10,64 @@ import YouTubeIcon from "~icons/simple-icons/youtube";
 
 import GridContainer from "@/components/ui/grid-container";
 
-interface Brand {
+type Brand = {
   name: string;
   url: string;
   logo: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-}
+};
 
 export default function LetsConnect() {
   return (
-    <div>
-      <div
-        aria-hidden="true"
-        className="h-12 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-20 dark:[--pattern-fg:var(--color-white)]/10"
-      />
-
+    <div className="relative max-w-full">
       <GridContainer>
-        <h2 className="px-2 text-3xl font-bold tracking-tighter text-balance max-sm:px-4 sm:text-4xl lg:text-5xl">
+        <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
           Let's connect.
         </h2>
       </GridContainer>
 
-      <div className="h-4 sm:h-6" />
+      <div
+        aria-hidden="true"
+        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/10"
+      />
 
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 text-lg font-medium text-gray-600 max-sm:px-4 dark:text-gray-400">
+        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
           I'm active on several platforms. Follow my work, check out what I'm building, or just drop
           by to say hello.
         </p>
       </GridContainer>
 
-      <div className="h-10 sm:h-16" />
+      <section>
+        <div className="relative isolate mt-16">
+          <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="border-r border-gray-950/5 dark:border-white/10" />
+            <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10" />
+            <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10" />
+            <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10" />
+          </div>
 
-      <div className="grid grid-cols-1 border-t border-gray-950/5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 dark:border-white/10">
-        {brands.map(({ name, url, logo: Logo }) => (
-          <a
-            key={name}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative flex h-32 items-center gap-4 border-b border-gray-950/5 px-6 transition-colors hover:bg-gray-950/[0.02] sm:border-r dark:border-white/10 dark:hover:bg-white/[0.02]"
-          >
-            <Logo className="size-8 text-gray-400 transition-colors group-hover:text-gray-900 dark:group-hover:text-white" />
-            <span className="text-lg font-medium text-gray-700 dark:text-gray-300">
-              {name}
-              <span className="sr-only"> (opens in a new tab)</span>
-            </span>
-          </a>
-        ))}
-      </div>
+          <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
+            {brands.map(({ name, url, logo: Logo }) => (
+              <li key={name}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
+                >
+                  <div className="flex h-24 w-full max-w-80 items-center gap-4">
+                    <Logo className="size-12" aria-hidden="true" />
+                    <span className="text-lg font-medium text-gray-700 dark:text-gray-300">
+                      {name}
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </span>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }

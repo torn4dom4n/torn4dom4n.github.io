@@ -22,9 +22,11 @@ function Home() {
 
             <div className="grid gap-24 pb-24 text-gray-950 sm:gap-40 md:pb-40 dark:text-white">
               <Hero />
-              <LetsConnect />
-              <div className="mr-auto w-full max-w-sm px-4 md:px-6 lg:px-8">
-                <SpotifyCard data={FAVORITE_TRACK} />
+              <div className="relative">
+                <LetsConnect />
+                <div className="mt-12 mr-auto w-full max-w-sm px-4 md:px-6 lg:px-8">
+                  <SpotifyCard data={FAVORITE_TRACK} />
+                </div>
               </div>
             </div>
 

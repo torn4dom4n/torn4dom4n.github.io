@@ -1,6 +1,7 @@
 import Hero from "@/components/hero";
 import LetsConnect from "@/components/lets-connect";
 import { Footer } from "@/components/site-footer";
+import { SpotifyCard } from "@/components/spotify-card";
 import { ThemeProvider } from "@/components/theme-provider";
 
 function Home() {
@@ -13,6 +14,9 @@ function Home() {
 
             <div className="grid gap-24 pb-24 text-gray-950 sm:gap-40 md:pb-40 dark:text-white">
               <Hero />
+              <div className="mx-auto w-full max-w-sm px-4">
+                <SpotifyCard url="https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT" />
+              </div>
               <LetsConnect />
             </div>
 

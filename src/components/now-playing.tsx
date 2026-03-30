@@ -2,10 +2,10 @@ import { SpotifyCard, type SpotifyData } from "@/components/spotify-card";
 import GridContainer from "@/components/ui/grid-container";
 
 const FAVORITE_TRACK: SpotifyData = {
-  title: "Catherine",
-  artist: "Seth Hills & Martin Garrix",
-  image: "https://i.scdn.co/image/ab67616d0000b273c5b525e9d91986927429671d",
-  link: "https://open.spotify.com/track/1P6R6oK6uK1vR9N8hY3M5w",
+  title: "Catharina",
+  artist: "Martin Garrix",
+  image: "https://i.scdn.co/image/ab67616d00001e02f09c204fd16ebbdd69eef5ef",
+  link: "https://open.spotify.com/track/0axM6rXe76kVZ5H3vbb8pi",
 };
 
 export default function NowPlaying() {

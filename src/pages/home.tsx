@@ -3,6 +3,7 @@ import LetsConnect from "@/components/lets-connect";
 import { Footer } from "@/components/site-footer";
 import { SpotifyCard, type SpotifyData } from "@/components/spotify-card";
 import { ThemeProvider } from "@/components/theme-provider";
+import GridContainer from "@/components/ui/grid-container";
 
 const FAVORITE_TRACK: SpotifyData = {
   title: "Never Gonna Give You Up",
@@ -22,12 +23,26 @@ function Home() {
 
             <div className="grid gap-24 pb-24 text-gray-950 sm:gap-40 md:pb-40 dark:text-white">
               <Hero />
-              <div className="relative">
-                <LetsConnect />
-                <div className="mt-12 mr-auto w-full max-w-sm px-4 md:px-6 lg:px-8">
-                  <SpotifyCard data={FAVORITE_TRACK} />
-                </div>
-              </div>
+              <LetsConnect />
+
+              <section className="relative">
+                <GridContainer>
+                  <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
+                    Now playing.
+                  </h2>
+                </GridContainer>
+
+                <div
+                  aria-hidden="true"
+                  className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/10"
+                />
+
+                <GridContainer>
+                  <div className="px-2 py-12 max-sm:px-4">
+                    <SpotifyCard data={FAVORITE_TRACK} />
+                  </div>
+                </GridContainer>
+              </section>
             </div>
 
             <div className="row-span-full row-start-1 hidden border-x border-x-(--pattern-fg) bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 md:col-start-3 md:block dark:[--pattern-fg:var(--color-white)]/10" />

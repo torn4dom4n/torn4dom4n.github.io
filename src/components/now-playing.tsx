@@ -24,6 +24,12 @@ export default function NowPlaying() {
       />
 
       <GridContainer>
+        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
+          Listen to what I'm currently into. This is my favorite track on repeat right now.
+        </p>
+      </GridContainer>
+
+      <GridContainer>
         <div className="max-w-md px-2 py-12 max-sm:px-4">
           <SpotifyCard data={FAVORITE_TRACK} />
         </div>

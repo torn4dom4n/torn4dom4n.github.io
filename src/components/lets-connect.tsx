@@ -27,7 +27,7 @@ export default function LetsConnect() {
 
       <div
         aria-hidden="true"
-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/10"
+        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/5"
       />
 
       <GridContainer>
@@ -40,10 +40,10 @@ export default function LetsConnect() {
       <section>
         <div className="relative isolate mt-16">
           <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
-            <div className="border-r border-gray-950/5 dark:border-white/10" />
-            <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10" />
-            <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10" />
-            <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10" />
+            <div className="border-r border-gray-950/5 dark:border-white/5" />
+            <div className="border-l border-gray-950/5 lg:border-x dark:border-white/5" />
+            <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/5" />
+            <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/5" />
           </div>
 
           <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useId } from "react";
 import SpotifyIcon from "~icons/simple-icons/spotify";
 
 import { cn } from "@/lib/utils";
@@ -21,6 +21,7 @@ interface SpotifyCardProps {
 export function SpotifyCard({ data, className }: SpotifyCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const uniqueId = useId().replace(/:/g, "");
 
   useEffect(() => {
     return () => {
@@ -67,6 +68,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
       </div>
       <button
         onClick={data.audio ? handlePlayPause : undefined}
+        aria-label={isPlaying ? "Pause preview" : "Play preview"}
         className={cn(
           "group relative z-[1] w-full max-w-[75px] self-center",
           data.audio && "cursor-pointer",
@@ -101,7 +103,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
             >
               <circle cx="55" cy="55" r="55" fill="#000" />
               <mask
-                id="mask0_6138_16576"
+                id={`mask0_${uniqueId}`}
                 width="110"
                 height="110"
                 x="0"
@@ -111,41 +113,41 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
               >
                 <circle cx="55" cy="55" r="55" fill="#000" />
               </mask>
-              <g mask="url(#mask0_6138_16576)">
-                <g filter="url(#filter0_f_6138_16576)">
+              <g mask={`url(#mask0_${uniqueId})`}>
+                <g filter={`url(#filter0_${uniqueId})`}>
                   <circle cx="55" cy="55" r="51.5" stroke="#fff" strokeOpacity="0.21" />
                 </g>
-                <g filter="url(#filter1_f_6138_16576)">
+                <g filter={`url(#filter1_${uniqueId})`}>
                   <circle cx="55" cy="55" r="47.5" stroke="#fff" strokeOpacity="0.21" />
                 </g>
-                <g filter="url(#filter2_f_6138_16576)">
+                <g filter={`url(#filter2_${uniqueId})`}>
                   <circle cx="55" cy="55" r="45.5" stroke="#fff" strokeOpacity="0.21" />
                 </g>
-                <g filter="url(#filter3_f_6138_16576)">
+                <g filter={`url(#filter3_${uniqueId})`}>
                   <circle cx="55" cy="55" r="43.5" stroke="#fff" strokeOpacity="0.21" />
                 </g>
-                <g filter="url(#filter4_f_6138_16576)">
+                <g filter={`url(#filter4_${uniqueId})`}>
                   <circle cx="55" cy="55" r="37.5" stroke="#fff" strokeOpacity="0.21" />
                 </g>
-                <g filter="url(#filter5_f_6138_16576)">
+                <g filter={`url(#filter5_${uniqueId})`}>
                   <circle cx="55" cy="55" r="34.5" stroke="#fff" strokeOpacity="0.21" />
                 </g>
-                <g filter="url(#filter6_f_6138_16576)" opacity="0.4">
+                <g filter={`url(#filter6_${uniqueId})`} opacity="0.4">
                   <path fill="#fff" d="M-14 38l68 19.579L-14 74V38z" />
                 </g>
-                <g filter="url(#filter7_f_6138_16576)" opacity="0.4">
+                <g filter={`url(#filter7_${uniqueId})`} opacity="0.4">
                   <path fill="#fff" d="M123 38L55 57.579 123 74V38z" />
                 </g>
-                <g filter="url(#filter8_f_6138_16576)" opacity="0.4">
+                <g filter={`url(#filter8_${uniqueId})`} opacity="0.4">
                   <path fill="#fff" d="M36.5 124.5l19.579-68 16.421 68h-36z" />
                 </g>
-                <g filter="url(#filter9_f_6138_16576)" opacity="0.4">
+                <g filter={`url(#filter9_${uniqueId})`} opacity="0.4">
                   <path fill="#fff" d="M36.5-12.5l19.579 68 16.421-68h-36z" />
                 </g>
               </g>
               <defs>
                 <filter
-                  id="filter0_f_6138_16576"
+                  id={`filter0_${uniqueId}`}
                   width="108"
                   height="108"
                   x="1"
@@ -155,10 +157,10 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 >
                   <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur_6138_16576" stdDeviation="1" />
+                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="1" />
                 </filter>
                 <filter
-                  id="filter1_f_6138_16576"
+                  id={`filter1_${uniqueId}`}
                   width="100"
                   height="100"
                   x="5"
@@ -168,10 +170,10 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 >
                   <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur_6138_16576" stdDeviation="1" />
+                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="1" />
                 </filter>
                 <filter
-                  id="filter2_f_6138_16576"
+                  id={`filter2_${uniqueId}`}
                   width="96"
                   height="96"
                   x="7"
@@ -181,10 +183,10 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 >
                   <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur_6138_16576" stdDeviation="1" />
+                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="1" />
                 </filter>
                 <filter
-                  id="filter3_f_6138_16576"
+                  id={`filter3_${uniqueId}`}
                   width="92"
                   height="92"
                   x="9"
@@ -194,10 +196,10 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 >
                   <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur_6138_16576" stdDeviation="1" />
+                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="1" />
                 </filter>
                 <filter
-                  id="filter4_f_6138_16576"
+                  id={`filter4_${uniqueId}`}
                   width="80"
                   height="80"
                   x="15"
@@ -207,10 +209,10 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 >
                   <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur_6138_16576" stdDeviation="1" />
+                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="1" />
                 </filter>
                 <filter
-                  id="filter5_f_6138_16576"
+                  id={`filter5_${uniqueId}`}
                   width="74"
                   height="74"
                   x="18"
@@ -220,10 +222,10 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 >
                   <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur_6138_16576" stdDeviation="1" />
+                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="1" />
                 </filter>
                 <filter
-                  id="filter6_f_6138_16576"
+                  id={`filter6_${uniqueId}`}
                   width="100"
                   height="68"
                   x="-30"
@@ -233,10 +235,10 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 >
                   <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur_6138_16576" stdDeviation="8" />
+                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="8" />
                 </filter>
                 <filter
-                  id="filter7_f_6138_16576"
+                  id={`filter7_${uniqueId}`}
                   width="100"
                   height="68"
                   x="39"
@@ -246,10 +248,10 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 >
                   <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur_6138_16576" stdDeviation="8" />
+                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="8" />
                 </filter>
                 <filter
-                  id="filter8_f_6138_16576"
+                  id={`filter8_${uniqueId}`}
                   width="68"
                   height="100"
                   x="20.5"
@@ -259,10 +261,10 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 >
                   <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur_6138_16576" stdDeviation="8" />
+                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="8" />
                 </filter>
                 <filter
-                  id="filter9_f_6138_16576"
+                  id={`filter9_${uniqueId}`}
                   width="68"
                   height="100"
                   x="20.5"
@@ -272,7 +274,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 >
                   <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur_6138_16576" stdDeviation="8" />
+                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="8" />
                 </filter>
               </defs>
             </svg>
@@ -281,17 +283,23 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
       </button>
       <div className="z-10 flex w-full flex-col justify-between">
         <div className="flex self-end">
-          <a href={data.link} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+          <a
+            href={data.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View track on Spotify"
+            className="cursor-pointer"
+          >
             <SpotifyIcon width={18} height={18} className="text-[#BAAEBA]" />
           </a>
         </div>
         <div className="pl-6 text-end">
-          <h2 className="text-sm font-semibold tracking-[-.006em] whitespace-nowrap text-[#D6D1D4]">
+          <h3 className="text-sm font-semibold tracking-[-.006em] whitespace-nowrap text-[#D6D1D4]">
             {data.title}
-          </h2>
-          <h2 className="text-sm font-medium tracking-[-.006em] whitespace-nowrap text-[#BAAEBA]">
+          </h3>
+          <p className="text-sm font-medium tracking-[-.006em] whitespace-nowrap text-[#BAAEBA]">
             {data.artist}
-          </h2>
+          </p>
         </div>
       </div>
     </div>

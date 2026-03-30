@@ -38,7 +38,7 @@ function Home() {
                 />
 
                 <GridContainer>
-                  <div className="px-2 py-12 max-sm:px-4">
+                  <div className="max-w-md px-2 py-12 max-sm:px-4">
                     <SpotifyCard data={FAVORITE_TRACK} />
                   </div>
                 </GridContainer>

@@ -5,7 +5,7 @@ const FAVORITE_TRACK: SpotifyData = {
   title: "Catharina",
   artist: "Martin Garrix",
   image: "https://i.scdn.co/image/ab67616d00001e02f09c204fd16ebbdd69eef5ef",
-  audio: "https://p.scdn.co/mp3-preview/ab67616d00001e02f09c204fd16ebbdd69eef5ef",
+  audio: "https://p.scdn.co/mp3-preview/8d8da7521ecac1f1dd66111257122bda7114e70d",
   link: "https://open.spotify.com/track/0axM6rXe76kVZ5H3vbb8pi",
 };
 

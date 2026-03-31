@@ -1,6 +1,6 @@
 # @torn4dom4n/website
 
-What's up, world! My name is Long Nhat Nguyen and this is my website.
+What's up everybody. My name is Long Nhat Nguyen and this is my website.
 
 ## Develop locally
 

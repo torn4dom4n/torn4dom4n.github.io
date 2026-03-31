@@ -40,10 +40,10 @@ export default function LetsConnect() {
       <section>
         <div className="relative isolate mt-16">
           <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
-            <div className="border-r border-gray-950/5 dark:border-white/10" />
-            <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10" />
-            <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10" />
-            <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10" />
+            <div className="border-r border-black/5 dark:border-white/10" />
+            <div className="border-l border-black/5 lg:border-x dark:border-white/10" />
+            <div className="border-l border-black/5 max-lg:hidden xl:border-x dark:border-white/10" />
+            <div className="border-l border-black/5 max-xl:hidden dark:border-white/10" />
           </div>
 
           <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
@@ -53,7 +53,7 @@ export default function LetsConnect() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
+                  className="grid place-content-center transition-colors hover:bg-black/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
                 >
                   <div className="flex h-24 w-full max-w-80 items-center gap-4">
                     <Logo className="size-12" aria-hidden="true" />

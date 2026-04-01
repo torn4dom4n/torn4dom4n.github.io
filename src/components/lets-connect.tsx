@@ -9,11 +9,14 @@ import XIcon from "~icons/simple-icons/x";
 import YouTubeIcon from "~icons/simple-icons/youtube";
 
 import GridContainer from "@/components/ui/grid-container";
+import { cn } from "@/lib/utils";
 
 type Brand = {
   name: string;
   url: string;
   logo: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  colSpan?: string;
+  rowSpan?: string;
 };
 
 export default function LetsConnect() {
@@ -37,37 +40,33 @@ export default function LetsConnect() {
         </p>
       </GridContainer>
 
-      <section>
-        <div className="relative isolate mt-16">
-          <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
-            <div className="border-r border-gray-950/5 dark:border-white/10" />
-            <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10" />
-            <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10" />
-            <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10" />
-          </div>
-
-          <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
-            {brands.map(({ name, url, logo: Logo }) => (
-              <li key={name}>
+      <GridContainer className="py-16">
+        <div className="px-2 max-sm:px-4">
+          <ul className="grid grid-cols-2 gap-4 md:grid-cols-4 md:grid-rows-3 lg:gap-6">
+            {brands.map(({ name, url, logo: Logo, colSpan, rowSpan }) => (
+              <li key={name} className={cn("group", colSpan, rowSpan)}>
                 <a
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
+                  className="flex h-full min-h-32 flex-col items-center justify-center gap-4 rounded-3xl border border-gray-950/5 bg-gray-950/2.5 p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-gray-950/5 md:min-h-40 dark:border-white/10 dark:bg-white/2.5 dark:hover:bg-white/5"
                 >
-                  <div className="flex h-24 w-full max-w-80 items-center gap-4">
-                    <Logo className="size-12" aria-hidden="true" />
-                    <span className="text-lg font-medium text-gray-700 dark:text-gray-300">
+                  <Logo
+                    className="size-10 transition-transform duration-300 group-hover:scale-110 md:size-12"
+                    aria-hidden="true"
+                  />
+                  <div className="text-center">
+                    <span className="text-sm font-medium text-gray-700 md:text-lg dark:text-gray-300">
                       {name}
-                      <span className="sr-only"> (opens in a new tab)</span>
                     </span>
+                    <span className="sr-only"> (opens in a new tab)</span>
                   </div>
                 </a>
               </li>
             ))}
           </ul>
         </div>
-      </section>
+      </GridContainer>
     </div>
   );
 }
@@ -77,6 +76,7 @@ const brands: Brand[] = [
     name: "GitHub",
     url: "https://github.com/torn4dom4n",
     logo: GitHubIcon,
+    colSpan: "md:col-span-2 md:row-span-2",
   },
   {
     name: "X",
@@ -92,16 +92,18 @@ const brands: Brand[] = [
     name: "Instagram",
     url: "https://instagram.com/torn4dom4n",
     logo: InstagramIcon,
-  },
-  {
-    name: "YouTube",
-    url: "https://youtube.com/@torn4dom4n",
-    logo: YouTubeIcon,
+    colSpan: "md:col-span-2",
   },
   {
     name: "LinkedIn",
     url: "https://linkedin.com/in/torn4dom4n",
     logo: LinkedInIcon,
+  },
+  {
+    name: "YouTube",
+    url: "https://youtube.com/@torn4dom4n",
+    logo: YouTubeIcon,
+    colSpan: "md:row-span-2",
   },
   {
     name: "Reddit",

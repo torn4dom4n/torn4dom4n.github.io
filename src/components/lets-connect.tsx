@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import FacebookIcon from "~icons/simple-icons/facebook";
 import GitHubIcon from "~icons/simple-icons/github";
 import InstagramIcon from "~icons/simple-icons/instagram";
@@ -9,14 +10,11 @@ import XIcon from "~icons/simple-icons/x";
 import YouTubeIcon from "~icons/simple-icons/youtube";
 
 import GridContainer from "@/components/ui/grid-container";
-import { cn } from "@/lib/utils";
 
 type Brand = {
   name: string;
   url: string;
   logo: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  colSpan?: string;
-  rowSpan?: string;
 };
 
 export default function LetsConnect() {
@@ -40,32 +38,34 @@ export default function LetsConnect() {
         </p>
       </GridContainer>
 
-      <GridContainer className="py-16">
-        <div className="px-2 max-sm:px-4">
-          <ul className="grid grid-cols-2 gap-4 md:grid-cols-4 md:grid-rows-3 lg:gap-6">
-            {brands.map(({ name, url, logo: Logo, colSpan, rowSpan }) => (
-              <li key={name} className={cn("group", colSpan, rowSpan)}>
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-full min-h-32 flex-col items-center justify-center gap-4 rounded-3xl border border-gray-950/5 bg-gray-950/2.5 p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-gray-950/5 md:min-h-40 dark:border-white/10 dark:bg-white/2.5 dark:hover:bg-white/5"
-                >
-                  <Logo
-                    className="size-10 transition-transform duration-300 group-hover:scale-110 md:size-12"
-                    aria-hidden="true"
-                  />
-                  <div className="text-center">
-                    <span className="text-sm font-medium text-gray-700 md:text-lg dark:text-gray-300">
-                      {name}
-                    </span>
-                    <span className="sr-only"> (opens in a new tab)</span>
-                  </div>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <GridContainer className="mt-16">
+        <ul className="flex flex-col">
+          {brands.map(({ name, url, logo: Logo }) => (
+            <li
+              key={name}
+              className="border-b border-gray-950/5 last:border-b-0 dark:border-white/10"
+            >
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between px-2 py-8 transition-colors hover:bg-gray-950/2.5 max-sm:px-4 dark:hover:bg-white/2.5"
+              >
+                <div className="flex items-center gap-6">
+                  <Logo className="size-8 text-gray-900 dark:text-gray-100" aria-hidden="true" />
+                  <span className="text-2xl font-medium tracking-tight text-gray-900 dark:text-gray-100">
+                    {name}
+                  </span>
+                </div>
+                <ArrowRight
+                  className="size-6 -translate-x-4 text-gray-400 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+                  aria-hidden="true"
+                />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </GridContainer>
     </div>
   );
@@ -76,7 +76,6 @@ const brands: Brand[] = [
     name: "GitHub",
     url: "https://github.com/torn4dom4n",
     logo: GitHubIcon,
-    colSpan: "md:col-span-2 md:row-span-2",
   },
   {
     name: "X",
@@ -92,18 +91,16 @@ const brands: Brand[] = [
     name: "Instagram",
     url: "https://instagram.com/torn4dom4n",
     logo: InstagramIcon,
-    colSpan: "md:col-span-2",
-  },
-  {
-    name: "LinkedIn",
-    url: "https://linkedin.com/in/torn4dom4n",
-    logo: LinkedInIcon,
   },
   {
     name: "YouTube",
     url: "https://youtube.com/@torn4dom4n",
     logo: YouTubeIcon,
-    colSpan: "md:row-span-2",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/in/torn4dom4n",
+    logo: LinkedInIcon,
   },
   {
     name: "Reddit",

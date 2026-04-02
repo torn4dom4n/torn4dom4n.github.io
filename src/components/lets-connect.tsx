@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import FacebookIcon from "~icons/simple-icons/facebook";
 import GitHubIcon from "~icons/simple-icons/github";
 import InstagramIcon from "~icons/simple-icons/instagram";
@@ -38,34 +37,32 @@ export default function LetsConnect() {
         </p>
       </GridContainer>
 
-      <GridContainer className="mt-16">
-        <ul className="flex flex-col">
-          {brands.map(({ name, url, logo: Logo }) => (
-            <li
-              key={name}
-              className="border-b border-gray-950/5 last:border-b-0 dark:border-white/10"
-            >
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between px-2 py-8 transition-colors hover:bg-gray-950/2.5 max-sm:px-4 dark:hover:bg-white/2.5"
-              >
-                <div className="flex items-center gap-6">
-                  <Logo className="size-8 text-gray-900 dark:text-gray-100" aria-hidden="true" />
-                  <span className="text-2xl font-medium tracking-tight text-gray-900 dark:text-gray-100">
-                    {name}
-                  </span>
-                </div>
-                <ArrowRight
-                  className="size-6 -translate-x-4 text-gray-400 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
-                  aria-hidden="true"
-                />
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            </li>
-          ))}
-        </ul>
+      <GridContainer className="py-16">
+        <div className="px-2 max-sm:px-4">
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {brands.map(({ name, url, logo: Logo }) => (
+              <li key={name}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col items-center justify-center gap-6 rounded-2xl border border-gray-950/5 bg-gray-950/[0.02] p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-gray-950/[0.05] hover:shadow-xl hover:shadow-gray-950/5 dark:border-white/10 dark:bg-white/[0.02] dark:hover:bg-white/[0.05] dark:hover:shadow-white/5"
+                >
+                  <Logo
+                    className="size-10 text-gray-900 transition-colors duration-300 group-hover:text-amber-500 dark:text-gray-100 dark:group-hover:text-amber-400"
+                    aria-hidden="true"
+                  />
+                  <div className="text-center">
+                    <span className="text-lg font-medium tracking-tight text-gray-900 dark:text-gray-100">
+                      {name}
+                    </span>
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </GridContainer>
     </div>
   );

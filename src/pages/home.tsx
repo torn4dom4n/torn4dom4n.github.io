@@ -1,5 +1,5 @@
+import GetInTouch from "@/components/get-in-touch";
 import Hero from "@/components/hero";
-import LetsConnect from "@/components/lets-connect";
 import NowPlaying from "@/components/now-playing";
 import { Footer } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -20,7 +20,7 @@ function Home() {
 
             <div className="grid gap-24 pb-24 text-gray-950 sm:gap-40 md:pb-40 dark:text-white">
               <Hero />
-              <LetsConnect />
+              <GetInTouch />
               <NowPlaying />
             </div>
 

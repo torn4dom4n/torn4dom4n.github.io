@@ -16,12 +16,12 @@ type Brand = {
   logo: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
 
-export default function LetsConnect() {
+export default function GetInTouch() {
   return (
     <div className="relative max-w-full">
       <GridContainer>
         <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
-          Let's connect.
+          Get in touch.
         </h2>
       </GridContainer>
 

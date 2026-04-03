@@ -76,7 +76,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     FontaineTransform.vite({
-      fallbacks: ["Geist Variable", "Geist Mono Variable"],
+      fallbacks: {},
     }),
     Icons({
       compiler: "jsx",

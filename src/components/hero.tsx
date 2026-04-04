@@ -11,19 +11,9 @@ export default function Hero() {
       </div>
 
       <GridContainer>
-        <h1 className="px-2 text-4xl tracking-tighter text-balance max-lg:font-medium max-sm:px-4 sm:text-5xl lg:text-6xl xl:text-8xl">
-          What's up everybody.
-        </h1>
-      </GridContainer>
-
-      <div
-        aria-hidden="true"
-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/10"
-      />
-
-      <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-lg/7 font-medium text-gray-600 max-sm:px-4 dark:text-gray-400">
-          My name is <span className="text-[1.0625rem]">Long Nhat Nguyen</span>. I explore{" "}
+          <span className="text-gray-950 dark:text-white">What's up everybody.</span> My name is{" "}
+          <span className="text-[1.0625rem]">Long Nhat Nguyen</span>. I explore{" "}
           <span className="font-mono text-[1.0625rem]">music</span>,{" "}
           <span className="font-mono text-[1.0625rem]">photography</span>,{" "}
           <span className="font-mono text-[1.0625rem]">technology</span>, and{" "}

@@ -48,7 +48,10 @@ export default function GetInTouch() {
 
           <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
             {brands.map(({ name, url, logo: Logo }) => (
-              <li key={name} className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y">
+              <li
+                key={name}
+                className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y"
+              >
                 <a
                   href={url}
                   target="_blank"

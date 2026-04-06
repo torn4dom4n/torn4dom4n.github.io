@@ -23,7 +23,8 @@ export default function Hero() {
 
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-lg/7 font-medium text-gray-600 max-sm:px-4 dark:text-gray-400">
-          My name is Long Nhat Nguyen. I explore music, photography, technology, and nature. Let's make and share things that bring a little positivity into the world.
+          My name is Long Nhat Nguyen. I explore music, photography, technology, and nature. Let's
+          make and share things that bring a little positivity into the world.
         </p>
       </GridContainer>
     </div>

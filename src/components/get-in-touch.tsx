@@ -48,12 +48,15 @@ export default function GetInTouch() {
 
           <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
             {brands.map(({ name, url, logo: Logo }) => (
-              <li key={name}>
+              <li
+                key={name}
+                className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y"
+              >
                 <a
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid place-content-center transition-colors hover:bg-gray-950/2.5 max-lg:nth-[2n+1]:line-y sm:px-2 sm:py-4 lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y dark:hover:bg-white/2.5"
+                  className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
                 >
                   <div className="flex h-24 w-full max-w-80 items-center gap-4">
                     <Logo className="size-12" aria-hidden="true" />

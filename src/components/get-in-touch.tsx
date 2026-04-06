@@ -58,7 +58,7 @@ export default function GetInTouch() {
                   rel="noopener noreferrer"
                   className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
                 >
-                  <div className="w-full max-w-80">
+                  <div className="flex h-24 w-full max-w-80 items-center gap-4">
                     <Logo className="size-12" aria-hidden="true" />
                     <span className="text-lg font-medium text-gray-700 dark:text-gray-300">
                       {name}

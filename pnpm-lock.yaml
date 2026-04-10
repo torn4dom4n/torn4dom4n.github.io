@@ -11,16 +11,34 @@ overrides:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
       '@fontsource-variable/geist':
         specifier: ^5.2.8
         version: 5.2.8
       '@fontsource-variable/geist-mono':
         specifier: ^5.2.7
         version: 5.2.7
+      '@iconify-json/simple-icons':
+        specifier: ^1.2.76
+        version: 1.2.76
+      '@svgr/core':
+        specifier: ^8.1.0
+        version: 8.1.0(typescript@6.0.2)
+      '@svgr/plugin-jsx':
+        specifier: ^8.1.0
+        version: 8.1.0(@svgr/core@8.1.0(typescript@6.0.2))
       '@tailwindcss/vite':
         specifier: ^4.2.2
         version: 4.2.2(@voidzero-dev/vite-plus-core@0.1.15(@types/node@25.5.2)(esbuild@0.27.0)(jiti@2.6.1)(tsx@4.21.0)(typescript@6.0.2))
+      '@types/node':
+        specifier: ^25.5.2
+        version: 25.5.2
+      '@types/react':
+        specifier: ^19.2.14
+        version: 19.2.14
+      '@types/react-dom':
+        specifier: ^19.2.3
+        version: 19.2.3(@types/react@19.2.14)
       '@vitejs/plugin-react':
         specifier: ^6.0.1
         version: 6.0.1(@voidzero-dev/vite-plus-core@0.1.15(@types/node@25.5.2)(esbuild@0.27.0)(jiti@2.6.1)(tsx@4.21.0)(typescript@6.0.2))
@@ -48,34 +66,15 @@ importers:
       tailwindcss:
         specifier: ^4.2.2
         version: 4.2.2
-      vite:
-        specifier: npm:@voidzero-dev/vite-plus-core@latest
-        version: '@voidzero-dev/vite-plus-core@0.1.15(@types/node@25.5.2)(esbuild@0.27.0)(jiti@2.6.1)(tsx@4.21.0)(typescript@6.0.2)'
-    devDependencies:
-      '@iconify-json/simple-icons':
-        specifier: ^1.2.76
-        version: 1.2.76
-      '@svgr/core':
-        specifier: ^8.1.0
-        version: 8.1.0(typescript@6.0.2)
-      '@svgr/plugin-jsx':
-        specifier: ^8.1.0
-        version: 8.1.0(@svgr/core@8.1.0(typescript@6.0.2))
-      '@types/node':
-        specifier: ^25.5.2
-        version: 25.5.2
-      '@types/react':
-        specifier: ^19.2.14
-        version: 19.2.14
-      '@types/react-dom':
-        specifier: ^19.2.3
-        version: 19.2.3(@types/react@19.2.14)
       typescript:
         specifier: ^6.0.2
         version: 6.0.2
       unplugin-icons:
         specifier: ^23.0.1
         version: 23.0.1(@svgr/core@8.1.0(typescript@6.0.2))
+      vite:
+        specifier: npm:@voidzero-dev/vite-plus-core@latest
+        version: '@voidzero-dev/vite-plus-core@0.1.15(@types/node@25.5.2)(esbuild@0.27.0)(jiti@2.6.1)(tsx@4.21.0)(typescript@6.0.2)'
       vite-plus:
         specifier: latest
         version: 0.1.15(@edge-runtime/vm@3.2.0)(@types/node@25.5.2)(@voidzero-dev/vite-plus-core@0.1.15(@types/node@25.5.2)(esbuild@0.27.0)(jiti@2.6.1)(tsx@4.21.0)(typescript@6.0.2))(esbuild@0.27.0)(jiti@2.6.1)(tsx@4.21.0)(typescript@6.0.2)

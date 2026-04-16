@@ -28,9 +28,9 @@ function ThemeToggleButton({
       tabIndex={selected ? 0 : -1}
       onClick={() => onValueChange(value)}
       title={title}
-      className={`flex items-center justify-center rounded-full p-1 transition-colors focus-visible:ring-2 focus-visible:ring-gray-950/20 dark:focus-visible:ring-white/20 ${
+      className={`flex items-center justify-center rounded-full p-1.5 transition-all focus-visible:ring-2 focus-visible:ring-gray-950/20 dark:focus-visible:ring-white/20 ${
         selected
-          ? "bg-white text-gray-900 shadow-sm dark:bg-gray-800 dark:text-white"
+          ? "bg-white text-gray-900 shadow-[0_1px_3px_rgba(0,0,0,0.1),0_1px_2px_rgba(0,0,0,0.06)] dark:bg-gray-800 dark:text-white"
           : "text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
       }`}
       {...props}
@@ -47,7 +47,7 @@ export function ModeToggle() {
     <div
       role="radiogroup"
       aria-label="Select color theme"
-      className="inline-flex items-center gap-0.5 rounded-full border border-gray-950/5 bg-gray-100 p-0.5 dark:border-white/10 dark:bg-gray-900"
+      className="inline-flex items-center gap-1 rounded-full border border-gray-950/5 bg-gray-100/50 p-1 dark:border-white/10 dark:bg-gray-900/50"
     >
       <ThemeToggleButton
         aria-label="System theme"
@@ -63,7 +63,7 @@ export function ModeToggle() {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="size-4"
+          className="size-3.5"
         >
           <rect width="20" height="14" x="2" y="3" rx="2" />
           <line x1="8" x2="16" y1="21" y2="21" />
@@ -85,7 +85,7 @@ export function ModeToggle() {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="size-4"
+          className="size-3.5"
         >
           <circle cx="12" cy="12" r="4" />
           <path d="M12 2v2" />
@@ -113,7 +113,7 @@ export function ModeToggle() {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="size-4"
+          className="size-3.5"
         >
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
         </svg>

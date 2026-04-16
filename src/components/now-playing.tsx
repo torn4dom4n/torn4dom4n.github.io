@@ -11,7 +11,7 @@ const FAVORITE_TRACK: SpotifyData = {
 
 export default function NowPlaying() {
   return (
-    <section className="relative">
+    <section id="now-playing" className="relative">
       <GridContainer>
         <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
           Now playing.

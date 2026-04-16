@@ -10,7 +10,7 @@
     "preview": "vp preview",
     "lint": "vp lint",
     "format": "vp fmt",
-    "check": "vp lint && vp fmt",
+    "check": "vp check --fix",
     "prepare": "vp config"
   },
   "devDependencies": {
@@ -32,8 +32,8 @@
     "tailwindcss": "^4.2.2",
     "typescript": "^6.0.2",
     "unplugin-icons": "^23.0.1",
-    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.16",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.17",
     "vite-plus": "latest",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@^0.1.16"
+    "vitest": "npm:@voidzero-dev/vite-plus-test@^0.1.17"
   }
 }

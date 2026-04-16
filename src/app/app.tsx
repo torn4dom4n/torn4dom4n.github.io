@@ -4,7 +4,7 @@ import NowPlaying from "@/components/now-playing";
 import { Footer } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
 
-function Home() {
+function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <a
@@ -36,4 +36,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default App;

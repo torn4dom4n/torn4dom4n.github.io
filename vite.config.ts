@@ -1,6 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import { FontaineTransform } from "fontaine";
 import Icons from "unplugin-icons/vite";
 import { defineConfig } from "vite-plus";
 
@@ -75,9 +74,6 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    FontaineTransform.vite({
-      fallbacks: {},
-    }),
     Icons({
       compiler: "jsx",
       jsx: "react",

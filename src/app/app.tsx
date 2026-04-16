@@ -1,5 +1,4 @@
 import GetInTouch from "@/components/get-in-touch";
-import { Header } from "@/components/header";
 import Hero from "@/components/hero";
 import NowPlaying from "@/components/now-playing";
 import { Footer } from "@/components/site-footer";
@@ -14,7 +13,6 @@ function App() {
       >
         Skip to content
       </a>
-      <Header />
       <main id="main-content" className="isolate">
         <div className="max-w-screen overflow-x-hidden">
           <div className="grid min-h-dvh grid-cols-1 grid-rows-[1fr_auto] justify-center [--gutter-width:2.5rem] md:-mx-4 md:grid-cols-[var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)] lg:mx-0">

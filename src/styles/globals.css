@@ -1,10 +1,11 @@
 @import "tailwindcss";
 @import "@fontsource-variable/geist";
-@import "@fontsource-variable/geist-mono";
 
 @theme {
   --font-sans: "Geist Variable", "Geist fallback", "Geist", sans-serif;
-  --font-mono: "Geist Mono Variable", "Geist Mono fallback", "Geist Mono", monospace;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono,
+    Courier New, monospace;
 
   --color-geist-foreground: #171717;
   --color-geist-background: #ffffff;

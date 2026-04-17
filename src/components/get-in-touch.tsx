@@ -20,20 +20,30 @@ export default function GetInTouch() {
   return (
     <div className="relative max-w-full">
       <GridContainer>
-        <h2 className="max-w-lg px-2 py-6 text-[2.5rem]/10 font-semibold tracking-heading text-balance max-sm:px-4">
+        <h2 className="max-w-lg px-2 py-8 text-[2.5rem]/10 font-semibold tracking-heading text-balance max-sm:px-4">
           Get in touch.
         </h2>
       </GridContainer>
 
+      <div
+        aria-hidden="true"
+        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-geist-border)] sm:h-10"
+      />
+
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 py-6 text-base/relaxed text-geist-secondary max-sm:px-4">
+        <p className="max-w-(--breakpoint-md) px-2 py-10 text-base/relaxed text-geist-secondary max-sm:px-4">
           I'm active on several platforms. Follow my work, check out what I'm building, or just drop
           by to say hello.
         </p>
       </GridContainer>
 
+      <div
+        aria-hidden="true"
+        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-geist-border)] sm:h-10"
+      />
+
       <section>
-        <div className="relative isolate mt-16">
+        <div className="relative isolate">
           <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
             <div className="border-r border-geist-border" />
             <div className="border-l border-geist-border lg:border-x" />
@@ -51,7 +61,7 @@ export default function GetInTouch() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid place-content-center transition-colors hover:bg-geist-border/10 sm:px-2 sm:py-4"
+                  className="grid h-full place-content-center transition-colors hover:bg-geist-border/10 sm:px-2 sm:py-8"
                 >
                   <div className="flex h-24 w-full max-w-80 items-center gap-4">
                     <div className="flex size-12 items-center justify-center rounded-geist bg-geist-background shadow-border transition-colors">

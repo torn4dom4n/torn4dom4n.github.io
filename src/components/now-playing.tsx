@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { SpotifyCard, type SpotifyTrack } from "@/components/spotify-card";
 import GridContainer from "@/components/ui/grid-container";
@@ -13,20 +13,46 @@ const FAVORITE_TRACK: SpotifyTrack = {
 
 export default function NowPlaying() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    if (!FAVORITE_TRACK.audio) return;
+
+    if (!audioRef.current) {
+      audioRef.current = new Audio(FAVORITE_TRACK.audio);
+      audioRef.current.onended = () => setIsPlaying(false);
+    }
+
+    if (isPlaying) {
+      audioRef.current.play().catch(() => setIsPlaying(false));
+    } else {
+      audioRef.current.pause();
+    }
+  }, [isPlaying]);
 
   return (
     <section className="relative">
       <GridContainer>
-        <h2 className="max-w-lg px-2 py-6 text-[2.5rem]/10 font-semibold tracking-heading text-balance max-sm:px-4">
+        <h2 className="max-w-lg px-2 py-8 text-[2.5rem]/10 font-semibold tracking-heading text-balance max-sm:px-4">
           Now playing.
         </h2>
       </GridContainer>
 
+      <div
+        aria-hidden="true"
+        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-geist-border)] sm:h-10"
+      />
+
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 py-6 text-base/relaxed text-geist-secondary max-sm:px-4">
+        <p className="max-w-(--breakpoint-md) px-2 py-10 text-base/relaxed text-geist-secondary max-sm:px-4">
           If we'll ever be remembered, I know it'll be for the way that we love.
         </p>
       </GridContainer>
+
+      <div
+        aria-hidden="true"
+        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-geist-border)] sm:h-10"
+      />
 
       <GridContainer>
         <div className="max-w-md px-2 py-16 max-sm:px-4">

@@ -1,57 +1,95 @@
-import { useId } from "react";
+"use client";
+
+import { useState, useEffect, useRef, useId } from "react";
 import SpotifyIcon from "~icons/simple-icons/spotify";
 
 import { cn } from "@/lib/utils";
 
-export type SpotifyTrack = {
+export interface SpotifyData {
   title: string;
   artist: string;
   image: string;
-  audio?: string;
   link: string;
-};
-
-interface SpotifyCardProps {
-  data: SpotifyTrack;
-  isPlaying: boolean;
-  onPlayToggle: () => void;
+  audio?: string;
 }
 
-export function SpotifyCard({ data, isPlaying, onPlayToggle }: SpotifyCardProps) {
+interface SpotifyCardProps {
+  data: SpotifyData;
+  className?: string | undefined;
+}
+
+export function SpotifyCard({ data, className }: SpotifyCardProps) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const uniqueId = useId().replace(/:/g, "");
 
-  return (
-    <div className="group relative flex w-full gap-4 overflow-visible rounded-lg bg-background p-4 shadow-card transition-all duration-300 hover:scale-[1.02]">
-      <button
-        onClick={onPlayToggle}
-        className="relative size-24 shrink-0 overflow-visible focus:outline-hidden"
-        aria-label={isPlaying ? "Pause" : "Play"}
-      >
-        <div className="relative z-10 size-full overflow-hidden rounded-md shadow-border">
-          <img src={data.image} alt={data.title} className="size-full object-cover" />
-          <div
-            className={cn(
-              "absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300",
-              isPlaying ? "opacity-100" : "opacity-0 group-hover:opacity-100",
-            )}
-          >
-            {isPlaying ? (
-              <svg viewBox="0 0 24 24" fill="currentColor" className="size-8 text-white">
-                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-              </svg>
-            ) : (
-              <svg viewBox="0 0 24 24" fill="currentColor" className="size-8 text-white">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            )}
-          </div>
-        </div>
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+    };
+  }, []);
 
-        {/* Decorative vinyl effect */}
-        {isPlaying && (
+  const handlePlayPause = () => {
+    if (!data.audio) return;
+
+    if (!audioRef.current) {
+      audioRef.current = new Audio(data.audio);
+      audioRef.current.volume = 0.3;
+      audioRef.current.addEventListener("ended", () => setIsPlaying(false));
+    }
+
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      void audioRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  return (
+    <div
+      className={cn(
+        "border-border relative flex h-full max-h-[100px] w-full items-stretch justify-center overflow-hidden rounded-2xl border p-3",
+        className,
+      )}
+    >
+      <div className="pointer-events-none absolute top-1/2 left-1/2 z-0 block aspect-square w-[120%] -translate-x-1/2 -translate-y-1/2">
+        <div className="pointer-events-none flex h-full opacity-100 select-none">
+          <img
+            src={data.image}
+            alt=""
+            className="absolute top-0 left-0 block h-full w-full blur-[50px] brightness-150"
+          />
+          <div className="absolute top-0 left-0 h-full w-full bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0)_0,_rgba(0,_0,_0,_.8))]" />
+        </div>
+      </div>
+      <button
+        onClick={data.audio ? handlePlayPause : undefined}
+        aria-label={isPlaying ? "Pause preview" : "Play preview"}
+        className={cn(
+          "group relative z-[1] w-full max-w-[75px] self-center",
+          data.audio && "cursor-pointer",
+        )}
+      >
+        <img
+          src={data.image}
+          alt={data.title}
+          className={cn(
+            "pointer-events-none relative z-[1] min-h-[75px] w-full min-w-[75px] rounded-lg object-cover shadow-md transition-transform duration-300 ease-out select-none",
+            data.audio && "group-hover:-translate-x-0.5",
+            isPlaying && "-translate-x-0.5",
+          )}
+        />
+        {data.audio && (
           <div
             className={cn(
-              "absolute top-1/2 left-1/2 -z-10 size-[80%] -translate-x-[10%] -translate-y-1/2 transition-all duration-300",
+              "absolute top-1/2 left-1/2 -z-[1] size-[80%] -translate-y-1/2 transition-all duration-300",
+              isPlaying
+                ? "translate-x-[-10%]"
+                : "translate-x-[-50%] group-hover:translate-x-[-10%]",
             )}
           >
             <svg
@@ -63,7 +101,7 @@ export function SpotifyCard({ data, isPlaying, onPlayToggle }: SpotifyCardProps)
                 animationPlayState: isPlaying ? "running" : "paused",
               }}
             >
-              <circle cx="55" cy="55" r="55" fill="var(--foreground)" />
+              <circle cx="55" cy="55" r="55" fill="#000" />
               <mask
                 id={`mask0_${uniqueId}`}
                 width="110"
@@ -73,74 +111,38 @@ export function SpotifyCard({ data, isPlaying, onPlayToggle }: SpotifyCardProps)
                 maskUnits="userSpaceOnUse"
                 style={{ maskType: "alpha" }}
               >
-                <circle cx="55" cy="55" r="55" fill="black" />
+                <circle cx="55" cy="55" r="55" fill="#000" />
               </mask>
               <g mask={`url(#mask0_${uniqueId})`}>
                 <g filter={`url(#filter0_${uniqueId})`}>
-                  <circle
-                    cx="55"
-                    cy="55"
-                    r="51.5"
-                    stroke="var(--background)"
-                    strokeOpacity="0.21"
-                  />
+                  <circle cx="55" cy="55" r="51.5" stroke="#fff" strokeOpacity="0.21" />
                 </g>
                 <g filter={`url(#filter1_${uniqueId})`}>
-                  <circle
-                    cx="55"
-                    cy="55"
-                    r="47.5"
-                    stroke="var(--background)"
-                    strokeOpacity="0.21"
-                  />
+                  <circle cx="55" cy="55" r="47.5" stroke="#fff" strokeOpacity="0.21" />
                 </g>
                 <g filter={`url(#filter2_${uniqueId})`}>
-                  <circle
-                    cx="55"
-                    cy="55"
-                    r="45.5"
-                    stroke="var(--background)"
-                    strokeOpacity="0.21"
-                  />
+                  <circle cx="55" cy="55" r="45.5" stroke="#fff" strokeOpacity="0.21" />
                 </g>
                 <g filter={`url(#filter3_${uniqueId})`}>
-                  <circle
-                    cx="55"
-                    cy="55"
-                    r="43.5"
-                    stroke="var(--background)"
-                    strokeOpacity="0.21"
-                  />
+                  <circle cx="55" cy="55" r="43.5" stroke="#fff" strokeOpacity="0.21" />
                 </g>
                 <g filter={`url(#filter4_${uniqueId})`}>
-                  <circle
-                    cx="55"
-                    cy="55"
-                    r="37.5"
-                    stroke="var(--background)"
-                    strokeOpacity="0.21"
-                  />
+                  <circle cx="55" cy="55" r="37.5" stroke="#fff" strokeOpacity="0.21" />
                 </g>
                 <g filter={`url(#filter5_${uniqueId})`}>
-                  <circle
-                    cx="55"
-                    cy="55"
-                    r="34.5"
-                    stroke="var(--background)"
-                    strokeOpacity="0.21"
-                  />
+                  <circle cx="55" cy="55" r="34.5" stroke="#fff" strokeOpacity="0.21" />
                 </g>
                 <g filter={`url(#filter6_${uniqueId})`} opacity="0.4">
-                  <path fill="var(--background)" d="M-14 38l68 19.579L-14 74V38z" />
+                  <path fill="#fff" d="M-14 38l68 19.579L-14 74V38z" />
                 </g>
                 <g filter={`url(#filter7_${uniqueId})`} opacity="0.4">
-                  <path fill="var(--background)" d="M123 38L55 57.579 123 74V38z" />
+                  <path fill="#fff" d="M123 38L55 57.579 123 74V38z" />
                 </g>
                 <g filter={`url(#filter8_${uniqueId})`} opacity="0.4">
-                  <path fill="var(--background)" d="M36.5 124.5l19.579-68 16.421 68h-36z" />
+                  <path fill="#fff" d="M36.5 124.5l19.579-68 16.421 68h-36z" />
                 </g>
                 <g filter={`url(#filter9_${uniqueId})`} opacity="0.4">
-                  <path fill="var(--background)" d="M36.5-12.5l19.579 68 16.421-68h-36z" />
+                  <path fill="#fff" d="M36.5-12.5l19.579 68 16.421-68h-36z" />
                 </g>
               </g>
               <defs>
@@ -279,23 +281,23 @@ export function SpotifyCard({ data, isPlaying, onPlayToggle }: SpotifyCardProps)
           </div>
         )}
       </button>
-      <div className="z-10 flex min-w-0 flex-col justify-between">
+      <div className="z-10 flex w-full flex-col justify-between">
         <div className="flex self-end">
           <a
             href={data.link}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View track on Spotify"
-            className="text-muted-foreground transition-colors hover:text-accent"
+            className="cursor-pointer"
           >
-            <SpotifyIcon width={18} height={18} />
+            <SpotifyIcon width={18} height={18} className="text-[#BAAEBA]" />
           </a>
         </div>
-        <div className="pl-4 text-end">
-          <h3 className="truncate text-sm font-semibold tracking-tight-alt text-foreground">
+        <div className="pl-6 text-end">
+          <h3 className="text-sm font-semibold tracking-[-.006em] whitespace-nowrap text-[#D6D1D4]">
             {data.title}
           </h3>
-          <p className="truncate text-sm font-medium tracking-tight-alt text-muted-foreground">
+          <p className="text-sm font-medium tracking-[-.006em] whitespace-nowrap text-[#BAAEBA]">
             {data.artist}
           </p>
         </div>

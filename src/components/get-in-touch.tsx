@@ -32,32 +32,43 @@ export default function GetInTouch() {
         </p>
       </GridContainer>
 
-      <section className="mt-20 px-2 max-sm:px-4">
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {brands.map(({ name, url, logo: Logo }) => (
-            <li key={name}>
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-4 rounded-geist-card bg-geist-background p-5 shadow-card transition-all hover:scale-[1.02] hover:shadow-elevation"
+      <section>
+        <div className="relative isolate mt-16">
+          <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="border-r border-geist-border" />
+            <div className="border-l border-geist-border lg:border-x" />
+            <div className="border-l border-geist-border max-lg:hidden xl:border-x" />
+            <div className="border-l border-geist-border max-xl:hidden" />
+          </div>
+
+          <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
+            {brands.map(({ name, url, logo: Logo }) => (
+              <li
+                key={name}
+                className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y"
               >
-                <div className="flex size-12 items-center justify-center rounded-geist bg-geist-background shadow-border transition-colors group-hover:bg-geist-accent group-hover:text-white">
-                  <Logo className="size-6" aria-hidden="true" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-base font-semibold tracking-tight-alt text-geist-foreground">
-                    {name}
-                  </span>
-                  <span className="text-sm text-geist-tertiary">
-                    Follow me on {name}
-                    <span className="sr-only"> (opens in a new tab)</span>
-                  </span>
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="grid place-content-center transition-colors hover:bg-geist-border/10 sm:px-2 sm:py-4"
+                >
+                  <div className="flex h-24 w-full max-w-80 items-center gap-4">
+                    <div className="flex size-12 items-center justify-center rounded-geist bg-geist-background shadow-border transition-colors">
+                      <Logo className="size-6" aria-hidden="true" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-lg font-semibold tracking-tight-alt text-geist-foreground">
+                        {name}
+                      </span>
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </div>
   );

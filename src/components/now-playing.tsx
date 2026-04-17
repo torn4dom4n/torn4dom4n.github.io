@@ -21,7 +21,7 @@ export default function NowPlaying() {
       <div className="h-6 sm:h-10" />
 
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
+        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-muted-foreground max-sm:px-4">
           If we'll ever be remembered, I know it'll be for the way that we love.
         </p>
       </GridContainer>

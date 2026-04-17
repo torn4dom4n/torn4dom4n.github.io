@@ -7,47 +7,54 @@
     ui-monospace, SFMono-Regular, Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono,
     Courier New, monospace;
 
-  --color-geist-foreground: #171717;
-  --color-geist-background: #ffffff;
-  --color-geist-secondary: #4d4d4d;
-  --color-geist-tertiary: #666666;
-  --color-geist-border: rgba(0, 0, 0, 0.08);
-  --color-geist-accent: #0072f5;
+  --color-ds-foreground: var(--ds-foreground);
+  --color-ds-background: var(--ds-background);
+  --color-ds-secondary: var(--ds-secondary);
+  --color-ds-tertiary: var(--ds-tertiary);
+  --color-ds-border: var(--ds-border);
+  --color-ds-accent: #0072f5;
 
-  --shadow-border: 0 0 0 1px var(--color-geist-border);
-  --shadow-elevation: 0 2px 2px rgba(0, 0, 0, 0.04);
-  --shadow-card:
-    0 0 0 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.04),
-    0 8px 8px -8px rgba(0, 0, 0, 0.04), inset 0 0 0 1px #fafafa;
+  --shadow-ds-border: 0 0 0 1px var(--ds-border);
+  --shadow-ds-elevation: 0 2px 2px rgba(0, 0, 0, 0.04);
+  --shadow-ds-card: var(--ds-shadow-card);
 
-  --radius-geist: 6px;
-  --radius-geist-card: 8px;
+  --radius-ds: 6px;
+  --radius-ds-card: 8px;
 }
 
 :root {
-  --geist-foreground: #171717;
-  --geist-background: #ffffff;
+  --ds-foreground: #171717;
+  --ds-background: #ffffff;
+  --ds-secondary: #4d4d4d;
+  --ds-tertiary: #666666;
+  --ds-border: rgba(0, 0, 0, 0.08);
   --ds-focus-color: hsla(212, 100%, 48%, 1);
+  --ds-shadow-card:
+    0 0 0 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.04),
+    0 8px 8px -8px rgba(0, 0, 0, 0.04), inset 0 0 0 1px #fafafa;
 
   color-scheme: light;
-  background-color: var(--geist-background);
-  color: var(--geist-foreground);
 
   @apply font-sans antialiased;
   font-feature-settings: "liga" 1;
 }
 
 .dark {
-  --geist-foreground: #ededed;
-  --geist-background: #000000;
-  --color-geist-border: rgba(255, 255, 255, 0.145);
-  --shadow-card:
+  --ds-foreground: #ffffff;
+  --ds-background: #000000;
+  --ds-secondary: #a1a1a1;
+  --ds-tertiary: #666666;
+  --ds-border: rgba(255, 255, 255, 0.145);
+  --ds-shadow-card:
     0 0 0 1px rgba(255, 255, 255, 0.145), 0 2px 2px rgba(0, 0, 0, 0.4),
-    0 8px 8px -8px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    0 8px 8px -8px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 
   color-scheme: dark;
-  background-color: var(--geist-background);
-  color: var(--geist-foreground);
+}
+
+html {
+  background-color: var(--ds-background);
+  color: var(--ds-foreground);
 }
 
 @variant dark {
@@ -76,16 +83,16 @@
 
 @utility line-y {
   @apply relative;
-  @apply before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-geist-border;
-  @apply after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-geist-border;
+  @apply before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-ds-border;
+  @apply after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-ds-border;
 }
 
 @utility shadow-border {
-  box-shadow: var(--shadow-border);
+  box-shadow: var(--shadow-ds-border);
 }
 
 @utility shadow-card {
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-ds-card);
 }
 
 @utility tracking-display {

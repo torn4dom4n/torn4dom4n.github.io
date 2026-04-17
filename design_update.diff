@@ -1,0 +1,649 @@
+diff --git a/package.json b/package.json
+index c213a20..f2d167f 100644
+--- a/package.json
++++ b/package.json
+@@ -15,7 +15,6 @@
+   },
+   "devDependencies": {
+     "@fontsource-variable/geist": "^5.2.8",
+-    "@fontsource-variable/geist-mono": "^5.2.7",
+     "@iconify-json/simple-icons": "^1.2.78",
+     "@svgr/core": "^8.1.0",
+     "@svgr/plugin-jsx": "^8.1.0",
+diff --git a/pnpm-lock.yaml b/pnpm-lock.yaml
+index 5db0ad4..88e0970 100644
+--- a/pnpm-lock.yaml
++++ b/pnpm-lock.yaml
+@@ -14,9 +14,6 @@ importers:
+       '@fontsource-variable/geist':
+         specifier: ^5.2.8
+         version: 5.2.8
+-      '@fontsource-variable/geist-mono':
+-        specifier: ^5.2.7
+-        version: 5.2.7
+       '@iconify-json/simple-icons':
+         specifier: ^1.2.78
+         version: 1.2.78
+@@ -305,9 +302,6 @@ packages:
+     cpu: [x64]
+     os: [win32]
+
+-  '@fontsource-variable/geist-mono@5.2.7':
+-    resolution: {integrity: sha512-ZKlZ5sjtalb2TwXKs400mAGDlt/+2ENLNySPx0wTz3bP3mWARCsUW+rpxzZc7e05d2qGch70pItt3K4qttbIYA==}
+-
+   '@fontsource-variable/geist@5.2.8':
+     resolution: {integrity: sha512-cJ6m9e+8MQ5dCYJsLylfZrgBh6KkG4bOLckB35Tr9J/EqdkEM6QllH5PxqP1dhTvFup+HtMRPuz9xOjxXJggxw==}
+
+@@ -1633,8 +1627,6 @@ snapshots:
+   '@esbuild/win32-x64@0.27.7':
+     optional: true
+
+-  '@fontsource-variable/geist-mono@5.2.7': {}
+-
+   '@fontsource-variable/geist@5.2.8': {}
+
+   '@iconify-json/simple-icons@1.2.78':
+diff --git a/src/app/app.tsx b/src/app/app.tsx
+index 221301e..52c7b64 100644
+--- a/src/app/app.tsx
++++ b/src/app/app.tsx
+@@ -6,25 +6,25 @@ import { ThemeProvider } from "@/components/theme-provider";
+
+ function App() {
+   return (
+-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
++    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+       <a
+         href="#main-content"
+-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black focus:ring-2 focus:ring-amber-500 dark:focus:bg-gray-800 dark:focus:text-white"
++        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black focus:ring-2 focus:ring-blue-600 dark:focus:bg-gray-800 dark:focus:text-white"
+       >
+         Skip to content
+       </a>
+       <main id="main-content" className="isolate">
+         <div className="max-w-screen overflow-x-hidden">
+           <div className="grid min-h-dvh grid-cols-1 grid-rows-[1fr_auto] justify-center [--gutter-width:2.5rem] md:-mx-4 md:grid-cols-[var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)] lg:mx-0">
+-            <div className="relative z-10 col-start-1 row-span-full row-start-1 hidden border-x border-x-(--pattern-fg) bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 md:block dark:[--pattern-fg:var(--color-white)]/10" />
++            <div className="relative z-10 col-start-1 row-span-full row-start-1 hidden border-x border-x-ds-border md:block" />
+
+-            <div className="grid gap-24 pb-24 text-gray-950 sm:gap-40 md:pb-40 dark:text-white">
++            <div className="grid gap-32 pb-32 text-ds-foreground sm:gap-48 md:pb-48">
+               <Hero />
+               <NowPlaying />
+               <GetInTouch />
+             </div>
+
+-            <div className="relative z-10 row-span-full row-start-1 hidden border-x border-x-(--pattern-fg) bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 md:col-start-3 md:block dark:[--pattern-fg:var(--color-white)]/10" />
++            <div className="relative z-10 row-span-full row-start-1 hidden border-x border-x-ds-border md:col-start-3 md:block" />
+
+             <div className="md:col-start-2">
+               <Footer className="px-4 md:px-6 lg:px-8" />
+diff --git a/src/components/get-in-touch.tsx b/src/components/get-in-touch.tsx
+index 2731ee2..0d8ecc2 100644
+--- a/src/components/get-in-touch.tsx
++++ b/src/components/get-in-touch.tsx
+@@ -20,30 +20,35 @@ export default function GetInTouch() {
+   return (
+     <div className="relative max-w-full">
+       <GridContainer>
+-        <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
++        <h2 className="max-w-lg px-2 py-8 text-[2.5rem]/10 font-semibold tracking-heading text-balance max-sm:px-4">
+           Get in touch.
+         </h2>
+       </GridContainer>
+
+       <div
+         aria-hidden="true"
+-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/10"
++        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-ds-border)] sm:h-10"
+       />
+
+       <GridContainer>
+-        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
++        <p className="max-w-(--breakpoint-md) px-2 py-10 text-base/relaxed text-ds-secondary max-sm:px-4">
+           I'm active on several platforms. Follow my work, check out what I'm building, or just drop
+           by to say hello.
+         </p>
+       </GridContainer>
+
++      <div
++        aria-hidden="true"
++        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-ds-border)] sm:h-10"
++      />
++
+       <section>
+-        <div className="relative isolate mt-16">
++        <div className="relative isolate">
+           <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
+-            <div className="border-r border-gray-950/5 dark:border-white/10" />
+-            <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10" />
+-            <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10" />
+-            <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10" />
++            <div className="border-r border-ds-border" />
++            <div className="border-l border-ds-border lg:border-x" />
++            <div className="border-l border-ds-border max-lg:hidden xl:border-x" />
++            <div className="border-l border-ds-border max-xl:hidden" />
+           </div>
+
+           <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
+@@ -56,14 +61,18 @@ export default function GetInTouch() {
+                   href={url}
+                   target="_blank"
+                   rel="noopener noreferrer"
+-                  className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
++                  className="grid h-full place-content-center transition-colors hover:bg-ds-border/10 sm:px-2 sm:py-8"
+                 >
+                   <div className="flex h-24 w-full max-w-80 items-center gap-4">
+-                    <Logo className="size-12" aria-hidden="true" />
+-                    <span className="text-lg font-medium text-gray-700 dark:text-gray-300">
+-                      {name}
++                    <div className="flex size-12 items-center justify-center rounded-ds bg-ds-background shadow-border transition-colors">
++                      <Logo className="size-6" aria-hidden="true" />
++                    </div>
++                    <div className="flex flex-col">
++                      <span className="text-lg font-semibold tracking-tight-alt text-ds-foreground">
++                        {name}
++                      </span>
+                       <span className="sr-only"> (opens in a new tab)</span>
+-                    </span>
++                    </div>
+                   </div>
+                 </a>
+               </li>
+diff --git a/src/components/hero.tsx b/src/components/hero.tsx
+index 32ffa57..3aba21f 100644
+--- a/src/components/hero.tsx
++++ b/src/components/hero.tsx
+@@ -2,27 +2,20 @@ import GridContainer from "@/components/ui/grid-container";
+
+ export default function Hero() {
+   return (
+-    <div>
+-      <div
+-        aria-hidden="true"
+-        className="flex h-16 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-24 dark:text-white/25"
+-      >
+-        <span className="inline">[Running...]</span>
+-      </div>
+-
++    <div className="pt-24 sm:pt-32">
+       <GridContainer>
+-        <h1 className="px-2 text-4xl tracking-tighter text-balance max-lg:font-medium max-sm:px-4 sm:text-5xl lg:text-6xl xl:text-8xl">
++        <h1 className="px-2 py-8 text-4xl font-semibold tracking-display text-balance max-sm:px-4 sm:text-5xl lg:text-6xl xl:text-8xl">
+           What's up everybody.
+         </h1>
+       </GridContainer>
+
+       <div
+         aria-hidden="true"
+-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/10"
++        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-ds-border)] sm:h-10"
+       />
+
+       <GridContainer>
+-        <p className="max-w-(--breakpoint-md) px-2 text-lg/7 font-medium text-gray-600 max-sm:px-4 dark:text-gray-400">
++        <p className="max-w-(--breakpoint-md) px-2 py-10 text-lg/relaxed font-normal text-ds-secondary max-sm:px-4 sm:text-xl">
+           My name is Long Nhat Nguyen. I explore music, photography, technology, and nature. Let's
+           make and share things that bring a little positivity into the world.
+         </p>
+diff --git a/src/components/now-playing.tsx b/src/components/now-playing.tsx
+index 343b177..9836dd0 100644
+--- a/src/components/now-playing.tsx
++++ b/src/components/now-playing.tsx
+@@ -1,7 +1,9 @@
+-import { SpotifyCard, type SpotifyData } from "@/components/spotify-card";
++import { useEffect, useRef, useState } from "react";
++
++import { SpotifyCard, type SpotifyTrack } from "@/components/spotify-card";
+ import GridContainer from "@/components/ui/grid-container";
+
+-const FAVORITE_TRACK: SpotifyData = {
++const FAVORITE_TRACK: SpotifyTrack = {
+   title: "Catharina",
+   artist: "Martin Garrix",
+   image: "https://i.scdn.co/image/ab67616d00001e02f09c204fd16ebbdd69eef5ef",
+@@ -10,28 +12,55 @@ const FAVORITE_TRACK: SpotifyData = {
+ };
+
+ export default function NowPlaying() {
++  const [isPlaying, setIsPlaying] = useState(false);
++  const audioRef = useRef<HTMLAudioElement | null>(null);
++
++  useEffect(() => {
++    if (!FAVORITE_TRACK.audio) return;
++
++    if (!audioRef.current) {
++      audioRef.current = new Audio(FAVORITE_TRACK.audio);
++      audioRef.current.onended = () => setIsPlaying(false);
++    }
++
++    if (isPlaying) {
++      audioRef.current.play().catch(() => setIsPlaying(false));
++    } else {
++      audioRef.current.pause();
++    }
++  }, [isPlaying]);
++
+   return (
+     <section className="relative">
+       <GridContainer>
+-        <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
++        <h2 className="max-w-lg px-2 py-8 text-[2.5rem]/10 font-semibold tracking-heading text-balance max-sm:px-4">
+           Now playing.
+         </h2>
+       </GridContainer>
+
+       <div
+         aria-hidden="true"
+-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/10"
++        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-ds-border)] sm:h-10"
+       />
+
+       <GridContainer>
+-        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
++        <p className="max-w-(--breakpoint-md) px-2 py-10 text-base/relaxed text-ds-secondary max-sm:px-4">
+           If we'll ever be remembered, I know it'll be for the way that we love.
+         </p>
+       </GridContainer>
+
++      <div
++        aria-hidden="true"
++        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-ds-border)] sm:h-10"
++      />
++
+       <GridContainer>
+-        <div className="max-w-md px-2 py-12 max-sm:px-4">
+-          <SpotifyCard data={FAVORITE_TRACK} />
++        <div className="max-w-md px-2 py-16 max-sm:px-4">
++          <SpotifyCard
++            data={FAVORITE_TRACK}
++            isPlaying={isPlaying}
++            onPlayToggle={() => setIsPlaying(!isPlaying)}
++          />
+         </div>
+       </GridContainer>
+     </section>
+diff --git a/src/components/site-footer.tsx b/src/components/site-footer.tsx
+index d9da75b..ff120f4 100644
+--- a/src/components/site-footer.tsx
++++ b/src/components/site-footer.tsx
+@@ -3,16 +3,16 @@ import { cn } from "@/lib/utils";
+
+ const year = new Date().getFullYear();
+
+-export function Footer({ className }: { className?: string }) {
++export function Footer({ className }: { className?: string | undefined }) {
+   return (
+     <footer
+       className={cn(
+         "relative mt-24 flex items-center justify-between py-8",
+-        "before:absolute before:top-0 before:left-1/2 before:h-px before:w-[200vw] before:-translate-x-1/2 before:bg-gray-950/5 dark:before:bg-white/10",
++        "before:absolute before:top-0 before:left-1/2 before:h-px before:w-[200vw] before:-translate-x-1/2 before:bg-ds-border",
+         className,
+       )}
+     >
+-      <p className="text-sm text-gray-600 dark:text-gray-400">&copy; {year} Long Nhat Nguyen.</p>
++      <p className="text-sm text-ds-secondary">&copy; {year} Long Nhat Nguyen.</p>
+       <ModeToggle />
+     </footer>
+   );
+diff --git a/src/components/spotify-card.tsx b/src/components/spotify-card.tsx
+index 122df43..41639d0 100644
+--- a/src/components/spotify-card.tsx
++++ b/src/components/spotify-card.tsx
+@@ -1,95 +1,71 @@
+-"use client";
+-
+-import { useState, useEffect, useRef, useId } from "react";
++import { useId } from "react";
+ import SpotifyIcon from "~icons/simple-icons/spotify";
+
+ import { cn } from "@/lib/utils";
+
+-export interface SpotifyData {
++export type SpotifyTrack = {
+   title: string;
+   artist: string;
+   image: string;
+   link: string;
+-  audio?: string;
+-}
+-
+-interface SpotifyCardProps {
+-  data: SpotifyData;
+-  className?: string | undefined;
+-}
++  audio: string;
++};
+
+-export function SpotifyCard({ data, className }: SpotifyCardProps) {
+-  const [isPlaying, setIsPlaying] = useState(false);
+-  const audioRef = useRef<HTMLAudioElement | null>(null);
++export function SpotifyCard({
++  data,
++  isPlaying,
++  onPlayToggle,
++}: {
++  data: SpotifyTrack;
++  isPlaying: boolean;
++  onPlayToggle: () => void;
++}) {
+   const uniqueId = useId().replace(/:/g, "");
+
+-  useEffect(() => {
+-    return () => {
+-      if (audioRef.current) {
+-        audioRef.current.pause();
+-      }
+-    };
+-  }, []);
+-
+-  const handlePlayPause = () => {
+-    if (!data.audio) return;
+-
+-    if (!audioRef.current) {
+-      audioRef.current = new Audio(data.audio);
+-      audioRef.current.volume = 0.3;
+-      audioRef.current.addEventListener("ended", () => setIsPlaying(false));
+-    }
+-
+-    if (isPlaying) {
+-      audioRef.current.pause();
+-      setIsPlaying(false);
+-    } else {
+-      void audioRef.current.play();
+-      setIsPlaying(true);
+-    }
+-  };
+-
+   return (
+     <div
+       className={cn(
+-        "border-border relative flex h-full max-h-[100px] w-full items-stretch justify-center overflow-hidden rounded-2xl border p-3",
+-        className,
++        "group hover:shadow-elevation relative flex w-full max-w-md items-center justify-between gap-4 overflow-hidden rounded-ds-card bg-ds-background p-4 shadow-card transition-all",
+       )}
+     >
+-      <div className="pointer-events-none absolute top-1/2 left-1/2 z-0 block aspect-square w-[120%] -translate-x-1/2 -translate-y-1/2">
+-        <div className="pointer-events-none flex h-full opacity-100 select-none">
++      <button
++        type="button"
++        onClick={onPlayToggle}
++        aria-label={isPlaying ? "Pause music" : "Play music"}
++        className="relative z-20 flex size-20 shrink-0 items-center justify-center focus:outline-hidden"
++      >
++        <div className="relative z-10 size-full overflow-hidden rounded-full shadow-border">
+           <img
+             src={data.image}
+-            alt=""
+-            className="absolute top-0 left-0 block h-full w-full blur-[50px] brightness-150"
++            alt={data.title}
++            className={cn(
++              "size-full object-cover transition-all duration-500",
++              isPlaying ? "scale-110 blur-[2px] brightness-75" : "group-hover:scale-110",
++            )}
+           />
+-          <div className="absolute top-0 left-0 h-full w-full bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0)_0,_rgba(0,_0,_0,_.8))]" />
++          <div
++            className={cn(
++              "absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300",
++              isPlaying ? "opacity-100" : "opacity-0 group-hover:opacity-100",
++            )}
++          >
++            {isPlaying ? (
++              <svg viewBox="0 0 24 24" fill="currentColor" className="size-8 text-white">
++                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
++              </svg>
++            ) : (
++              <svg viewBox="0 0 24 24" fill="currentColor" className="size-8 text-white">
++                <path d="M8 5v14l11-7z" />
++              </svg>
++            )}
++          </div>
+         </div>
+-      </div>
+-      <button
+-        onClick={data.audio ? handlePlayPause : undefined}
+-        aria-label={isPlaying ? "Pause preview" : "Play preview"}
+-        className={cn(
+-          "group relative z-[1] w-full max-w-[75px] self-center",
+-          data.audio && "cursor-pointer",
+-        )}
+-      >
+-        <img
+-          src={data.image}
+-          alt={data.title}
+-          className={cn(
+-            "pointer-events-none relative z-[1] min-h-[75px] w-full min-w-[75px] rounded-lg object-cover shadow-md transition-transform duration-300 ease-out select-none",
+-            data.audio && "group-hover:-translate-x-0.5",
+-            isPlaying && "-translate-x-0.5",
+-          )}
+-        />
+-        {data.audio && (
++
++        {/* Decorative vinyl effect */}
++        {isPlaying && (
+           <div
+             className={cn(
+-              "absolute top-1/2 left-1/2 -z-[1] size-[80%] -translate-y-1/2 transition-all duration-300",
+-              isPlaying
+-                ? "translate-x-[-10%]"
+-                : "translate-x-[-50%] group-hover:translate-x-[-10%]",
++              "absolute top-1/2 left-1/2 -z-10 size-[80%] -translate-x-[10%] -translate-y-1/2 transition-all duration-300",
+             )}
+           >
+             <svg
+@@ -101,7 +77,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
+                 animationPlayState: isPlaying ? "running" : "paused",
+               }}
+             >
+-              <circle cx="55" cy="55" r="55" fill="#000" />
++              <circle cx="55" cy="55" r="55" fill="#171717" />
+               <mask
+                 id={`mask0_${uniqueId}`}
+                 width="110"
+@@ -111,7 +87,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
+                 maskUnits="userSpaceOnUse"
+                 style={{ maskType: "alpha" }}
+               >
+-                <circle cx="55" cy="55" r="55" fill="#000" />
++                <circle cx="55" cy="55" r="55" fill="#171717" />
+               </mask>
+               <g mask={`url(#mask0_${uniqueId})`}>
+                 <g filter={`url(#filter0_${uniqueId})`}>
+@@ -281,23 +257,23 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
+           </div>
+         )}
+       </button>
+-      <div className="z-10 flex w-full flex-col justify-between">
++      <div className="z-10 flex min-w-0 flex-col justify-between">
+         <div className="flex self-end">
+           <a
+             href={data.link}
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="View track on Spotify"
+-            className="cursor-pointer"
++            className="text-ds-tertiary transition-colors hover:text-ds-accent"
+           >
+-            <SpotifyIcon width={18} height={18} className="text-[#BAAEBA]" />
++            <SpotifyIcon width={18} height={18} />
+           </a>
+         </div>
+-        <div className="pl-6 text-end">
+-          <h3 className="text-sm font-semibold tracking-[-.006em] whitespace-nowrap text-[#D6D1D4]">
++        <div className="pl-4 text-end">
++          <h3 className="truncate text-sm font-semibold tracking-tight-alt text-ds-foreground">
+             {data.title}
+           </h3>
+-          <p className="text-sm font-medium tracking-[-.006em] whitespace-nowrap text-[#BAAEBA]">
++          <p className="truncate text-sm font-medium tracking-tight-alt text-ds-secondary">
+             {data.artist}
+           </p>
+         </div>
+diff --git a/src/components/theme-toggle.tsx b/src/components/theme-toggle.tsx
+index 4c48dab..1190b97 100644
+--- a/src/components/theme-toggle.tsx
++++ b/src/components/theme-toggle.tsx
+@@ -30,8 +30,8 @@ function ThemeToggleButton({
+       title={title}
+       className={`flex items-center justify-center rounded-full p-1 transition-all ${
+         selected
+-          ? "bg-white text-gray-950 shadow-[0_1px_2px_rgba(0,0,0,0.1)] dark:bg-gray-800 dark:text-white"
+-          : "text-gray-500 hover:bg-gray-200/50 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800/50 dark:hover:text-white"
++          ? "shadow-elevation bg-ds-background text-ds-foreground"
++          : "text-ds-tertiary hover:bg-ds-border/20 hover:text-ds-foreground"
+       }`}
+       {...props}
+     >
+@@ -47,7 +47,7 @@ export function ModeToggle() {
+     <div
+       role="radiogroup"
+       aria-label="Select color theme"
+-      className="inline-flex items-center gap-0.5 rounded-full border border-gray-950/5 bg-gray-100/50 p-0.5 dark:border-white/10 dark:bg-gray-900/50"
++      className="inline-flex items-center gap-0.5 rounded-full bg-ds-border/10 p-0.5 shadow-border"
+     >
+       <ThemeToggleButton
+         aria-label="System theme"
+diff --git a/src/components/ui/grid-container.tsx b/src/components/ui/grid-container.tsx
+index bd0b672..0fb2fe6 100644
+--- a/src/components/ui/grid-container.tsx
++++ b/src/components/ui/grid-container.tsx
+@@ -5,15 +5,15 @@ export default function GridContainer({
+   className,
+ }: {
+   children: React.ReactNode;
+-  className?: string;
++  className?: string | undefined;
+ }) {
+   return (
+     <div
+       className={cn(
+         className,
+         "relative",
+-        "before:absolute before:top-0 before:left-1/2 before:h-px before:w-[200vw] before:-translate-x-1/2 before:bg-gray-950/5 dark:before:bg-white/10",
+-        "after:absolute after:bottom-0 after:left-1/2 after:h-px after:w-[200vw] after:-translate-x-1/2 after:bg-gray-950/5 dark:after:bg-white/10",
++        "before:absolute before:top-0 before:left-1/2 before:h-px before:w-[200vw] before:-translate-x-1/2 before:bg-ds-border",
++        "after:absolute after:bottom-0 after:left-1/2 after:h-px after:w-[200vw] after:-translate-x-1/2 after:bg-ds-border",
+       )}
+     >
+       {children}
+diff --git a/src/styles/globals.css b/src/styles/globals.css
+index cec32a5..071a00e 100644
+--- a/src/styles/globals.css
++++ b/src/styles/globals.css
+@@ -1,21 +1,60 @@
+ @import "tailwindcss";
+ @import "@fontsource-variable/geist";
+-@import "@fontsource-variable/geist-mono";
+
+ @theme {
+   --font-sans: "Geist Variable", "Geist fallback", "Geist", sans-serif;
+-  --font-mono: "Geist Mono Variable", "Geist Mono fallback", "Geist Mono", monospace;
++  --font-mono:
++    ui-monospace, SFMono-Regular, Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono,
++    Courier New, monospace;
++
++  --color-ds-foreground: var(--ds-foreground);
++  --color-ds-background: var(--ds-background);
++  --color-ds-secondary: var(--ds-secondary);
++  --color-ds-tertiary: var(--ds-tertiary);
++  --color-ds-border: var(--ds-border);
++  --color-ds-accent: #0072f5;
++
++  --shadow-ds-border: 0 0 0 1px var(--ds-border);
++  --shadow-ds-elevation: 0 2px 2px rgba(0, 0, 0, 0.04);
++  --shadow-ds-card: var(--ds-shadow-card);
++
++  --radius-ds: 6px;
++  --radius-ds-card: 8px;
+ }
+
+ :root {
+-  color-scheme: light dark;
++  --ds-foreground: #171717;
++  --ds-background: #ffffff;
++  --ds-secondary: #4d4d4d;
++  --ds-tertiary: #666666;
++  --ds-border: rgba(0, 0, 0, 0.08);
++  --ds-focus-color: hsla(212, 100%, 48%, 1);
++  --ds-shadow-card:
++    0 0 0 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.04),
++    0 8px 8px -8px rgba(0, 0, 0, 0.04), inset 0 0 0 1px #fafafa;
++
++  color-scheme: light;
++
+   @apply font-sans antialiased;
++  font-feature-settings: "liga" 1;
+ }
++
+ .dark {
++  --ds-foreground: #ffffff;
++  --ds-background: #000000;
++  --ds-secondary: #a1a1a1;
++  --ds-tertiary: #666666;
++  --ds-border: rgba(255, 255, 255, 0.145);
++  --ds-shadow-card:
++    0 0 0 1px rgba(255, 255, 255, 0.145), 0 2px 2px rgba(0, 0, 0, 0.4),
++    0 8px 8px -8px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
++
+   color-scheme: dark;
+ }
+-.light {
+-  color-scheme: light;
++
++html {
++  background-color: var(--ds-background);
++  color: var(--ds-foreground);
+ }
+
+ @variant dark {
+@@ -44,6 +83,46 @@
+
+ @utility line-y {
+   @apply relative;
+-  @apply before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-gray-950/5 dark:before:bg-white/10;
+-  @apply after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-gray-950/5 dark:after:bg-white/10;
++  @apply before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-ds-border;
++  @apply after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-ds-border;
++}
++
++@utility shadow-border {
++  box-shadow: var(--shadow-ds-border);
++}
++
++@utility shadow-card {
++  box-shadow: var(--shadow-ds-card);
++}
++
++@utility tracking-display {
++  letter-spacing: -0.06em;
++}
++
++@utility tracking-heading {
++  letter-spacing: -0.04em;
++}
++
++@utility tracking-tight-alt {
++  letter-spacing: -0.02em;
++}
++
++@layer base {
++  h1,
++  h2,
++  h3,
++  h4,
++  h5,
++  h6 {
++    @apply font-semibold tracking-heading;
++  }
++
++  a {
++    @apply transition-colors;
++  }
++
++  :focus-visible {
++    outline: 2px solid var(--ds-focus-color);
++    outline-offset: 2px;
++  }
+ }

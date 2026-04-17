@@ -27,11 +27,11 @@ export default function GetInTouch() {
 
       <div
         aria-hidden="true"
-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-geist-border)] sm:h-10"
+        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-ds-border)] sm:h-10"
       />
 
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 py-10 text-base/relaxed text-geist-secondary max-sm:px-4">
+        <p className="max-w-(--breakpoint-md) px-2 py-10 text-base/relaxed text-ds-secondary max-sm:px-4">
           I'm active on several platforms. Follow my work, check out what I'm building, or just drop
           by to say hello.
         </p>
@@ -39,16 +39,16 @@ export default function GetInTouch() {
 
       <div
         aria-hidden="true"
-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-geist-border)] sm:h-10"
+        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-ds-border)] sm:h-10"
       />
 
       <section>
         <div className="relative isolate">
           <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
-            <div className="border-r border-geist-border" />
-            <div className="border-l border-geist-border lg:border-x" />
-            <div className="border-l border-geist-border max-lg:hidden xl:border-x" />
-            <div className="border-l border-geist-border max-xl:hidden" />
+            <div className="border-r border-ds-border" />
+            <div className="border-l border-ds-border lg:border-x" />
+            <div className="border-l border-ds-border max-lg:hidden xl:border-x" />
+            <div className="border-l border-ds-border max-xl:hidden" />
           </div>
 
           <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
@@ -61,14 +61,14 @@ export default function GetInTouch() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid h-full place-content-center transition-colors hover:bg-geist-border/10 sm:px-2 sm:py-8"
+                  className="grid h-full place-content-center transition-colors hover:bg-ds-border/10 sm:px-2 sm:py-8"
                 >
                   <div className="flex h-24 w-full max-w-80 items-center gap-4">
-                    <div className="flex size-12 items-center justify-center rounded-geist bg-geist-background shadow-border transition-colors">
+                    <div className="flex size-12 items-center justify-center rounded-ds bg-ds-background shadow-border transition-colors">
                       <Logo className="size-6" aria-hidden="true" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-lg font-semibold tracking-tight-alt text-geist-foreground">
+                      <span className="text-lg font-semibold tracking-tight-alt text-ds-foreground">
                         {name}
                       </span>
                       <span className="sr-only"> (opens in a new tab)</span>

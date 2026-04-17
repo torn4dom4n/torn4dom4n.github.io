@@ -25,7 +25,7 @@ export function SpotifyCard({
   return (
     <div
       className={cn(
-        "group relative flex w-full max-w-md items-center justify-between gap-4 overflow-hidden rounded-geist-card bg-geist-background p-4 shadow-card transition-all hover:shadow-elevation",
+        "group hover:shadow-elevation relative flex w-full max-w-md items-center justify-between gap-4 overflow-hidden rounded-ds-card bg-ds-background p-4 shadow-card transition-all",
       )}
     >
       <button
@@ -264,16 +264,16 @@ export function SpotifyCard({
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View track on Spotify"
-            className="text-geist-tertiary transition-colors hover:text-geist-accent"
+            className="text-ds-tertiary transition-colors hover:text-ds-accent"
           >
             <SpotifyIcon width={18} height={18} />
           </a>
         </div>
         <div className="pl-4 text-end">
-          <h3 className="truncate text-sm font-semibold tracking-tight-alt text-geist-foreground">
+          <h3 className="truncate text-sm font-semibold tracking-tight-alt text-ds-foreground">
             {data.title}
           </h3>
-          <p className="truncate text-sm font-medium tracking-tight-alt text-geist-secondary">
+          <p className="truncate text-sm font-medium tracking-tight-alt text-ds-secondary">
             {data.artist}
           </p>
         </div>

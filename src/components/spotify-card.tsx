@@ -7,42 +7,28 @@ export type SpotifyTrack = {
   title: string;
   artist: string;
   image: string;
+  audio?: string;
   link: string;
-  audio: string;
 };
 
-export function SpotifyCard({
-  data,
-  isPlaying,
-  onPlayToggle,
-}: {
+interface SpotifyCardProps {
   data: SpotifyTrack;
   isPlaying: boolean;
   onPlayToggle: () => void;
-}) {
+}
+
+export function SpotifyCard({ data, isPlaying, onPlayToggle }: SpotifyCardProps) {
   const uniqueId = useId().replace(/:/g, "");
 
   return (
-    <div
-      className={cn(
-        "group relative flex w-full max-w-md items-center justify-between gap-4 overflow-hidden rounded-lg bg-background p-4 shadow-card transition-all hover:shadow-elevation",
-      )}
-    >
+    <div className="group relative flex w-full gap-4 overflow-visible rounded-lg bg-background p-4 shadow-card transition-all duration-300 hover:scale-[1.02]">
       <button
-        type="button"
         onClick={onPlayToggle}
-        aria-label={isPlaying ? "Pause music" : "Play music"}
-        className="relative z-20 flex size-20 shrink-0 items-center justify-center focus:outline-hidden"
+        className="relative size-24 shrink-0 overflow-visible focus:outline-hidden"
+        aria-label={isPlaying ? "Pause" : "Play"}
       >
-        <div className="relative z-10 size-full overflow-hidden rounded-full shadow-border">
-          <img
-            src={data.image}
-            alt={data.title}
-            className={cn(
-              "size-full object-cover transition-all duration-500",
-              isPlaying ? "scale-110 blur-[2px] brightness-75" : "group-hover:scale-110",
-            )}
-          />
+        <div className="relative z-10 size-full overflow-hidden rounded-md shadow-border">
+          <img src={data.image} alt={data.title} className="size-full object-cover" />
           <div
             className={cn(
               "absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300",
@@ -77,7 +63,7 @@ export function SpotifyCard({
                 animationPlayState: isPlaying ? "running" : "paused",
               }}
             >
-              <circle cx="55" cy="55" r="55" fill="#171717" />
+              <circle cx="55" cy="55" r="55" fill="var(--foreground)" />
               <mask
                 id={`mask0_${uniqueId}`}
                 width="110"
@@ -87,38 +73,74 @@ export function SpotifyCard({
                 maskUnits="userSpaceOnUse"
                 style={{ maskType: "alpha" }}
               >
-                <circle cx="55" cy="55" r="55" fill="#171717" />
+                <circle cx="55" cy="55" r="55" fill="black" />
               </mask>
               <g mask={`url(#mask0_${uniqueId})`}>
                 <g filter={`url(#filter0_${uniqueId})`}>
-                  <circle cx="55" cy="55" r="51.5" stroke="#fff" strokeOpacity="0.21" />
+                  <circle
+                    cx="55"
+                    cy="55"
+                    r="51.5"
+                    stroke="var(--background)"
+                    strokeOpacity="0.21"
+                  />
                 </g>
                 <g filter={`url(#filter1_${uniqueId})`}>
-                  <circle cx="55" cy="55" r="47.5" stroke="#fff" strokeOpacity="0.21" />
+                  <circle
+                    cx="55"
+                    cy="55"
+                    r="47.5"
+                    stroke="var(--background)"
+                    strokeOpacity="0.21"
+                  />
                 </g>
                 <g filter={`url(#filter2_${uniqueId})`}>
-                  <circle cx="55" cy="55" r="45.5" stroke="#fff" strokeOpacity="0.21" />
+                  <circle
+                    cx="55"
+                    cy="55"
+                    r="45.5"
+                    stroke="var(--background)"
+                    strokeOpacity="0.21"
+                  />
                 </g>
                 <g filter={`url(#filter3_${uniqueId})`}>
-                  <circle cx="55" cy="55" r="43.5" stroke="#fff" strokeOpacity="0.21" />
+                  <circle
+                    cx="55"
+                    cy="55"
+                    r="43.5"
+                    stroke="var(--background)"
+                    strokeOpacity="0.21"
+                  />
                 </g>
                 <g filter={`url(#filter4_${uniqueId})`}>
-                  <circle cx="55" cy="55" r="37.5" stroke="#fff" strokeOpacity="0.21" />
+                  <circle
+                    cx="55"
+                    cy="55"
+                    r="37.5"
+                    stroke="var(--background)"
+                    strokeOpacity="0.21"
+                  />
                 </g>
                 <g filter={`url(#filter5_${uniqueId})`}>
-                  <circle cx="55" cy="55" r="34.5" stroke="#fff" strokeOpacity="0.21" />
+                  <circle
+                    cx="55"
+                    cy="55"
+                    r="34.5"
+                    stroke="var(--background)"
+                    strokeOpacity="0.21"
+                  />
                 </g>
                 <g filter={`url(#filter6_${uniqueId})`} opacity="0.4">
-                  <path fill="#fff" d="M-14 38l68 19.579L-14 74V38z" />
+                  <path fill="var(--background)" d="M-14 38l68 19.579L-14 74V38z" />
                 </g>
                 <g filter={`url(#filter7_${uniqueId})`} opacity="0.4">
-                  <path fill="#fff" d="M123 38L55 57.579 123 74V38z" />
+                  <path fill="var(--background)" d="M123 38L55 57.579 123 74V38z" />
                 </g>
                 <g filter={`url(#filter8_${uniqueId})`} opacity="0.4">
-                  <path fill="#fff" d="M36.5 124.5l19.579-68 16.421 68h-36z" />
+                  <path fill="var(--background)" d="M36.5 124.5l19.579-68 16.421 68h-36z" />
                 </g>
                 <g filter={`url(#filter9_${uniqueId})`} opacity="0.4">
-                  <path fill="#fff" d="M36.5-12.5l19.579 68 16.421-68h-36z" />
+                  <path fill="var(--background)" d="M36.5-12.5l19.579 68 16.421-68h-36z" />
                 </g>
               </g>
               <defs>

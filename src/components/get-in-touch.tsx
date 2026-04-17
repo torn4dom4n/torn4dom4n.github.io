@@ -19,19 +19,19 @@ type Brand = {
 export default function GetInTouch() {
   return (
     <div className="relative max-w-full">
-      <GridContainer>
-        <h2 className="max-w-lg px-2 py-8 text-[2.5rem]/10 font-semibold tracking-heading text-balance max-sm:px-4">
+      <GridContainer className="py-24 sm:py-32" withBorder={false}>
+        <h2 className="max-w-lg px-2 text-[2.5rem]/[1.2] font-semibold tracking-heading text-balance max-sm:px-4 sm:text-[3rem]">
           Get in touch.
         </h2>
       </GridContainer>
 
       <div
         aria-hidden="true"
-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--border)] sm:h-10"
+        className="h-20 border-y border-border bg-[radial-gradient(var(--border)_1px,transparent_1px)] bg-[size:20px_20px]"
       />
 
-      <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 py-10 text-base/relaxed text-muted-foreground max-sm:px-4">
+      <GridContainer className="py-24 sm:py-32" withBorder={false}>
+        <p className="max-w-(--breakpoint-md) px-2 text-[1.125rem]/relaxed text-muted-foreground max-sm:px-4 sm:text-[1.25rem]">
           I'm active on several platforms. Follow my work, check out what I'm building, or just drop
           by to say hello.
         </p>
@@ -39,7 +39,7 @@ export default function GetInTouch() {
 
       <div
         aria-hidden="true"
-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--border)] sm:h-10"
+        className="h-20 border-y border-border bg-[radial-gradient(var(--border)_1px,transparent_1px)] bg-[size:20px_20px]"
       />
 
       <section>
@@ -61,10 +61,10 @@ export default function GetInTouch() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid h-full place-content-center transition-colors hover:bg-border/10 sm:px-2 sm:py-8"
+                  className="grid h-full place-content-center transition-colors hover:bg-muted sm:px-2 sm:py-8"
                 >
                   <div className="flex h-24 w-full max-w-80 items-center gap-4">
-                    <div className="rounded-radius flex size-12 items-center justify-center bg-background shadow-border transition-colors">
+                    <div className="flex size-12 items-center justify-center rounded-lg bg-background shadow-border transition-colors group-hover:shadow-card">
                       <Logo className="size-6" aria-hidden="true" />
                     </div>
                     <div className="flex flex-col">

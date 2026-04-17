@@ -35,6 +35,11 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  /* Workflow Accents */
+  --color-ship: #ff5b4f;
+  --color-preview: #de1d8d;
+  --color-develop: #0a72ef;
+
   --shadow-border: 0 0 0 1px var(--border);
   --shadow-elevation: 0 2px 2px rgba(0, 0, 0, 0.04);
   --shadow-card: var(--shadow-card-var);
@@ -74,8 +79,9 @@
   --input: rgba(0, 0, 0, 0.08);
   --ring: hsla(212, 100%, 48%, 1);
 
-  --radius: 6px;
+  --radius: 8px;
 
+  /* Level 3 Full Card Shadow Stack from DESIGN.md */
   --shadow-card-var:
     0 0 0 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.04),
     0 8px 8px -8px rgba(0, 0, 0, 0.04), inset 0 0 0 1px #fafafa;
@@ -103,13 +109,7 @@
   --secondary-foreground: #ffffff;
 
   --muted: #171717;
-  --muted-foreground: #a1a1a1;
-
-  --accent: #0072f5;
-  --accent-foreground: #ffffff;
-
-  --destructive: #ff5b4f;
-  --destructive-foreground: #ffffff;
+  --muted-foreground: #808080;
 
   --border: rgba(255, 255, 255, 0.145);
   --input: rgba(255, 255, 255, 0.145);
@@ -157,6 +157,13 @@ html {
   @apply after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-border;
 }
 
+/* Strong dark line for major sections */
+@utility line-y-strong {
+  @apply relative;
+  @apply before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-foreground;
+  @apply after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-foreground;
+}
+
 @utility shadow-border {
   box-shadow: var(--shadow-border);
 }
@@ -170,6 +177,10 @@ html {
 }
 
 @utility tracking-heading {
+  letter-spacing: -0.06em;
+}
+
+@utility tracking-subheading {
   letter-spacing: -0.04em;
 }
 
@@ -184,7 +195,15 @@ html {
   h4,
   h5,
   h6 {
-    @apply font-semibold tracking-heading;
+    @apply font-semibold;
+  }
+
+  h1 {
+    @apply tracking-display;
+  }
+
+  h2 {
+    @apply tracking-heading;
   }
 
   a {

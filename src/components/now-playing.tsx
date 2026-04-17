@@ -32,30 +32,30 @@ export default function NowPlaying() {
 
   return (
     <section className="relative">
-      <GridContainer>
-        <h2 className="max-w-lg px-2 py-8 text-[2.5rem]/10 font-semibold tracking-heading text-balance max-sm:px-4">
+      <GridContainer className="py-24 sm:py-32" withBorder={false}>
+        <h2 className="max-w-lg px-2 text-[2.5rem]/[1.2] font-semibold tracking-heading text-balance max-sm:px-4 sm:text-[3rem]">
           Now playing.
         </h2>
       </GridContainer>
 
       <div
         aria-hidden="true"
-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--border)] sm:h-10"
+        className="h-20 border-y border-border bg-[radial-gradient(var(--border)_1px,transparent_1px)] bg-[size:20px_20px]"
       />
 
-      <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 py-10 text-base/relaxed text-muted-foreground max-sm:px-4">
+      <GridContainer className="py-24 sm:py-32" withBorder={false}>
+        <p className="max-w-(--breakpoint-md) px-2 text-[1.125rem]/relaxed text-muted-foreground max-sm:px-4 sm:text-[1.25rem]">
           If we'll ever be remembered, I know it'll be for the way that we love.
         </p>
       </GridContainer>
 
       <div
         aria-hidden="true"
-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--border)] sm:h-10"
+        className="h-20 border-y border-border bg-[radial-gradient(var(--border)_1px,transparent_1px)] bg-[size:20px_20px]"
       />
 
-      <GridContainer>
-        <div className="max-w-md px-2 py-16 max-sm:px-4">
+      <GridContainer className="py-24 sm:py-48" withBorder={false}>
+        <div className="max-w-md px-2 max-sm:px-4">
           <SpotifyCard
             data={FAVORITE_TRACK}
             isPlaying={isPlaying}

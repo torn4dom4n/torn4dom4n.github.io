@@ -28,7 +28,7 @@ function ThemeToggleButton({
       tabIndex={selected ? 0 : -1}
       onClick={() => onValueChange(value)}
       title={title}
-      className={`flex items-center justify-center rounded-full p-1 transition-all ${
+      className={`flex items-center justify-center rounded-full p-1 transition-all focus-visible:ring-2 focus-visible:ring-ring ${
         selected
           ? "bg-background text-foreground shadow-elevation"
           : "text-muted-foreground hover:bg-border/20 hover:text-foreground"

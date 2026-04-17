@@ -30,8 +30,8 @@ function ThemeToggleButton({
       title={title}
       className={`flex items-center justify-center rounded-full p-1 transition-all ${
         selected
-          ? "bg-white text-gray-950 shadow-[0_1px_2px_rgba(0,0,0,0.1)] dark:bg-gray-800 dark:text-white"
-          : "text-gray-500 hover:bg-gray-200/50 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800/50 dark:hover:text-white"
+          ? "bg-geist-background text-geist-foreground shadow-elevation"
+          : "text-geist-tertiary hover:bg-geist-border/20 hover:text-geist-foreground"
       }`}
       {...props}
     >
@@ -47,7 +47,7 @@ export function ModeToggle() {
     <div
       role="radiogroup"
       aria-label="Select color theme"
-      className="inline-flex items-center gap-0.5 rounded-full border border-gray-950/5 bg-gray-100/50 p-0.5 dark:border-white/10 dark:bg-gray-900/50"
+      className="inline-flex items-center gap-0.5 rounded-full bg-geist-border/10 p-0.5 shadow-border"
     >
       <ThemeToggleButton
         aria-label="System theme"

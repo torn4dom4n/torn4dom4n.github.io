@@ -5,17 +5,48 @@
 @theme {
   --font-sans: "Geist Variable", "Geist fallback", "Geist", sans-serif;
   --font-mono: "Geist Mono Variable", "Geist Mono fallback", "Geist Mono", monospace;
+
+  --color-geist-foreground: #171717;
+  --color-geist-background: #ffffff;
+  --color-geist-secondary: #4d4d4d;
+  --color-geist-tertiary: #666666;
+  --color-geist-border: rgba(0, 0, 0, 0.08);
+  --color-geist-accent: #0072f5;
+
+  --shadow-border: 0 0 0 1px var(--color-geist-border);
+  --shadow-elevation: 0 2px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card:
+    0 0 0 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.04),
+    0 8px 8px -8px rgba(0, 0, 0, 0.04), inset 0 0 0 1px #fafafa;
+
+  --radius-geist: 6px;
+  --radius-geist-card: 8px;
 }
 
 :root {
-  color-scheme: light dark;
-  @apply font-sans antialiased;
-}
-.dark {
-  color-scheme: dark;
-}
-.light {
+  --geist-foreground: #171717;
+  --geist-background: #ffffff;
+  --ds-focus-color: hsla(212, 100%, 48%, 1);
+
   color-scheme: light;
+  background-color: var(--geist-background);
+  color: var(--geist-foreground);
+
+  @apply font-sans antialiased;
+  font-feature-settings: "liga" 1;
+}
+
+.dark {
+  --geist-foreground: #ededed;
+  --geist-background: #000000;
+  --color-geist-border: rgba(255, 255, 255, 0.145);
+  --shadow-card:
+    0 0 0 1px rgba(255, 255, 255, 0.145), 0 2px 2px rgba(0, 0, 0, 0.4),
+    0 8px 8px -8px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+
+  color-scheme: dark;
+  background-color: var(--geist-background);
+  color: var(--geist-foreground);
 }
 
 @variant dark {
@@ -44,6 +75,46 @@
 
 @utility line-y {
   @apply relative;
-  @apply before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-gray-950/5 dark:before:bg-white/10;
-  @apply after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-gray-950/5 dark:after:bg-white/10;
+  @apply before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-geist-border;
+  @apply after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-geist-border;
+}
+
+@utility shadow-border {
+  box-shadow: var(--shadow-border);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility tracking-display {
+  letter-spacing: -0.06em;
+}
+
+@utility tracking-heading {
+  letter-spacing: -0.04em;
+}
+
+@utility tracking-tight-alt {
+  letter-spacing: -0.02em;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold tracking-heading;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ds-focus-color);
+    outline-offset: 2px;
+  }
 }

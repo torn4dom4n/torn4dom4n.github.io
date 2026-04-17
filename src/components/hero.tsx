@@ -5,24 +5,19 @@ export default function Hero() {
     <div>
       <div
         aria-hidden="true"
-        className="flex h-16 items-end px-2 font-mono text-xs/6 whitespace-pre text-black/20 max-sm:px-4 sm:h-24 dark:text-white/25"
+        className="flex h-16 items-end px-2 font-mono text-[10px] font-medium tracking-wider whitespace-pre text-geist-tertiary uppercase max-sm:px-4 sm:h-24"
       >
-        <span className="inline">[Running...]</span>
+        <span className="inline">[ Running ]</span>
       </div>
 
       <GridContainer>
-        <h1 className="px-2 text-4xl tracking-tighter text-balance max-lg:font-medium max-sm:px-4 sm:text-5xl lg:text-6xl xl:text-8xl">
+        <h1 className="px-2 py-8 text-4xl font-semibold tracking-display text-balance max-sm:px-4 sm:text-5xl lg:text-6xl xl:text-8xl">
           What's up everybody.
         </h1>
       </GridContainer>
 
-      <div
-        aria-hidden="true"
-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/10"
-      />
-
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 text-lg/7 font-medium text-gray-600 max-sm:px-4 dark:text-gray-400">
+        <p className="max-w-(--breakpoint-md) px-2 py-10 text-lg/relaxed font-normal text-geist-secondary max-sm:px-4 sm:text-xl">
           My name is Long Nhat Nguyen. I explore music, photography, technology, and nature. Let's
           make and share things that bring a little positivity into the world.
         </p>

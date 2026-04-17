@@ -20,56 +20,44 @@ export default function GetInTouch() {
   return (
     <div className="relative max-w-full">
       <GridContainer>
-        <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
+        <h2 className="max-w-lg px-2 py-6 text-[2.5rem]/10 font-semibold tracking-heading text-balance max-sm:px-4">
           Get in touch.
         </h2>
       </GridContainer>
 
-      <div
-        aria-hidden="true"
-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/10"
-      />
-
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
+        <p className="max-w-(--breakpoint-md) px-2 py-6 text-base/relaxed text-geist-secondary max-sm:px-4">
           I'm active on several platforms. Follow my work, check out what I'm building, or just drop
           by to say hello.
         </p>
       </GridContainer>
 
-      <section>
-        <div className="relative isolate mt-16">
-          <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
-            <div className="border-r border-gray-950/5 dark:border-white/10" />
-            <div className="border-l border-gray-950/5 lg:border-x dark:border-white/10" />
-            <div className="border-l border-gray-950/5 max-lg:hidden xl:border-x dark:border-white/10" />
-            <div className="border-l border-gray-950/5 max-xl:hidden dark:border-white/10" />
-          </div>
-
-          <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
-            {brands.map(({ name, url, logo: Logo }) => (
-              <li
-                key={name}
-                className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y"
+      <section className="mt-20 px-2 max-sm:px-4">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {brands.map(({ name, url, logo: Logo }) => (
+            <li key={name}>
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 rounded-geist-card bg-geist-background p-5 shadow-card transition-all hover:scale-[1.02] hover:shadow-elevation"
               >
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
-                >
-                  <div className="flex h-24 w-full max-w-80 items-center gap-4">
-                    <Logo className="size-12" aria-hidden="true" />
-                    <span className="text-lg font-medium text-gray-700 dark:text-gray-300">
-                      {name}
-                      <span className="sr-only"> (opens in a new tab)</span>
-                    </span>
-                  </div>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+                <div className="flex size-12 items-center justify-center rounded-geist bg-geist-background shadow-border transition-colors group-hover:bg-geist-accent group-hover:text-white">
+                  <Logo className="size-6" aria-hidden="true" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-base font-semibold tracking-tight-alt text-geist-foreground">
+                    {name}
+                  </span>
+                  <span className="text-sm text-geist-tertiary">
+                    Follow me on {name}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </span>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   );

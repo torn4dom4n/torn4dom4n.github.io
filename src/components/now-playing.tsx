@@ -20,7 +20,7 @@ export default function NowPlaying() {
 
       <div
         aria-hidden="true"
-        className="relative left-1/2 h-6 w-[200vw] -translate-x-1/2 bg-grid bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/10"
+        className="relative left-1/2 h-6 w-[200vw] -translate-x-1/2 bg-gray-950/5 sm:h-10 dark:bg-white/5"
       />
 
       <GridContainer>

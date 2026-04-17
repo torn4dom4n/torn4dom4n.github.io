@@ -27,7 +27,7 @@ export default function GetInTouch() {
 
       <div
         aria-hidden="true"
-        className="relative left-1/2 h-6 w-[200vw] -translate-x-1/2 bg-grid bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/10"
+        className="relative left-1/2 h-6 w-[200vw] -translate-x-1/2 bg-gray-950/5 sm:h-10 dark:bg-white/5"
       />
 
       <GridContainer>
@@ -56,7 +56,7 @@ export default function GetInTouch() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid place-content-center transition-colors hover:bg-gray-950/2.5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
+                  className="grid place-content-center transition-colors hover:bg-gray-950/5 sm:px-2 sm:py-4 dark:hover:bg-white/2.5"
                 >
                   <div className="flex h-24 w-full max-w-80 items-center gap-4">
                     <Logo className="size-12" aria-hidden="true" />

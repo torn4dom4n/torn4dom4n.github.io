@@ -18,60 +18,55 @@ type Brand = {
 
 export default function GetInTouch() {
   return (
-    <div className="relative max-w-full">
+    <section id="get-in-touch" className="relative">
       <GridContainer>
-        <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-bold tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
-          Get in touch.
-        </h2>
-      </GridContainer>
+        <div className="px-4 py-16 md:px-6 md:py-24 lg:px-8">
+          <h2 className="text-[2.5rem]/10 font-bold tracking-tighter text-balance sm:text-5xl lg:text-6xl">
+            Get in touch.
+          </h2>
+          <p className="mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+            I'm active on several platforms. Follow my work, check out what I'm building, or just
+            drop by to say hello.
+          </p>
 
-      <div
-        aria-hidden="true"
-        className="h-6 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-black)]/5 sm:h-10 dark:[--pattern-fg:var(--color-white)]/10"
-      />
-
-      <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
-          I'm active on several platforms. Follow my work, check out what I'm building, or just drop
-          by to say hello.
-        </p>
-      </GridContainer>
-
-      <section>
-        <div className="relative isolate mt-16">
-          <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
-            <div className="border-r border-black/5 dark:border-white/10" />
-            <div className="border-l border-black/5 lg:border-x dark:border-white/10" />
-            <div className="border-l border-black/5 max-lg:hidden xl:border-x dark:border-white/10" />
-            <div className="border-l border-black/5 max-xl:hidden dark:border-white/10" />
-          </div>
-
-          <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {brands.map(({ name, url, logo: Logo }) => (
-              <li
+              <a
                 key={name}
-                className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y"
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center gap-4 rounded-xl bg-white p-6 shadow-border transition-all hover:shadow-glow dark:bg-black"
               >
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group grid place-content-center transition-all hover:bg-black/[0.02] sm:px-2 sm:py-4 dark:hover:bg-white/[0.02]"
-                >
-                  <div className="flex h-24 w-full max-w-80 items-center gap-4 transition-transform group-hover:translate-x-1">
-                    <Logo className="size-12" aria-hidden="true" />
-                    <span className="text-lg font-bold tracking-tight text-gray-700 dark:text-gray-300">
-                      {name}
-                      <span className="sr-only"> (opens in a new tab)</span>
-                    </span>
-                  </div>
-                </a>
-              </li>
+                <div className="flex size-12 items-center justify-center rounded-lg border border-black/5 bg-gray-50 transition-colors group-hover:bg-gray-100 dark:border-white/10 dark:bg-gray-900 dark:group-hover:bg-gray-800">
+                  <Logo className="size-6" aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-black dark:text-white">{name}</h3>
+                  <p className="text-sm text-gray-500">Follow @torn4dom4n</p>
+                </div>
+                <div className="ml-auto opacity-0 transition-opacity group-hover:opacity-100">
+                  <svg
+                    className="size-5 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </div>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
             ))}
-          </ul>
+          </div>
         </div>
-      </section>
-    </div>
+      </GridContainer>
+    </section>
   );
 }
 

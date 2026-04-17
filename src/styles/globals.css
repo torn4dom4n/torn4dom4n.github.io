@@ -42,6 +42,24 @@
   }
 }
 
+@utility shadow-border {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  @variant dark {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+}
+
+@utility shadow-glow {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 8px 30px rgba(0, 0, 0, 0.04);
+  @variant dark {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.15),
+      0 8px 30px rgba(255, 255, 255, 0.04);
+  }
+}
+
 @utility line-y {
   @apply relative;
   @apply before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-black/5 dark:before:bg-white/10;

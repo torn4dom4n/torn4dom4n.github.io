@@ -1,46 +1,61 @@
-# Design System
+# Vercel-Inspired Design System
 
-This project follows a minimalist, engineering-focused design philosophy heavily inspired by the Next.js and Vercel aesthetic. It focuses on clarity, performance, and a high-contrast monochrome palette.
+This project implements a minimalist, engineering-focused design system heavily influenced by the Vercel and Next.js aesthetic. It prioritizes clarity, typography, and a "shadow-as-border" visual language.
 
-## Core Principles
+## 1. Core Philosophy
 
-- **Minimalism & Precision**: Every element is intentional. We use space and alignment to create a professional, clean interface.
-- **Typography-First**: High-quality typefaces are the primary design element, using scale and weight to establish hierarchy.
-- **Next.js Aesthetic**: Adopting the visual language of the Next.js website through refined typography, monochrome colors, and subtle decorative elements.
-- **Dark Mode Native**: A first-class dark mode experience with deep blacks (#000) and pure whites (#fff).
+The custom Geist font family is the foundation. Geist Sans uses aggressive negative letter-spacing to create a "minified" look, while Geist Mono provides technical precision.
 
-## Typography
+What distinguishes this system is its **shadow-as-border** philosophy. Instead of traditional CSS borders, we use `box-shadow: 0 0 0 1px` to create refined lines that don't affect the box model, enabling smoother transitions and rounded corners.
 
-The project uses **Geist** and **Geist Mono** for a modern, engineering-focused look.
+## 2. Color Palette
 
-- **Geist Sans**: Used for headings and body text.
-- **Geist Mono**: Used for labels and small UI elements.
-- **Headings**: Use bold weight and tight tracking (`tracking-tighter`) to create a modern, high-contrast feel.
+- **Black** (`#000000`): Primary background in dark mode, primary text in light mode.
+- **White** (`#ffffff`): Primary background in light mode, primary text in dark mode.
+- **Grays**:
+  - Gray 950 (`#030712`)
+  - Gray 600 (`#4b5563`)
+  - Gray 400 (`#9ca3af`)
+- **Accents**:
+  - Amber 500 (`#f59e0b`): Used for primary focus rings and status badges.
 
-## Color Palette
+## 3. Typography (Geist)
 
-The palette is strictly neutral to ensure a timeless and professional feel.
+- **Headings**: Bold (`font-bold`), extra tight tracking (`tracking-tighter`), and large scale.
+- **Mono**: Geist Mono for technical labels and code snippets (`font-mono`).
+- **Body**: Clean, high-readability sans-serif (`font-sans`).
 
-- **Light Mode**:
-  - Background: White (`#ffffff`)
-  - Text: Gray 950 (`#030712`)
-  - Secondary Text: Gray 600 (`#4b5563`)
-  - Borders/Dividers: Black 5% (`rgba(0, 0, 0, 0.05)`)
-- **Dark Mode**:
-  - Background: Black (`#000000`)
-  - Text: White (`#ffffff`)
-  - Secondary Text: Gray 400 (`#9ca3af`)
-  - Borders/Dividers: White 10% (`rgba(255, 255, 255, 0.1)`)
+## 4. Layout Components
 
-## Visual Language
+### Sticky Header
 
-- **Grid-Driven**: Elements are aligned to a consistent grid system with subtle decorative dividers.
-- **Interactive States**: Hover effects use subtle background shifts (2% opacity) and slight translations to provide feedback without clutter.
-- **Borders**: Thin lines (`1px`) using standard border colors define structure.
-- **Patterns**: Subtle repeating linear gradients for background textures (e.g., the grid stripes).
+A glass-morphic navigation bar (`backdrop-blur-md`) that persists at the top of the viewport. Features a centered layout with navigation links and a primary "Ship" CTA.
 
-## Architecture
+### Hero Section
 
-- **Static Site Generation (SSG)**: Pure static output for maximum performance.
-- **Component-Driven**: Modular UI architecture in `src/components`.
-- **Utility-First**: Tailwind CSS 4.x for efficient styling.
+Billboard-style headings combined with an interactive "terminal" box. Features an announcement badge for immediate context.
+
+### Feature Cards
+
+Feature/Social links are presented as refined cards with:
+
+- `box-shadow: 0 0 0 1px rgba(0,0,0,0.08)` (Light) or `rgba(255,255,255,0.1)` (Dark).
+- Hover-activated "glow" and subtle scaling.
+- Integrated icons from `simple-icons`.
+
+### Multi-column Footer
+
+A structured footer with link categories (Resources, Social, About) and a theme toggle.
+
+## 5. Visual Language
+
+- **Glass-morphism**: Used on the header to create depth.
+- **Shadow Borders**: Replaces standard CSS borders for a "Vercel" look.
+- **Pattern Dividers**: Subtle linear gradients used as section separators.
+- **Interactions**: Focus-visible rings in Amber 500.
+
+## 6. Architecture
+
+- **SSG**: Pre-built static content for maximum performance.
+- **Component-Driven**: Modular React components.
+- **Tailwind CSS 4.x**: Utility-first styling with custom CSS variables.

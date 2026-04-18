@@ -1,5 +1,5 @@
-import { SpotifyCard, type SpotifyData } from "@/components/spotify-card";
 import GridContainer from "@/components/ui/grid-container";
+import { SpotifyCard, type SpotifyData } from "@/components/ui/spotify-card";
 
 const FAVORITE_TRACK: SpotifyData = {
   title: "Catharina",
@@ -14,7 +14,7 @@ export default function NowPlaying() {
     <section className="relative">
       <GridContainer>
         <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
-          Now playing.
+          Now playing
         </h2>
       </GridContainer>
 

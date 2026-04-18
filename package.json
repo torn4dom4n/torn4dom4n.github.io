@@ -2,7 +2,7 @@
   "name": "@torn4dom4n/website",
   "version": "0.1.0",
   "private": true,
-  "description": "My name is Long Nhat Nguyen and this is my website.",
+  "description": "Long Nhat Nguyen's website",
   "type": "module",
   "scripts": {
     "dev": "vp dev",

@@ -8,10 +8,6 @@
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
@@ -40,10 +36,6 @@
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
@@ -57,18 +49,11 @@
   --input: oklch(0 0 0 / 8%);
   --ring: oklch(0.708 0 0);
   --radius: 0.625rem;
-
-  color-scheme: light dark;
-  @apply font-sans antialiased;
 }
 
 .dark {
   --background: oklch(0 0 0);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0 0 0);
-  --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.985 0 0);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.145 0 0);
@@ -81,40 +66,11 @@
   --border: oklch(1 0 0 / 14.5%);
   --input: oklch(1 0 0 / 14.5%);
   --ring: oklch(0.439 0 0);
-
-  color-scheme: dark;
-}
-
-.light {
-  color-scheme: light;
-}
-
-@variant dark {
-  &:where(.dark, .dark *) {
-    @slot;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    &:where(.system, .system *) {
-      @slot;
-    }
-  }
-}
-
-@variant not-dark {
-  &:not(:where(.dark, .dark *)) {
-    @media not (prefers-color-scheme: dark) {
-      @slot;
-    }
-
-    &:not(:where(.system, .system *)) {
-      @slot;
-    }
-  }
 }
 
 @layer base {
   * {
+    @apply font-sans antialiased;
     @apply border-border outline-ring/50;
   }
 

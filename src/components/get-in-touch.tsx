@@ -21,7 +21,7 @@ export default function GetInTouch() {
     <div className="relative max-w-full">
       <GridContainer>
         <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
-          Get in touch.
+          Get in touch
         </h2>
       </GridContainer>
 

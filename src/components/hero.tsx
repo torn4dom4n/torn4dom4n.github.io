@@ -11,12 +11,12 @@ export default function Hero() {
 
       <div className="h-6 sm:h-10" />
 
-      <GridContainer>
+      <section>
         <p className="max-w-(--breakpoint-md) px-2 text-lg/7 text-muted-foreground max-sm:px-4">
           What's up everybody. I'm only a human. I explore music, photography, technology, and
           nature. Let's make and share things that bring a little positivity into the world.
         </p>
-      </GridContainer>
+      </section>
     </div>
   );
 }

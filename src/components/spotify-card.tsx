@@ -52,7 +52,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
   return (
     <div
       className={cn(
-        "border-border relative flex h-full max-h-[100px] w-full items-stretch justify-center overflow-hidden rounded-2xl border p-3",
+        "relative flex h-full max-h-[100px] w-full items-stretch justify-center overflow-hidden rounded-2xl border border-border p-3",
         className,
       )}
     >
@@ -101,7 +101,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 animationPlayState: isPlaying ? "running" : "paused",
               }}
             >
-              <circle cx="55" cy="55" r="55" fill="#000" />
+              <circle cx="55" cy="55" r="55" fill="var(--foreground)" />
               <mask
                 id={`mask0_${uniqueId}`}
                 width="110"
@@ -111,26 +111,62 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 maskUnits="userSpaceOnUse"
                 style={{ maskType: "alpha" }}
               >
-                <circle cx="55" cy="55" r="55" fill="#000" />
+                <circle cx="55" cy="55" r="55" fill="var(--foreground)" />
               </mask>
               <g mask={`url(#mask0_${uniqueId})`}>
                 <g filter={`url(#filter0_${uniqueId})`}>
-                  <circle cx="55" cy="55" r="51.5" stroke="#fff" strokeOpacity="0.21" />
+                  <circle
+                    cx="55"
+                    cy="55"
+                    r="51.5"
+                    stroke="var(--background)"
+                    strokeOpacity="0.21"
+                  />
                 </g>
                 <g filter={`url(#filter1_${uniqueId})`}>
-                  <circle cx="55" cy="55" r="47.5" stroke="#fff" strokeOpacity="0.21" />
+                  <circle
+                    cx="55"
+                    cy="55"
+                    r="47.5"
+                    stroke="var(--background)"
+                    strokeOpacity="0.21"
+                  />
                 </g>
                 <g filter={`url(#filter2_${uniqueId})`}>
-                  <circle cx="55" cy="55" r="45.5" stroke="#fff" strokeOpacity="0.21" />
+                  <circle
+                    cx="55"
+                    cy="55"
+                    r="45.5"
+                    stroke="var(--background)"
+                    strokeOpacity="0.21"
+                  />
                 </g>
                 <g filter={`url(#filter3_${uniqueId})`}>
-                  <circle cx="55" cy="55" r="43.5" stroke="#fff" strokeOpacity="0.21" />
+                  <circle
+                    cx="55"
+                    cy="55"
+                    r="43.5"
+                    stroke="var(--background)"
+                    strokeOpacity="0.21"
+                  />
                 </g>
                 <g filter={`url(#filter4_${uniqueId})`}>
-                  <circle cx="55" cy="55" r="37.5" stroke="#fff" strokeOpacity="0.21" />
+                  <circle
+                    cx="55"
+                    cy="55"
+                    r="37.5"
+                    stroke="var(--background)"
+                    strokeOpacity="0.21"
+                  />
                 </g>
                 <g filter={`url(#filter5_${uniqueId})`}>
-                  <circle cx="55" cy="55" r="34.5" stroke="#fff" strokeOpacity="0.21" />
+                  <circle
+                    cx="55"
+                    cy="55"
+                    r="34.5"
+                    stroke="var(--background)"
+                    strokeOpacity="0.21"
+                  />
                 </g>
                 <g filter={`url(#filter6_${uniqueId})`} opacity="0.4">
                   <path fill="#fff" d="M-14 38l68 19.579L-14 74V38z" />
@@ -290,14 +326,14 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
             aria-label="View track on Spotify"
             className="cursor-pointer"
           >
-            <SpotifyIcon width={18} height={18} className="text-[#BAAEBA]" />
+            <SpotifyIcon width={18} height={18} className="text-muted-foreground" />
           </a>
         </div>
         <div className="pl-6 text-end">
-          <h3 className="text-sm font-semibold tracking-[-.006em] whitespace-nowrap text-[#D6D1D4]">
+          <h3 className="text-sm font-semibold tracking-[-.006em] whitespace-nowrap text-foreground">
             {data.title}
           </h3>
-          <p className="text-sm font-medium tracking-[-.006em] whitespace-nowrap text-[#BAAEBA]">
+          <p className="text-sm font-medium tracking-[-.006em] whitespace-nowrap text-muted-foreground">
             {data.artist}
           </p>
         </div>

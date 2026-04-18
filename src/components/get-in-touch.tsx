@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import AppleIcon from "~icons/simple-icons/apple";
 import FacebookIcon from "~icons/simple-icons/facebook";
 import GitHubIcon from "~icons/simple-icons/github";
 import InstagramIcon from "~icons/simple-icons/instagram";
 import LinkedInIcon from "~icons/simple-icons/linkedin";
-import PinterestIcon from "~icons/simple-icons/pinterest";
 import RedditIcon from "~icons/simple-icons/reddit";
+import SnapchatIcon from "~icons/simple-icons/snapchat";
 import SoundCloudIcon from "~icons/simple-icons/soundcloud";
 import SpotifyIcon from "~icons/simple-icons/spotify";
 import TikTokIcon from "~icons/simple-icons/tiktok";
@@ -13,7 +13,6 @@ import YouTubeIcon from "~icons/simple-icons/youtube";
 
 import GridContainer from "@/components/ui/grid-container";
 import SectionHeader from "@/components/ui/section-header";
-import { cn } from "@/lib/utils";
 
 type Brand = {
   name: string;
@@ -22,27 +21,6 @@ type Brand = {
 };
 
 export default function GetInTouch() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 },
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className="relative max-w-full">
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
@@ -64,22 +42,15 @@ export default function GetInTouch() {
         </p>
       </GridContainer>
 
-      <section ref={sectionRef} className="mt-16 flex justify-center px-4" aria-label="Follow Me">
-        <div className="grid grid-cols-2 border-t border-l border-border sm:grid-cols-4 lg:grid-cols-5">
-          {brands.map(({ name, url, logo: Logo }, index) => (
-            <div
-              key={name}
-              className={cn(
-                "social-grid-item border-r border-b border-border",
-                isVisible && "is-visible",
-              )}
-              style={{ "--delay": `${index * 50}ms` } as React.CSSProperties}
-            >
+      <section className="mt-16 flex justify-center px-4" aria-label="Follow Me">
+        <div className="grid grid-cols-4 border-t border-l border-border sm:grid-cols-5 md:grid-cols-6">
+          {brands.map(({ name, url, logo: Logo }) => (
+            <div key={name} className="border-r border-b border-border">
               <a
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex aspect-square size-full min-h-24 min-w-24 items-center justify-center text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background sm:size-32"
+                className="flex aspect-square size-full min-h-20 min-w-20 items-center justify-center text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background sm:size-32"
                 aria-label={`Follow me on ${name} (opens in a new tab)`}
               >
                 <Logo className="size-8 sm:size-10" />
@@ -124,6 +95,16 @@ const brands: Brand[] = [
     logo: XIcon,
   },
   {
+    name: "Snapchat",
+    url: "https://snapchat.com/add/torn4dom4n",
+    logo: SnapchatIcon,
+  },
+  {
+    name: "Apple",
+    url: "https://music.apple.com/profile/torn4dom4n",
+    logo: AppleIcon,
+  },
+  {
     name: "GitHub",
     url: "https://github.com/torn4dom4n",
     logo: GitHubIcon,
@@ -137,11 +118,6 @@ const brands: Brand[] = [
     name: "Reddit",
     url: "https://reddit.com/user/torn4dom4n",
     logo: RedditIcon,
-  },
-  {
-    name: "Pinterest",
-    url: "https://pinterest.com/torn4dom4n",
-    logo: PinterestIcon,
   },
   {
     name: "SoundCloud",

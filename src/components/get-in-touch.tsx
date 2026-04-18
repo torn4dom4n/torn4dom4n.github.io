@@ -9,6 +9,7 @@ import XIcon from "~icons/simple-icons/x";
 import YouTubeIcon from "~icons/simple-icons/youtube";
 
 import GridContainer from "@/components/ui/grid-container";
+import SectionHeader from "@/components/ui/section-header";
 
 type Brand = {
   name: string;
@@ -19,6 +20,10 @@ type Brand = {
 export default function GetInTouch() {
   return (
     <div className="relative max-w-full">
+      <GridContainer className="2xl:before:hidden 2xl:after:hidden">
+        <SectionHeader className="text-foreground/80">Socials</SectionHeader>
+      </GridContainer>
+
       <GridContainer>
         <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
           Get in touch

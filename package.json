@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@fontsource-variable/geist": "^5.2.8",
+    "@fontsource-variable/geist-mono": "^5.2.8",
     "@iconify-json/simple-icons": "^1.2.78",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
@@ -32,5 +33,6 @@
     "unplugin-icons": "^23.0.1",
     "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.18",
     "vite-plus": "latest"
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }

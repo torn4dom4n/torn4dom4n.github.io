@@ -1,7 +1,7 @@
+import { Footer } from "@/components/footer";
 import GetInTouch from "@/components/get-in-touch";
 import Hero from "@/components/hero";
 import NowPlaying from "@/components/now-playing";
-import { Footer } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
 
 function App() {

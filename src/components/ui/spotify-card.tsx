@@ -52,7 +52,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
   return (
     <div
       className={cn(
-        "relative flex h-full max-h-[100px] w-full items-stretch justify-center overflow-hidden rounded-2xl border border-border p-3",
+        "relative flex h-full max-h-25 w-full items-stretch justify-center overflow-hidden rounded-2xl border border-border p-3",
         className,
       )}
     >
@@ -63,14 +63,14 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
             alt=""
             className="absolute top-0 left-0 block h-full w-full blur-[50px] brightness-150"
           />
-          <div className="absolute top-0 left-0 h-full w-full bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0)_0,_rgba(0,_0,_0,_.8))]" />
+          <div className="absolute top-0 left-0 h-full w-full bg-[linear-gradient(180deg,rgba(0,0,0,0)_0,rgba(0,0,0,.8))]" />
         </div>
       </div>
       <button
         onClick={data.audio ? handlePlayPause : undefined}
         aria-label={isPlaying ? "Pause preview" : "Play preview"}
         className={cn(
-          "group relative z-[1] w-full max-w-[75px] self-center",
+          "group relative z-1 w-full max-w-18.75 self-center",
           data.audio && "cursor-pointer",
         )}
       >
@@ -78,7 +78,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
           src={data.image}
           alt={data.title}
           className={cn(
-            "pointer-events-none relative z-[1] min-h-[75px] w-full min-w-[75px] rounded-lg object-cover shadow-md transition-transform duration-300 ease-out select-none",
+            "pointer-events-none relative z-1 min-h-18.75 w-full min-w-18.75 rounded-lg object-cover shadow-md transition-transform duration-300 ease-out select-none",
             data.audio && "group-hover:-translate-x-0.5",
             isPlaying && "-translate-x-0.5",
           )}
@@ -86,7 +86,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
         {data.audio && (
           <div
             className={cn(
-              "absolute top-1/2 left-1/2 -z-[1] size-[80%] -translate-y-1/2 transition-all duration-300",
+              "absolute top-1/2 left-1/2 -z-1 size-[80%] -translate-y-1/2 transition-all duration-300",
               isPlaying
                 ? "translate-x-[-10%]"
                 : "translate-x-[-50%] group-hover:translate-x-[-10%]",
@@ -101,7 +101,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 animationPlayState: isPlaying ? "running" : "paused",
               }}
             >
-              <circle cx="55" cy="55" r="55" fill="var(--foreground)" />
+              <circle cx="55" cy="55" r="55" fill="#FFFFF" />
               <mask
                 id={`mask0_${uniqueId}`}
                 width="110"
@@ -111,62 +111,26 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 maskUnits="userSpaceOnUse"
                 style={{ maskType: "alpha" }}
               >
-                <circle cx="55" cy="55" r="55" fill="var(--foreground)" />
+                <circle cx="55" cy="55" r="55" fill="#FFFFF" />
               </mask>
               <g mask={`url(#mask0_${uniqueId})`}>
                 <g filter={`url(#filter0_${uniqueId})`}>
-                  <circle
-                    cx="55"
-                    cy="55"
-                    r="51.5"
-                    stroke="var(--background)"
-                    strokeOpacity="0.21"
-                  />
+                  <circle cx="55" cy="55" r="51.5" stroke="#00000" strokeOpacity="0.21" />
                 </g>
                 <g filter={`url(#filter1_${uniqueId})`}>
-                  <circle
-                    cx="55"
-                    cy="55"
-                    r="47.5"
-                    stroke="var(--background)"
-                    strokeOpacity="0.21"
-                  />
+                  <circle cx="55" cy="55" r="47.5" stroke="#00000" strokeOpacity="0.21" />
                 </g>
                 <g filter={`url(#filter2_${uniqueId})`}>
-                  <circle
-                    cx="55"
-                    cy="55"
-                    r="45.5"
-                    stroke="var(--background)"
-                    strokeOpacity="0.21"
-                  />
+                  <circle cx="55" cy="55" r="45.5" stroke="#00000" strokeOpacity="0.21" />
                 </g>
                 <g filter={`url(#filter3_${uniqueId})`}>
-                  <circle
-                    cx="55"
-                    cy="55"
-                    r="43.5"
-                    stroke="var(--background)"
-                    strokeOpacity="0.21"
-                  />
+                  <circle cx="55" cy="55" r="43.5" stroke="#00000" strokeOpacity="0.21" />
                 </g>
                 <g filter={`url(#filter4_${uniqueId})`}>
-                  <circle
-                    cx="55"
-                    cy="55"
-                    r="37.5"
-                    stroke="var(--background)"
-                    strokeOpacity="0.21"
-                  />
+                  <circle cx="55" cy="55" r="37.5" stroke="#00000" strokeOpacity="0.21" />
                 </g>
                 <g filter={`url(#filter5_${uniqueId})`}>
-                  <circle
-                    cx="55"
-                    cy="55"
-                    r="34.5"
-                    stroke="var(--background)"
-                    strokeOpacity="0.21"
-                  />
+                  <circle cx="55" cy="55" r="34.5" stroke="#00000" strokeOpacity="0.21" />
                 </g>
                 <g filter={`url(#filter6_${uniqueId})`} opacity="0.4">
                   <path fill="#fff" d="M-14 38l68 19.579L-14 74V38z" />

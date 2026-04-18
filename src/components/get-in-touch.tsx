@@ -39,38 +39,42 @@ export default function GetInTouch() {
         </p>
       </GridContainer>
 
-      <section>
-        <div className="relative isolate mt-16">
-          <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
-            <div className="border-r border-border" />
-            <div className="border-l border-border lg:border-x" />
-            <div className="border-l border-border max-lg:hidden xl:border-x" />
-            <div className="border-l border-border max-xl:hidden" />
-          </div>
+      <section
+        className="mt-16 overflow-hidden border-y border-border py-12"
+        aria-label="Social media links"
+      >
+        {/* Accessible non-animated list for screen readers */}
+        <ul className="sr-only">
+          {brands.map(({ name, url }) => (
+            <li key={name}>
+              <a href={url} target="_blank" rel="noopener noreferrer">
+                {name} (opens in a new tab)
+              </a>
+            </li>
+          ))}
+        </ul>
 
-          <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
-            {brands.map(({ name, url, logo: Logo }) => (
-              <li
-                key={name}
-                className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y"
-              >
+        {/* Visual marquee track */}
+        <div className="group flex overflow-hidden" aria-hidden="true">
+          <div className="flex animate-marquee py-4 whitespace-nowrap group-hover:[animation-play-state:paused]">
+            {[...brands, ...brands].map(({ name, url, logo: Logo }, index) => (
+              <div key={`${name}-${index}`} className="flex items-center">
                 <a
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid place-content-center transition-colors hover:bg-accent/50 sm:px-2 sm:py-4"
+                  className="flex items-center gap-4 px-8 transition-colors hover:text-ring sm:px-12"
+                  tabIndex={-1}
                 >
-                  <div className="flex h-24 w-full max-w-80 items-center gap-4">
-                    <Logo className="size-12" aria-hidden="true" />
-                    <span className="text-lg font-medium text-foreground/80">
-                      {name}
-                      <span className="sr-only"> (opens in a new tab)</span>
-                    </span>
-                  </div>
+                  <Logo className="size-8 sm:size-12" />
+                  <span className="text-3xl font-bold tracking-tighter uppercase sm:text-5xl">
+                    {name}
+                  </span>
                 </a>
-              </li>
+                <span className="text-2xl text-border sm:text-4xl">✦</span>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
     </div>

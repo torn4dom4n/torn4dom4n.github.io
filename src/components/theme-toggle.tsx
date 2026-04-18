@@ -30,7 +30,7 @@ function ThemeToggleButton({
       title={title}
       className={`flex items-center justify-center rounded-full p-1 transition-all ${
         selected
-          ? "bg-background text-foreground shadow-elevation"
+          ? "shadow-elevation bg-background text-foreground"
           : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
       }`}
       {...props}

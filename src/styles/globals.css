@@ -3,6 +3,7 @@
 
 @theme inline {
   --font-sans: "Geist Variable", "Geist fallback", "Geist", sans-serif;
+  --font-mono: "Geist Mono Variable", "Geist Mono fallback", "Geist Mono", monospace;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);

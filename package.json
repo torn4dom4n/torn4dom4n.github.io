@@ -13,6 +13,12 @@
     "check": "vp check --fix",
     "prepare": "vp config"
   },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "tailwind-merge": "^3.5.0"
+  },
   "devDependencies": {
     "@fontsource-variable/geist": "^5.2.8",
     "@iconify-json/simple-icons": "^1.2.78",
@@ -23,14 +29,11 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
-    "clsx": "^2.1.1",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
-    "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.2",
     "typescript": "^6.0.2",
     "unplugin-icons": "^23.0.1",
     "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.18",
     "vite-plus": "latest"
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }

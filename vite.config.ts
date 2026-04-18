@@ -37,7 +37,7 @@ export default defineConfig({
     sortTailwindcss: {
       stylesheet: "./src/styles/globals.css",
       attributes: ["class", "className"],
-      functions: ["clsx", "cn", "cva", "tv"],
+      functions: ["clsx", "cn"],
     },
   },
   lint: {
@@ -51,7 +51,6 @@ export default defineConfig({
       "node",
       "promise",
       "vitest",
-      "vue",
     ],
     ignorePatterns: [
       "*.min.*",

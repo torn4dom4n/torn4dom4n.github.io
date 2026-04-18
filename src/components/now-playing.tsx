@@ -11,7 +11,7 @@ const FAVORITE_TRACK: SpotifyData = {
 
 export default function NowPlaying() {
   return (
-    <section className="relative">
+    <div className="relative max-w-full">
       <GridContainer>
         <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
           Now playing
@@ -26,11 +26,11 @@ export default function NowPlaying() {
         </p>
       </GridContainer>
 
-      <GridContainer>
+      <section>
         <div className="max-w-md px-2 py-12 max-sm:px-4">
           <SpotifyCard data={FAVORITE_TRACK} />
         </div>
-      </GridContainer>
-    </section>
+      </section>
+    </div>
   );
 }

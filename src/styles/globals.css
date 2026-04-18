@@ -59,4 +59,5 @@
 @utility line-y {
   @apply relative;
   @apply before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-border;
+  @apply after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-border;
 }

@@ -59,7 +59,7 @@ export default function GetInTouch() {
             {brands.map(({ name, url, logo: Logo }) => (
               <li
                 key={name}
-                className="max-md:nth-[4n+1]:line-y md:max-lg:nth-[6n+1]:line-y lg:nth-[8n+1]:line-y"
+                className="max-md:nth-[4n+1]:line-y max-md:nth-[4n+5]:before:hidden md:max-lg:nth-[6n+1]:line-y md:max-lg:nth-[6n+7]:before:hidden lg:nth-[8n+1]:line-y lg:nth-[8n+9]:before:hidden"
               >
                 <a
                   href={url}
@@ -73,9 +73,6 @@ export default function GetInTouch() {
               </li>
             ))}
           </ul>
-
-          {/* Bottom line to complete the grid */}
-          <div className="absolute bottom-0 left-1/2 h-px w-[200vw] -translate-x-1/2 bg-border" />
         </div>
       </section>
     </div>

@@ -42,21 +42,37 @@ export default function GetInTouch() {
         </p>
       </GridContainer>
 
-      <section className="mt-16 flex justify-center px-4" aria-label="Follow Me">
-        <div className="grid grid-cols-4 border-t border-l border-border sm:grid-cols-5 md:grid-cols-6">
-          {brands.map(({ name, url, logo: Logo }) => (
-            <div key={name} className="border-r border-b border-border">
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex aspect-square size-full min-h-20 min-w-20 items-center justify-center text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background sm:size-32"
-                aria-label={`Follow me on ${name} (opens in a new tab)`}
+      <section>
+        <div className="relative isolate mt-16">
+          {/* Vertical dividers overlay */}
+          <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+            <div className="border-r border-border" />
+            <div className="border-r border-border" />
+            <div className="border-r border-border" />
+            <div className="border-r border-border max-md:hidden" />
+            <div className="border-r border-border max-md:hidden" />
+            <div className="border-r border-border max-lg:hidden" />
+            <div className="border-r border-border max-lg:hidden" />
+          </div>
+
+          <ul className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+            {brands.map(({ name, url, logo: Logo }) => (
+              <li
+                key={name}
+                className="max-md:nth-[4n+1]:line-y md:max-lg:nth-[6n+1]:line-y lg:nth-[8n+1]:line-y"
               >
-                <Logo className="size-8 sm:size-10" />
-              </a>
-            </div>
-          ))}
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex aspect-square size-full items-center justify-center text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background sm:px-2 sm:py-4"
+                  aria-label={`Follow me on ${name} (opens in a new tab)`}
+                >
+                  <Logo className="size-8 sm:size-10" aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </div>

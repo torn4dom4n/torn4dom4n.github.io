@@ -62,10 +62,15 @@ export default function GetInTouch() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex aspect-square size-full items-center justify-center text-foreground/80 transition-colors duration-300 hover:bg-foreground hover:text-background sm:px-2 sm:py-4"
+                  className="group relative flex aspect-square size-full items-center justify-center text-foreground/80 transition-colors duration-300 hover:bg-foreground hover:text-background sm:px-2 sm:py-4"
                   aria-label={`Follow me on ${name} (opens in a new tab)`}
                 >
-                  <Logo className="size-8 sm:size-10" aria-hidden="true" />
+                  <div className="flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-2 sm:group-hover:-translate-y-3">
+                    <Logo className="size-8 sm:size-10" aria-hidden="true" />
+                    <span className="absolute top-full mt-1 text-[10px] font-bold tracking-widest uppercase opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:mt-2 sm:text-xs">
+                      {name}
+                    </span>
+                  </div>
                 </a>
               </li>
             ))}

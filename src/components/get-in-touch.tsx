@@ -1,13 +1,10 @@
-import AppleIcon from "~icons/simple-icons/apple";
 import FacebookIcon from "~icons/simple-icons/facebook";
 import GitHubIcon from "~icons/simple-icons/github";
 import InstagramIcon from "~icons/simple-icons/instagram";
 import LinkedInIcon from "~icons/simple-icons/linkedin";
+import PinterestIcon from "~icons/simple-icons/pinterest";
 import RedditIcon from "~icons/simple-icons/reddit";
-import SnapchatIcon from "~icons/simple-icons/snapchat";
 import SoundCloudIcon from "~icons/simple-icons/soundcloud";
-import SpotifyIcon from "~icons/simple-icons/spotify";
-import TikTokIcon from "~icons/simple-icons/tiktok";
 import XIcon from "~icons/simple-icons/x";
 import YouTubeIcon from "~icons/simple-icons/youtube";
 
@@ -81,6 +78,21 @@ export default function GetInTouch() {
 
 const brands: Brand[] = [
   {
+    name: "GitHub",
+    url: "https://github.com/torn4dom4n",
+    logo: GitHubIcon,
+  },
+  {
+    name: "X",
+    url: "https://x.com/torn4dom4n",
+    logo: XIcon,
+  },
+  {
+    name: "Facebook",
+    url: "https://facebook.com/torn4dom4n",
+    logo: FacebookIcon,
+  },
+  {
     name: "Instagram",
     url: "https://instagram.com/torn4dom4n",
     logo: InstagramIcon,
@@ -91,41 +103,6 @@ const brands: Brand[] = [
     logo: YouTubeIcon,
   },
   {
-    name: "Spotify",
-    url: "https://open.spotify.com/user/torn4dom4n",
-    logo: SpotifyIcon,
-  },
-  {
-    name: "Facebook",
-    url: "https://facebook.com/torn4dom4n",
-    logo: FacebookIcon,
-  },
-  {
-    name: "TikTok",
-    url: "https://tiktok.com/@torn4dom4n",
-    logo: TikTokIcon,
-  },
-  {
-    name: "X",
-    url: "https://x.com/torn4dom4n",
-    logo: XIcon,
-  },
-  {
-    name: "Snapchat",
-    url: "https://snapchat.com/add/torn4dom4n",
-    logo: SnapchatIcon,
-  },
-  {
-    name: "Apple",
-    url: "https://music.apple.com/profile/torn4dom4n",
-    logo: AppleIcon,
-  },
-  {
-    name: "GitHub",
-    url: "https://github.com/torn4dom4n",
-    logo: GitHubIcon,
-  },
-  {
     name: "LinkedIn",
     url: "https://linkedin.com/in/torn4dom4n",
     logo: LinkedInIcon,
@@ -134,6 +111,11 @@ const brands: Brand[] = [
     name: "Reddit",
     url: "https://reddit.com/user/torn4dom4n",
     logo: RedditIcon,
+  },
+  {
+    name: "Pinterest",
+    url: "https://pinterest.com/torn4dom4n",
+    logo: PinterestIcon,
   },
   {
     name: "SoundCloud",

@@ -39,9 +39,8 @@ export default function GetInTouch() {
         </p>
       </GridContainer>
 
-      <section aria-label="Follow Me">
+      <section aria-label="Get in Touch">
         <div className="relative isolate mt-16">
-          {/* Vertical dividers overlay */}
           <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
             <div className="border-r border-border" />
             <div className="border-r border-border" />
@@ -63,7 +62,7 @@ export default function GetInTouch() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative flex aspect-square size-full items-center justify-center text-foreground/80 transition-colors duration-300 hover:bg-foreground hover:text-background sm:px-2 sm:py-4"
-                  aria-label={`Follow me on ${name} (opens in a new tab)`}
+                  aria-label={`Follow me on ${name}`}
                 >
                   <div className="flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-2 sm:group-hover:-translate-y-3">
                     <Logo className="size-8 sm:size-10" aria-hidden="true" />

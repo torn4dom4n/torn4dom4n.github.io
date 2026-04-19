@@ -39,32 +39,35 @@ export default function GetInTouch() {
         </p>
       </GridContainer>
 
-      <section>
+      <section aria-label="Get in Touch">
         <div className="relative isolate mt-16">
-          <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-2 gap-10 max-md:gap-5 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
             <div className="border-r border-border" />
-            <div className="border-l border-border lg:border-x" />
-            <div className="border-l border-border max-lg:hidden xl:border-x" />
-            <div className="border-l border-border max-xl:hidden" />
+            <div className="border-r border-border" />
+            <div className="border-r border-border" />
+            <div className="border-r border-border max-md:hidden" />
+            <div className="border-r border-border max-md:hidden" />
+            <div className="border-r border-border max-lg:hidden" />
+            <div className="border-r border-border max-lg:hidden" />
           </div>
 
-          <ul className="grid grid-cols-2 gap-5 md:gap-10 lg:grid-cols-3 xl:grid-cols-4">
+          <ul className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
             {brands.map(({ name, url, logo: Logo }) => (
               <li
                 key={name}
-                className="max-lg:nth-[2n+1]:line-y lg:max-xl:nth-[3n+1]:line-y xl:nth-[4n+1]:line-y"
+                className="max-md:nth-[4n+1]:line-y max-md:nth-[4n+5]:before:hidden md:max-lg:nth-[6n+1]:line-y md:max-lg:nth-[6n+7]:before:hidden lg:nth-[8n+1]:line-y lg:nth-[8n+9]:before:hidden"
               >
                 <a
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="grid place-content-center transition-colors hover:bg-accent/50 sm:px-2 sm:py-4"
+                  className="group relative flex aspect-square size-full items-center justify-center text-foreground/80 transition-colors duration-300 hover:bg-foreground hover:text-background sm:px-2 sm:py-4"
+                  aria-label={`Follow me on ${name}`}
                 >
-                  <div className="flex h-24 w-full max-w-80 items-center gap-4">
-                    <Logo className="size-12" aria-hidden="true" />
-                    <span className="text-lg font-medium text-foreground/80">
+                  <div className="flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-2 sm:group-hover:-translate-y-3">
+                    <Logo className="size-8 sm:size-10" aria-hidden="true" />
+                    <span className="absolute top-full mt-1 text-[10px] font-bold tracking-widest uppercase opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:mt-2 sm:text-xs">
                       {name}
-                      <span className="sr-only"> (opens in a new tab)</span>
                     </span>
                   </div>
                 </a>

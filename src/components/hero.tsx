@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <div className="pt-16 sm:pt-24">
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
-        <SectionHeader className="text-foreground/80">I am</SectionHeader>
+        <SectionHeader className="text-foreground/80">Hi, my name is</SectionHeader>
       </GridContainer>
 
       <GridContainer>

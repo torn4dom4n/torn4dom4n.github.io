@@ -8,7 +8,7 @@ export function Footer({ className }: { className?: string }) {
     <footer
       className={cn(
         "relative mt-24 flex items-center justify-between py-8",
-        "before:absolute before:top-0 before:left-1/2 before:h-px before:w-[200vw] before:-translate-x-1/2 before:bg-border before:[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]",
+        "before:absolute before:top-0 before:left-1/2 before:h-px before:w-[200vw] before:-translate-x-1/2 before:bg-[image:linear-gradient(to_right,var(--border)_1px,transparent_1px)] before:bg-[size:4px_1px] before:bg-repeat-x",
         className,
       )}
     >

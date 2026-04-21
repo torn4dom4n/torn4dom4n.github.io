@@ -41,7 +41,7 @@ export default function GetInTouch() {
 
       <section aria-label="Get in Touch">
         <div className="relative isolate mt-16">
-          <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+          <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-4 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] md:grid-cols-6 lg:grid-cols-8">
             <div className="border-r border-border" />
             <div className="border-r border-border" />
             <div className="border-r border-border" />

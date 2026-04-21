@@ -24,7 +24,7 @@ function App() {
               <GetInTouch />
             </div>
 
-            <div className="relative z-10 row-span-full row-start-1 hidden border-x border-border md:col-start-3 md:block" />
+            <div className="relative row-span-full row-start-1 hidden border-x border-border md:col-start-3 md:block" />
 
             <div className="md:col-start-2">
               <Footer className="px-4 md:px-6 lg:px-8" />

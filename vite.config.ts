@@ -1,5 +1,7 @@
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
+import { copyFileSync } from "node:fs";
+import { resolve } from "node:path";
 import Icons from "unplugin-icons/vite";
 import { defineConfig } from "vite-plus";
 
@@ -78,6 +80,14 @@ export default defineConfig({
       compiler: "jsx",
       jsx: "react",
     }),
+    {
+      name: "copy-404",
+      apply: "build",
+      closeBundle() {
+        const distDir = resolve("dist");
+        copyFileSync(resolve(distDir, "index.html"), resolve(distDir, "404.html"));
+      },
+    },
   ],
   resolve: {
     tsconfigPaths: true,

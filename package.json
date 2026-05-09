@@ -13,6 +13,9 @@
     "check": "vp check --fix",
     "prepare": "vp config"
   },
+  "dependencies": {
+    "react-router-dom": "^7.15.0"
+  },
   "devDependencies": {
     "@fontsource-variable/geist": "^5.2.8",
     "@fontsource-variable/geist-mono": "^5.2.7",

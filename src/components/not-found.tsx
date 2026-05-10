@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 
 import GridContainer from "@/components/ui/grid-container";
 import SectionHeader from "@/components/ui/section-header";

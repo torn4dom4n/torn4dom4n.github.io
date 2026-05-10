@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vp dev",
-    "build": "vp build",
+    "build": "vp build && vp exec vite-node scripts/prerender.tsx",
     "preview": "vp preview",
     "lint": "vp lint",
     "format": "vp fmt",
@@ -14,7 +14,7 @@
     "prepare": "vp config"
   },
   "dependencies": {
-    "react-router-dom": "^7.15.0"
+    "@tanstack/react-router": "^1.169.2"
   },
   "devDependencies": {
     "@fontsource-variable/geist": "^5.2.8",
@@ -23,19 +23,23 @@
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "@tailwindcss/vite": "^4.2.4",
+    "@tanstack/router-plugin": "^1.167.35",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "clsx": "^2.1.1",
+    "jiti": "^2.7.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.4",
+    "tsdown": "^0.22.0",
     "typescript": "^6.0.3",
     "unplugin-icons": "^23.0.1",
     "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.20",
+    "vite-node": "^6.0.0",
     "vite-plus": "latest"
   },
-  "packageManager": "pnpm@11.0.4"
+  "packageManager": "pnpm@11.0.9"
 }

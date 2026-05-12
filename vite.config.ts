@@ -1,5 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
-import react from "@vitejs/plugin-react";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import Icons from "unplugin-icons/vite";
 import { defineConfig } from "vite-plus";
 
@@ -72,7 +72,12 @@ export default defineConfig({
   },
   base,
   plugins: [
-    react(),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        crawlLinks: true,
+      },
+    }),
     tailwindcss(),
     Icons({
       compiler: "jsx",

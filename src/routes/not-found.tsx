@@ -1,7 +1,11 @@
-import { Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 import GridContainer from "@/components/ui/grid-container";
 import SectionHeader from "@/components/ui/section-header";
+
+export const Route = createFileRoute("/not-found")({
+  component: NotFound,
+});
 
 export default function NotFound() {
   return (

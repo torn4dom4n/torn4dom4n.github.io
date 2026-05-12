@@ -1,6 +1,5 @@
-import { Link } from "@tanstack/react-router";
-
 import { DotGrid } from "@/components/ui/dot-grid";
+import { SpotlightButton } from "@/components/ui/spotlight-button";
 
 export default function NotFound() {
   return (
@@ -23,12 +22,7 @@ export default function NotFound() {
           This route does not exist. You may have mistyped the address or the page has moved.
         </p>
 
-        <Link
-          to="/"
-          className="mt-4 font-mono text-xs text-foreground/60 underline decoration-foreground/20 underline-offset-4 transition-colors duration-200 hover:text-foreground hover:decoration-foreground"
-        >
-          Return home
-        </Link>
+        <SpotlightButton to="/">Return home</SpotlightButton>
       </div>
     </main>
   );

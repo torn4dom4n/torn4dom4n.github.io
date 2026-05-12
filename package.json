@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vp dev",
-    "build": "vp build && cp dist/client/index.html dist/client/404.html",
+    "build": "vp build",
     "preview": "vp preview",
     "lint": "vp lint",
     "format": "vp fmt",
@@ -15,9 +15,7 @@
   },
   "dependencies": {
     "@tanstack/react-router": "^1.169.2",
-    "@tanstack/react-start": "^1.167.65"
-  },
-  "devDependencies": {
+    "@tanstack/react-start": "^1.167.65",
     "@fontsource-variable/geist": "^5.2.8",
     "@fontsource-variable/geist-mono": "^5.2.7",
     "@iconify-json/simple-icons": "^1.2.81",

@@ -22,7 +22,7 @@ export default defineConfig({
       "**/.next",
       "**/.astro",
       "**/.netlify",
-      "**/routeTree.gen.ts",
+      "*.gen.*",
     ],
     sortImports: {
       groups: [

@@ -1,7 +1,7 @@
-import { writeFileSync } from "node:fs";
-import { join } from "node:path";
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import { writeFileSync } from "node:fs";
+import { join } from "node:path";
 import Icons from "unplugin-icons/vite";
 import { defineConfig } from "vite-plus";
 

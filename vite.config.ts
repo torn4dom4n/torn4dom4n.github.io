@@ -22,6 +22,7 @@ export default defineConfig({
       "**/.next",
       "**/.astro",
       "**/.netlify",
+      "**/routeTree.gen.ts",
     ],
     sortImports: {
       groups: [
@@ -64,6 +65,7 @@ export default defineConfig({
       "**/.next",
       "**/.astro",
       "**/.netlify",
+      "**/routeTree.gen.ts",
     ],
     options: {
       typeAware: true,

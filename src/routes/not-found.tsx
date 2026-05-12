@@ -29,7 +29,7 @@ export default function NotFound() {
           </p>
           <div className="mt-8">
             <Link to="/" className="text-foreground transition-colors hover:text-muted-foreground">
-              ← Back to home
+              Back to home
             </Link>
           </div>
         </div>

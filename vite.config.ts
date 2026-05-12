@@ -65,9 +65,8 @@ export default defineConfig({
   base,
   plugins: [
     tanstackStart({
-      prerender: {
+      spa: {
         enabled: true,
-        autoSubfolderIndex: false,
       },
     }),
     tailwindcss(),

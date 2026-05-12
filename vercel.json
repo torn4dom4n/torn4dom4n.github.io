@@ -5,5 +5,11 @@
   "outputDirectory": "dist/client",
   "github": {
     "autoJobCancelation": true
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
 }

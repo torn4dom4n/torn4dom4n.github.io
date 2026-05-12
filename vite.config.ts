@@ -69,6 +69,9 @@ export default defineConfig({
         enabled: true,
         autoSubfolderIndex: false,
       },
+      sitemap: {
+        host: process.env.VITE_SITE_URL || "https://torn4dom4n.github.io",
+      },
     }),
     tailwindcss(),
     Icons({

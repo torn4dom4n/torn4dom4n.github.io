@@ -9,6 +9,7 @@ import {
 import { Footer } from "@/components/footer";
 import NotFound from "@/components/not-found";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AUTHOR_NAME, SITE_NAME, SITE_URL, TWITTER_HANDLE } from "@/lib/constants";
 import "@/styles/globals.css";
 
 export const Route = createRootRoute({
@@ -16,24 +17,24 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Long Nhat Nguyen" },
-      { name: "description", content: "Welcome to Long Nhat Nguyen's website." },
-      { name: "keywords", content: "Long Nhat Nguyen, Portfolio" },
-      { name: "author", content: "Long Nhat Nguyen" },
+      { title: SITE_NAME },
+      { name: "description", content: `Welcome to ${SITE_NAME}'s website.` },
+      { name: "keywords", content: `${SITE_NAME}, Portfolio` },
+      { name: "author", content: AUTHOR_NAME },
       { name: "robots", content: "index, follow, max-image-preview:large" },
-      { property: "og:title", content: "Long Nhat Nguyen" },
-      { property: "og:description", content: "Welcome to Long Nhat Nguyen's website." },
+      { property: "og:title", content: SITE_NAME },
+      { property: "og:description", content: `Welcome to ${SITE_NAME}'s website.` },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://torn4dom4n.github.io" },
-      { property: "og:site_name", content: "Long Nhat Nguyen" },
-      { property: "og:image", content: "https://torn4dom4n.github.io/og-image.jpg" },
-      { property: "og:image:alt", content: "Hello humans, my name is Long Nhat Nguyen" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:site_name", content: SITE_NAME },
+      { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
+      { property: "og:image:alt", content: `Hello humans, my name is ${SITE_NAME}` },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@torn4dom4n" },
-      { name: "twitter:title", content: "Long Nhat Nguyen" },
-      { name: "twitter:description", content: "Welcome to Long Nhat Nguyen's website." },
-      { name: "twitter:image", content: "https://torn4dom4n.github.io/og-image.jpg" },
-      { name: "twitter:image:alt", content: "Hello humans, my name is Long Nhat Nguyen" },
+      { name: "twitter:site", content: TWITTER_HANDLE },
+      { name: "twitter:title", content: SITE_NAME },
+      { name: "twitter:description", content: `Welcome to ${SITE_NAME}'s website.` },
+      { name: "twitter:image", content: `${SITE_URL}/og-image.jpg` },
+      { name: "twitter:image:alt", content: `Hello humans, my name is ${SITE_NAME}` },
       { name: "theme-color", content: "#ffffff" },
     ],
     links: [
@@ -43,8 +44,8 @@ export const Route = createRootRoute({
       { rel: "shortcut icon", href: "/favicon.ico" },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
       { rel: "manifest", href: "/site.webmanifest" },
-      { rel: "canonical", href: "https://torn4dom4n.github.io" },
-      { rel: "sitemap", href: "/sitemap-index.xml" },
+      { rel: "canonical", href: SITE_URL },
+      { rel: "sitemap", href: "/sitemap.xml" },
       { rel: "alternate", type: "application/rss+xml", href: "/rss.xml", title: "RSS Feed" },
     ],
   }),
@@ -53,10 +54,26 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: AUTHOR_NAME,
+    url: SITE_URL,
+    sameAs: [
+      `https://twitter.com/${TWITTER_HANDLE.replace("@", "")}`,
+      "https://github.com/torn4dom4n",
+    ],
+    jobTitle: "Software Engineer",
+  };
+
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body>
         <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">

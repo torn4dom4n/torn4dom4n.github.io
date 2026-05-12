@@ -14,14 +14,14 @@
     "prepare": "vp config"
   },
   "dependencies": {
-    "@tanstack/react-router": "^1.169.2",
-    "@tanstack/react-start": "^1.167.65",
     "@fontsource-variable/geist": "^5.2.8",
     "@fontsource-variable/geist-mono": "^5.2.7",
     "@iconify-json/simple-icons": "^1.2.81",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "@tailwindcss/vite": "^4.3.0",
+    "@tanstack/react-router": "^1.169.2",
+    "@tanstack/react-start": "^1.167.65",
     "@types/node": "^25.6.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -34,6 +34,5 @@
     "unplugin-icons": "^23.0.1",
     "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.20",
     "vite-plus": "latest"
-  },
-  "packageManager": "pnpm@11.0.9"
+  }
 }

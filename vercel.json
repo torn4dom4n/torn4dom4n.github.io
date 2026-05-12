@@ -6,7 +6,13 @@
   "github": {
     "autoJobCancelation": true
   },
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
+    {
+      "source": "/assets/:path*",
+      "destination": "/assets/:path*"
+    },
     {
       "source": "/(.*)",
       "destination": "/"

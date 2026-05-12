@@ -7,6 +7,7 @@ import {
 } from "@tanstack/react-router";
 
 import { Footer } from "@/components/footer";
+import NotFound from "@/components/not-found";
 import { ThemeProvider } from "@/components/theme-provider";
 import "@/styles/globals.css";
 
@@ -48,6 +49,7 @@ export const Route = createRootRoute({
     ],
   }),
   component: RootComponent,
+  notFoundComponent: () => <NotFound />,
 });
 
 function RootComponent() {

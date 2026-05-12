@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://torn4dom4n.github.io/sitemap-index.xml

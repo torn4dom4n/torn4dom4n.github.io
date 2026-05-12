@@ -1,5 +1,7 @@
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import { writeFileSync } from "node:fs";
+import { join } from "node:path";
 import Icons from "unplugin-icons/vite";
 import { defineConfig } from "vite-plus";
 
@@ -18,6 +20,20 @@ const ignorePatterns = [
   "**/.netlify",
   "**/*.gen.*",
 ];
+
+function robotsPlugin() {
+  return {
+    name: "robots-txt-plugin",
+    closeBundle: () => {
+      const siteUrl = process.env.VITE_SITE_URL || "http://localhost:5173";
+      const robots = `User-agent: *
+Allow: /
+
+Sitemap: ${siteUrl}/sitemap.xml`;
+      writeFileSync(join("dist", "client", "robots.txt"), robots);
+    },
+  };
+}
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -69,12 +85,16 @@ export default defineConfig({
         enabled: true,
         autoSubfolderIndex: false,
       },
+      sitemap: {
+        host: process.env.VITE_SITE_URL || "http://localhost:5173",
+      },
     }),
     tailwindcss(),
     Icons({
       compiler: "jsx",
       jsx: "react",
     }),
+    robotsPlugin(),
   ],
   resolve: {
     tsconfigPaths: true,

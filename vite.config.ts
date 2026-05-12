@@ -67,7 +67,7 @@ export default defineConfig({
     tanstackStart({
       prerender: {
         enabled: true,
-        crawlLinks: true,
+        autoSubfolderIndex: false,
       },
     }),
     tailwindcss(),

@@ -1,10 +1,4 @@
-import {
-  createRootRoute,
-  HeadContent,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@tanstack/react-router";
+import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 
 import { Footer } from "@/components/footer";
 import NotFound from "@/components/not-found";
@@ -81,7 +75,6 @@ function RootComponent() {
               </div>
             </div>
           </main>
-          <ScrollRestoration />
         </ThemeProvider>
         <Scripts />
       </body>

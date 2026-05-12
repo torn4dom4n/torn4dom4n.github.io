@@ -1,35 +1,35 @@
 import { Link } from "@tanstack/react-router";
 
-import GridContainer from "@/components/ui/grid-container";
-import SectionHeader from "@/components/ui/section-header";
+import { DotGrid } from "@/components/ui/dot-grid";
 
 export default function NotFound() {
   return (
-    <div className="pt-16 sm:pt-24">
-      <GridContainer className="2xl:before:hidden 2xl:after:hidden">
-        <SectionHeader className="text-foreground/80">404</SectionHeader>
-      </GridContainer>
+    <main className="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden bg-background md:col-start-2">
+      <DotGrid />
 
-      <GridContainer>
-        <h1 className="px-2 text-4xl tracking-tighter text-balance max-lg:font-medium max-sm:px-4 sm:text-5xl lg:text-6xl xl:text-8xl">
-          Page not found.
-        </h1>
-      </GridContainer>
+      <div className="relative z-10 flex flex-col items-center gap-6 text-center select-none">
+        <p className="font-mono text-[clamp(6rem,20vw,14rem)] leading-none font-bold tracking-tighter text-foreground/5 md:text-foreground/[0.03]">
+          404
+        </p>
 
-      <div className="h-6 sm:h-10" />
-
-      <GridContainer>
-        <div className="px-2 max-sm:px-4">
-          <p className="max-w-(--breakpoint-md) text-lg/7 text-muted-foreground">
-            The page you are looking for doesn't exist or has been moved.
-          </p>
-          <div className="mt-8">
-            <Link to="/" className="text-foreground transition-colors hover:text-muted-foreground">
-              Back to home
-            </Link>
-          </div>
+        <div className="flex items-center gap-2">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-foreground/30" />
+          <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
+            Page not found
+          </span>
         </div>
-      </GridContainer>
-    </div>
+
+        <p className="max-w-[280px] font-sans text-sm leading-relaxed text-muted-foreground/80 sm:max-w-xs">
+          This route does not exist. You may have mistyped the address or the page has moved.
+        </p>
+
+        <Link
+          to="/"
+          className="mt-4 font-mono text-xs text-foreground/60 underline decoration-foreground/20 underline-offset-4 transition-colors duration-200 hover:text-foreground hover:decoration-foreground"
+        >
+          Return home
+        </Link>
+      </div>
+    </main>
   );
 }

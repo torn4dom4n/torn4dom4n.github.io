@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vp dev",
-    "build": "vp build && cp -r dist/client/* dist/ && cp dist/index.html dist/404.html && rm -rf dist/client dist/server",
+    "build": "vp build && cp dist/client/index.html dist/client/404.html",
     "preview": "vp preview",
     "lint": "vp lint",
     "format": "vp fmt",

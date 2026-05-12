@@ -2,7 +2,7 @@
   "name": "@torn4dom4n/website",
   "framework": "vite",
   "buildCommand": "vp build",
-  "outputDirectory": "dist",
+  "outputDirectory": "dist/client",
   "github": {
     "autoJobCancelation": true
   },

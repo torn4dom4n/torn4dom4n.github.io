@@ -20,6 +20,9 @@ importers:
       '@iconify-json/simple-icons':
         specifier: ^1.2.81
         version: 1.2.81
+      '@rive-app/react-canvas':
+        specifier: ^4.28.4
+        version: 4.28.4(react@19.2.6)
       '@svgr/core':
         specifier: ^8.1.0
         version: 8.1.0(typescript@6.0.3)
@@ -494,6 +497,14 @@ packages:
 
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
+
+  '@rive-app/canvas@2.37.6':
+    resolution: {integrity: sha512-TxovQ8p1aJJ1PzClRX4Dxhp0As4P8slZWG+FJq40/kXXQDqit5ndj7thW5LlbsvKRyA7HYZQUqL97wAH+emIFA==}
+
+  '@rive-app/react-canvas@4.28.4':
+    resolution: {integrity: sha512-8iIkSkoItQzExCODh50+D6w1GaNkoPhZ9MxYkAyumorWSGy5OS54meE2EfFIZUP4cQZPwPzkOdPuW5oXIPN/1w==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0
 
   '@rolldown/pluginutils@1.0.0-beta.40':
     resolution: {integrity: sha512-s3GeJKSQOwBlzdUrj4ISjJj5SfSh+aqn0wjOar4Bx95iV1ETI7F6S/5hLcfAxZ9kXDcyrAkxPlqmd1ZITttf+w==}
@@ -1952,6 +1963,13 @@ snapshots:
     optional: true
 
   '@polka/url@1.0.0-next.29': {}
+
+  '@rive-app/canvas@2.37.6': {}
+
+  '@rive-app/react-canvas@4.28.4(react@19.2.6)':
+    dependencies:
+      '@rive-app/canvas': 2.37.6
+      react: 19.2.6
 
   '@rolldown/pluginutils@1.0.0-beta.40': {}
 

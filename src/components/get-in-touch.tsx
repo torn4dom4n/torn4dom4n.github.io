@@ -20,59 +20,55 @@ type Brand = {
 export default function GetInTouch() {
   return (
     <div className="relative max-inline-full">
-      <GridContainer className="2xl:before:hidden 2xl:after:hidden">
+      <GridContainer className="2xl:before:hidden">
         <SectionHeader className="text-foreground/80">Socials</SectionHeader>
+        <div className="pbs-12 pbe-12">
+          <h2 className="ps-2 pe-2 text-[2.5rem]/10 font-medium tracking-tightest text-balance max-inline-lg max-sm:ps-4 max-sm:pe-4 2xl:mbs-0">
+            Get in touch
+          </h2>
+          <div className="block-6 sm:block-10" />
+          <p className="ps-2 pe-2 text-base/7 text-muted-foreground max-inline-(--breakpoint-md) max-sm:ps-4 max-sm:pe-4">
+            I'm active on several platforms. Follow my work, check out what I'm building, or just
+            drop by to say hello.
+          </p>
+        </div>
       </GridContainer>
 
-      <GridContainer>
-        <h2 className="ps-2 pe-2 text-[2.5rem]/10 font-medium tracking-tightest text-balance max-inline-lg max-sm:ps-4 max-sm:pe-4 2xl:mbs-0">
-          Get in touch
-        </h2>
-      </GridContainer>
-
-      <div className="block-6 sm:block-10" />
-
-      <GridContainer>
-        <p className="ps-2 pe-2 text-base/7 text-muted-foreground max-inline-(--breakpoint-md) max-sm:ps-4 max-sm:pe-4">
-          I'm active on several platforms. Follow my work, check out what I'm building, or just drop
-          by to say hello.
-        </p>
-      </GridContainer>
-
-      <section aria-label="Get in Touch">
-        <div className="relative isolate mbs-16">
+      <section aria-label="Social links">
+        <div className="relative isolate">
           <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
-            <div className="border-e border-border" />
-            <div className="border-e border-border" />
-            <div className="border-e border-border" />
-            <div className="border-e border-border max-md:hidden" />
-            <div className="border-e border-border max-md:hidden" />
-            <div className="border-e border-border max-lg:hidden" />
-            <div className="border-e border-border max-lg:hidden" />
+            <div className="border-e border-border block-full" />
+            <div className="border-e border-border block-full" />
+            <div className="border-e border-border block-full" />
+            <div className="border-e border-border block-full max-md:hidden" />
+            <div className="border-e border-border block-full max-md:hidden" />
+            <div className="border-e border-border block-full max-lg:hidden" />
+            <div className="border-e border-border block-full max-lg:hidden" />
           </div>
 
           <ul className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
-            {brands.map(({ name, url, logo: Logo }) => (
-              <li
-                key={name}
-                className="max-md:nth-[4n+1]:line-y max-md:nth-[4n+5]:before:hidden md:max-lg:nth-[6n+1]:line-y md:max-lg:nth-[6n+7]:before:hidden lg:nth-[8n+1]:line-y lg:nth-[8n+9]:before:hidden"
-              >
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group duration-normal relative flex aspect-square size-full items-center justify-center text-foreground/80 transition-colors hover:bg-foreground hover:text-background sm:ps-2 sm:pe-2 sm:pbs-4 sm:pbe-4"
-                  aria-label={`Follow me on ${name}`}
-                >
-                  <div className="duration-normal flex flex-col items-center transition-transform group-hover:-translate-y-2 sm:group-hover:-translate-y-3">
-                    <Logo className="size-8 sm:size-10" aria-hidden="true" />
-                    <span className="tracking-3 opacity-none duration-normal group-hover:opacity-full absolute inset-bs-full mbs-1 text-[10px] font-bold uppercase transition-opacity sm:mbs-2 sm:text-xs">
-                      {name}
-                    </span>
-                  </div>
-                </a>
-              </li>
-            ))}
+            {brands.map(({ name, url, logo: Logo }) => {
+              return (
+                <li key={name} className="group relative">
+                  <div className="absolute -inset-s-[100vw] inset-be-0 bg-border block-px inline-[200vw]" />
+
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="duration-normal relative flex aspect-square items-center justify-center text-foreground/80 transition-colors inline-full hover:bg-foreground hover:text-background sm:ps-2 sm:pe-2 sm:pbs-4 sm:pbe-4"
+                    aria-label={`Follow me on ${name}`}
+                  >
+                    <div className="duration-normal flex flex-col items-center transition-transform group-hover:-translate-y-2 sm:group-hover:-translate-y-3">
+                      <Logo className="size-8 sm:size-10" aria-hidden="true" />
+                      <span className="tracking-3 opacity-none duration-normal group-hover:opacity-full absolute inset-bs-full mbs-1 text-[10px] font-bold uppercase transition-opacity sm:mbs-2 sm:text-xs">
+                        {name}
+                      </span>
+                    </div>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>

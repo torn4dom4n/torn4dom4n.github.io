@@ -49,19 +49,19 @@ export default function GetInTouch() {
           <ul className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
             {brands.map(({ name, url, logo: Logo }) => {
               return (
-                <li key={name} className="group relative">
+                <li key={name} className="relative">
                   <div className="absolute -inset-s-[100vw] inset-be-0 bg-border block-px inline-[200vw]" />
 
                   <a
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="duration-normal relative flex aspect-square items-center justify-center text-foreground/80 transition-colors inline-full hover:bg-foreground hover:text-background sm:ps-2 sm:pe-2 sm:pbs-4 sm:pbe-4"
+                    className="group duration-normal relative flex aspect-square items-center justify-center text-foreground/80 transition-colors inline-full hover:bg-foreground hover:text-background sm:ps-2 sm:pe-2 sm:pbs-4 sm:pbe-4"
                     aria-label={`Follow me on ${name}`}
                   >
                     <div className="duration-normal flex flex-col items-center transition-transform group-hover:-translate-y-2 sm:group-hover:-translate-y-3">
                       <Logo className="size-8 sm:size-10" aria-hidden="true" />
-                      <span className="tracking-3 opacity-none duration-normal group-hover:opacity-full absolute inset-bs-full mbs-1 text-[10px] font-bold uppercase transition-opacity sm:mbs-2 sm:text-xs">
+                      <span className="duration-normal absolute inset-bs-full mbs-1 text-[10px] font-bold tracking-3 uppercase opacity-0 transition-all group-hover:opacity-100 sm:mbs-2 sm:text-xs">
                         {name}
                       </span>
                     </div>

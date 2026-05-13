@@ -57,7 +57,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
       )}
     >
       <div className="pointer-events-none absolute inset-s-1/2 inset-bs-1/2 z-0 block aspect-square -translate-x-1/2 -translate-y-1/2 inline-[120%]">
-        <div className="opacity-full pointer-events-none flex select-none block-full">
+        <div className="pointer-events-none flex opacity-100 select-none block-full">
           <img
             src={data.image}
             alt=""

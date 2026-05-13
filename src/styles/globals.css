@@ -3,6 +3,7 @@
 
 @theme inline {
   --tracking-tightest: -0.04em;
+  --tracking-3: 0.15em;
   --font-sans: "Geist Variable", "Geist fallback", "Geist", sans-serif;
   --font-mono: "Geist Mono Variable", "Geist Mono fallback", "Geist Mono", monospace;
 
@@ -22,7 +23,9 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
   --animate-spin: spin 3s linear infinite;
+  --duration-normal: 300ms;
 }
 
 :root {

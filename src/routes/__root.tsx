@@ -106,13 +106,13 @@ function RootComponent() {
             Skip to content
           </a>
           <main id="main-content" className="isolate">
-            <div className="overflow-x-hidden max-inline-screen">
-              <div className="grid grid-cols-1 grid-rows-[1fr_auto] justify-center [--gutter-width:2.5rem] min-block-dvh md:-ms-4 md:-me-4 md:grid-cols-[var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)] lg:ms-0 lg:me-0">
-                <div className="border-i relative col-start-1 row-span-full row-start-1 hidden border-border md:block" />
+            <div className="max-w-screen overflow-x-hidden">
+              <div className="grid min-h-dvh grid-cols-1 grid-rows-[1fr_auto] justify-center [--gutter-width:2.5rem] md:-ms-4 md:-me-4 md:grid-cols-[var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)] lg:ms-0 lg:me-0">
+                <div className="relative col-start-1 row-span-full row-start-1 hidden border-x border-border md:block" />
 
                 <Outlet />
 
-                <div className="border-i relative row-span-full row-start-1 hidden border-border md:col-start-3 md:block" />
+                <div className="relative row-span-full row-start-1 hidden border-x border-border md:col-start-3 md:block" />
 
                 <div className="md:col-start-2">
                   <Footer className="ps-4 pe-4 md:ps-6 md:pe-6 lg:ps-8 lg:pe-8" />

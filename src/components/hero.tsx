@@ -9,15 +9,15 @@ export default function Hero() {
       </GridContainer>
 
       <GridContainer>
-        <h1 className="ps-2 pe-2 text-4xl tracking-tightest text-balance max-lg:font-medium max-sm:ps-4 max-sm:pe-4 sm:text-5xl lg:text-6xl xl:text-8xl">
+        <h1 className="ps-2 pe-2 text-4xl tracking-tighter text-balance max-lg:font-medium max-sm:ps-4 max-sm:pe-4 sm:text-5xl lg:text-6xl xl:text-8xl">
           Long Nhat Nguyen
         </h1>
       </GridContainer>
 
-      <div className="block-6 sm:block-10" />
+      <div className="h-6 sm:h-10" />
 
       <GridContainer>
-        <p className="ps-2 pe-2 text-lg/7 text-muted-foreground max-inline-(--breakpoint-md) max-sm:ps-4 max-sm:pe-4">
+        <p className="max-w-(--breakpoint-md) ps-2 pe-2 text-lg/7 text-muted-foreground max-sm:ps-4 max-sm:pe-4">
           Creator. Explorer. Optimist. Bringing together music, photography, tech, and nature to
           share a little extra positivity with the world.
         </p>

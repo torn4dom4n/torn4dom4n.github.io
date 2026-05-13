@@ -52,25 +52,25 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
   return (
     <div
       className={cn(
-        "relative flex items-stretch justify-center overflow-hidden rounded-xl border border-border ps-3 pe-3 pbs-3 pbe-3 block-full inline-full max-block-25",
+        "relative flex h-full max-h-25 w-full items-stretch justify-center overflow-hidden rounded-xl border border-border p-3",
         className,
       )}
     >
-      <div className="pointer-events-none absolute inset-s-1/2 inset-bs-1/2 z-0 block aspect-square -translate-x-1/2 -translate-y-1/2 inline-[120%]">
-        <div className="pointer-events-none flex opacity-100 select-none block-full">
+      <div className="pointer-events-none absolute inset-s-1/2 inset-bs-1/2 z-0 block aspect-square w-[120%] -translate-x-1/2 -translate-y-1/2">
+        <div className="pointer-events-none flex h-full opacity-100 select-none">
           <img
             src={data.image}
             alt=""
-            className="absolute inset-s-0 inset-bs-0 block blur-[50px] brightness-150 block-full inline-full"
+            className="absolute inset-s-0 inset-bs-0 block h-full w-full blur-[50px] brightness-150"
           />
-          <div className="absolute inset-s-0 inset-bs-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_0,rgba(0,0,0,.8))] block-full inline-full" />
+          <div className="absolute inset-s-0 inset-bs-0 h-full w-full bg-[linear-gradient(180deg,rgba(0,0,0,0)_0,rgba(0,0,0,.8))]" />
         </div>
       </div>
       <button
         onClick={data.audio ? handlePlayPause : undefined}
         aria-label={isPlaying ? "Pause preview" : "Play preview"}
         className={cn(
-          "group relative z-1 self-center inline-full max-inline-18.75",
+          "group relative z-1 w-full max-w-18.75 self-center",
           data.audio && "cursor-pointer",
         )}
       >
@@ -78,7 +78,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
           src={data.image}
           alt={data.title}
           className={cn(
-            "duration-normal pointer-events-none relative z-1 rounded-md object-cover shadow-md transition-transform ease-out select-none inline-full min-block-18.75 min-inline-18.75",
+            "duration-normal pointer-events-none relative z-1 min-h-18.75 w-full min-w-18.75 rounded-md object-cover shadow-md transition-transform ease-out select-none",
             data.audio && "group-hover:-translate-x-0.5",
             isPlaying && "-translate-x-0.5",
           )}
@@ -277,7 +277,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
           </div>
         )}
       </button>
-      <div className="z-10 flex flex-col justify-between inline-full">
+      <div className="z-10 flex w-full flex-col justify-between">
         <div className="flex self-end">
           <a
             href={data.link}

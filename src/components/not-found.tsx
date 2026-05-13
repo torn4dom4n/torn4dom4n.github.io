@@ -11,16 +11,16 @@ export default function NotFound() {
       </GridContainer>
 
       <GridContainer>
-        <h1 className="ps-2 pe-2 text-4xl tracking-tightest text-balance max-lg:font-medium max-sm:ps-4 max-sm:pe-4 sm:text-5xl lg:text-6xl xl:text-8xl">
+        <h1 className="ps-2 pe-2 text-4xl tracking-tighter text-balance max-lg:font-medium max-sm:ps-4 max-sm:pe-4 sm:text-5xl lg:text-6xl xl:text-8xl">
           Page not found.
         </h1>
       </GridContainer>
 
-      <div className="block-6 sm:block-10" />
+      <div className="h-6 sm:h-10" />
 
       <GridContainer>
         <div className="ps-2 pe-2 max-sm:ps-4 max-sm:pe-4">
-          <p className="text-lg/7 text-muted-foreground max-inline-(--breakpoint-md)">
+          <p className="max-w-(--breakpoint-md) text-lg/7 text-muted-foreground">
             The page you are looking for doesn't exist or has been moved.
           </p>
           <div className="mbs-8">

@@ -20,7 +20,11 @@ export function RiveAnimation({ src, className }: RiveAnimationProps) {
     return <div className={className} />;
   }
 
-  const { default: RiveComponent, Layout, Fit, Alignment } = RiveModule;
+  // Handle both ESM and CJS interop
+  const RiveComponent = RiveModule.default || RiveModule;
+  const Layout = RiveModule.Layout;
+  const Fit = RiveModule.Fit;
+  const Alignment = RiveModule.Alignment;
 
   return (
     <RiveComponent

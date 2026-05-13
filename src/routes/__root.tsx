@@ -97,25 +97,25 @@ function RootComponent() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className="scrollbar-gutter-stable">
         <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-foreground focus:ring-2 focus:ring-accent"
+            className="sr-only focus:not-sr-only focus:fixed focus:inset-s-4 focus:inset-bs-4 focus:z-50 focus:rounded-sm focus:bg-background focus:ps-4 focus:pe-4 focus:pbs-2 focus:pbe-2 focus:text-foreground focus:ring-2 focus:ring-accent"
           >
             Skip to content
           </a>
           <main id="main-content" className="isolate">
-            <div className="max-w-screen overflow-x-hidden">
-              <div className="grid min-h-dvh grid-cols-1 grid-rows-[1fr_auto] justify-center [--gutter-width:2.5rem] md:-mx-4 md:grid-cols-[var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)] lg:mx-0">
-                <div className="relative col-start-1 row-span-full row-start-1 hidden border-x border-border md:block" />
+            <div className="overflow-x-hidden max-inline-screen">
+              <div className="grid grid-cols-1 grid-rows-[1fr_auto] justify-center [--gutter-width:2.5rem] min-block-dvh md:-ms-4 md:-me-4 md:grid-cols-[var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)] lg:ms-0 lg:me-0">
+                <div className="border-i relative col-start-1 row-span-full row-start-1 hidden border-border md:block" />
 
                 <Outlet />
 
-                <div className="relative row-span-full row-start-1 hidden border-x border-border md:col-start-3 md:block" />
+                <div className="border-i relative row-span-full row-start-1 hidden border-border md:col-start-3 md:block" />
 
                 <div className="md:col-start-2">
-                  <Footer className="px-4 md:px-6 lg:px-8" />
+                  <Footer className="ps-4 pe-4 md:ps-6 md:pe-6 lg:ps-8 lg:pe-8" />
                 </div>
               </div>
             </div>

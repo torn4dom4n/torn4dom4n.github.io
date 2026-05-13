@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div className="grid gap-24 pb-24 sm:gap-40 md:pb-40">
+    <div className="grid gap-24 pbe-24 sm:gap-40 md:pbe-40">
       <Hero />
       <NowPlaying />
       <GetInTouch />

@@ -12,27 +12,27 @@ const FAVORITE_TRACK: SpotifyData = {
 
 export default function NowPlaying() {
   return (
-    <div className="relative max-w-full">
+    <div className="relative max-inline-full">
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
         <SectionHeader className="text-foreground/80">Music</SectionHeader>
       </GridContainer>
 
       <GridContainer>
-        <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
+        <h2 className="ps-2 pe-2 text-[2.5rem]/10 font-medium tracking-tightest text-balance max-inline-lg max-sm:ps-4 max-sm:pe-4 2xl:mbs-0">
           Now playing
         </h2>
       </GridContainer>
 
-      <div className="h-6 sm:h-10" />
+      <div className="block-6 sm:block-10" />
 
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-muted-foreground max-sm:px-4">
+        <p className="ps-2 pe-2 text-base/7 text-muted-foreground max-inline-(--breakpoint-md) max-sm:ps-4 max-sm:pe-4">
           If we'll ever be remembered, I know it'll be for the way that we love.
         </p>
       </GridContainer>
 
-      <GridContainer className="mt-16">
-        <div className="max-w-md px-2 py-12 max-sm:px-4">
+      <GridContainer className="mbs-16">
+        <div className="ps-2 pe-2 pbs-12 pbe-12 max-inline-md max-sm:ps-4 max-sm:pe-4">
           <SpotifyCard data={FAVORITE_TRACK} />
         </div>
       </GridContainer>

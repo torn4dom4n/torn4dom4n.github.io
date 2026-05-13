@@ -28,7 +28,7 @@ function ThemeToggleButton({
       tabIndex={selected ? 0 : -1}
       onClick={() => onValueChange(value)}
       title={title}
-      className={`flex items-center justify-center rounded-full p-1 transition-all ${
+      className={`rounded-pill flex items-center justify-center ps-1 pe-1 pbs-1 pbe-1 transition-all ${
         selected
           ? "shadow-elevation bg-background text-foreground"
           : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
@@ -47,7 +47,7 @@ export function ModeToggle() {
     <div
       role="radiogroup"
       aria-label="Select color theme"
-      className="inline-flex items-center gap-0.5 rounded-full border border-border bg-muted/50 p-0.5"
+      className="rounded-pill inline-flex items-center gap-0.5 border border-border bg-muted/50 ps-0.5 pe-0.5 pbs-0.5 pbe-0.5"
     >
       <ThemeToggleButton
         aria-label="System theme"

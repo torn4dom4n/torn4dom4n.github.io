@@ -19,36 +19,36 @@ type Brand = {
 
 export default function GetInTouch() {
   return (
-    <div className="relative max-w-full">
+    <div className="relative max-inline-full">
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
         <SectionHeader className="text-foreground/80">Socials</SectionHeader>
       </GridContainer>
 
       <GridContainer>
-        <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
+        <h2 className="ps-2 pe-2 text-[2.5rem]/10 font-medium tracking-tightest text-balance max-inline-lg max-sm:ps-4 max-sm:pe-4 2xl:mbs-0">
           Get in touch
         </h2>
       </GridContainer>
 
-      <div className="h-6 sm:h-10" />
+      <div className="block-6 sm:block-10" />
 
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-muted-foreground max-sm:px-4">
+        <p className="ps-2 pe-2 text-base/7 text-muted-foreground max-inline-(--breakpoint-md) max-sm:ps-4 max-sm:pe-4">
           I'm active on several platforms. Follow my work, check out what I'm building, or just drop
           by to say hello.
         </p>
       </GridContainer>
 
       <section aria-label="Get in Touch">
-        <div className="relative isolate mt-16">
+        <div className="relative isolate mbs-16">
           <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
-            <div className="border-r border-border" />
-            <div className="border-r border-border" />
-            <div className="border-r border-border" />
-            <div className="border-r border-border max-md:hidden" />
-            <div className="border-r border-border max-md:hidden" />
-            <div className="border-r border-border max-lg:hidden" />
-            <div className="border-r border-border max-lg:hidden" />
+            <div className="border-e border-border" />
+            <div className="border-e border-border" />
+            <div className="border-e border-border" />
+            <div className="border-e border-border max-md:hidden" />
+            <div className="border-e border-border max-md:hidden" />
+            <div className="border-e border-border max-lg:hidden" />
+            <div className="border-e border-border max-lg:hidden" />
           </div>
 
           <ul className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
@@ -61,12 +61,12 @@ export default function GetInTouch() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex aspect-square size-full items-center justify-center text-foreground/80 transition-colors duration-300 hover:bg-foreground hover:text-background sm:px-2 sm:py-4"
+                  className="group duration-normal relative flex aspect-square size-full items-center justify-center text-foreground/80 transition-colors hover:bg-foreground hover:text-background sm:ps-2 sm:pe-2 sm:pbs-4 sm:pbe-4"
                   aria-label={`Follow me on ${name}`}
                 >
-                  <div className="flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-2 sm:group-hover:-translate-y-3">
+                  <div className="duration-normal flex flex-col items-center transition-transform group-hover:-translate-y-2 sm:group-hover:-translate-y-3">
                     <Logo className="size-8 sm:size-10" aria-hidden="true" />
-                    <span className="absolute top-full mt-1 text-[10px] font-bold tracking-widest uppercase opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:mt-2 sm:text-xs">
+                    <span className="tracking-3 opacity-none duration-normal group-hover:opacity-full absolute inset-bs-full mbs-1 text-[10px] font-bold uppercase transition-opacity sm:mbs-2 sm:text-xs">
                       {name}
                     </span>
                   </div>

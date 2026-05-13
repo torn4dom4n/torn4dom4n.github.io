@@ -2,6 +2,7 @@
 @import "@fontsource-variable/geist";
 
 @theme inline {
+  --tracking-tightest: -0.04em;
   --font-sans: "Geist Variable", "Geist fallback", "Geist", sans-serif;
   --font-mono: "Geist Mono Variable", "Geist Mono fallback", "Geist Mono", monospace;
 
@@ -21,6 +22,7 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --animate-spin: spin 3s linear infinite;
 }
 
 :root {
@@ -58,6 +60,6 @@
 
 @utility line-y {
   @apply relative;
-  @apply before:absolute before:top-0 before:-left-[100vw] before:h-px before:w-[200vw] before:bg-border;
-  @apply after:absolute after:bottom-0 after:-left-[100vw] after:h-px after:w-[200vw] after:bg-border;
+  @apply before:absolute before:-inset-s-[100vw] before:inset-bs-0 before:bg-border before:block-px before:inline-[200vw];
+  @apply after:absolute after:-inset-s-[100vw] after:inset-be-0 after:bg-border after:block-px after:inline-[200vw];
 }

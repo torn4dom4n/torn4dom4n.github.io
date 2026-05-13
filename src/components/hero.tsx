@@ -3,21 +3,21 @@ import SectionHeader from "@/components/ui/section-header";
 
 export default function Hero() {
   return (
-    <div className="pt-16 sm:pt-24">
+    <div className="pbs-16 sm:pbs-24">
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
         <SectionHeader className="text-foreground/80">Hi, my name is</SectionHeader>
       </GridContainer>
 
       <GridContainer>
-        <h1 className="px-2 text-4xl tracking-tighter text-balance max-lg:font-medium max-sm:px-4 sm:text-5xl lg:text-6xl xl:text-8xl">
+        <h1 className="ps-2 pe-2 text-4xl tracking-tightest text-balance max-lg:font-medium max-sm:ps-4 max-sm:pe-4 sm:text-5xl lg:text-6xl xl:text-8xl">
           Long Nhat Nguyen
         </h1>
       </GridContainer>
 
-      <div className="h-6 sm:h-10" />
+      <div className="block-6 sm:block-10" />
 
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 text-lg/7 text-muted-foreground max-sm:px-4">
+        <p className="ps-2 pe-2 text-lg/7 text-muted-foreground max-inline-(--breakpoint-md) max-sm:ps-4 max-sm:pe-4">
           Creator. Explorer. Optimist. Bringing together music, photography, tech, and nature to
           share a little extra positivity with the world.
         </p>

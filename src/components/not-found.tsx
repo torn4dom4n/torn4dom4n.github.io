@@ -12,7 +12,7 @@ export default function NotFound() {
 
       <GridContainer>
         <h1 className="ps-2 pe-2 text-4xl tracking-tighter text-balance max-lg:font-medium max-sm:ps-4 max-sm:pe-4 sm:text-5xl lg:text-6xl xl:text-8xl">
-          Page not found.
+          Page not found
         </h1>
       </GridContainer>
 

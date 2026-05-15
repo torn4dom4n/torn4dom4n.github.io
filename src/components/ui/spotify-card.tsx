@@ -61,6 +61,8 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
           <img
             src={data.image}
             alt=""
+            loading="lazy"
+            decoding="async"
             className="absolute top-0 left-0 block h-full w-full blur-[50px] brightness-150"
           />
           <div className="absolute top-0 left-0 h-full w-full bg-[linear-gradient(180deg,rgba(0,0,0,0)_0,rgba(0,0,0,.8))]" />
@@ -77,6 +79,8 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
         <img
           src={data.image}
           alt={data.title}
+          loading="lazy"
+          decoding="async"
           className={cn(
             "pointer-events-none relative z-1 min-h-18.75 w-full min-w-18.75 rounded-lg object-cover shadow-md transition-transform duration-300 ease-out select-none",
             data.audio && "group-hover:-translate-x-0.5",
@@ -114,44 +118,28 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 <circle cx="55" cy="55" r="55" fill="#FFFFF" />
               </mask>
               <g mask={`url(#mask0_${uniqueId})`}>
-                <g filter={`url(#filter0_${uniqueId})`}>
+                <g filter={`url(#filter-blur-1_${uniqueId})`}>
                   <circle cx="55" cy="55" r="51.5" stroke="#00000" strokeOpacity="0.21" />
-                </g>
-                <g filter={`url(#filter1_${uniqueId})`}>
                   <circle cx="55" cy="55" r="47.5" stroke="#00000" strokeOpacity="0.21" />
-                </g>
-                <g filter={`url(#filter2_${uniqueId})`}>
                   <circle cx="55" cy="55" r="45.5" stroke="#00000" strokeOpacity="0.21" />
-                </g>
-                <g filter={`url(#filter3_${uniqueId})`}>
                   <circle cx="55" cy="55" r="43.5" stroke="#00000" strokeOpacity="0.21" />
-                </g>
-                <g filter={`url(#filter4_${uniqueId})`}>
                   <circle cx="55" cy="55" r="37.5" stroke="#00000" strokeOpacity="0.21" />
-                </g>
-                <g filter={`url(#filter5_${uniqueId})`}>
                   <circle cx="55" cy="55" r="34.5" stroke="#00000" strokeOpacity="0.21" />
                 </g>
-                <g filter={`url(#filter6_${uniqueId})`} opacity="0.4">
+                <g filter={`url(#filter-blur-8_${uniqueId})`} opacity="0.4">
                   <path fill="#fff" d="M-14 38l68 19.579L-14 74V38z" />
-                </g>
-                <g filter={`url(#filter7_${uniqueId})`} opacity="0.4">
                   <path fill="#fff" d="M123 38L55 57.579 123 74V38z" />
-                </g>
-                <g filter={`url(#filter8_${uniqueId})`} opacity="0.4">
                   <path fill="#fff" d="M36.5 124.5l19.579-68 16.421 68h-36z" />
-                </g>
-                <g filter={`url(#filter9_${uniqueId})`} opacity="0.4">
                   <path fill="#fff" d="M36.5-12.5l19.579 68 16.421-68h-36z" />
                 </g>
               </g>
               <defs>
                 <filter
-                  id={`filter0_${uniqueId}`}
-                  width="108"
-                  height="108"
-                  x="1"
-                  y="1"
+                  id={`filter-blur-1_${uniqueId}`}
+                  x="-20%"
+                  y="-20%"
+                  width="140%"
+                  height="140%"
                   colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >
@@ -160,115 +148,11 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                   <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="1" />
                 </filter>
                 <filter
-                  id={`filter1_${uniqueId}`}
-                  width="100"
-                  height="100"
-                  x="5"
-                  y="5"
-                  colorInterpolationFilters="sRGB"
-                  filterUnits="userSpaceOnUse"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="1" />
-                </filter>
-                <filter
-                  id={`filter2_${uniqueId}`}
-                  width="96"
-                  height="96"
-                  x="7"
-                  y="7"
-                  colorInterpolationFilters="sRGB"
-                  filterUnits="userSpaceOnUse"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="1" />
-                </filter>
-                <filter
-                  id={`filter3_${uniqueId}`}
-                  width="92"
-                  height="92"
-                  x="9"
-                  y="9"
-                  colorInterpolationFilters="sRGB"
-                  filterUnits="userSpaceOnUse"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="1" />
-                </filter>
-                <filter
-                  id={`filter4_${uniqueId}`}
-                  width="80"
-                  height="80"
-                  x="15"
-                  y="15"
-                  colorInterpolationFilters="sRGB"
-                  filterUnits="userSpaceOnUse"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="1" />
-                </filter>
-                <filter
-                  id={`filter5_${uniqueId}`}
-                  width="74"
-                  height="74"
-                  x="18"
-                  y="18"
-                  colorInterpolationFilters="sRGB"
-                  filterUnits="userSpaceOnUse"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="1" />
-                </filter>
-                <filter
-                  id={`filter6_${uniqueId}`}
-                  width="100"
-                  height="68"
-                  x="-30"
-                  y="22"
-                  colorInterpolationFilters="sRGB"
-                  filterUnits="userSpaceOnUse"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="8" />
-                </filter>
-                <filter
-                  id={`filter7_${uniqueId}`}
-                  width="100"
-                  height="68"
-                  x="39"
-                  y="22"
-                  colorInterpolationFilters="sRGB"
-                  filterUnits="userSpaceOnUse"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="8" />
-                </filter>
-                <filter
-                  id={`filter8_${uniqueId}`}
-                  width="68"
-                  height="100"
-                  x="20.5"
-                  y="40.5"
-                  colorInterpolationFilters="sRGB"
-                  filterUnits="userSpaceOnUse"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="8" />
-                </filter>
-                <filter
-                  id={`filter9_${uniqueId}`}
-                  width="68"
-                  height="100"
-                  x="20.5"
-                  y="-28.5"
+                  id={`filter-blur-8_${uniqueId}`}
+                  x="-50%"
+                  y="-50%"
+                  width="200%"
+                  height="200%"
                   colorInterpolationFilters="sRGB"
                   filterUnits="userSpaceOnUse"
                 >

@@ -47,6 +47,8 @@ export const Route = createRootRoute({
       { rel: "canonical", href: SITE_URL },
       { rel: "sitemap", href: "/sitemap.xml" },
       { rel: "alternate", type: "application/rss+xml", href: "/rss.xml", title: "RSS Feed" },
+      { rel: "preconnect", href: "https://i.scdn.co" },
+      { rel: "preconnect", href: "https://p.scdn.co" },
     ],
   }),
   component: RootComponent,

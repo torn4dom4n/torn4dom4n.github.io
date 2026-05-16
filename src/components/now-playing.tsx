@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import GridContainer from "@/components/ui/grid-container";
 import SectionHeader from "@/components/ui/section-header";
 import { SpotifyCard, type SpotifyData } from "@/components/ui/spotify-card";
@@ -10,7 +12,11 @@ const FAVORITE_TRACK: SpotifyData = {
   link: "https://open.spotify.com/track/0axM6rXe76kVZ5H3vbb8pi",
 };
 
-export default function NowPlaying() {
+/**
+ * ⚡ Bolt: Memoized NowPlaying component.
+ * Ensures the component tree remains stable during theme changes.
+ */
+const NowPlaying = memo(function NowPlaying() {
   return (
     <div className="relative max-w-full">
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
@@ -38,4 +44,6 @@ export default function NowPlaying() {
       </GridContainer>
     </div>
   );
-}
+});
+
+export default NowPlaying;

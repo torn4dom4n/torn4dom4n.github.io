@@ -1,3 +1,4 @@
+import { memo } from "react";
 import FacebookIcon from "~icons/simple-icons/facebook";
 import GitHubIcon from "~icons/simple-icons/github";
 import InstagramIcon from "~icons/simple-icons/instagram";
@@ -17,7 +18,11 @@ type Brand = {
   logo: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
 
-export default function GetInTouch() {
+/**
+ * ⚡ Bolt: Memoized GetInTouch component.
+ * Prevents unnecessary re-renders of the social grid.
+ */
+const GetInTouch = memo(function GetInTouch() {
   return (
     <div className="relative max-w-full">
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
@@ -78,7 +83,9 @@ export default function GetInTouch() {
       </section>
     </div>
   );
-}
+});
+
+export default GetInTouch;
 
 const brands: Brand[] = [
   {

@@ -55,19 +55,24 @@ export const Route = createRootRoute({
   notFoundComponent: () => <NotFound />,
 });
 
-function RootComponent() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: AUTHOR_NAME,
-    url: SITE_URL,
-    sameAs: [
-      `https://twitter.com/${TWITTER_HANDLE.replace("@", "")}`,
-      "https://github.com/torn4dom4n",
-    ],
-    jobTitle: "Software Engineer",
-  };
+/**
+ * ⚡ Bolt: Hoist static JSON-LD object to module scope.
+ * Prevents redundant object creation and string replacement on every render.
+ * Impact: Reduces heap allocations and GC pressure.
+ */
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: AUTHOR_NAME,
+  url: SITE_URL,
+  sameAs: [
+    `https://twitter.com/${TWITTER_HANDLE.replace("@", "")}`,
+    "https://github.com/torn4dom4n",
+  ],
+  jobTitle: "Software Engineer",
+};
 
+function RootComponent() {
   return (
     <html lang="en">
       <head>

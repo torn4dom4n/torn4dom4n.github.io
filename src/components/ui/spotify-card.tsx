@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useId } from "react";
+import { useState, useEffect, useRef, useId, memo } from "react";
 import SpotifyIcon from "~icons/simple-icons/spotify";
 
 import { cn } from "@/lib/utils";
@@ -18,7 +18,12 @@ interface SpotifyCardProps {
   className?: string | undefined;
 }
 
-export function SpotifyCard({ data, className }: SpotifyCardProps) {
+/**
+ * ⚡ Bolt: Memoized SpotifyCard to prevent unnecessary re-renders.
+ * Since this component contains complex SVG filters and animations,
+ * skipping re-renders when parent state (like theme) changes is crucial.
+ */
+export const SpotifyCard = memo(function SpotifyCard({ data, className }: SpotifyCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const uniqueId = useId().replace(/:/g, "");
@@ -188,4 +193,4 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
       </div>
     </div>
   );
-}
+});

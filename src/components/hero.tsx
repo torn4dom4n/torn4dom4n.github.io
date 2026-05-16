@@ -1,7 +1,13 @@
+import { memo } from "react";
+
 import GridContainer from "@/components/ui/grid-container";
 import SectionHeader from "@/components/ui/section-header";
 
-export default function Hero() {
+/**
+ * ⚡ Bolt: Memoized Hero component.
+ * Prevents re-rendering during theme transitions or other root-level state changes.
+ */
+const Hero = memo(function Hero() {
   return (
     <div className="pt-16 sm:pt-24">
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
@@ -24,4 +30,6 @@ export default function Hero() {
       </GridContainer>
     </div>
   );
-}
+});
+
+export default Hero;

@@ -13,91 +13,93 @@ import { AUTHOR_NAME, SITE_NAME, SITE_URL, TWITTER_HANDLE } from "@/lib/constant
 import "@/styles/globals.css";
 
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: SITE_NAME },
-      { name: "description", content: `Welcome to ${SITE_NAME}'s website.` },
-      { name: "keywords", content: `${SITE_NAME}, Portfolio` },
-      { name: "author", content: AUTHOR_NAME },
-      { name: "robots", content: "index, follow, max-image-preview:large" },
-      { property: "og:title", content: SITE_NAME },
-      { property: "og:description", content: `Welcome to ${SITE_NAME}'s website.` },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: SITE_URL },
-      { property: "og:site_name", content: SITE_NAME },
-      { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
-      { property: "og:image:alt", content: `Hello humans, my name is ${SITE_NAME}` },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: TWITTER_HANDLE },
-      { name: "twitter:title", content: SITE_NAME },
-      { name: "twitter:description", content: `Welcome to ${SITE_NAME}'s website.` },
-      { name: "twitter:image", content: `${SITE_URL}/og-image.jpg` },
-      { name: "twitter:image:alt", content: `Hello humans, my name is ${SITE_NAME}` },
-      { name: "theme-color", content: "#ffffff" },
-    ],
-    links: [
-      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-      { rel: "mask-icon", href: "/favicon.svg", color: "#FFFFFF" },
-      { rel: "icon", type: "image/png", href: "/favicon-96x96.png", sizes: "96x96" },
-      { rel: "shortcut icon", href: "/favicon.ico" },
-      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
-      { rel: "manifest", href: "/site.webmanifest" },
-      { rel: "canonical", href: SITE_URL },
-      { rel: "sitemap", href: "/sitemap.xml" },
-      { rel: "alternate", type: "application/rss+xml", href: "/rss.xml", title: "RSS Feed" },
-      { rel: "preconnect", href: "https://i.scdn.co" },
-      { rel: "preconnect", href: "https://p.scdn.co" },
-    ],
-  }),
+  head: () => {
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: AUTHOR_NAME,
+      url: SITE_URL,
+      sameAs: [
+        `https://twitter.com/${TWITTER_HANDLE.replace("@", "")}`,
+        "https://github.com/torn4dom4n",
+      ],
+      jobTitle: "Software Engineer",
+    };
+
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: SITE_NAME },
+        { name: "description", content: `Welcome to ${SITE_NAME}'s website.` },
+        { name: "keywords", content: `${SITE_NAME}, Portfolio` },
+        { name: "author", content: AUTHOR_NAME },
+        { name: "robots", content: "index, follow, max-image-preview:large" },
+        { property: "og:title", content: SITE_NAME },
+        { property: "og:description", content: `Welcome to ${SITE_NAME}'s website.` },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: SITE_URL },
+        { property: "og:site_name", content: SITE_NAME },
+        { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
+        { property: "og:image:alt", content: `Hello humans, my name is ${SITE_NAME}` },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:site", content: TWITTER_HANDLE },
+        { name: "twitter:title", content: SITE_NAME },
+        { name: "twitter:description", content: `Welcome to ${SITE_NAME}'s website.` },
+        { name: "twitter:image", content: `${SITE_URL}/og-image.jpg` },
+        { name: "twitter:image:alt", content: `Hello humans, my name is ${SITE_NAME}` },
+        { name: "theme-color", content: "#ffffff" },
+      ],
+      links: [
+        { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+        { rel: "mask-icon", href: "/favicon.svg", color: "#FFFFFF" },
+        { rel: "icon", type: "image/png", href: "/favicon-96x96.png", sizes: "96x96" },
+        { rel: "shortcut icon", href: "/favicon.ico" },
+        { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+        { rel: "manifest", href: "/site.webmanifest" },
+        { rel: "canonical", href: SITE_URL },
+        { rel: "sitemap", href: "/sitemap.xml" },
+        { rel: "alternate", type: "application/rss+xml", href: "/rss.xml", title: "RSS Feed" },
+        { rel: "preconnect", href: "https://i.scdn.co" },
+        { rel: "preconnect", href: "https://p.scdn.co" },
+      ],
+      scripts: [
+        {
+          children: `
+            (function() {
+              try {
+                var theme = localStorage.getItem("vite-ui-theme") || "system";
+                var root = document.documentElement;
+                root.classList.remove("light", "dark");
+
+                if (theme === "system") {
+                  var systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light";
+                  root.classList.add(systemTheme);
+                } else {
+                  root.classList.add(theme);
+                }
+              } catch (e) {}
+            })();
+          `,
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(jsonLd),
+        },
+      ],
+    };
+  },
   component: RootComponent,
   notFoundComponent: () => <NotFound />,
 });
 
 function RootComponent() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: AUTHOR_NAME,
-    url: SITE_URL,
-    sameAs: [
-      `https://twitter.com/${TWITTER_HANDLE.replace("@", "")}`,
-      "https://github.com/torn4dom4n",
-    ],
-    jobTitle: "Software Engineer",
-  };
-
   return (
     <html lang="en">
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem("vite-ui-theme") || "system";
-                  var root = document.documentElement;
-                  root.classList.remove("light", "dark");
-
-                  if (theme === "system") {
-                    var systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-                      ? "dark"
-                      : "light";
-                    root.classList.add(systemTheme);
-                  } else {
-                    root.classList.add(theme);
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
         <HeadContent />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
       </head>
       <body>
         <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">

@@ -101,7 +101,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
               viewBox="0 0 110 110"
               className="size-full animate-spin"
               style={{
-                animationDuration: "3s",
+                animationDuration: "1s",
                 animationPlayState: isPlaying ? "running" : "paused",
               }}
             >

@@ -25,18 +25,18 @@ export default function NotFound() {
             The page you are looking for doesn't exist or has been moved.
           </p>
           <div className="mt-8">
-            <Button asChild>
+            <Button asChild className="group font-semibold">
               <Link to="/">
                 <svg
                   viewBox="0 0 20 20"
                   fill="none"
                   aria-hidden="true"
-                  className="mr-1.5 -ml-1 size-5"
+                  className="mr-2 -ml-1 size-5 transition-transform group-hover:-translate-x-0.5"
                 >
                   <path
                     d="M13.125 15.625L7.5 10L13.125 4.375"
                     stroke="currentColor"
-                    strokeWidth="1.5"
+                    strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />

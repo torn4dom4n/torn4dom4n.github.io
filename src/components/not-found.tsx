@@ -29,26 +29,28 @@ export default function NotFound() {
 
       <div className="h-6 sm:h-10" />
 
-      <GridContainer className="px-2 py-10 before:hidden max-sm:px-4 sm:py-12">
-        <Button asChild className="group font-semibold">
-          <Link to="/">
-            <svg
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden="true"
-              className="mr-2 -ml-1 size-5 transition-transform group-hover:-translate-x-0.5"
-            >
-              <path
-                d="M13.125 15.625L7.5 10L13.125 4.375"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            Back to home
-          </Link>
-        </Button>
+      <GridContainer className="before:hidden">
+        <div className="px-2 py-10 max-sm:px-4 sm:py-12">
+          <Button asChild className="group font-semibold">
+            <Link to="/">
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+                className="mr-2 -ml-1 size-5 transition-transform group-hover:-translate-x-0.5"
+              >
+                <path
+                  d="M13.125 15.625L7.5 10L13.125 4.375"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              Back to home
+            </Link>
+          </Button>
+        </div>
       </GridContainer>
     </div>
   );

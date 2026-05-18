@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
+import { Button } from "@/components/ui/button";
 import GridContainer from "@/components/ui/grid-container";
 import SectionHeader from "@/components/ui/section-header";
 
@@ -24,9 +25,25 @@ export default function NotFound() {
             The page you are looking for doesn't exist or has been moved.
           </p>
           <div className="mt-8">
-            <Link to="/" className="text-foreground transition-colors hover:text-muted-foreground">
-              Back to home
-            </Link>
+            <Button asChild>
+              <Link to="/">
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden="true"
+                  className="mr-1.5 -ml-1 size-5"
+                >
+                  <path
+                    d="M13.125 15.625L7.5 10L13.125 4.375"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                Back to home
+              </Link>
+            </Button>
           </div>
         </div>
       </GridContainer>

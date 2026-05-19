@@ -86,12 +86,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
       return (
         <span className="grid items-center justify-center">
-          {/* Normal state: Text only, centered */}
-          <span className="col-start-1 row-start-1 flex items-center justify-center transition-all duration-300 group-hover:invisible group-hover:opacity-0">
+          {/* Normal state: Text only, slides up and out */}
+          <span className="col-start-1 row-start-1 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-full group-hover:opacity-0">
             {textContent}
           </span>
-          {/* Hover state: Text + Icon, centered as a group */}
-          <span className="col-start-1 row-start-1 flex items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100 [&_svg]:size-4">
+          {/* Hover state: Text + Icon, slides in from bottom */}
+          <span className="col-start-1 row-start-1 flex translate-y-full items-center justify-center gap-2 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0 group-hover:opacity-100 [&_svg]:size-4">
             {content}
           </span>
         </span>

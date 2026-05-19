@@ -24,8 +24,19 @@ export function buttonVariants({
   size = "default",
   className,
 }: ButtonVariantProps = {}) {
+  const isIconOnly = size?.startsWith("icon");
+
   return cn(
-    "group relative inline-flex items-center justify-center overflow-hidden rounded-full text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",
+    "group inline-flex items-center justify-center rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+    // Horizontal Reveal Animation
+    !isIconOnly && [
+      "gap-0 hover:gap-1.5",
+      "[&_svg]:w-0 [&_svg]:opacity-0 [&_svg]:transition-all [&_svg]:duration-300 [&_svg]:ease-in-out",
+      "hover:[&_svg]:w-4 hover:[&_svg]:opacity-100",
+      "[&_svg:first-child]:-translate-x-1 hover:[&_svg:first-child]:translate-x-0",
+      "[&_svg:last-child]:translate-x-1 hover:[&_svg:last-child]:translate-x-0",
+    ],
+    isIconOnly && "gap-1.5",
     variant === "default" && "bg-foreground text-background shadow-sm hover:bg-foreground/90",
     variant === "destructive" && "bg-red-600 text-white shadow-sm hover:bg-red-600/90",
     variant === "outline" &&
@@ -59,58 +70,18 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
     });
 
-    const isIconOnly = size?.startsWith("icon");
-
-    const renderContent = (content: React.ReactNode) => {
-      if (isIconOnly) return content;
-
-      const contentArray = React.Children.toArray(content);
-      const isIcon = (node: any) =>
-        React.isValidElement(node) &&
-        (node.type === "svg" ||
-          (node.type as any)?.displayName?.includes("Icon") ||
-          (node.type as any)?.name?.includes("Icon") ||
-          (node.props as any)?.["data-icon"] ||
-          (node.props as any)?.["aria-hidden"] === "true");
-
-      const hasStartIcon = isIcon(contentArray[0]);
-      const hasEndIcon = isIcon(contentArray[contentArray.length - 1]);
-
-      if (!hasStartIcon && !hasEndIcon) return content;
-
-      const textContent = contentArray.filter((_, i) => {
-        if (hasStartIcon && i === 0) return false;
-        if (hasEndIcon && i === contentArray.length - 1) return false;
-        return true;
-      });
-
-      return (
-        <span className="grid items-center justify-center">
-          {/* Normal state: Text only, slides up and out */}
-          <span className="col-start-1 row-start-1 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-translate-y-full group-hover:opacity-0">
-            {textContent}
-          </span>
-          {/* Hover state: Text + Icon, slides in from bottom */}
-          <span className="col-start-1 row-start-1 flex translate-y-full items-center justify-center gap-2 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0 group-hover:opacity-100 [&_svg]:size-4">
-            {content}
-          </span>
-        </span>
-      );
-    };
-
     if (asChild && React.isValidElement(children)) {
       const child = children as React.ReactElement<any>;
       return React.cloneElement(child, {
         className: cn(variants, child.props.className),
         "data-slot": "button",
         ...props,
-        children: renderContent(child.props.children),
       });
     }
 
     return (
       <button className={variants} ref={ref} data-slot="button" {...props}>
-        {renderContent(children)}
+        {children}
       </button>
     );
   },

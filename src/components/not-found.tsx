@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
+import { Button } from "@/components/ui/button";
 import GridContainer from "@/components/ui/grid-container";
 import SectionHeader from "@/components/ui/section-header";
 
@@ -23,11 +24,32 @@ export default function NotFound() {
           <p className="max-w-(--breakpoint-md) text-lg/7 text-muted-foreground">
             The page you are looking for doesn't exist or has been moved.
           </p>
-          <div className="mt-8">
-            <Link to="/" className="text-foreground transition-colors hover:text-muted-foreground">
+        </div>
+      </GridContainer>
+
+      <div className="h-6 sm:h-10" />
+
+      <GridContainer>
+        <div className="px-2 max-sm:px-4">
+          <Button asChild className="group font-semibold">
+            <Link to="/">
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+                className="mr-2 -ml-1 size-5 transition-transform group-hover:-translate-x-0.5"
+              >
+                <path
+                  d="M13.125 15.625L7.5 10L13.125 4.375"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
               Back to home
             </Link>
-          </div>
+          </Button>
         </div>
       </GridContainer>
     </div>

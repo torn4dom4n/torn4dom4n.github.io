@@ -84,6 +84,9 @@ export default defineConfig({
   plugins: [
     vinext({
       appDir: "./src",
+      nextConfig: {
+        output: "export",
+      },
     }),
     tailwindcss(),
     Icons({

@@ -37,5 +37,10 @@
   },
   "devDependencies": {
     "@vitejs/plugin-rsc": "^0.5.26"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
   }
 }

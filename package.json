@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vinext dev",
-    "build": "vinext build",
+    "build": "vinext build --prerender-all && cp dist/server/prerendered-routes/*.html dist/client/",
     "preview": "vinext start",
     "lint": "vp lint",
     "format": "vp fmt",

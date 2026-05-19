@@ -1,7 +1,7 @@
 {
   "name": "@torn4dom4n/website",
   "framework": "vite",
-  "buildCommand": "vp build",
+  "buildCommand": "vinext build",
   "outputDirectory": "dist/client",
   "github": {
     "autoJobCancelation": true

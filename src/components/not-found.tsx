@@ -30,7 +30,7 @@ export default function NotFound() {
       <div className="h-6 sm:h-10" />
 
       <GridContainer>
-        <div className="px-2 py-10 max-sm:px-4 sm:py-12">
+        <div className="px-2 max-sm:px-4">
           <Button asChild className="group font-semibold">
             <Link to="/">
               <svg

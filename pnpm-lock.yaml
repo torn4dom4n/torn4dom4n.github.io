@@ -63,8 +63,8 @@ importers:
         specifier: ^23.0.1
         version: 23.0.1(@svgr/core@8.1.0(typescript@6.0.3))
       vinext:
-        specifier: ^0.0.51
-        version: 0.0.51(@vitejs/plugin-react@6.0.2(@voidzero-dev/vite-plus-core@0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3)))(@vitejs/plugin-rsc@0.5.26(@voidzero-dev/vite-plus-core@0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(@voidzero-dev/vite-plus-core@0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3))(next@16.2.6(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)
+        specifier: 0.0.50
+        version: 0.0.50(@vitejs/plugin-react@6.0.2(@voidzero-dev/vite-plus-core@0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3)))(@vitejs/plugin-rsc@0.5.26(@voidzero-dev/vite-plus-core@0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(@voidzero-dev/vite-plus-core@0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3))(next@16.2.6(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)
       vite:
         specifier: npm:@voidzero-dev/vite-plus-core@^0.1.21
         version: '@voidzero-dev/vite-plus-core@0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3)'
@@ -1738,14 +1738,14 @@ packages:
     peerDependencies:
       browserslist: '>= 4.21.0'
 
-  vinext@0.0.51:
-    resolution: {integrity: sha512-wNqX3B9Y0QYsMB+WskvI63mB4V+Lpqne5RFM6kL2BCXst2P91O+V+3RdGynpYEn+2xVNmzken2ipmNgfHUbC+A==}
+  vinext@0.0.50:
+    resolution: {integrity: sha512-uo72YNnq94NtogETWnhMdFSrkMLwWgeXh5PS6qh8ksajuvAaZX50bXYJ4a6dERQ/AnnXAlNByAGHCjjNxQrvig==}
     engines: {node: '>=22'}
     hasBin: true
     peerDependencies:
       '@mdx-js/rollup': ^3.0.0
       '@vitejs/plugin-react': ^5.1.4 || ^6.0.0
-      '@vitejs/plugin-rsc': ^0.5.26
+      '@vitejs/plugin-rsc': ^0.5.23
       react: ^19.2.6
       react-dom: ^19.2.6
       react-server-dom-webpack: ^19.2.6
@@ -3116,7 +3116,7 @@ snapshots:
       escalade: 3.2.0
       picocolors: 1.1.1
 
-  vinext@0.0.51(@vitejs/plugin-react@6.0.2(@voidzero-dev/vite-plus-core@0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3)))(@vitejs/plugin-rsc@0.5.26(@voidzero-dev/vite-plus-core@0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(@voidzero-dev/vite-plus-core@0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3))(next@16.2.6(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3):
+  vinext@0.0.50(@vitejs/plugin-react@6.0.2(@voidzero-dev/vite-plus-core@0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3)))(@vitejs/plugin-rsc@0.5.26(@voidzero-dev/vite-plus-core@0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(@voidzero-dev/vite-plus-core@0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3))(next@16.2.6(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3):
     dependencies:
       '@unpic/react': 1.0.2(next@16.2.6(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@vercel/og': 0.8.6

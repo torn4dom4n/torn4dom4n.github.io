@@ -31,7 +31,7 @@
     "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3",
     "unplugin-icons": "^23.0.1",
-    "vinext": "^0.0.51",
+    "vinext": "0.0.50",
     "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.21",
     "vite-plus": "latest"
   },

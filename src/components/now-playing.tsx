@@ -3,11 +3,11 @@ import SectionHeader from "@/components/ui/section-header";
 import { SpotifyCard, type SpotifyData } from "@/components/ui/spotify-card";
 
 const FAVORITE_TRACK: SpotifyData = {
-  title: "Catharina",
-  artist: "Martin Garrix",
-  image: "https://i.scdn.co/image/ab67616d00001e02f09c204fd16ebbdd69eef5ef",
-  audio: "https://p.scdn.co/mp3-preview/8d8da7521ecac1f1dd66111257122bda7114e70d",
-  link: "https://open.spotify.com/track/0axM6rXe76kVZ5H3vbb8pi",
+  title: "Repeat It",
+  artist: "Martin Garrix, Ed Sheeran",
+  image: "https://i.scdn.co/image/ab67616d0000b273296d05fd4b9e99e88f28eac1",
+  audio: "https://p.scdn.co/mp3-preview/783c4ddb6c42383e9b81d03dc48deede523be130",
+  link: "https://open.spotify.com/track/5mX5bEYxObqukGlynRIVCj",
 };
 
 export default function NowPlaying() {

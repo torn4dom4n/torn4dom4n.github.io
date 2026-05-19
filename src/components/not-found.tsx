@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import GridContainer from "@/components/ui/grid-container";
@@ -32,7 +32,7 @@ export default function NotFound() {
       <GridContainer>
         <div className="px-2 max-sm:px-4">
           <Button asChild className="group font-semibold">
-            <Link to="/">
+            <Link href="/">
               <svg
                 viewBox="0 0 20 20"
                 fill="none"

@@ -33,12 +33,7 @@ export default function NotFound() {
         <div className="px-2 max-sm:px-4">
           <Button asChild className="group font-semibold">
             <Link to="/">
-              <svg
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-                className="transition-transform group-hover:-translate-x-0.5"
-              >
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
                 <path
                   d="M13.125 15.625L7.5 10L13.125 4.375"
                   stroke="currentColor"

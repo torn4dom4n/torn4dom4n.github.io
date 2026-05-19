@@ -24,8 +24,19 @@ export function buttonVariants({
   size = "default",
   className,
 }: ButtonVariantProps = {}) {
+  const isIconSize = size?.startsWith("icon");
+
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+    "group inline-flex items-center justify-center rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+    // Icon animation: hide and collapse by default (only if not an icon-only button)
+    !isIconSize && [
+      "gap-0 hover:gap-2",
+      "[&_svg]:w-0 [&_svg]:opacity-0 [&_svg]:transition-all [&_svg]:duration-300 [&_svg]:ease-in-out",
+      "hover:[&_svg]:w-4 hover:[&_svg]:opacity-100",
+      "[&_svg:first-child]:-translate-x-1 hover:[&_svg:first-child]:translate-x-0",
+      "[&_svg:last-child]:translate-x-1 hover:[&_svg:last-child]:translate-x-0",
+    ],
+    isIconSize && "gap-2",
     variant === "default" && "bg-foreground text-background shadow-sm hover:bg-foreground/90",
     variant === "destructive" && "bg-red-600 text-white shadow-sm hover:bg-red-600/90",
     variant === "outline" &&

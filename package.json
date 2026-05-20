@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vinext dev",
-    "build": "vinext build --prerender-all && cp -rv dist/server/prerendered-routes/* dist/client/",
+    "build": "vinext build && cp -rv dist/server/prerendered-routes/* dist/client/ || true",
     "preview": "vinext start",
     "lint": "vp lint",
     "format": "vp fmt",
@@ -27,12 +27,11 @@
     "next": "15.4.11",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "react-server-dom-webpack": "^19.2.6",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3",
     "unplugin-icons": "^23.0.1",
-    "vinext": "0.0.50",
+    "vinext": "^0.0.50",
     "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.21",
     "vite-plus": "latest"
   },

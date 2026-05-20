@@ -30,7 +30,7 @@ function robotsPlugin() {
 Allow: /
 
 Sitemap: ${siteUrl}/sitemap.xml`;
-      const outPath = join("dist", "client", "robots.txt");
+      const outPath = join("out", "robots.txt");
       mkdirSync(dirname(outPath), { recursive: true });
       writeFileSync(outPath, robots);
     },
@@ -84,9 +84,6 @@ export default defineConfig({
   plugins: [
     vinext({
       appDir: "./src",
-      nextConfig: {
-        output: "export",
-      },
     }),
     tailwindcss(),
     Icons({

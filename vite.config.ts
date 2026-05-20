@@ -86,7 +86,6 @@ export default defineConfig({
       appDir: "./src",
       nextConfig: {
         output: "export",
-        distDir: "out",
       },
     }),
     tailwindcss(),

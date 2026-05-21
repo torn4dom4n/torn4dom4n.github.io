@@ -20,7 +20,7 @@ jobs:
       - name: Run build
         uses: area44/workflows/vite-plus@v4.4.0
         with:
-          path: 'dist/client'
+          path: 'out'
 
   deploy:
     needs: build

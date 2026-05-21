@@ -33,7 +33,7 @@
     "unplugin-icons": "^23.0.1",
     "vinext": "^0.0.51",
     "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.21",
-    "vite-plus": "^0.1.22",
+    "vite-plus": "^0.1.21",
     "@vitejs/plugin-rsc": "^0.5.26"
   }
 }

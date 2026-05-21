@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vinext dev",
-    "build": "vinext build && cp -r dist/client out && touch out/.nojekyll",
+    "build": "vinext build && rm -rf out && mv dist/client out && touch out/.nojekyll",
     "preview": "vinext start",
     "lint": "vp lint",
     "format": "vp fmt",

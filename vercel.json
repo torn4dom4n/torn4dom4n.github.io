@@ -1,7 +1,7 @@
 {
   "name": "@torn4dom4n/website",
   "framework": "vite",
-  "buildCommand": "pnpm run build",
+  "buildCommand": "vp build",
   "outputDirectory": "out",
   "cleanUrls": true,
   "github": {

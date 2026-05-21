@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 import { useTheme } from "./theme-provider";
@@ -10,7 +11,7 @@ type ThemeToggleButtonProps = {
   onValueChange: (value: Theme) => void;
   title: string;
   children: React.ReactNode;
-} & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "onSelect">;
+} & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange" | "onSelect" | "value">;
 
 function ThemeToggleButton({
   value,
@@ -20,23 +21,27 @@ function ThemeToggleButton({
   children,
   ...props
 }: ThemeToggleButtonProps) {
+  const id = React.useId();
   return (
-    <button
-      type="button"
-      role="radio"
-      aria-checked={selected}
-      tabIndex={selected ? 0 : -1}
-      onClick={() => onValueChange(value)}
-      title={title}
-      className={`flex items-center justify-center rounded-full p-1 transition-all ${
-        selected
-          ? "shadow-elevation bg-background text-foreground"
-          : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
-      }`}
-      {...props}
-    >
-      {children}
-    </button>
+    <div className="relative">
+      <input
+        type="radio"
+        id={id}
+        name="theme-toggle"
+        value={value}
+        checked={selected}
+        onChange={() => onValueChange(value)}
+        className="peer sr-only"
+        {...props}
+      />
+      <label
+        htmlFor={id}
+        title={title}
+        className="flex cursor-pointer items-center justify-center rounded-full p-1 text-muted-foreground transition-all peer-checked:bg-background peer-checked:text-foreground peer-checked:shadow-sm hover:bg-accent/50 hover:text-foreground"
+      >
+        {children}
+      </label>
+    </div>
   );
 }
 
@@ -50,7 +55,6 @@ export function ModeToggle() {
       className="inline-flex items-center gap-0.5 rounded-full border border-border bg-muted/50 p-0.5"
     >
       <ThemeToggleButton
-        aria-label="System theme"
         title="System theme"
         value="system"
         selected={theme === "system"}
@@ -72,7 +76,6 @@ export function ModeToggle() {
       </ThemeToggleButton>
 
       <ThemeToggleButton
-        aria-label="Light theme"
         title="Light theme"
         value="light"
         selected={theme === "light"}
@@ -100,7 +103,6 @@ export function ModeToggle() {
       </ThemeToggleButton>
 
       <ThemeToggleButton
-        aria-label="Dark theme"
         title="Dark theme"
         value="dark"
         selected={theme === "dark"}

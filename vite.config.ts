@@ -1,8 +1,8 @@
 import tailwindcss from "@tailwindcss/vite";
-import { mkdirSync, writeFileSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import { writeFileSync } from "node:fs";
+import { join } from "node:path";
 import Icons from "unplugin-icons/vite";
-import vinext from "vinext";
 import { defineConfig } from "vite-plus";
 
 const base = process.env.BASE || "/";
@@ -30,9 +30,7 @@ function robotsPlugin() {
 Allow: /
 
 Sitemap: ${siteUrl}/sitemap.xml`;
-      const outPath = join("out", "robots.txt");
-      mkdirSync(dirname(outPath), { recursive: true });
-      writeFileSync(outPath, robots);
+      writeFileSync(join("dist", "client", "robots.txt"), robots);
     },
   };
 }
@@ -82,8 +80,14 @@ export default defineConfig({
   },
   base,
   plugins: [
-    vinext({
-      appDir: "./src",
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        autoSubfolderIndex: false,
+      },
+      sitemap: {
+        host: process.env.VITE_SITE_URL || "http://localhost:5173",
+      },
     }),
     tailwindcss(),
     Icons({

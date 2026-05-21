@@ -13,7 +13,6 @@ node_modules
 
 # Build output
 dist
-out
 dist-ssr
 *.local
 

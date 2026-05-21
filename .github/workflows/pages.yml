@@ -21,6 +21,8 @@ jobs:
         uses: area44/workflows/vite-plus@v4.4.0
         with:
           path: 'out'
+        env:
+          BUILD_COMMAND: pnpm build
 
   deploy:
     needs: build

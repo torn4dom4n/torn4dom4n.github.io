@@ -37,7 +37,7 @@ export default function NotFound() {
                 viewBox="0 0 20 20"
                 fill="none"
                 aria-hidden="true"
-                className="mr-2 -ml-1 size-5 transition-transform group-hover:-translate-x-0.5"
+                className="transition-transform group-hover:-translate-x-0.5"
               >
                 <path
                   d="M13.125 15.625L7.5 10L13.125 4.375"

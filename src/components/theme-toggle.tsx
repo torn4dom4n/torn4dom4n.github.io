@@ -10,7 +10,7 @@ type ThemeToggleButtonProps = {
   onValueChange: (value: Theme) => void;
   title: string;
   children: React.ReactNode;
-} & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "onSelect">;
+} & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange" | "onSelect" | "value">;
 
 function ThemeToggleButton({
   value,
@@ -21,22 +21,23 @@ function ThemeToggleButton({
   ...props
 }: ThemeToggleButtonProps) {
   return (
-    <button
-      type="button"
-      role="radio"
-      aria-checked={selected}
-      tabIndex={selected ? 0 : -1}
-      onClick={() => onValueChange(value)}
+    <label
       title={title}
-      className={`flex items-center justify-center rounded-full p-1 transition-all ${
+      className={`relative flex cursor-pointer items-center justify-center rounded-full p-1 transition-all ${
         selected
           ? "shadow-elevation bg-background text-foreground"
           : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
       }`}
-      {...props}
     >
+      <input
+        type="radio"
+        className="sr-only"
+        checked={selected}
+        onChange={() => onValueChange(value)}
+        {...props}
+      />
       {children}
-    </button>
+    </label>
   );
 }
 
@@ -55,6 +56,7 @@ export function ModeToggle() {
         value="system"
         selected={theme === "system"}
         onValueChange={setTheme}
+        name="theme"
       >
         <svg
           viewBox="0 0 24 24"
@@ -77,6 +79,7 @@ export function ModeToggle() {
         value="light"
         selected={theme === "light"}
         onValueChange={setTheme}
+        name="theme"
       >
         <svg
           viewBox="0 0 24 24"
@@ -105,6 +108,7 @@ export function ModeToggle() {
         value="dark"
         selected={theme === "dark"}
         onValueChange={setTheme}
+        name="theme"
       >
         <svg
           viewBox="0 0 24 24"

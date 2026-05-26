@@ -33,22 +33,33 @@ export function ThemeProvider({
     return defaultTheme;
   });
 
-  useEffect(() => {
+  const applyTheme = useCallback((targetTheme: Theme) => {
     const root = window.document.documentElement;
-
     root.classList.remove("light", "dark");
 
-    if (theme === "system") {
+    if (targetTheme === "system") {
       const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light";
-
       root.classList.add(systemTheme);
-      return;
+    } else {
+      root.classList.add(targetTheme);
     }
+  }, []);
 
-    root.classList.add(theme);
-  }, [theme]);
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme, applyTheme]);
+
+  useEffect(() => {
+    if (theme !== "system") return;
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = () => applyTheme("system");
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, [theme, applyTheme]);
 
   const handleSetTheme = useCallback(
     (newTheme: Theme) => {

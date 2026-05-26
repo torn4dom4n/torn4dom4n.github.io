@@ -24,9 +24,10 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
   const uniqueId = useId().replace(/:/g, "");
 
   useEffect(() => {
+    const audio = audioRef.current;
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
+      if (audio) {
+        audio.pause();
       }
     };
   }, []);
@@ -70,6 +71,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
       </div>
       <button
         onClick={data.audio ? handlePlayPause : undefined}
+        type="button"
         aria-label={isPlaying ? "Pause preview" : "Play preview"}
         className={cn(
           "group relative z-1 w-full max-w-18.75 self-center",
@@ -174,14 +176,18 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
             aria-label="View track on Spotify"
             className="cursor-pointer"
           >
-            <SpotifyIcon width={18} height={18} className="text-muted-foreground" />
+            <SpotifyIcon
+              width={18}
+              height={18}
+              className="text-white/70 transition-colors hover:text-white"
+            />
           </a>
         </div>
         <div className="pl-6 text-end">
-          <h3 className="text-sm font-semibold tracking-[-.006em] whitespace-nowrap text-foreground">
+          <h3 className="text-sm font-semibold tracking-[-.006em] whitespace-nowrap text-white">
             {data.title}
           </h3>
-          <p className="text-sm font-medium tracking-[-.006em] whitespace-nowrap text-muted-foreground">
+          <p className="text-sm font-medium tracking-[-.006em] whitespace-nowrap text-white/70">
             {data.artist}
           </p>
         </div>

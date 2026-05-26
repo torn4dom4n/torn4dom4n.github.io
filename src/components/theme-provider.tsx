@@ -1,4 +1,12 @@
-import { createContext, useCallback, use, useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  use,
+  useEffect,
+  useMemo,
+  useState,
+  useEffectEvent,
+} from "react";
 
 type Theme = "dark" | "light" | "system";
 
@@ -33,21 +41,32 @@ export function ThemeProvider({
     return defaultTheme;
   });
 
-  useEffect(() => {
+  const onApplyTheme = useEffectEvent((targetTheme: Theme) => {
     const root = window.document.documentElement;
-
     root.classList.remove("light", "dark");
 
-    if (theme === "system") {
+    if (targetTheme === "system") {
       const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light";
-
       root.classList.add(systemTheme);
-      return;
+    } else {
+      root.classList.add(targetTheme);
     }
+  });
 
-    root.classList.add(theme);
+  useEffect(() => {
+    onApplyTheme(theme);
+  }, [theme]);
+
+  useEffect(() => {
+    if (theme !== "system") return;
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = () => onApplyTheme("system");
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, [theme]);
 
   const handleSetTheme = useCallback(

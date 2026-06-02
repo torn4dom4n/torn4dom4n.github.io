@@ -33,6 +33,6 @@
     "typescript": "^6.0.3",
     "unplugin-icons": "^23.0.1",
     "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.23",
-    "vite-plus": "latest"
+    "vite-plus": "^0.1.23"
   }
 }

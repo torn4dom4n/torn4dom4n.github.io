@@ -32,6 +32,7 @@
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "unplugin-icons": "catalog:",
+    "vite": "catalog:",
     "vite-plus": "catalog:"
   }
 }

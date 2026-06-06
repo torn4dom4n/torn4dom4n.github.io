@@ -16,23 +16,23 @@
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.9",
     "@fontsource-variable/geist-mono": "^5.2.8",
-    "@iconify-json/simple-icons": "^1.2.84",
+    "@iconify-json/simple-icons": "^1.2.85",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "@tailwindcss/vite": "^4.3.0",
-    "@tanstack/react-router": "^1.170.9",
-    "@tanstack/react-start": "^1.168.16",
+    "@tanstack/react-router": "^1.170.11",
+    "@tanstack/react-start": "^1.168.20",
     "@types/node": "^25.9.1",
-    "@types/react": "^19.2.15",
+    "@types/react": "^19.2.16",
     "@types/react-dom": "^19.2.3",
     "clsx": "^2.1.1",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3",
     "unplugin-icons": "^23.0.1",
-    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.23",
-    "vite-plus": "^0.1.23"
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.24",
+    "vite-plus": "^0.1.24"
   }
 }

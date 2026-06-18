@@ -70,7 +70,7 @@ export default defineConfig({
         autoSubfolderIndex: false,
       },
       sitemap: {
-        host: process.env.VITE_SITE_URL || "http://localhost:5173",
+        host: process.env.VITE_SITE_URL || "https://torn4dom4n.github.io",
       },
     }),
     tailwindcss(),

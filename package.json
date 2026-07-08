@@ -30,9 +30,9 @@
     "react-dom": "^19.2.7",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.2",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "unplugin-icons": "^23.0.1",
-    "vite": "npm:@voidzero-dev/vite-plus-core@^0.2.2",
-    "vite-plus": "^0.2.2"
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.2.4",
+    "vite-plus": "^0.2.4"
   }
 }

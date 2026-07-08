@@ -3,4 +3,25 @@ packages:
 allowBuilds:
   esbuild: false
 overrides:
-  vite: npm:@voidzero-dev/vite-plus-core@^0.2.2
+  vite: npm:@voidzero-dev/vite-plus-core@^0.2.4
+minimumReleaseAge: 0
+shellEmulator: true
+trustLockfile: true
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 604800
+peerDependencyRules:
+  allowAny:
+    - vite
+  allowedVersions:
+    vite: "*"
+minimumReleaseAgeExclude:
+  - vite-plus
+  - "@voidzero-dev/*"
+  - oxlint
+  - "@oxlint/*"
+  - oxlint-tsgolint
+  - "@oxlint-tsgolint/*"
+  - oxfmt
+  - "@oxfmt/*"
+  - vitest
+  - "@vitest/*"

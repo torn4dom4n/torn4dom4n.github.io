@@ -9,11 +9,6 @@ shellEmulator: true
 trustLockfile: true
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 604800
-peerDependencyRules:
-  allowAny:
-    - vite
-  allowedVersions:
-    vite: "*"
 minimumReleaseAgeExclude:
   - vite-plus
   - "@voidzero-dev/*"

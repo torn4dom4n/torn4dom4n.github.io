@@ -6,6 +6,7 @@
     /* React JSX Settings */
     "jsx": "react-jsx",
     /* Bundler Mode */
+    "module": "esnext",
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,

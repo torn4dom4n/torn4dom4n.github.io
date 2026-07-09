@@ -2,7 +2,6 @@ import FacebookIcon from "~icons/simple-icons/facebook";
 import GitHubIcon from "~icons/simple-icons/github";
 import InstagramIcon from "~icons/simple-icons/instagram";
 import LinkedInIcon from "~icons/simple-icons/linkedin";
-import PinterestIcon from "~icons/simple-icons/pinterest";
 import RedditIcon from "~icons/simple-icons/reddit";
 import SoundCloudIcon from "~icons/simple-icons/soundcloud";
 import XIcon from "~icons/simple-icons/x";
@@ -115,11 +114,6 @@ const brands: Brand[] = [
     name: "Reddit",
     url: "https://reddit.com/user/torn4dom4n",
     logo: RedditIcon,
-  },
-  {
-    name: "Pinterest",
-    url: "https://pinterest.com/torn4dom4n",
-    logo: PinterestIcon,
   },
   {
     name: "SoundCloud",

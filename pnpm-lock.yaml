@@ -18,7 +18,7 @@ importers:
         specifier: ^5.2.8
         version: 5.2.8
       '@iconify-json/simple-icons':
-        specifier: ^1.2.88
+        specifier: ^1.2.89
         version: 1.2.89
       '@svgr/core':
         specifier: ^8.1.0
@@ -36,7 +36,7 @@ importers:
         specifier: ^1.168.27
         version: 1.168.27(@voidzero-dev/vite-plus-core@0.2.4(@types/node@25.9.5)(jiti@2.7.0)(typescript@7.0.2))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@types/node':
-        specifier: ^25.9.4
+        specifier: ^25.9.5
         version: 25.9.5
       '@types/react':
         specifier: ^19.2.17

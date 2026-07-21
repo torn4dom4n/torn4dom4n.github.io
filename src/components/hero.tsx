@@ -27,7 +27,7 @@ export default function Hero() {
         <div className="relative mt-2 px-2 sm:mt-4">
           <p className="text-5xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium lg:text-6xl xl:text-8xl">
             my name is{" "}
-            <span className="group relative inline-block pr-1.5 pl-3 text-foreground">
+            <span className="group relative inline-block pr-1.5 text-foreground">
               Long Nhat
               {/* Target Border Box Overlay - Snug Neutral Fit */}
               <span
@@ -93,7 +93,7 @@ export default function Hero() {
         {/* Line 3: Long Nhat Nguyen with Snug Fitting Selection Box */}
         <div className="relative mt-1 px-2 max-sm:px-4">
           <p className="text-4xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium">
-            <span className="group relative inline-block pr-1.5 pl-2.5 whitespace-nowrap text-foreground">
+            <span className="group relative inline-block pr-1.5 whitespace-nowrap text-foreground">
               Long Nhat <span className="italic">Nguyen</span>
               {/* Target Border Box Overlay - Snug Neutral Fit */}
               <span

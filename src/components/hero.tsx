@@ -3,11 +3,11 @@ import GridContainer from "@/components/ui/grid-container";
 export default function Hero() {
   return (
     <div className="pt-16 sm:pt-24">
-      {/* hello, my name is */}
+      {/* hello */}
       <div className="relative px-2 max-sm:px-4">
         <h1 className="text-4xl tracking-tighter text-balance text-foreground max-lg:font-medium sm:text-5xl lg:text-6xl xl:text-8xl">
           <span className="relative inline-block">
-            hello, my name is
+            hello
             {/* Horizontal guidelines running across the text (like 'Interfaces' in horizontal) */}
             <span
               aria-hidden="true"
@@ -21,10 +21,10 @@ export default function Hero() {
         </h1>
       </div>
 
-      {/* Main heading: Long Nhat Nguyen */}
+      {/* Main heading: my name is Long Nhat Nguyen */}
       <div className="relative mt-2 px-2 max-sm:px-4 sm:mt-4">
         <p className="text-4xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium sm:text-5xl lg:text-6xl xl:text-8xl">
-          Long{" "}
+          my name is Long{" "}
           <span className="group relative mx-1 inline-block text-foreground sm:mx-2">
             Nhat
             {/* Target Border Box Overlay */}

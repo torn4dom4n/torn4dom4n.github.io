@@ -13,11 +13,11 @@ export default function Hero() {
               {/* Horizontal guidelines framing the top of 'o' and baseline of 'Hello' */}
               <span
                 aria-hidden="true"
-                className="absolute top-[31%] -right-4 -left-4 h-[2px] bg-foreground/35"
+                className="absolute top-[38%] -right-4 -left-4 h-[2.5px] bg-foreground/45"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-4 bottom-[12%] -left-4 h-[2px] bg-foreground/35"
+                className="absolute -right-4 bottom-[15%] -left-4 h-[2.5px] bg-foreground/45"
               />
             </span>
           </h1>
@@ -32,24 +32,24 @@ export default function Hero() {
               {/* Target Border Box Overlay - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute -inset-x-0.5 inset-y-0 top-1 -bottom-2 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
+                className="absolute -inset-x-0.5 top-[2px] -bottom-[4px] border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
               />
               {/* Control Handles (Corner Squares) - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute top-1 -left-[5px] size-1.5 border border-foreground bg-background"
+                className="absolute top-[2px] -left-[5px] size-1.5 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute top-1 -right-[5px] size-1.5 border border-foreground bg-background"
+                className="absolute top-[2px] -right-[5px] size-1.5 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute -bottom-2 -left-[5px] size-1.5 border border-foreground bg-background"
+                className="absolute -bottom-[4px] -left-[5px] size-1.5 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-[5px] -bottom-2 size-1.5 border border-foreground bg-background"
+                className="absolute -right-[5px] -bottom-[4px] size-1.5 border border-foreground bg-background"
               />
             </span>
           </p>
@@ -73,11 +73,11 @@ export default function Hero() {
               {/* Horizontal guidelines framing the top of 'o' and baseline of 'Hello' */}
               <span
                 aria-hidden="true"
-                className="absolute top-[31%] -right-4 -left-4 h-[2px] bg-foreground/35"
+                className="absolute top-[38%] -right-4 -left-4 h-[2px] bg-foreground/45"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-4 bottom-[12%] -left-4 h-[2px] bg-foreground/35"
+                className="absolute -right-4 bottom-[15%] -left-4 h-[2px] bg-foreground/45"
               />
             </span>
           </h1>
@@ -98,24 +98,24 @@ export default function Hero() {
               {/* Target Border Box Overlay - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute -inset-x-0.5 inset-y-0 top-0.5 -bottom-1 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
+                className="absolute -inset-x-0.5 top-[1px] -bottom-[3px] border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
               />
               {/* Control Handles (Corner Squares) - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute top-0.5 -left-[4px] size-1 border border-foreground bg-background"
+                className="absolute top-[1px] -left-[4px] size-1 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute top-0.5 -right-[4px] size-1 border border-foreground bg-background"
+                className="absolute top-[1px] -right-[4px] size-1 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute -bottom-1 -left-[4px] size-1 border border-foreground bg-background"
+                className="absolute -bottom-[3px] -left-[4px] size-1 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-[4px] -bottom-1 size-1 border border-foreground bg-background"
+                className="absolute -right-[4px] -bottom-[3px] size-1 border border-foreground bg-background"
               />
             </span>
           </p>

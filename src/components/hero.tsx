@@ -5,19 +5,19 @@ export default function Hero() {
     <div className="pt-16 sm:pt-24">
       {/* Large Screen Layout */}
       <div className="hidden sm:block">
-        {/* Line 1: hello */}
+        {/* Line 1: Hello */}
         <div className="relative px-2">
           <h1 className="text-5xl tracking-tighter text-balance text-foreground max-lg:font-medium lg:text-6xl xl:text-8xl">
             <span className="relative inline-block">
-              hello
-              {/* Horizontal guidelines framing the top of 'o' and baseline of 'hello' */}
+              Hello
+              {/* Horizontal guidelines framing the top of 'o' and baseline of 'Hello' */}
               <span
                 aria-hidden="true"
-                className="absolute top-[39%] -right-4 -left-4 h-[1px] bg-cyan-400/40 dark:bg-cyan-500/30"
+                className="absolute top-[39%] -right-4 -left-4 h-[1px] bg-foreground/20"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-4 bottom-[15%] -left-4 h-[1px] bg-cyan-400/40 dark:bg-cyan-500/30"
+                className="absolute -right-4 bottom-[15%] -left-4 h-[1px] bg-foreground/20"
               />
             </span>
           </h1>
@@ -29,27 +29,27 @@ export default function Hero() {
             my name is{" "}
             <span className="group relative mx-1 inline-block text-foreground sm:mx-2">
               Long Nhat
-              {/* Target Border Box Overlay - Snug Fit */}
+              {/* Target Border Box Overlay - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute -inset-x-1 inset-y-0 top-1 -bottom-2 border border-blue-500 bg-blue-500/5 transition-colors duration-200 ease-out group-hover:bg-blue-500/10"
+                className="absolute -inset-x-0.5 inset-y-0 top-1 -bottom-2 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
               />
-              {/* Control Handles (Corner Squares) - Snug Fit */}
+              {/* Control Handles (Corner Squares) - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute top-1 -left-[5px] size-1.5 border border-blue-500 bg-background"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute top-1 -right-[5px] size-1.5 border border-blue-500 bg-background"
+                className="absolute top-1 -left-[5px] size-1.5 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute -bottom-2 -left-[5px] size-1.5 border border-blue-500 bg-background"
+                className="absolute top-1 -right-[5px] size-1.5 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-[5px] -bottom-2 size-1.5 border border-blue-500 bg-background"
+                className="absolute -bottom-2 -left-[5px] size-1.5 border border-foreground bg-background"
+              />
+              <span
+                aria-hidden="true"
+                className="absolute -right-[5px] -bottom-2 size-1.5 border border-foreground bg-background"
               />
             </span>
           </p>
@@ -65,19 +65,19 @@ export default function Hero() {
 
       {/* Small Screen Layout */}
       <div className="block sm:hidden">
-        {/* Line 1: hello */}
+        {/* Line 1: Hello */}
         <div className="relative px-2 max-sm:px-4">
           <h1 className="text-4xl tracking-tighter text-balance text-foreground max-lg:font-medium">
             <span className="relative inline-block">
-              hello
-              {/* Horizontal guidelines framing the top of 'o' and baseline of 'hello' */}
+              Hello
+              {/* Horizontal guidelines framing the top of 'o' and baseline of 'Hello' */}
               <span
                 aria-hidden="true"
-                className="absolute top-[39%] -right-4 -left-4 h-[1px] bg-cyan-400/40 dark:bg-cyan-500/30"
+                className="absolute top-[39%] -right-4 -left-4 h-[1px] bg-foreground/20"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-4 bottom-[15%] -left-4 h-[1px] bg-cyan-400/40 dark:bg-cyan-500/30"
+                className="absolute -right-4 bottom-[15%] -left-4 h-[1px] bg-foreground/20"
               />
             </span>
           </h1>
@@ -95,27 +95,27 @@ export default function Hero() {
           <p className="text-4xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium">
             <span className="group relative inline-block whitespace-nowrap text-foreground">
               Long Nhat Nguyen
-              {/* Target Border Box Overlay - Snug Fit */}
+              {/* Target Border Box Overlay - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute -inset-x-1 inset-y-0 top-0.5 -bottom-1 border border-blue-500 bg-blue-500/5 transition-colors duration-200 ease-out group-hover:bg-blue-500/10"
+                className="absolute -inset-x-0.5 inset-y-0 top-0.5 -bottom-1 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
               />
-              {/* Control Handles (Corner Squares) - Snug Fit */}
+              {/* Control Handles (Corner Squares) - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute top-0.5 -left-[4px] size-1 border border-blue-500 bg-background"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute top-0.5 -right-[4px] size-1 border border-blue-500 bg-background"
+                className="absolute top-0.5 -left-[4px] size-1 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute -bottom-1 -left-[4px] size-1 border border-blue-500 bg-background"
+                className="absolute top-0.5 -right-[4px] size-1 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-[4px] -bottom-1 size-1 border border-blue-500 bg-background"
+                className="absolute -bottom-1 -left-[4px] size-1 border border-foreground bg-background"
+              />
+              <span
+                aria-hidden="true"
+                className="absolute -right-[4px] -bottom-1 size-1 border border-foreground bg-background"
               />
             </span>
           </p>

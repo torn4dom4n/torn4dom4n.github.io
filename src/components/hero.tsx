@@ -13,11 +13,11 @@ export default function Hero() {
               {/* Horizontal guidelines framing the top of 'o' and baseline of 'Hello' */}
               <span
                 aria-hidden="true"
-                className="absolute top-[38%] -right-4 -left-4 h-[2.5px] bg-foreground/45"
+                className="absolute top-[30%] -right-4 -left-4 h-[2.5px] bg-foreground/45"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-4 bottom-[15%] -left-4 h-[2.5px] bg-foreground/45"
+                className="absolute -right-4 bottom-[10%] -left-4 h-[2.5px] bg-foreground/45"
               />
             </span>
           </h1>
@@ -73,11 +73,11 @@ export default function Hero() {
               {/* Horizontal guidelines framing the top of 'o' and baseline of 'Hello' */}
               <span
                 aria-hidden="true"
-                className="absolute top-[38%] -right-4 -left-4 h-[2px] bg-foreground/45"
+                className="absolute top-[30%] -right-4 -left-4 h-[2px] bg-foreground/45"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-4 bottom-[15%] -left-4 h-[2px] bg-foreground/45"
+                className="absolute -right-4 bottom-[10%] -left-4 h-[2px] bg-foreground/45"
               />
             </span>
           </h1>

@@ -1,45 +1,13 @@
 import GridContainer from "@/components/ui/grid-container";
-import SectionHeader from "@/components/ui/section-header";
 
 export default function Hero() {
   return (
     <div className="pt-16 sm:pt-24">
       {/* hello, my name is */}
       <div className="relative px-2 max-sm:px-4">
-        <SectionHeader className="text-foreground/80">hello, my name is</SectionHeader>
-      </div>
-
-      {/* Main heading: Long Nhat Nguyen */}
-      <div className="relative px-2 max-sm:px-4">
-        <h1 className="pt-14 pb-12 text-4xl tracking-tighter text-balance max-lg:font-medium sm:pt-16 sm:pb-14 sm:text-5xl lg:text-6xl xl:text-8xl">
+        <h1 className="text-4xl tracking-tighter text-balance text-foreground max-lg:font-medium sm:text-5xl lg:text-6xl xl:text-8xl">
           <span className="relative inline-block">
-            Long{" "}
-            <span className="group relative mx-1 inline-block sm:mx-2">
-              Nhat
-              {/* Target Border Box Overlay */}
-              <span
-                aria-hidden="true"
-                className="absolute -inset-x-1.5 inset-y-0 top-[2px] -bottom-2 border border-blue-500 bg-blue-500/5 transition-colors duration-200 ease-out group-hover:bg-blue-500/10 sm:-top-1 sm:-bottom-3"
-              />
-              {/* Control Handles (Corner Squares) */}
-              <span
-                aria-hidden="true"
-                className="absolute top-[2px] -left-2 size-1 border border-blue-500 bg-background sm:-top-1 sm:-left-2 sm:size-1.5"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute top-[2px] -right-2 size-1 border border-blue-500 bg-background sm:-top-1 sm:-right-2 sm:size-1.5"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute -bottom-2 -left-2 size-1 border border-blue-500 bg-background sm:-bottom-3 sm:-left-2 sm:size-1.5"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute -right-2 -bottom-2 size-1 border border-blue-500 bg-background sm:-right-2 sm:-bottom-3 sm:size-1.5"
-              />
-            </span>{" "}
-            Nguyen
+            hello, my name is
             {/* Horizontal guidelines running across the text (like 'Interfaces' in horizontal) */}
             <span
               aria-hidden="true"
@@ -51,6 +19,39 @@ export default function Hero() {
             />
           </span>
         </h1>
+      </div>
+
+      {/* Main heading: Long Nhat Nguyen */}
+      <div className="relative mt-2 px-2 max-sm:px-4 sm:mt-4">
+        <p className="text-4xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium sm:text-5xl lg:text-6xl xl:text-8xl">
+          Long{" "}
+          <span className="group relative mx-1 inline-block text-foreground sm:mx-2">
+            Nhat
+            {/* Target Border Box Overlay */}
+            <span
+              aria-hidden="true"
+              className="absolute -inset-x-1.5 inset-y-0 top-[2px] -bottom-2 border border-blue-500 bg-blue-500/5 transition-colors duration-200 ease-out group-hover:bg-blue-500/10 sm:-top-1 sm:-bottom-3"
+            />
+            {/* Control Handles (Corner Squares) */}
+            <span
+              aria-hidden="true"
+              className="absolute top-[2px] -left-2 size-1 border border-blue-500 bg-background sm:-top-1 sm:-left-2 sm:size-1.5"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute top-[2px] -right-2 size-1 border border-blue-500 bg-background sm:-top-1 sm:-right-2 sm:size-1.5"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute -bottom-2 -left-2 size-1 border border-blue-500 bg-background sm:-bottom-3 sm:-left-2 sm:size-1.5"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute -right-2 -bottom-2 size-1 border border-blue-500 bg-background sm:-right-2 sm:-bottom-3 sm:size-1.5"
+            />
+          </span>{" "}
+          Nguyen
+        </p>
       </div>
 
       <div className="h-6 sm:h-10" />

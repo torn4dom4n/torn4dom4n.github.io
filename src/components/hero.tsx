@@ -27,12 +27,12 @@ export default function Hero() {
         <div className="relative mt-2 px-2 sm:mt-4">
           <p className="text-5xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium lg:text-6xl xl:text-8xl">
             my name is{" "}
-            <span className="group relative px-3 inline-block text-foreground">
+            <span className="group relative inline-block px-3 text-foreground">
               Long Nhat
               {/* Target Border Box Overlay - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute left-0 right-0 top-[2px] -bottom-[4px] border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
+                className="absolute top-[2px] right-0 -bottom-[4px] left-0 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
               />
               {/* Control Handles (Corner Squares) - Snug Neutral Fit */}
               <span
@@ -93,12 +93,12 @@ export default function Hero() {
         {/* Line 3: Long Nhat Nguyen with Snug Fitting Selection Box */}
         <div className="relative mt-1 px-2 max-sm:px-4">
           <p className="text-4xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium">
-            <span className="group relative px-2.5 inline-block whitespace-nowrap text-foreground">
+            <span className="group relative inline-block px-2.5 whitespace-nowrap text-foreground">
               Long Nhat <span className="italic">Nguyen</span>
               {/* Target Border Box Overlay - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute left-0 right-0 top-[1px] -bottom-[3px] border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
+                className="absolute top-[1px] right-0 -bottom-[3px] left-0 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
               />
               {/* Control Handles (Corner Squares) - Snug Neutral Fit */}
               <span

@@ -4,12 +4,14 @@ import SectionHeader from "@/components/ui/section-header";
 export default function Hero() {
   return (
     <div className="pt-16 sm:pt-24">
-      <GridContainer className="2xl:before:hidden 2xl:after:hidden">
+      {/* hello, my name is */}
+      <div className="relative px-2 max-sm:px-4">
         <SectionHeader className="text-foreground/80">hello, my name is</SectionHeader>
-      </GridContainer>
+      </div>
 
-      <GridContainer>
-        <h1 className="px-2 pt-14 pb-12 text-4xl tracking-tighter text-balance max-lg:font-medium max-sm:px-4 sm:pt-16 sm:pb-14 sm:text-5xl lg:text-6xl xl:text-8xl">
+      {/* Main heading: Long Nhat Nguyen */}
+      <div className="relative px-2 max-sm:px-4">
+        <h1 className="pt-14 pb-12 text-4xl tracking-tighter text-balance max-lg:font-medium sm:pt-16 sm:pb-14 sm:text-5xl lg:text-6xl xl:text-8xl">
           <span className="relative inline-block">
             Long{" "}
             <span className="group relative mx-1 inline-block sm:mx-2">
@@ -49,10 +51,11 @@ export default function Hero() {
             />
           </span>
         </h1>
-      </GridContainer>
+      </div>
 
       <div className="h-6 sm:h-10" />
 
+      {/* Bio section keeps its GridContainer */}
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-lg/7 text-muted-foreground max-sm:px-4">
           Creator. Explorer. Optimist. Bringing together music, photography, tech, and nature to

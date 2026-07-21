@@ -27,29 +27,29 @@ export default function Hero() {
         <div className="relative mt-2 px-2 sm:mt-4">
           <p className="text-5xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium lg:text-6xl xl:text-8xl">
             my name is{" "}
-            <span className="group relative mx-1 inline-block text-foreground sm:mx-2">
+            <span className="group relative px-3 inline-block text-foreground">
               Long Nhat
               {/* Target Border Box Overlay - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute -inset-x-0.5 top-[2px] -bottom-[4px] border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
+                className="absolute left-0 right-0 top-[2px] -bottom-[4px] border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
               />
               {/* Control Handles (Corner Squares) - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute top-[2px] -left-[5px] size-1.5 border border-foreground bg-background"
+                className="absolute top-[-1px] left-[-3px] size-1.5 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute top-[2px] -right-[5px] size-1.5 border border-foreground bg-background"
+                className="absolute top-[-1px] right-[-3px] size-1.5 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute -bottom-[4px] -left-[5px] size-1.5 border border-foreground bg-background"
+                className="absolute bottom-[-7px] left-[-3px] size-1.5 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-[5px] -bottom-[4px] size-1.5 border border-foreground bg-background"
+                className="absolute right-[-3px] bottom-[-7px] size-1.5 border border-foreground bg-background"
               />
             </span>
           </p>
@@ -93,29 +93,29 @@ export default function Hero() {
         {/* Line 3: Long Nhat Nguyen with Snug Fitting Selection Box */}
         <div className="relative mt-1 px-2 max-sm:px-4">
           <p className="text-4xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium">
-            <span className="group relative inline-block whitespace-nowrap text-foreground">
+            <span className="group relative px-2.5 inline-block whitespace-nowrap text-foreground">
               Long Nhat <span className="italic">Nguyen</span>
               {/* Target Border Box Overlay - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute -inset-x-0.5 top-[1px] -bottom-[3px] border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
+                className="absolute left-0 right-0 top-[1px] -bottom-[3px] border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
               />
               {/* Control Handles (Corner Squares) - Snug Neutral Fit */}
               <span
                 aria-hidden="true"
-                className="absolute top-[1px] -left-[4px] size-1 border border-foreground bg-background"
+                className="absolute top-[-1px] left-[-2px] size-1 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute top-[1px] -right-[4px] size-1 border border-foreground bg-background"
+                className="absolute top-[-1px] right-[-2px] size-1 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute -bottom-[3px] -left-[4px] size-1 border border-foreground bg-background"
+                className="absolute bottom-[-5px] left-[-2px] size-1 border border-foreground bg-background"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-[4px] -bottom-[3px] size-1 border border-foreground bg-background"
+                className="absolute right-[-2px] bottom-[-5px] size-1 border border-foreground bg-background"
               />
             </span>
           </p>

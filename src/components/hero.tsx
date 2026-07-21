@@ -13,11 +13,11 @@ export default function Hero() {
               {/* Horizontal guidelines framing the top of 'o' and baseline of 'Hello' */}
               <span
                 aria-hidden="true"
-                className="absolute top-[39%] -right-4 -left-4 h-[1px] bg-foreground/20"
+                className="absolute top-[31%] -right-4 -left-4 h-[2px] bg-foreground/35"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-4 bottom-[15%] -left-4 h-[1px] bg-foreground/20"
+                className="absolute -right-4 bottom-[12%] -left-4 h-[2px] bg-foreground/35"
               />
             </span>
           </h1>
@@ -57,7 +57,7 @@ export default function Hero() {
 
         {/* Line 3: Nguyen */}
         <div className="relative mt-2 px-2 sm:mt-4">
-          <p className="text-5xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium lg:text-6xl xl:text-8xl">
+          <p className="text-5xl tracking-tighter text-balance text-muted-foreground italic max-lg:font-medium lg:text-6xl xl:text-8xl">
             Nguyen
           </p>
         </div>
@@ -73,11 +73,11 @@ export default function Hero() {
               {/* Horizontal guidelines framing the top of 'o' and baseline of 'Hello' */}
               <span
                 aria-hidden="true"
-                className="absolute top-[39%] -right-4 -left-4 h-[1px] bg-foreground/20"
+                className="absolute top-[31%] -right-4 -left-4 h-[2px] bg-foreground/35"
               />
               <span
                 aria-hidden="true"
-                className="absolute -right-4 bottom-[15%] -left-4 h-[1px] bg-foreground/20"
+                className="absolute -right-4 bottom-[12%] -left-4 h-[2px] bg-foreground/35"
               />
             </span>
           </h1>
@@ -94,7 +94,7 @@ export default function Hero() {
         <div className="relative mt-1 px-2 max-sm:px-4">
           <p className="text-4xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium">
             <span className="group relative inline-block whitespace-nowrap text-foreground">
-              Long Nhat Nguyen
+              Long Nhat <span className="italic">Nguyen</span>
               {/* Target Border Box Overlay - Snug Neutral Fit */}
               <span
                 aria-hidden="true"

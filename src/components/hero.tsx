@@ -28,23 +28,24 @@ export default function Hero() {
               <span
                 aria-hidden="true"
                 className="absolute top-[2px] right-0 -bottom-[4px] left-0 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute top-[-1px] left-[-3px] size-1.5 border border-foreground bg-background"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute top-[-1px] right-[-3px] size-1.5 border border-foreground bg-background"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute bottom-[-7px] left-[-3px] size-1.5 border border-foreground bg-background"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute right-[-3px] bottom-[-7px] size-1.5 border border-foreground bg-background"
-              />
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute top-0 left-0 size-1.5 -translate-x-1/2 -translate-y-1/2 border border-foreground bg-background"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute top-0 right-0 size-1.5 translate-x-1/2 -translate-y-1/2 border border-foreground bg-background"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute bottom-0 left-0 size-1.5 -translate-x-1/2 translate-y-1/2 border border-foreground bg-background"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute right-0 bottom-0 size-1.5 translate-x-1/2 translate-y-1/2 border border-foreground bg-background"
+                />
+              </span>
             </span>
           </p>
         </div>
@@ -86,23 +87,24 @@ export default function Hero() {
               <span
                 aria-hidden="true"
                 className="absolute top-[1px] right-0 -bottom-[3px] left-0 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute top-[-1px] left-[-2px] size-1 border border-foreground bg-background"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute top-[-1px] right-[-2px] size-1 border border-foreground bg-background"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute bottom-[-5px] left-[-2px] size-1 border border-foreground bg-background"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute right-[-2px] bottom-[-5px] size-1 border border-foreground bg-background"
-              />
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute top-0 left-0 size-1 -translate-x-1/2 -translate-y-1/2 border border-foreground bg-background"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute top-0 right-0 size-1 translate-x-1/2 -translate-y-1/2 border border-foreground bg-background"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute bottom-0 left-0 size-1 -translate-x-1/2 translate-y-1/2 border border-foreground bg-background"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute right-0 bottom-0 size-1 translate-x-1/2 translate-y-1/2 border border-foreground bg-background"
+                />
+              </span>
             </span>
           </p>
         </div>

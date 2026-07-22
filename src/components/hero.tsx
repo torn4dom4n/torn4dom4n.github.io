@@ -2,7 +2,7 @@ import GridContainer from "@/components/ui/grid-container";
 
 export default function Hero() {
   return (
-    <div className="pt-16 sm:pt-24">
+    <GridContainer className="pt-16 sm:pt-24">
       <div className="hidden sm:block">
         <div className="relative px-2">
           <h1 className="text-5xl tracking-tighter text-balance text-foreground max-lg:font-medium lg:text-6xl xl:text-8xl">
@@ -112,12 +112,30 @@ export default function Hero() {
 
       <div className="h-6 sm:h-10" />
 
-      <GridContainer>
+      <div>
         <p className="max-w-(--breakpoint-md) px-2 text-lg/7 text-muted-foreground max-sm:px-4">
           Creator. Explorer. Optimist. Bringing together music, photography, tech, and nature to
           share a little extra positivity with the world.
         </p>
-      </GridContainer>
-    </div>
+      </div>
+
+      {/* Dot-like selection handles at the crosses of GridContainer horizontal borders and left/right layout borders */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 left-0 hidden size-1.5 -translate-x-1/2 -translate-y-1/2 border border-border bg-background md:block"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 right-0 hidden size-1.5 translate-x-1/2 -translate-y-1/2 border border-border bg-background md:block"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-0 hidden size-1.5 -translate-x-1/2 translate-y-1/2 border border-border bg-background md:block"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 bottom-0 hidden size-1.5 translate-x-1/2 translate-y-1/2 border border-border bg-background md:block"
+      />
+    </GridContainer>
   );
 }

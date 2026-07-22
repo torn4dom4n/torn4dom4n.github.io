@@ -118,24 +118,6 @@ export default function Hero() {
           share a little extra positivity with the world.
         </p>
       </div>
-
-      {/* Dot-like selection handles at the crosses of GridContainer horizontal borders and left/right layout borders */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-0 hidden size-1.5 -translate-x-1/2 -translate-y-1/2 border border-border bg-background md:block"
-      />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute top-0 right-0 hidden size-1.5 translate-x-1/2 -translate-y-1/2 border border-border bg-background md:block"
-      />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-0 hidden size-1.5 -translate-x-1/2 translate-y-1/2 border border-border bg-background md:block"
-      />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute right-0 bottom-0 hidden size-1.5 translate-x-1/2 translate-y-1/2 border border-border bg-background md:block"
-      />
     </GridContainer>
   );
 }

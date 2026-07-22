@@ -16,13 +16,16 @@ type Brand = {
   logo: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
 
+// Social media list and connection links section
 export default function GetInTouch() {
   return (
     <div className="relative max-w-full">
+      {/* Socials section header */}
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
         <SectionHeader className="text-foreground/80">Socials</SectionHeader>
       </GridContainer>
 
+      {/* Socials block title */}
       <GridContainer>
         <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
           Get in touch
@@ -31,6 +34,7 @@ export default function GetInTouch() {
 
       <div className="h-6 sm:h-10" />
 
+      {/* Socials intro text */}
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-muted-foreground max-sm:px-4">
           I'm active on several platforms. Follow my work, check out what I'm building, or just drop
@@ -38,8 +42,10 @@ export default function GetInTouch() {
         </p>
       </GridContainer>
 
+      {/* Brands grid section */}
       <section aria-label="Get in Touch">
         <div className="relative isolate mt-16">
+          {/* Vertical grid lines separator */}
           <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
             <div className="border-r border-border" />
             <div className="border-r border-border" />
@@ -50,6 +56,7 @@ export default function GetInTouch() {
             <div className="border-r border-border max-lg:hidden" />
           </div>
 
+          {/* Social icons grid mapping */}
           <ul className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
             {brands.map(({ name, url, logo: Logo }) => (
               <li
@@ -79,6 +86,7 @@ export default function GetInTouch() {
   );
 }
 
+// Configured social brands and links array
 const brands: Brand[] = [
   {
     name: "GitHub",

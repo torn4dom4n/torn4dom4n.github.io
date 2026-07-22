@@ -12,6 +12,7 @@ type ThemeToggleButtonProps = {
   children: React.ReactNode;
 } & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange" | "onSelect" | "value">;
 
+// Individual theme selection segmented radio button
 function ThemeToggleButton({
   value,
   selected,
@@ -41,6 +42,7 @@ function ThemeToggleButton({
   );
 }
 
+// ModeToggle segmented bar displaying system, light, and dark preference options
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
 
@@ -50,6 +52,7 @@ export function ModeToggle() {
       aria-label="Select color theme"
       className="inline-flex items-center gap-0.5 rounded-full border border-border bg-muted/50 p-0.5"
     >
+      {/* System option */}
       <ThemeToggleButton
         aria-label="System theme"
         title="System theme"
@@ -73,6 +76,7 @@ export function ModeToggle() {
         </svg>
       </ThemeToggleButton>
 
+      {/* Light option */}
       <ThemeToggleButton
         aria-label="Light theme"
         title="Light theme"
@@ -102,6 +106,7 @@ export function ModeToggle() {
         </svg>
       </ThemeToggleButton>
 
+      {/* Dark option */}
       <ThemeToggleButton
         aria-label="Dark theme"
         title="Dark theme"

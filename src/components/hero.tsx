@@ -1,9 +1,12 @@
 import GridContainer from "@/components/ui/grid-container";
 
+// Hero block representing the introductory landing section
 export default function Hero() {
   return (
     <div className="pt-16 sm:pt-24">
+      {/* Hero title block for desktop views */}
       <div className="hidden sm:block">
+        {/* Hello greeting block */}
         <div className="relative px-2">
           <h1 className="text-5xl tracking-tighter text-balance text-foreground max-lg:font-medium lg:text-6xl xl:text-8xl">
             <span className="relative inline-block">
@@ -20,6 +23,7 @@ export default function Hero() {
           </h1>
         </div>
 
+        {/* Introduction line containing name selection overlay */}
         <div className="relative mt-2 px-2 sm:mt-4">
           <p className="text-5xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium lg:text-6xl xl:text-8xl">
             my name is{" "}
@@ -50,6 +54,7 @@ export default function Hero() {
           </p>
         </div>
 
+        {/* Surname line block */}
         <div className="relative mt-2 px-2 sm:mt-4">
           <p className="text-5xl tracking-tighter text-balance text-foreground italic max-lg:font-medium lg:text-6xl xl:text-8xl">
             Nguyen
@@ -57,7 +62,9 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Hero title block for mobile views */}
       <div className="block sm:hidden">
+        {/* Hello greeting block (mobile) */}
         <div className="relative px-2 max-sm:px-4">
           <h1 className="text-4xl tracking-tighter text-balance text-foreground max-lg:font-medium">
             <span className="relative inline-block">
@@ -74,12 +81,14 @@ export default function Hero() {
           </h1>
         </div>
 
+        {/* Name intro line (mobile) */}
         <div className="relative mt-1 px-2 max-sm:px-4">
           <p className="text-4xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium">
             my name is
           </p>
         </div>
 
+        {/* Name select layout (mobile) */}
         <div className="relative mt-1 px-2 max-sm:px-4">
           <p className="text-4xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium">
             <span className="group relative inline-block pr-1.5 whitespace-nowrap text-foreground">
@@ -112,6 +121,7 @@ export default function Hero() {
 
       <div className="h-6 sm:h-10" />
 
+      {/* Hero short bio tagline block */}
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-lg/7 text-muted-foreground max-sm:px-4">
           Creator. Explorer. Optimist. Bringing together music, photography, tech, and nature to

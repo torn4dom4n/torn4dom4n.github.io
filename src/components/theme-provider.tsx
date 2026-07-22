@@ -28,6 +28,7 @@ const initialState: ThemeProviderState = {
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
+// React context provider for managing and persisting global light/dark/system themes
 export function ThemeProvider({
   children,
   defaultTheme = "system",
@@ -94,6 +95,7 @@ export function ThemeProvider({
   );
 }
 
+// Custom React hook to consume color-theme state
 export const useTheme = () => {
   const context = use(ThemeProviderContext);
 

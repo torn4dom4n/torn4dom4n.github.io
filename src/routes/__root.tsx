@@ -12,6 +12,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AUTHOR_NAME, SITE_NAME, SITE_URL, TWITTER_HANDLE } from "@/lib/constants";
 import "@/styles/globals.css";
 
+// Root Route layout setup and meta config injection
 export const Route = createRootRoute({
   head: () => {
     const jsonLd = {
@@ -95,6 +96,7 @@ export const Route = createRootRoute({
   notFoundComponent: () => <NotFound />,
 });
 
+// Shell structure wrapping the page layout framework
 function RootComponent() {
   return (
     <html lang="en">

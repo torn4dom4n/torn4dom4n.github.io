@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 
 const year = new Date().getFullYear();
 
+// Site-wide footer with copyright details and theme toggler controls
 export function Footer({ className }: { className?: string }) {
   return (
     <footer

@@ -1,15 +1,5 @@
 import { cn } from "@/lib/utils";
 
-/**
- * SectionHeader Block Component
- *
- * Renders an absolute-positioned sidebar-like section category label:
- * - On smaller/standard screen sizes (under 2xl), it displays as a standard left-aligned block text.
- * - On larger screens (2xl and above), it dynamically repositions itself absolutely (`2xl:absolute`),
- *   rotates -90 degrees (`2xl:-rotate-90`), translates to fit the left margin/gutter guidelines,
- *   and acts as a vertical label.
- * - Features clean monospace lowercase styling (`font-mono text-sm font-semibold lowercase`).
- */
 export default function SectionHeader({
   children,
   className,

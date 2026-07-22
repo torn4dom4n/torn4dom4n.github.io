@@ -4,9 +4,6 @@ import { useTheme } from "./theme-provider";
 
 type Theme = "light" | "dark" | "system";
 
-/**
- * ThemeToggleButtonProps defines the properties for individual segmented control buttons.
- */
 type ThemeToggleButtonProps = {
   value: Theme;
   selected: boolean;
@@ -15,13 +12,7 @@ type ThemeToggleButtonProps = {
   children: React.ReactNode;
 } & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange" | "onSelect" | "value">;
 
-/**
- * ThemeToggleButton Component
- *
- * An individual segmented button wrapping a hidden radio input.
- * Provides accessible, keyboard-navigable theme changing controls with custom styled focus state.
- * Leverages logical padding and `rounded-full` capsule-shaped border designs.
- */
+// Individual theme selection segmented radio button
 function ThemeToggleButton({
   value,
   selected,
@@ -51,12 +42,7 @@ function ThemeToggleButton({
   );
 }
 
-/**
- * ModeToggle Block Component
- *
- * A minimalist, segmented radio-group block component to toggle between light, dark, and system themes.
- * Uses semantic tokens and logical spacing, grouping system, light, and dark SVG SVGs.
- */
+// ModeToggle segmented bar displaying system, light, and dark preference options
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
 
@@ -66,7 +52,7 @@ export function ModeToggle() {
       aria-label="Select color theme"
       className="inline-flex items-center gap-0.5 rounded-full border border-border bg-muted/50 p-0.5"
     >
-      {/* Segment Option 1: System-Preferred Theme Selection */}
+      {/* System option */}
       <ThemeToggleButton
         aria-label="System theme"
         title="System theme"
@@ -90,7 +76,7 @@ export function ModeToggle() {
         </svg>
       </ThemeToggleButton>
 
-      {/* Segment Option 2: Light Theme Selection */}
+      {/* Light option */}
       <ThemeToggleButton
         aria-label="Light theme"
         title="Light theme"
@@ -120,7 +106,7 @@ export function ModeToggle() {
         </svg>
       </ThemeToggleButton>
 
-      {/* Segment Option 3: Dark Theme Selection */}
+      {/* Dark option */}
       <ThemeToggleButton
         aria-label="Dark theme"
         title="Dark theme"

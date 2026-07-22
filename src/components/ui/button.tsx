@@ -2,25 +2,12 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-/**
- * ButtonProps specifies properties accepted by the custom polymorphic Button component.
- * Extends the default HTML button properties with support for Slot-like behavior (`asChild`),
- * design variants, and different height/padding sizes.
- */
 export interface ButtonProps extends React.ComponentPropsWithRef<"button"> {
   asChild?: boolean;
   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
   size?: "default" | "sm" | "lg" | "icon" | "xs";
 }
 
-/**
- * Button Block Component
- *
- * A reusable, highly adaptable polymorphic button component:
- * - Manages child icons with an internal `gap-2` utility and `[&_svg]:size-4` to guarantee consistent SVG sizing without manual overrides.
- * - Supports Slot-like delegation via the `asChild` property when wrapping custom elements like TanStack Router `Link` tags.
- * - Provides modular class bindings for various standard semantic UI variants and button height/width presets.
- */
 const Button = ({
   className,
   variant = "default",
@@ -31,7 +18,6 @@ const Button = ({
   ref,
   ...props
 }: ButtonProps) => {
-  // Amalgamate classes based on active design variants and sizes
   const baseClasses = cn(
     "inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
     variant === "default" && "bg-foreground text-background hover:bg-foreground/90",
@@ -49,7 +35,6 @@ const Button = ({
     className,
   );
 
-  // If polymorphism is enabled, clone the first child element and apply button properties
   if (asChild && React.isValidElement(children)) {
     return React.cloneElement(children as React.ReactElement<any>, {
       className: cn(baseClasses, (children.props as any).className),

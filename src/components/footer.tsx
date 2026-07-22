@@ -1,17 +1,9 @@
 import { ModeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
-// Retrieve the current year dynamically for the copyright text
 const year = new Date().getFullYear();
 
-/**
- * Footer Block Component
- *
- * Renders the site-wide footer which includes:
- * - A full-width horizontal divider border at the top of the footer.
- * - Dynamic copyright text displaying the current year and the author's name.
- * - The minimalist, segmented theme/mode toggle control for selecting light, dark, or system preferences.
- */
+// Site-wide footer with copyright details and theme toggler controls
 export function Footer({ className }: { className?: string }) {
   return (
     <footer
@@ -21,9 +13,7 @@ export function Footer({ className }: { className?: string }) {
         className,
       )}
     >
-      {/* Copyright text */}
       <p className="text-sm text-muted-foreground">&copy; {year} Long Nhat Nguyen.</p>
-      {/* Interactive theme selector */}
       <ModeToggle />
     </footer>
   );

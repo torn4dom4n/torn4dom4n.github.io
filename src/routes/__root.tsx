@@ -12,8 +12,19 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AUTHOR_NAME, SITE_NAME, SITE_URL, TWITTER_HANDLE } from "@/lib/constants";
 import "@/styles/globals.css";
 
+/**
+ * Root Route Definition
+ *
+ * Declares the application-level template, establishing:
+ * - Dynamic metadata injection via `head()` for SEO, Open Graph, Twitter cards, and favicon assets.
+ * - Centralized JSON-LD Person/Job Schema.org metadata for search crawler optimization.
+ * - An early inline script to prevent dark/light theme flickering during SSR/hydration.
+ * - The root element layout structure.
+ * - The generic 404 fallback routing container (`notFoundComponent`).
+ */
 export const Route = createRootRoute({
   head: () => {
+    // Structured JSON-LD representation of the profile
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -65,6 +76,7 @@ export const Route = createRootRoute({
       ],
       scripts: [
         {
+          // Theme persistence self-invoking function executed early in the head to prevent visual theme flashing
           children: `
             (function() {
               try {
@@ -95,6 +107,18 @@ export const Route = createRootRoute({
   notFoundComponent: () => <NotFound />,
 });
 
+/**
+ * RootComponent Layout Block
+ *
+ * Provides the core HTML shell structure:
+ * - Includes a "Skip to content" accessibility link for keyboard/screen reader navigability.
+ * - Embeds the `ThemeProvider` to synchronize color aesthetics globally.
+ * - Structures a multi-column grid layout with absolute vertical border dividers:
+ *   - Column 1: Leftmost margin gutter line (visible on md screens and above).
+ *   - Column 2: Main content container viewport rendering matched child routes via `Outlet`.
+ *   - Column 3: Rightmost margin gutter line (visible on md screens and above).
+ *   - Bottom row: App Footer aligning with column guidelines.
+ */
 function RootComponent() {
   return (
     <html lang="en">
@@ -103,21 +127,29 @@ function RootComponent() {
       </head>
       <body>
         <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+          {/* Skip link for screen-reader accessibility */}
           <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-foreground focus:ring-2 focus:ring-accent"
           >
             Skip to content
           </a>
+
+          {/* Main content wrapping container */}
           <main id="main-content" className="isolate">
             <div className="max-w-screen overflow-x-hidden">
+              {/* Vertical layout alignment grid */}
               <div className="grid min-h-dvh grid-cols-1 grid-rows-[1fr_auto] justify-center [--gutter-width:2.5rem] md:-mx-4 md:grid-cols-[var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)] lg:mx-0">
+                {/* Column 1: Left border guideline */}
                 <div className="relative col-start-1 row-span-full row-start-1 hidden border-x border-border md:block" />
 
+                {/* Column 2: Main route rendering zone */}
                 <Outlet />
 
+                {/* Column 3: Right border guideline */}
                 <div className="relative row-span-full row-start-1 hidden border-x border-border md:col-start-3 md:block" />
 
+                {/* Footer block restricted to main content area bounds */}
                 <div className="md:col-start-2">
                   <Footer className="px-4 md:px-6 lg:px-8" />
                 </div>

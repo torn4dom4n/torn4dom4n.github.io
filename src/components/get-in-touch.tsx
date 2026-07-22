@@ -10,19 +10,35 @@ import YouTubeIcon from "~icons/simple-icons/youtube";
 import GridContainer from "@/components/ui/grid-container";
 import SectionHeader from "@/components/ui/section-header";
 
+/**
+ * Brand Configuration Object definition.
+ * Holds branding metadata and logo SVG element.
+ */
 type Brand = {
   name: string;
   url: string;
   logo: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
 
+/**
+ * GetInTouch Block Component
+ *
+ * Renders the social media connections block:
+ * - Displays a section header labelled "Socials".
+ * - Displays a heading "Get in touch".
+ * - Displays a brief message prompting the user to connect.
+ * - Renders an interactive grid of brand icons with custom, responsive border-lines (`line-y` and nth-child rules).
+ * - Implements smooth transition hover states that display the uppercase brand name on hover.
+ */
 export default function GetInTouch() {
   return (
     <div className="relative max-w-full">
+      {/* Section indicator header */}
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
         <SectionHeader className="text-foreground/80">Socials</SectionHeader>
       </GridContainer>
 
+      {/* Primary heading */}
       <GridContainer>
         <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
           Get in touch
@@ -31,6 +47,7 @@ export default function GetInTouch() {
 
       <div className="h-6 sm:h-10" />
 
+      {/* Subsection description text */}
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-muted-foreground max-sm:px-4">
           I'm active on several platforms. Follow my work, check out what I'm building, or just drop
@@ -38,8 +55,10 @@ export default function GetInTouch() {
         </p>
       </GridContainer>
 
+      {/* Grid container with custom divider guidelines */}
       <section aria-label="Get in Touch">
         <div className="relative isolate mt-16">
+          {/* Vertical divider lines overlay */}
           <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
             <div className="border-r border-border" />
             <div className="border-r border-border" />
@@ -50,6 +69,7 @@ export default function GetInTouch() {
             <div className="border-r border-border max-lg:hidden" />
           </div>
 
+          {/* Social icons interactive grid list */}
           <ul className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
             {brands.map(({ name, url, logo: Logo }) => (
               <li
@@ -64,7 +84,9 @@ export default function GetInTouch() {
                   aria-label={`Follow me on ${name}`}
                 >
                   <div className="flex flex-col items-center transition-transform duration-300 group-hover:-translate-y-2 sm:group-hover:-translate-y-3">
+                    {/* SVG Logo Icon */}
                     <Logo className="size-8 sm:size-10" aria-hidden="true" />
+                    {/* Caption label shown only on mouse hover */}
                     <span className="absolute top-full mt-1 text-[10px] font-bold tracking-widest uppercase opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:mt-2 sm:text-xs">
                       {name}
                     </span>
@@ -79,6 +101,9 @@ export default function GetInTouch() {
   );
 }
 
+/**
+ * Array containing list of social brand links, names, and SVG React Component Icons.
+ */
 const brands: Brand[] = [
   {
     name: "GitHub",

@@ -4,6 +4,9 @@ import { useTheme } from "./theme-provider";
 
 type Theme = "light" | "dark" | "system";
 
+/**
+ * ThemeToggleButtonProps defines the properties for individual segmented control buttons.
+ */
 type ThemeToggleButtonProps = {
   value: Theme;
   selected: boolean;
@@ -12,6 +15,13 @@ type ThemeToggleButtonProps = {
   children: React.ReactNode;
 } & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange" | "onSelect" | "value">;
 
+/**
+ * ThemeToggleButton Component
+ *
+ * An individual segmented button wrapping a hidden radio input.
+ * Provides accessible, keyboard-navigable theme changing controls with custom styled focus state.
+ * Leverages logical padding and `rounded-full` capsule-shaped border designs.
+ */
 function ThemeToggleButton({
   value,
   selected,
@@ -41,6 +51,12 @@ function ThemeToggleButton({
   );
 }
 
+/**
+ * ModeToggle Block Component
+ *
+ * A minimalist, segmented radio-group block component to toggle between light, dark, and system themes.
+ * Uses semantic tokens and logical spacing, grouping system, light, and dark SVG SVGs.
+ */
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
 
@@ -50,6 +66,7 @@ export function ModeToggle() {
       aria-label="Select color theme"
       className="inline-flex items-center gap-0.5 rounded-full border border-border bg-muted/50 p-0.5"
     >
+      {/* Segment Option 1: System-Preferred Theme Selection */}
       <ThemeToggleButton
         aria-label="System theme"
         title="System theme"
@@ -73,6 +90,7 @@ export function ModeToggle() {
         </svg>
       </ThemeToggleButton>
 
+      {/* Segment Option 2: Light Theme Selection */}
       <ThemeToggleButton
         aria-label="Light theme"
         title="Light theme"
@@ -102,6 +120,7 @@ export function ModeToggle() {
         </svg>
       </ThemeToggleButton>
 
+      {/* Segment Option 3: Dark Theme Selection */}
       <ThemeToggleButton
         aria-label="Dark theme"
         title="Dark theme"

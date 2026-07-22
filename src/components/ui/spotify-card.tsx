@@ -5,6 +5,9 @@ import SpotifyIcon from "~icons/simple-icons/spotify";
 
 import { cn } from "@/lib/utils";
 
+/**
+ * Interface representing Spotify Track Metadata structure.
+ */
 export interface SpotifyData {
   title: string;
   artist: string;
@@ -13,16 +16,33 @@ export interface SpotifyData {
   audio?: string;
 }
 
+/**
+ * SpotifyCard Component Properties.
+ */
 interface SpotifyCardProps {
   data: SpotifyData;
   className?: string | undefined;
 }
 
+/**
+ * SpotifyCard Block Component
+ *
+ * An interactive, visually stunning Spotify player block:
+ * - Displays a blurred, amplified canvas-like image backdrop of the album art.
+ * - Displays high-resolution album cover artwork using loading="lazy" and decoding="async" optimization tags.
+ * - Integrates dynamic HTML5 Audio element playback capabilities allowing users to play/pause short 30s track previews.
+ * - Renders a spinning custom vinyl record overlay SVG, using unique IDs for filters and mask layouts to support multiple cards.
+ * - Links to the official Spotify track URL via the brand's standard SVG icon.
+ */
 export function SpotifyCard({ data, className }: SpotifyCardProps) {
+  // State tracking audio playback
   const [isPlaying, setIsPlaying] = useState(false);
+  // Audio reference instance
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  // Unique ID generator to dynamically qualify SVG filter/mask scopes
   const uniqueId = useId().replace(/:/g, "");
 
+  // Cleanup effect to pause audio on component unmount
   useEffect(() => {
     const audio = audioRef.current;
     return () => {
@@ -32,12 +52,15 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
     };
   }, []);
 
+  // Play/Pause interaction handler
   const handlePlayPause = () => {
     if (!data.audio) return;
 
     if (!audioRef.current) {
+      // Lazy initialize Audio node
       audioRef.current = new Audio(data.audio);
       audioRef.current.volume = 0.3;
+      // Register event listener to reset play state upon completion
       audioRef.current.addEventListener("ended", () => setIsPlaying(false));
     }
 
@@ -57,6 +80,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
         className,
       )}
     >
+      {/* Blurred album artwork background glow layout */}
       <div className="pointer-events-none absolute top-1/2 left-1/2 z-0 block aspect-square w-[120%] -translate-x-1/2 -translate-y-1/2">
         <div className="pointer-events-none flex h-full opacity-100 select-none">
           <img
@@ -69,6 +93,8 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
           <div className="absolute top-0 left-0 h-full w-full bg-[linear-gradient(180deg,rgba(0,0,0,0)_0,rgba(0,0,0,.8))]" />
         </div>
       </div>
+
+      {/* Playback Interactive Controller Box */}
       <button
         onClick={data.audio ? handlePlayPause : undefined}
         type="button"
@@ -78,6 +104,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
           data.audio && "cursor-pointer",
         )}
       >
+        {/* Album Cover Art Display */}
         <img
           src={data.image}
           alt={data.title}
@@ -89,6 +116,8 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
             isPlaying && "-translate-x-0.5",
           )}
         />
+
+        {/* Animated Vinyl Record Graphic showing only if audio preview link is present */}
         {data.audio && (
           <div
             className={cn(
@@ -120,6 +149,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 <circle cx="55" cy="55" r="55" fill="#FFFFF" />
               </mask>
               <g mask={`url(#mask0_${uniqueId})`}>
+                {/* SVG Concentric Groove Circles */}
                 <g filter={`url(#filter-blur-1_${uniqueId})`}>
                   <circle cx="55" cy="55" r="51.5" stroke="#00000" strokeOpacity="0.21" />
                   <circle cx="55" cy="55" r="47.5" stroke="#00000" strokeOpacity="0.21" />
@@ -128,6 +158,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                   <circle cx="55" cy="55" r="37.5" stroke="#00000" strokeOpacity="0.21" />
                   <circle cx="55" cy="55" r="34.5" stroke="#00000" strokeOpacity="0.21" />
                 </g>
+                {/* Vinyl Reflection Glare Highlights */}
                 <g filter={`url(#filter-blur-8_${uniqueId})`} opacity="0.4">
                   <path fill="#fff" d="M-14 38l68 19.579L-14 74V38z" />
                   <path fill="#fff" d="M123 38L55 57.579 123 74V38z" />
@@ -136,6 +167,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                 </g>
               </g>
               <defs>
+                {/* Micro blur filter */}
                 <filter
                   id={`filter-blur-1_${uniqueId}`}
                   x="-20%"
@@ -149,6 +181,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
                   <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
                   <feGaussianBlur result="effect1_foregroundBlur" stdDeviation="1" />
                 </filter>
+                {/* Macro blur filter */}
                 <filter
                   id={`filter-blur-8_${uniqueId}`}
                   x="-50%"
@@ -167,8 +200,11 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
           </div>
         )}
       </button>
+
+      {/* Track Metadata description section */}
       <div className="z-10 flex w-full flex-col justify-between">
         <div className="flex self-end">
+          {/* External Spotify redirection link */}
           <a
             href={data.link}
             target="_blank"
@@ -184,9 +220,11 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
           </a>
         </div>
         <div className="pl-6 text-end">
+          {/* Track title */}
           <h3 className="text-sm font-semibold tracking-[-.006em] whitespace-nowrap text-white">
             {data.title}
           </h3>
+          {/* Track artist(s) list */}
           <p className="text-sm font-medium tracking-[-.006em] whitespace-nowrap text-white/70">
             {data.artist}
           </p>

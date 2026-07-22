@@ -27,7 +27,7 @@ export default function Hero() {
               Long Nhat
               <span
                 aria-hidden="true"
-                className="absolute top-[2px] right-0 -bottom-[4px] left-0 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
+                className="pointer-events-none absolute top-[2px] right-0 -bottom-[4px] left-0 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
               >
                 <span
                   aria-hidden="true"
@@ -86,7 +86,7 @@ export default function Hero() {
               Long Nhat <span className="italic">Nguyen</span>
               <span
                 aria-hidden="true"
-                className="absolute top-[1px] right-0 -bottom-[3px] left-0 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
+                className="pointer-events-none absolute top-[1px] right-0 -bottom-[3px] left-0 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
               >
                 <span
                   aria-hidden="true"

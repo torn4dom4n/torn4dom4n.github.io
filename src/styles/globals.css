@@ -109,34 +109,50 @@
   border-right-width: 1.5px;
 }
 
-/* Hover/active states expand caps outward */
-.group:hover .selection-cap-tl,
-.group:active .selection-cap-tl {
+/* Hover states expand caps outward */
+.selection-group:hover .selection-cap-tl {
   top: -4px;
   left: -4px;
 }
 
-.group:hover .selection-cap-tr,
-.group:active .selection-cap-tr {
+.selection-group:hover .selection-cap-tr {
   top: -4px;
   right: -4px;
 }
 
-.group:hover .selection-cap-bl,
-.group:active .selection-cap-bl {
+.selection-group:hover .selection-cap-bl {
   bottom: -4px;
   left: -4px;
 }
 
-.group:hover .selection-cap-br,
-.group:active .selection-cap-br {
+.selection-group:hover .selection-cap-br {
   bottom: -4px;
   right: -4px;
 }
 
-/* Click/active transition speed adjustment */
-.group:active .selection-cap {
+/* Click/active states push caps inward */
+.selection-group:active .selection-cap {
   transition-duration: 0.12s;
+}
+
+.selection-group:active .selection-cap-tl {
+  top: 3px;
+  left: 3px;
+}
+
+.selection-group:active .selection-cap-tr {
+  top: 3px;
+  right: 3px;
+}
+
+.selection-group:active .selection-cap-bl {
+  bottom: 3px;
+  left: 3px;
+}
+
+.selection-group:active .selection-cap-br {
+  bottom: 3px;
+  right: 3px;
 }
 
 /* Repeating diagonal stripe background on the selection box container */
@@ -166,7 +182,19 @@
   pointer-events: none;
 }
 
-.group:hover .selection-fill,
-.group:active .selection-fill {
+.selection-group:hover .selection-fill,
+.selection-group:active .selection-fill {
   clip-path: polygon(0% 0%, 200% 0%, 100% 100%, 0% 100%);
+}
+
+/* High-contrast text color on hover, active, and text selection */
+.selection-group:hover,
+.selection-group:active {
+  color: var(--background) !important;
+}
+
+.selection-group::selection,
+.selection-group *::selection {
+  background-color: var(--foreground);
+  color: var(--background);
 }

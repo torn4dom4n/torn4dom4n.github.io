@@ -27,28 +27,17 @@ export default function Hero() {
         <div className="relative mt-2 px-2 sm:mt-4">
           <p className="text-5xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium lg:text-6xl xl:text-8xl">
             my name is{" "}
-            <span className="group relative inline-block pr-1.5 text-foreground">
-              Long Nhat
+            <span className="group relative inline-block pr-1.5 text-foreground transition-colors duration-300 ease-out hover:text-background">
+              <span className="relative z-10">Long Nhat</span>
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute top-[2px] right-0 -bottom-[4px] left-0 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
+                className="selection-stripes pointer-events-none absolute inset-0 border border-foreground/15"
               >
-                <span
-                  aria-hidden="true"
-                  className="absolute top-0 left-0 size-1.5 -translate-x-1/2 -translate-y-1/2 border border-foreground bg-background"
-                />
-                <span
-                  aria-hidden="true"
-                  className="absolute top-0 right-0 size-1.5 translate-x-1/2 -translate-y-1/2 border border-foreground bg-background"
-                />
-                <span
-                  aria-hidden="true"
-                  className="absolute bottom-0 left-0 size-1.5 -translate-x-1/2 translate-y-1/2 border border-foreground bg-background"
-                />
-                <span
-                  aria-hidden="true"
-                  className="absolute right-0 bottom-0 size-1.5 translate-x-1/2 translate-y-1/2 border border-foreground bg-background"
-                />
+                <span className="selection-fill" />
+                <span className="selection-cap selection-cap-tl" />
+                <span className="selection-cap selection-cap-tr" />
+                <span className="selection-cap selection-cap-bl" />
+                <span className="selection-cap selection-cap-br" />
               </span>
             </span>
           </p>
@@ -91,28 +80,19 @@ export default function Hero() {
         {/* Name select layout (mobile) */}
         <div className="relative mt-1 px-2 max-sm:px-4">
           <p className="text-4xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium">
-            <span className="group relative inline-block pr-1.5 whitespace-nowrap text-foreground">
-              Long Nhat <span className="italic">Nguyen</span>
+            <span className="group relative inline-block pr-1.5 whitespace-nowrap text-foreground transition-colors duration-300 ease-out hover:text-background">
+              <span className="relative z-10">
+                Long Nhat <span className="italic">Nguyen</span>
+              </span>
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute top-[1px] right-0 -bottom-[3px] left-0 border border-foreground bg-foreground/5 transition-colors duration-200 ease-out group-hover:bg-foreground/10"
+                className="selection-stripes pointer-events-none absolute inset-0 border border-foreground/15"
               >
-                <span
-                  aria-hidden="true"
-                  className="absolute top-0 left-0 size-1 -translate-x-1/2 -translate-y-1/2 border border-foreground bg-background"
-                />
-                <span
-                  aria-hidden="true"
-                  className="absolute top-0 right-0 size-1 translate-x-1/2 -translate-y-1/2 border border-foreground bg-background"
-                />
-                <span
-                  aria-hidden="true"
-                  className="absolute bottom-0 left-0 size-1 -translate-x-1/2 translate-y-1/2 border border-foreground bg-background"
-                />
-                <span
-                  aria-hidden="true"
-                  className="absolute right-0 bottom-0 size-1 translate-x-1/2 translate-y-1/2 border border-foreground bg-background"
-                />
+                <span className="selection-fill" />
+                <span className="selection-cap selection-cap-tl" />
+                <span className="selection-cap selection-cap-tr" />
+                <span className="selection-cap selection-cap-bl" />
+                <span className="selection-cap selection-cap-br" />
               </span>
             </span>
           </p>

@@ -109,50 +109,34 @@
   border-right-width: 1.5px;
 }
 
-/* Hover states expand caps outward */
-.group:hover .selection-cap-tl {
+/* Hover/active states expand caps outward */
+.group:hover .selection-cap-tl,
+.group:active .selection-cap-tl {
   top: -4px;
   left: -4px;
 }
 
-.group:hover .selection-cap-tr {
+.group:hover .selection-cap-tr,
+.group:active .selection-cap-tr {
   top: -4px;
   right: -4px;
 }
 
-.group:hover .selection-cap-bl {
+.group:hover .selection-cap-bl,
+.group:active .selection-cap-bl {
   bottom: -4px;
   left: -4px;
 }
 
-.group:hover .selection-cap-br {
+.group:hover .selection-cap-br,
+.group:active .selection-cap-br {
   bottom: -4px;
   right: -4px;
 }
 
-/* Active states push caps inward */
+/* Click/active transition speed adjustment */
 .group:active .selection-cap {
   transition-duration: 0.12s;
-}
-
-.group:active .selection-cap-tl {
-  top: 3px;
-  left: 3px;
-}
-
-.group:active .selection-cap-tr {
-  top: 3px;
-  right: 3px;
-}
-
-.group:active .selection-cap-bl {
-  bottom: 3px;
-  left: 3px;
-}
-
-.group:active .selection-cap-br {
-  bottom: 3px;
-  right: 3px;
 }
 
 /* Repeating diagonal stripe background on the selection box container */
@@ -182,6 +166,7 @@
   pointer-events: none;
 }
 
-.group:hover .selection-fill {
+.group:hover .selection-fill,
+.group:active .selection-fill {
   clip-path: polygon(0% 0%, 200% 0%, 100% 100%, 0% 100%);
 }

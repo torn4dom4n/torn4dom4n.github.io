@@ -27,7 +27,7 @@ export default function Hero() {
         <div className="relative mt-2 px-2 sm:mt-4">
           <p className="text-5xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium lg:text-6xl xl:text-8xl">
             my name is{" "}
-            <span className="group relative inline-block pr-1.5 text-foreground transition-colors duration-300 ease-out hover:text-background">
+            <span className="group relative inline-block pr-1.5 text-foreground transition-colors duration-300 ease-out hover:text-background active:text-background">
               <span className="relative z-10">Long Nhat</span>
               <span
                 aria-hidden="true"
@@ -80,7 +80,7 @@ export default function Hero() {
         {/* Name select layout (mobile) */}
         <div className="relative mt-1 px-2 max-sm:px-4">
           <p className="text-4xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium">
-            <span className="group relative inline-block pr-1.5 whitespace-nowrap text-foreground transition-colors duration-300 ease-out hover:text-background">
+            <span className="group relative inline-block pr-1.5 whitespace-nowrap text-foreground transition-colors duration-300 ease-out hover:text-background active:text-background">
               <span className="relative z-10">
                 Long Nhat <span className="italic">Nguyen</span>
               </span>

@@ -27,17 +27,17 @@ export default function Hero() {
         <div className="relative mt-2 px-2 sm:mt-4">
           <p className="text-5xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium lg:text-6xl xl:text-8xl">
             my name is{" "}
-            <span className="selection-group group relative inline-block pr-1.5 text-foreground transition-colors duration-300 ease-out">
+            <span className="group relative inline-block pr-1.5 text-foreground transition-colors duration-300 ease-out selection:bg-foreground selection:text-background hover:text-background active:text-background">
               <span className="relative z-10">Long Nhat</span>
               <span
                 aria-hidden="true"
-                className="selection-stripes pointer-events-none absolute inset-0 border border-foreground/15"
+                className="pointer-events-none absolute inset-0 border border-foreground/15 bg-[repeating-linear-gradient(119deg,color-mix(in_srgb,var(--foreground)_12%,transparent)_0px,color-mix(in_srgb,var(--foreground)_12%,transparent)_1px,transparent_1px,transparent_6px)] transition-opacity duration-150"
               >
-                <span className="selection-fill" />
-                <span className="selection-cap selection-cap-tl" />
-                <span className="selection-cap selection-cap-tr" />
-                <span className="selection-cap selection-cap-bl" />
-                <span className="selection-cap selection-cap-br" />
+                <span className="pointer-events-none absolute inset-0 z-1 bg-foreground transition-[clip-path] duration-400 ease-[cubic-bezier(0.25,0,0,1)] [clip-path:polygon(-1%_0%,-1%_0%,-100%_100%,-1%_100%)] group-hover:[clip-path:polygon(0%_0%,200%_0%,100%_100%,0%_100%)] group-active:[clip-path:polygon(0%_0%,200%_0%,100%_100%,0%_100%)]" />
+                <span className="pointer-events-none absolute -top-[1px] -left-[1px] z-20 h-2 w-2 border-0 border-t-[1.5px] border-l-[1.5px] border-foreground transition-[top,left,right,bottom,border-color] duration-250 ease-[cubic-bezier(0.25,0,0,1)] group-hover:-top-[4px] group-hover:-left-[4px] group-active:top-[3px] group-active:left-[3px] active:duration-120" />
+                <span className="pointer-events-none absolute -top-[1px] -right-[1px] z-20 h-2 w-2 border-0 border-t-[1.5px] border-r-[1.5px] border-foreground transition-[top,left,right,bottom,border-color] duration-250 ease-[cubic-bezier(0.25,0,0,1)] group-hover:-top-[4px] group-hover:-right-[4px] group-active:top-[3px] group-active:right-[3px] active:duration-120" />
+                <span className="pointer-events-none absolute -bottom-[1px] -left-[1px] z-20 h-2 w-2 border-0 border-b-[1.5px] border-l-[1.5px] border-foreground transition-[top,left,right,bottom,border-color] duration-250 ease-[cubic-bezier(0.25,0,0,1)] group-hover:-bottom-[4px] group-hover:-left-[4px] group-active:bottom-[3px] group-active:left-[3px] active:duration-120" />
+                <span className="pointer-events-none absolute -right-[1px] -bottom-[1px] z-20 h-2 w-2 border-0 border-r-[1.5px] border-b-[1.5px] border-foreground transition-[top,left,right,bottom,border-color] duration-250 ease-[cubic-bezier(0.25,0,0,1)] group-hover:-right-[4px] group-hover:-bottom-[4px] group-active:right-[3px] group-active:bottom-[3px] active:duration-120" />
               </span>
             </span>
           </p>
@@ -80,19 +80,19 @@ export default function Hero() {
         {/* Name select layout (mobile) */}
         <div className="relative mt-1 px-2 max-sm:px-4">
           <p className="text-4xl tracking-tighter text-balance text-muted-foreground max-lg:font-medium">
-            <span className="selection-group group relative inline-block pr-1.5 whitespace-nowrap text-foreground transition-colors duration-300 ease-out">
+            <span className="group relative inline-block pr-1.5 whitespace-nowrap text-foreground transition-colors duration-300 ease-out selection:bg-foreground selection:text-background hover:text-background active:text-background">
               <span className="relative z-10">
                 Long Nhat <span className="italic">Nguyen</span>
               </span>
               <span
                 aria-hidden="true"
-                className="selection-stripes pointer-events-none absolute inset-0 border border-foreground/15"
+                className="pointer-events-none absolute inset-0 border border-foreground/15 bg-[repeating-linear-gradient(119deg,color-mix(in_srgb,var(--foreground)_12%,transparent)_0px,color-mix(in_srgb,var(--foreground)_12%,transparent)_1px,transparent_1px,transparent_6px)] transition-opacity duration-150"
               >
-                <span className="selection-fill" />
-                <span className="selection-cap selection-cap-tl" />
-                <span className="selection-cap selection-cap-tr" />
-                <span className="selection-cap selection-cap-bl" />
-                <span className="selection-cap selection-cap-br" />
+                <span className="pointer-events-none absolute inset-0 z-1 bg-foreground transition-[clip-path] duration-400 ease-[cubic-bezier(0.25,0,0,1)] [clip-path:polygon(-1%_0%,-1%_0%,-100%_100%,-1%_100%)] group-hover:[clip-path:polygon(0%_0%,200%_0%,100%_100%,0%_100%)] group-active:[clip-path:polygon(0%_0%,200%_0%,100%_100%,0%_100%)]" />
+                <span className="pointer-events-none absolute -top-[1px] -left-[1px] z-20 h-2 w-2 border-0 border-t-[1.5px] border-l-[1.5px] border-foreground transition-[top,left,right,bottom,border-color] duration-250 ease-[cubic-bezier(0.25,0,0,1)] group-hover:-top-[4px] group-hover:-left-[4px] group-active:top-[3px] group-active:left-[3px] active:duration-120" />
+                <span className="pointer-events-none absolute -top-[1px] -right-[1px] z-20 h-2 w-2 border-0 border-t-[1.5px] border-r-[1.5px] border-foreground transition-[top,left,right,bottom,border-color] duration-250 ease-[cubic-bezier(0.25,0,0,1)] group-hover:-top-[4px] group-hover:-right-[4px] group-active:top-[3px] group-active:right-[3px] active:duration-120" />
+                <span className="pointer-events-none absolute -bottom-[1px] -left-[1px] z-20 h-2 w-2 border-0 border-b-[1.5px] border-l-[1.5px] border-foreground transition-[top,left,right,bottom,border-color] duration-250 ease-[cubic-bezier(0.25,0,0,1)] group-hover:-bottom-[4px] group-hover:-left-[4px] group-active:bottom-[3px] group-active:left-[3px] active:duration-120" />
+                <span className="pointer-events-none absolute -right-[1px] -bottom-[1px] z-20 h-2 w-2 border-0 border-r-[1.5px] border-b-[1.5px] border-foreground transition-[top,left,right,bottom,border-color] duration-250 ease-[cubic-bezier(0.25,0,0,1)] group-hover:-right-[4px] group-hover:-bottom-[4px] group-active:right-[3px] group-active:bottom-[3px] active:duration-120" />
               </span>
             </span>
           </p>

@@ -1,9 +1,10 @@
 import GridContainer from "@/components/ui/grid-container";
+import { cn } from "@/lib/utils";
 
 // Hero block representing the introductory landing section
-export default function Hero() {
+export default function Hero({ className }: { className?: string }) {
   return (
-    <div className="pt-16 sm:pt-24">
+    <div className={cn("pt-16 sm:pt-24", className)}>
       {/* Hero title block for desktop views */}
       <div className="hidden sm:block">
         {/* Hello greeting block */}

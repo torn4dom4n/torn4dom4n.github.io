@@ -34,5 +34,8 @@
     "unplugin-icons": "^23.0.1",
     "vite": "npm:@voidzero-dev/vite-plus-core@^0.2.5",
     "vite-plus": "^0.2.5"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.1"
   }
 }

@@ -24,7 +24,7 @@ function ThemeToggleButton({
   return (
     <label
       title={title}
-      className={`relative flex cursor-pointer items-center justify-center rounded-full p-1 transition-all ${
+      className={`relative flex cursor-pointer items-center justify-center rounded-full p-1 transition-all has-[:focus-visible]:ring-1 has-[:focus-visible]:ring-ring ${
         selected
           ? "shadow-elevation bg-background text-foreground"
           : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"

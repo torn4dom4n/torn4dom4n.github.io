@@ -71,10 +71,11 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
       </div>
       <button
         onClick={data.audio ? handlePlayPause : undefined}
+        disabled={!data.audio}
         type="button"
         aria-label={isPlaying ? "Pause preview" : "Play preview"}
         className={cn(
-          "group relative z-1 w-full max-w-18.75 self-center",
+          "group relative z-1 w-full max-w-18.75 self-center rounded-lg transition-shadow focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none",
           data.audio && "cursor-pointer",
         )}
       >
@@ -85,7 +86,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
           decoding="async"
           className={cn(
             "pointer-events-none relative z-1 min-h-18.75 w-full min-w-18.75 rounded-lg object-cover shadow-md transition-transform duration-300 ease-out select-none",
-            data.audio && "group-hover:-translate-x-0.5",
+            data.audio && "group-hover:-translate-x-0.5 group-focus-visible:-translate-x-0.5",
             isPlaying && "-translate-x-0.5",
           )}
         />
@@ -95,7 +96,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
               "absolute top-1/2 left-1/2 -z-1 size-[80%] -translate-y-1/2 transition-all duration-300",
               isPlaying
                 ? "translate-x-[-10%]"
-                : "translate-x-[-50%] group-hover:translate-x-[-10%]",
+                : "translate-x-[-50%] group-hover:translate-x-[-10%] group-focus-visible:translate-x-[-10%]",
             )}
           >
             <svg

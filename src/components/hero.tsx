@@ -97,10 +97,22 @@ export default function Hero() {
 
       {/* Hero short bio tagline block */}
       <GridContainer>
-        <p className="max-w-(--breakpoint-md) px-2 text-lg/7 text-muted-foreground max-sm:px-4">
-          Creator. Explorer. Optimist. Bringing together music, photography, tech, and nature to
-          share a little extra positivity with the world.
-        </p>
+        <div className="flex max-w-(--breakpoint-md) flex-col gap-4 px-2 max-sm:px-4">
+          <p className="text-lg/7 text-muted-foreground">
+            ​I want to be an author, a filmmaker, a journalist, a café owner, a therapist, an
+            architect, and a DJ on stage.
+          </p>
+          <p className="text-lg/7 text-muted-foreground">
+            ​I want to photograph strangers in a quiet town. But I also want to get lost in the bass
+            of a crowded, underground club. I want to build things with my hands. I want to carry
+            everyone’s secrets. I want to leave a mark. I want to melt into the void.
+          </p>
+          <p className="text-lg/7 text-muted-foreground">
+            ​I keep trying to fit into one outline, but the ink always spills over. Maybe I’m not
+            supposed to be a completed statue. Maybe I’m just a constellation — a thousand different
+            points of light connected by chance.
+          </p>
+        </div>
       </GridContainer>
     </div>
   );

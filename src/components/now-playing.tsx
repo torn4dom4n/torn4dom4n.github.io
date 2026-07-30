@@ -7,7 +7,7 @@ const FAVORITE_TRACK: SpotifyData = {
   title: "Repeat It",
   artist: "Martin Garrix, Ed Sheeran",
   image: "https://i.scdn.co/image/ab67616d0000b273296d05fd4b9e99e88f28eac1",
-  audio: "https://p.scdn.co/mp3-preview/783c4ddb6c42383e9b81d03dc48deede523be130",
+  audio: "/music/repeat-it.mp3",
   link: "https://open.spotify.com/track/5mX5bEYxObqukGlynRIVCj",
 };
 

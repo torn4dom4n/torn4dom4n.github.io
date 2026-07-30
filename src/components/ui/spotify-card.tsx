@@ -24,22 +24,26 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
   const uniqueId = useId().replace(/:/g, "");
 
   useEffect(() => {
-    const audio = audioRef.current;
-    return () => {
-      if (audio) {
+    if (data.audio) {
+      const audio = new Audio(data.audio);
+      audio.volume = 0.3;
+
+      const handleEnded = () => setIsPlaying(false);
+
+      audio.addEventListener("ended", handleEnded);
+
+      audioRef.current = audio;
+
+      return () => {
         audio.pause();
-      }
-    };
-  }, []);
+        audio.removeEventListener("ended", handleEnded);
+        audioRef.current = null;
+      };
+    }
+  }, [data.audio]);
 
   const handlePlayPause = () => {
-    if (!data.audio) return;
-
-    if (!audioRef.current) {
-      audioRef.current = new Audio(data.audio);
-      audioRef.current.volume = 0.3;
-      audioRef.current.addEventListener("ended", () => setIsPlaying(false));
-    }
+    if (!audioRef.current) return;
 
     if (isPlaying) {
       audioRef.current.pause();
@@ -73,7 +77,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
         onClick={data.audio ? handlePlayPause : undefined}
         disabled={!data.audio}
         type="button"
-        aria-label={isPlaying ? "Pause preview" : "Play preview"}
+        aria-label={isPlaying ? "Pause music" : "Play music"}
         className={cn(
           "group relative z-1 w-full max-w-18.75 self-center rounded-lg transition-shadow focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none",
           data.audio && "cursor-pointer",

@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/prefer-tag-over-role */
 "use client";
 
 import { useState, useEffect, useRef, useId } from "react";
@@ -19,19 +18,9 @@ interface SpotifyCardProps {
   className?: string | undefined;
 }
 
-const formatTime = (time: number) => {
-  if (isNaN(time)) return "0:00";
-  const minutes = Math.floor(time / 60);
-  const seconds = Math.floor(time % 60);
-  return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-};
-
 export function SpotifyCard({ data, className }: SpotifyCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const progressBarRef = useRef<HTMLDivElement | null>(null);
   const uniqueId = useId().replace(/:/g, "");
 
   useEffect(() => {
@@ -40,24 +29,14 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
       audio.volume = 0.3;
 
       const handleEnded = () => setIsPlaying(false);
-      const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
-      const handleLoadedMetadata = () => setDuration(audio.duration);
 
       audio.addEventListener("ended", handleEnded);
-      audio.addEventListener("timeupdate", handleTimeUpdate);
-      audio.addEventListener("loadedmetadata", handleLoadedMetadata);
 
       audioRef.current = audio;
-
-      if (audio.readyState >= 1) {
-        setDuration(audio.duration);
-      }
 
       return () => {
         audio.pause();
         audio.removeEventListener("ended", handleEnded);
-        audio.removeEventListener("timeupdate", handleTimeUpdate);
-        audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
         audioRef.current = null;
       };
     }
@@ -72,35 +51,6 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
     } else {
       void audioRef.current.play();
       setIsPlaying(true);
-    }
-  };
-
-  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!audioRef.current || !progressBarRef.current || !duration) return;
-
-    const rect = progressBarRef.current.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const width = rect.width;
-    const clickPercentage = Math.min(Math.max(clickX / width, 0), 1);
-    const newTime = clickPercentage * duration;
-
-    audioRef.current.currentTime = newTime;
-    setCurrentTime(newTime);
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (!audioRef.current || !duration) return;
-
-    if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      const newTime = Math.max(audioRef.current.currentTime - 5, 0);
-      audioRef.current.currentTime = newTime;
-      setCurrentTime(newTime);
-    } else if (e.key === "ArrowRight") {
-      e.preventDefault();
-      const newTime = Math.min(audioRef.current.currentTime + 5, duration);
-      audioRef.current.currentTime = newTime;
-      setCurrentTime(newTime);
     }
   };
 
@@ -223,14 +173,7 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
         )}
       </button>
       <div className="z-10 flex w-full flex-col justify-between">
-        <div className="flex items-center justify-between pl-6">
-          {duration > 0 ? (
-            <span className="font-mono text-[10px] text-white/50 select-none">
-              {formatTime(currentTime)} / {formatTime(duration)}
-            </span>
-          ) : (
-            <div />
-          )}
+        <div className="flex self-end">
           <a
             href={data.link}
             target="_blank"
@@ -254,26 +197,6 @@ export function SpotifyCard({ data, className }: SpotifyCardProps) {
           </p>
         </div>
       </div>
-
-      {duration > 0 && (
-        <div
-          ref={progressBarRef}
-          onClick={handleProgressClick}
-          onKeyDown={handleKeyDown}
-          tabIndex={0}
-          className="absolute right-0 bottom-0 left-0 h-1.5 w-full cursor-pointer bg-white/10 transition-all hover:h-2 focus-visible:h-2 focus-visible:bg-white/20 focus-visible:outline-none"
-          role="slider"
-          aria-valuemin={0}
-          aria-valuemax={duration}
-          aria-valuenow={currentTime}
-          aria-label="Music progress"
-        >
-          <div
-            className="h-full bg-[#1DB954] transition-all duration-100 ease-out"
-            style={{ width: `${(currentTime / duration) * 100}%` }}
-          />
-        </div>
-      )}
     </div>
   );
 }

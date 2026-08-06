@@ -588,7 +588,7 @@ export const CassettePlayer = memo(function CassettePlayer({
             />
           </div>
 
-          <div className="absolute right-[8.5%] bottom-[19.5%] left-[8.5%] z-5 grid gap-y-1 text-[#fdfdfc]/80">
+          <div className="absolute right-[8.5%] bottom-[17.5%] left-[8.5%] z-5 grid gap-y-1 text-[#fdfdfc]/80">
             <Slider.Root
               disabled={duration <= 0}
               largeStep={Math.min(Math.max(duration / 10, 1), 10)}

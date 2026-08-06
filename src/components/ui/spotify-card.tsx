@@ -74,7 +74,7 @@ function Reel({ className }: ReelProps) {
   return (
     <div
       className={cn(
-        "absolute top-1/2 z-3 aspect-square w-[78cqh] -translate-x-1/2 -translate-y-1/2",
+        "absolute top-1/2 z-3 aspect-square h-[78%] -translate-x-1/2 -translate-y-1/2",
         className,
       )}
     >
@@ -568,8 +568,8 @@ export const CassettePlayer = memo(function CassettePlayer({
                   aria-hidden="true"
                   className="absolute top-[12%] right-[28%] bottom-[12%] left-[28%] z-2 flex items-center justify-evenly overflow-hidden rounded-[3px] border-2 border-[#11100f] bg-[#393631] bg-[linear-gradient(to_bottom,rgba(255,255,255,0.1),transparent_42%)] shadow-[inset_0_3px_6px_rgba(0,0,0,0.72),0_0_0_2px_rgba(255,255,255,0.08)]"
                 >
-                  <span className="absolute top-1/2 left-[calc(50cqh-28cqw)] aspect-square h-[360%] -translate-x-1/2 -translate-y-1/2 scale-[var(--left-tape-scale)] rounded-full border border-[#0d0a08] bg-[repeating-radial-gradient(circle,#050505_0_2px,#171717_2px_4px)] shadow-[inset_0_0_5px_rgba(0,0,0,0.7),0_1px_2px_rgba(0,0,0,0.5)] will-change-transform" />
-                  <span className="absolute top-1/2 left-[calc(72cqw-50cqh)] aspect-square h-[360%] -translate-x-1/2 -translate-y-1/2 scale-[var(--right-tape-scale)] rounded-full border border-[#0d0a08] bg-[repeating-radial-gradient(circle,#050505_0_2px,#171717_2px_4px)] shadow-[inset_0_0_5px_rgba(0,0,0,0.7),0_1px_2px_rgba(0,0,0,0.5)] will-change-transform" />
+                  <span className="absolute top-1/2 left-[calc(13.26%-28%)] aspect-square h-[360%] -translate-x-1/2 -translate-y-1/2 scale-[var(--left-tape-scale)] rounded-full border border-[#0d0a08] bg-[repeating-radial-gradient(circle,#050505_0_2px,#171717_2px_4px)] shadow-[inset_0_0_5px_rgba(0,0,0,0.7),0_1px_2px_rgba(0,0,0,0.5)] will-change-transform" />
+                  <span className="absolute top-1/2 left-[calc(72%-13.26%)] aspect-square h-[360%] -translate-x-1/2 -translate-y-1/2 scale-[var(--right-tape-scale)] rounded-full border border-[#0d0a08] bg-[repeating-radial-gradient(circle,#050505_0_2px,#171717_2px_4px)] shadow-[inset_0_0_5px_rgba(0,0,0,0.7),0_1px_2px_rgba(0,0,0,0.5)] will-change-transform" />
                   {TAPE_WINDOW_DIVIDERS.map((divider) => (
                     <span
                       className="relative z-1 h-[42%] w-0.5 bg-[rgba(224,215,195,0.28)]"
@@ -577,8 +577,8 @@ export const CassettePlayer = memo(function CassettePlayer({
                     />
                   ))}
                 </div>
-                <Reel className="left-[50cqh]" />
-                <Reel className="left-[calc(100%-50cqh)]" />
+                <Reel className="left-[13.26%]" />
+                <Reel className="left-[calc(100%-13.26%)]" />
               </div>
             </div>
 

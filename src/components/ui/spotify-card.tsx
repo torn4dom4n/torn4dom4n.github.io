@@ -83,7 +83,7 @@ function Reel({ className }: ReelProps) {
         className="absolute inset-0 origin-center rotate-[var(--reel-rotation)] rounded-full will-change-transform motion-reduce:!rotate-0"
         viewBox="0 0 100 100"
       >
-        <circle className="fill-[#1b1a18]" cx="50" cy="50" r="48" />
+        <circle className="fill-white" cx="50" cy="50" r="48" />
         {REEL_SPOKES.map((spokeRotation) => (
           <path
             className="fill-[var(--reel-teeth)] stroke-[var(--reel-tooth-stroke)] [stroke-width:1.25] [filter:drop-shadow(0_1px_1px_rgba(0,0,0,0.32))] [stroke-linejoin:round]"

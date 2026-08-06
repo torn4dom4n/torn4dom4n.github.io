@@ -527,7 +527,7 @@ export const CassettePlayer = memo(function CassettePlayer({
           <Screw className="bottom-[4%] left-[2.53%]" />
           <Screw className="right-[2.53%] bottom-[4%]" />
 
-          <div className="[container-type:inline-size] absolute top-[9.5%] right-[8.5%] bottom-[24%] left-[8.5%] z-1 overflow-clip rounded-[9px] border-4 border-transparent bg-[var(--label-bg)] text-[var(--label-ink)] shadow-[inset_0_0_12px_rgba(92,74,49,0.12)] [overflow-clip-margin:border-box] max-[560px]:rounded-md">
+          <div className="[container-type:inline-size] absolute top-[9.5%] right-[8.5%] bottom-[34%] left-[8.5%] z-1 overflow-clip rounded-[9px] border-4 border-transparent bg-[var(--label-bg)] text-[var(--label-ink)] shadow-[inset_0_0_12px_rgba(92,74,49,0.12)] [overflow-clip-margin:border-box] max-[560px]:rounded-md">
             <div className="relative z-2 mx-4 mt-4 flex items-stretch justify-between">
               <div className="grid min-w-0 content-between gap-y-2">
                 <span className="relative z-2 flex items-baseline justify-between font-mono text-[clamp(8px,2.5cqw,11px)] leading-none font-bold tracking-[0.12em] text-[var(--label-kicker)] uppercase">
@@ -582,52 +582,52 @@ export const CassettePlayer = memo(function CassettePlayer({
               </div>
             </div>
 
-            <div className="absolute right-4 bottom-4 left-4 z-5 grid gap-y-1.5">
-              <Slider.Root
-                disabled={duration <= 0}
-                largeStep={Math.min(Math.max(duration / 10, 1), 10)}
-                max={Math.max(duration, 0.01)}
-                min={0}
-                onValueCommitted={finishScrubbing}
-                onValueChange={seek}
-                step={0.01}
-                thumbAlignment="edge"
-                value={Math.min(currentTime, Math.max(duration, 0.01))}
-              >
-                <Slider.Control
-                  className="flex h-6 w-full cursor-pointer touch-none items-center data-disabled:cursor-default"
-                  onPointerCancel={finishScrubbing}
-                  onPointerDown={startScrubbing}
-                >
-                  <Slider.Track className="relative h-[3px] w-full translate-y-0.5 rounded-full bg-[color-mix(in_srgb,var(--label-ink)_28%,transparent)]">
-                    <Slider.Indicator className="h-full rounded-full bg-[var(--label-ink)]" />
-                    <Slider.Thumb
-                      getAriaLabel={() => `Seek through ${resolvedTrackTitle}`}
-                      getAriaValueText={(_formattedValue, value) =>
-                        `${formatTime(value)} of ${formatTime(duration)}`
-                      }
-                      className="size-[13px] rounded-full border-2 border-[var(--progress-thumb-border)] bg-white shadow-[0_1px_4px_rgba(37,33,29,0.38)] outline-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-[3px] has-[:focus-visible]:outline-neutral-950 dark:has-[:focus-visible]:outline-neutral-50"
-                    />
-                  </Slider.Track>
-                </Slider.Control>
-              </Slider.Root>
-
-              <div className="relative z-2 flex items-baseline justify-between font-sans text-xs leading-4 font-normal tabular-nums">
-                <span>
-                  <span className="sr-only">Elapsed time </span>
-                  <time dateTime={formatDuration(currentTime)}>{formatTime(currentTime)}</time>
-                </span>
-                <span>
-                  <span className="sr-only">Total time </span>
-                  <time dateTime={formatDuration(duration)}>{formatTime(duration)}</time>
-                </span>
-              </div>
-            </div>
-
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -inset-1 z-10 rounded-[inherit] border-4 border-[var(--label-border)]"
             />
+          </div>
+
+          <div className="absolute right-[8.5%] bottom-[19.5%] left-[8.5%] z-5 grid gap-y-1 text-[#fdfdfc]/80">
+            <Slider.Root
+              disabled={duration <= 0}
+              largeStep={Math.min(Math.max(duration / 10, 1), 10)}
+              max={Math.max(duration, 0.01)}
+              min={0}
+              onValueCommitted={finishScrubbing}
+              onValueChange={seek}
+              step={0.01}
+              thumbAlignment="edge"
+              value={Math.min(currentTime, Math.max(duration, 0.01))}
+            >
+              <Slider.Control
+                className="flex h-6 w-full cursor-pointer touch-none items-center data-disabled:cursor-default"
+                onPointerCancel={finishScrubbing}
+                onPointerDown={startScrubbing}
+              >
+                <Slider.Track className="relative h-[3px] w-full translate-y-0.5 rounded-full bg-white/20">
+                  <Slider.Indicator className="h-full rounded-full bg-white" />
+                  <Slider.Thumb
+                    getAriaLabel={() => `Seek through ${resolvedTrackTitle}`}
+                    getAriaValueText={(_formattedValue, value) =>
+                      `${formatTime(value)} of ${formatTime(duration)}`
+                    }
+                    className="size-[13px] rounded-full border-2 border-neutral-400 bg-white shadow-[0_1px_4px_rgba(37,33,29,0.38)] outline-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-[3px] has-[:focus-visible]:outline-neutral-950 dark:has-[:focus-visible]:outline-neutral-50"
+                  />
+                </Slider.Track>
+              </Slider.Control>
+            </Slider.Root>
+
+            <div className="relative z-2 flex items-baseline justify-between font-sans text-xs leading-4 font-normal tabular-nums">
+              <span>
+                <span className="sr-only">Elapsed time </span>
+                <time dateTime={formatDuration(currentTime)}>{formatTime(currentTime)}</time>
+              </span>
+              <span>
+                <span className="sr-only">Total time </span>
+                <time dateTime={formatDuration(duration)}>{formatTime(duration)}</time>
+              </span>
+            </div>
           </div>
 
           <div className="absolute right-[27%] bottom-[3.5%] left-[27%] z-4 grid h-[16%] grid-cols-[1fr_auto_1fr] place-items-center gap-x-[clamp(6px,1.5cqw,10px)] bg-[color-mix(in_srgb,#63635e_20%,transparent)] px-[12%] shadow-[inset_0_3px_8px_rgba(0,0,0,0.5)] [clip-path:polygon(13%_0,87%_0,100%_100%,0_100%)]">

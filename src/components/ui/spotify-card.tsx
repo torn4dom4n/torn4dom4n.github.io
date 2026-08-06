@@ -588,7 +588,12 @@ export const CassettePlayer = memo(function CassettePlayer({
             />
           </div>
 
-          <div className="absolute right-[8.5%] bottom-[17.5%] left-[8.5%] z-5 grid gap-y-1 text-[#fdfdfc]/80">
+          <div className="absolute right-[8.5%] bottom-[19%] left-[8.5%] z-5 flex items-center gap-x-3 font-sans text-xs leading-4 font-normal text-[#fdfdfc]/80 tabular-nums">
+            <span>
+              <span className="sr-only">Elapsed time </span>
+              <time dateTime={formatDuration(currentTime)}>{formatTime(currentTime)}</time>
+            </span>
+
             <Slider.Root
               disabled={duration <= 0}
               largeStep={Math.min(Math.max(duration / 10, 1), 10)}
@@ -596,6 +601,7 @@ export const CassettePlayer = memo(function CassettePlayer({
               min={0}
               onValueCommitted={finishScrubbing}
               onValueChange={seek}
+              className="flex-1"
               step={0.01}
               thumbAlignment="edge"
               value={Math.min(currentTime, Math.max(duration, 0.01))}
@@ -618,16 +624,10 @@ export const CassettePlayer = memo(function CassettePlayer({
               </Slider.Control>
             </Slider.Root>
 
-            <div className="relative z-2 flex items-baseline justify-between font-sans text-xs leading-4 font-normal tabular-nums">
-              <span>
-                <span className="sr-only">Elapsed time </span>
-                <time dateTime={formatDuration(currentTime)}>{formatTime(currentTime)}</time>
-              </span>
-              <span>
-                <span className="sr-only">Total time </span>
-                <time dateTime={formatDuration(duration)}>{formatTime(duration)}</time>
-              </span>
-            </div>
+            <span>
+              <span className="sr-only">Total time </span>
+              <time dateTime={formatDuration(duration)}>{formatTime(duration)}</time>
+            </span>
           </div>
 
           <div className="absolute right-[27%] bottom-[3.5%] left-[27%] z-4 grid h-[16%] grid-cols-[1fr_auto_1fr] place-items-center gap-x-[clamp(6px,1.5cqw,10px)] bg-[color-mix(in_srgb,#63635e_20%,transparent)] px-[12%] shadow-[inset_0_3px_8px_rgba(0,0,0,0.5)] [clip-path:polygon(13%_0,87%_0,100%_100%,0_100%)]">

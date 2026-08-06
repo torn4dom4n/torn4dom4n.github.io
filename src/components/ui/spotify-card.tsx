@@ -1,7 +1,7 @@
 "use client";
 
 import { Slider } from "@base-ui/react/slider";
-import { RotateCcw, Pause, Play, Volume2, VolumeX } from "lucide-react";
+import { Pause, Play, Volume2, VolumeX } from "lucide-react";
 import { type ComponentPropsWithRef, useCallback, useEffect, useRef, useState, memo } from "react";
 
 import { cn } from "@/lib/utils";
@@ -12,8 +12,6 @@ const DEFAULT_TRACK_TITLE = "Repeat It";
 const DEFAULT_VOLUME = 0.78;
 const REEL_SPOKES = [0, 60, 120, 180, 240, 300] as const;
 const TAPE_WINDOW_DIVIDERS = [0, 1, 2, 3, 4] as const;
-const MIN_REWIND_DURATION = 220;
-const MAX_REWIND_DURATION = 1000;
 const CASSETTE_TEXTURE =
   "url(\"data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 const BUTTON_CLASSES =
@@ -39,10 +37,6 @@ export type CassettePlayerProps = Omit<ComponentPropsWithRef<"section">, "childr
   sideLabel?: string;
   trackTitle?: string;
 };
-
-function easeInOutCubic(progress: number) {
-  return progress < 0.5 ? 4 * progress ** 3 : 1 - (-2 * progress + 2) ** 3 / 2;
-}
 
 function formatTime(seconds: number) {
   if (!Number.isFinite(seconds)) {
@@ -322,74 +316,6 @@ export const CassettePlayer = memo(function CassettePlayer({
     }
   }
 
-  function restart() {
-    const audio = audioRef.current;
-
-    if (!audio) {
-      return;
-    }
-
-    const audioElement = audio;
-
-    if (rewindAnimationRef.current !== null) {
-      window.cancelAnimationFrame(rewindAnimationRef.current);
-    }
-
-    resumeAfterRewindRef.current = resumeAfterRewindRef.current || !audioElement.paused;
-
-    if (!audioElement.paused) {
-      audioElement.pause();
-    }
-
-    const rewindFrom = currentTime;
-    const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    function finishRewind() {
-      rewindAnimationRef.current = null;
-      audioElement.currentTime = 0;
-      setCurrentTime(0);
-      updatePlaybackVisuals(0);
-
-      const shouldResume = resumeAfterRewindRef.current;
-      resumeAfterRewindRef.current = false;
-
-      if (shouldResume) {
-        audioElement.play().catch((error) => {
-          updatePlaybackState(false);
-          reportPlaybackError(error, "Playback could not resume after restarting the track.");
-        });
-      }
-    }
-
-    if (rewindFrom <= 0 || shouldReduceMotion) {
-      finishRewind();
-      return;
-    }
-
-    const rewindDistance = duration > 0 ? Math.min(Math.max(rewindFrom / duration, 0), 1) : 1;
-    const rewindDuration =
-      MIN_REWIND_DURATION + (MAX_REWIND_DURATION - MIN_REWIND_DURATION) * rewindDistance;
-    const startedAt = performance.now();
-
-    function animateRewind(now: number) {
-      const linearProgress = Math.min((now - startedAt) / rewindDuration, 1);
-      const easedProgress = easeInOutCubic(linearProgress);
-      const nextTime = rewindFrom * (1 - easedProgress);
-
-      updatePlaybackVisuals(nextTime);
-      setCurrentTime(nextTime);
-
-      if (linearProgress < 1) {
-        rewindAnimationRef.current = window.requestAnimationFrame(animateRewind);
-        return;
-      }
-
-      finishRewind();
-    }
-
-    rewindAnimationRef.current = window.requestAnimationFrame(animateRewind);
-  }
-
   function seek(nextTime: number) {
     const audio = audioRef.current;
 
@@ -422,10 +348,9 @@ export const CassettePlayer = memo(function CassettePlayer({
 
   async function finishScrubbing() {
     const audio = audioRef.current;
-    const shouldResume = resumeAfterScrubRef.current;
     resumeAfterScrubRef.current = false;
 
-    if (!audio || !shouldResume) {
+    if (!audio) {
       return;
     }
 
@@ -433,7 +358,7 @@ export const CassettePlayer = memo(function CassettePlayer({
       await audio.play();
     } catch (error) {
       updatePlaybackState(false);
-      reportPlaybackError(error, "Playback could not resume after seeking the track.");
+      reportPlaybackError(error, "Playback could not start after seeking the track.");
     }
   }
 
@@ -630,20 +555,7 @@ export const CassettePlayer = memo(function CassettePlayer({
             </span>
           </div>
 
-          <div className="absolute right-[27%] bottom-[3.5%] left-[27%] z-4 grid h-[16%] grid-cols-[1fr_auto_1fr] place-items-center gap-x-[clamp(6px,1.5cqw,10px)] bg-[color-mix(in_srgb,#63635e_20%,transparent)] px-[12%] shadow-[inset_0_3px_8px_rgba(0,0,0,0.5)] [clip-path:polygon(13%_0,87%_0,100%_100%,0_100%)]">
-            <button
-              aria-label="Restart track"
-              className={cn(
-                BUTTON_CLASSES,
-                "w-[clamp(24px,6.5cqw,32px)] border-[#82827c] bg-[#63635e] shadow-[0_2px_5px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.2)] hover:bg-[#7c7b74]",
-              )}
-              disabled={currentTime <= 0}
-              onClick={restart}
-              type="button"
-            >
-              <RotateCcw aria-hidden size={16} strokeWidth={2.5} />
-            </button>
-
+          <div className="absolute right-[27%] bottom-[3.5%] left-[27%] z-4 flex h-[16%] items-center justify-center gap-x-6 bg-[color-mix(in_srgb,#63635e_20%,transparent)] px-[12%] shadow-[inset_0_3px_8px_rgba(0,0,0,0.5)] [clip-path:polygon(13%_0,87%_0,100%_100%,0_100%)]">
             <button
               aria-label={isPlaying ? `Pause ${resolvedTrackTitle}` : `Play ${resolvedTrackTitle}`}
               className={cn(

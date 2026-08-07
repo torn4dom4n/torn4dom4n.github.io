@@ -126,7 +126,7 @@ export const CassettePlayer = memo(function CassettePlayer({
   catalogueNumber = "200769",
   className,
   initialVolume = DEFAULT_VOLUME,
-  loop = true,
+  loop = false,
   onPlaybackChange,
   onPlaybackError,
   preload = "metadata",

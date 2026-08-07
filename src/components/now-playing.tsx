@@ -1,18 +1,11 @@
+import { memo } from "react";
+
+import { CassettePlayer } from "@/components/ui/cassette-player";
 import GridContainer from "@/components/ui/grid-container";
 import SectionHeader from "@/components/ui/section-header";
-import { SpotifyCard, type SpotifyData } from "@/components/ui/spotify-card";
 
-// Showcase Spotify track item
-const FAVORITE_TRACK: SpotifyData = {
-  title: "Repeat It",
-  artist: "Martin Garrix, Ed Sheeran",
-  image: "https://i.scdn.co/image/ab67616d0000b273296d05fd4b9e99e88f28eac1",
-  audio: "/music/repeat-it.mp3",
-  link: "https://open.spotify.com/track/5mX5bEYxObqukGlynRIVCj",
-};
-
-// NowPlaying block displaying the active favorite music track
-export default function NowPlaying() {
+// NowPlaying block displaying the active favorite music track inside a Cassette Player
+const NowPlaying = memo(function NowPlaying() {
   return (
     <div className="relative max-w-full">
       {/* Music section label */}
@@ -36,12 +29,21 @@ export default function NowPlaying() {
         </p>
       </GridContainer>
 
-      {/* Spotify Card rendering container */}
+      {/* Cassette Player rendering container */}
       <GridContainer className="mt-16">
-        <div className="max-w-md px-2 py-12 max-sm:px-4">
-          <SpotifyCard data={FAVORITE_TRACK} />
+        <div className="flex w-full justify-start px-2 py-12 max-sm:px-4">
+          <CassettePlayer
+            archiveLabel="Archive 11"
+            audioSrc="/music/repeat-it.mp3"
+            trackTitle="Repeat It"
+            trackArtist="Martin Garrix & Ed Sheeran"
+            catalogueNumber="200769"
+            sideLabel="Side A"
+          />
         </div>
       </GridContainer>
     </div>
   );
-}
+});
+
+export default NowPlaying;

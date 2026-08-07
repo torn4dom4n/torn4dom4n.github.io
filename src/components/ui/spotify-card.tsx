@@ -348,17 +348,20 @@ export const CassettePlayer = memo(function CassettePlayer({
 
   async function finishScrubbing() {
     const audio = audioRef.current;
+    const shouldResume = resumeAfterScrubRef.current;
     resumeAfterScrubRef.current = false;
 
     if (!audio) {
       return;
     }
 
-    try {
-      await audio.play();
-    } catch (error) {
-      updatePlaybackState(false);
-      reportPlaybackError(error, "Playback could not start after seeking the track.");
+    if (shouldResume) {
+      try {
+        await audio.play();
+      } catch (error) {
+        updatePlaybackState(false);
+        reportPlaybackError(error, "Playback could not start after seeking the track.");
+      }
     }
   }
 

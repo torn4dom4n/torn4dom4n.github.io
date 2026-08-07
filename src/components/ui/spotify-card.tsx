@@ -340,10 +340,6 @@ export const CassettePlayer = memo(function CassettePlayer({
 
     cancelRewind();
     resumeAfterScrubRef.current = !audio.paused;
-
-    if (!audio.paused) {
-      audio.pause();
-    }
   }
 
   async function finishScrubbing() {
@@ -355,7 +351,7 @@ export const CassettePlayer = memo(function CassettePlayer({
       return;
     }
 
-    if (shouldResume) {
+    if (shouldResume && audio.paused) {
       try {
         await audio.play();
       } catch (error) {

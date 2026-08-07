@@ -25,7 +25,8 @@ const NowPlaying = memo(function NowPlaying() {
       {/* Music block quote tag */}
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-muted-foreground max-sm:px-4">
-          If we'll ever be remembered, I know it'll be for the way that we love.
+          If the world ends tonight, you'll be in my arms. We'll be frozen in time underneath the
+          stars.
         </p>
       </GridContainer>
 

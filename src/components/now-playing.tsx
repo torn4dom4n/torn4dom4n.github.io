@@ -36,6 +36,7 @@ const NowPlaying = memo(function NowPlaying() {
             archiveLabel="Archive 11"
             audioSrc="/music/repeat-it.mp3"
             trackTitle="Repeat It"
+            trackArtist="Martin Garrix & Ed Sheeran"
             catalogueNumber="200769"
             sideLabel="Side A"
           />

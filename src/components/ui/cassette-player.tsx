@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 const DEFAULT_AUDIO_SOURCE = "/music/repeat-it.mp3";
 const DEFAULT_CAPTION_TRACKS = [] as const;
 const DEFAULT_TRACK_TITLE = "Repeat It";
+const DEFAULT_TRACK_ARTIST = "Martin Garrix & Ed Sheeran";
 const DEFAULT_VOLUME = 0.78;
 const REEL_SPOKES = [0, 60, 120, 180, 240, 300] as const;
 const TAPE_WINDOW_DIVIDERS = [0, 1, 2, 3, 4] as const;
@@ -36,6 +37,7 @@ export type CassettePlayerProps = Omit<ComponentPropsWithRef<"section">, "childr
   preload?: "auto" | "metadata" | "none";
   sideLabel?: string;
   trackTitle?: string;
+  trackArtist?: string;
 };
 
 function formatTime(seconds: number) {
@@ -133,12 +135,15 @@ export const CassettePlayer = memo(function CassettePlayer({
   ref,
   sideLabel = "Side A",
   trackTitle,
+  trackArtist,
   ...sectionProps
 }: CassettePlayerProps) {
   const resolvedCaptionTracks =
     captionTracks ?? (audioSrc === DEFAULT_AUDIO_SOURCE ? DEFAULT_CAPTION_TRACKS : []);
   const resolvedTrackTitle =
     trackTitle ?? (audioSrc === DEFAULT_AUDIO_SOURCE ? DEFAULT_TRACK_TITLE : "Untitled track");
+  const resolvedTrackArtist =
+    trackArtist ?? (audioSrc === DEFAULT_AUDIO_SOURCE ? DEFAULT_TRACK_ARTIST : "");
   const audioRef = useRef<HTMLAudioElement>(null);
   const cassetteRef = useRef<HTMLDivElement>(null);
   const durationRef = useRef(0);
@@ -452,14 +457,19 @@ export const CassettePlayer = memo(function CassettePlayer({
           <Screw className="right-[2.53%] bottom-[4%]" />
 
           <div className="[container-type:inline-size] absolute top-[9.5%] right-[8.5%] bottom-[34%] left-[8.5%] z-1 overflow-clip rounded-[9px] border-4 border-transparent bg-[var(--label-bg)] text-[var(--label-ink)] shadow-[inset_0_0_12px_rgba(92,74,49,0.12)] [overflow-clip-margin:border-box] max-[560px]:rounded-md">
-            <div className="relative z-2 mx-4 mt-4 flex items-stretch justify-between">
-              <div className="grid min-w-0 content-between gap-y-2">
+            <div className="relative z-2 mx-4 mt-3 flex items-stretch justify-between">
+              <div className="grid min-w-0 content-between gap-y-1">
                 <span className="relative z-2 flex items-baseline justify-between font-mono text-[clamp(8px,2.5cqw,11px)] leading-none font-bold tracking-[0.12em] text-[var(--label-kicker)] uppercase">
                   {archiveLabel}
                 </span>
                 <span className="relative z-2 block truncate font-sans text-[clamp(12px,4.6cqw,20px)] leading-none font-semibold tracking-[-0.04em]">
                   {resolvedTrackTitle}
                 </span>
+                {resolvedTrackArtist ? (
+                  <span className="relative z-2 block truncate font-mono text-[clamp(8px,2.3cqw,10px)] leading-none font-bold tracking-[0.04em] text-[var(--label-kicker)]">
+                    {resolvedTrackArtist}
+                  </span>
+                ) : null}
               </div>
 
               <div className="ml-2 grid shrink-0 content-between justify-items-end gap-y-2 font-mono leading-none font-bold uppercase">

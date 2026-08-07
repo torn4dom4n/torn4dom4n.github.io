@@ -1,8 +1,8 @@
 import { memo } from "react";
 
+import { CassettePlayer } from "@/components/ui/cassette-player";
 import GridContainer from "@/components/ui/grid-container";
 import SectionHeader from "@/components/ui/section-header";
-import { CassettePlayer } from "@/components/ui/spotify-card";
 
 // NowPlaying block displaying the active favorite music track inside a Cassette Player
 const NowPlaying = memo(function NowPlaying() {

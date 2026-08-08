@@ -34,11 +34,11 @@ const NowPlaying = memo(function NowPlaying() {
       <GridContainer className="mt-16">
         <div className="flex w-full justify-start px-2 py-12 max-sm:px-4">
           <CassettePlayer
-            archiveLabel="Archive 11"
+            archiveLabel="STMPD RCRDS"
             audioSrc="/music/repeat-it.mp3"
             trackTitle="Repeat It"
             trackArtist="Martin Garrix & Ed Sheeran"
-            catalogueNumber="200769"
+            catalogueNumber="2026"
             sideLabel="Side A"
           />
         </div>

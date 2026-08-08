@@ -1,7 +1,7 @@
 "use client";
 
 import { Slider } from "@base-ui/react/slider";
-import { Pause, Play, Volume2, VolumeX } from "lucide-react";
+import { Pause, Play } from "lucide-react";
 import { type ComponentPropsWithRef, useCallback, useEffect, useRef, useState, memo } from "react";
 
 import { cn } from "@/lib/utils";
@@ -122,10 +122,10 @@ function Screw({ className }: ScrewProps) {
 }
 
 export const CassettePlayer = memo(function CassettePlayer({
-  archiveLabel = "Archive 11",
+  archiveLabel = "STMPD RCRDS",
   audioSrc = DEFAULT_AUDIO_SOURCE,
   captionTracks,
-  catalogueNumber = "200769",
+  catalogueNumber = "2026",
   className,
   initialVolume = DEFAULT_VOLUME,
   loop = false,
@@ -156,8 +156,7 @@ export const CassettePlayer = memo(function CassettePlayer({
   const [duration, setDuration] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackError, setPlaybackError] = useState<string | null>(null);
-  const [volume, setVolume] = useState(() => normalizeVolume(initialVolume));
-  const [previousVolume, setPreviousVolume] = useState(() => normalizeVolume(initialVolume));
+  const [volume] = useState(() => normalizeVolume(initialVolume));
 
   const updatePlaybackVisuals = useCallback((time: number) => {
     const cassette = cassetteRef.current;
@@ -366,26 +365,6 @@ export const CassettePlayer = memo(function CassettePlayer({
     }
   }
 
-  function changeVolume(nextVolume: number) {
-    const audio = audioRef.current;
-
-    if (!audio) {
-      return;
-    }
-
-    const normalizedVolume = normalizeVolume(nextVolume);
-    audio.volume = normalizedVolume;
-    setVolume(normalizedVolume);
-
-    if (normalizedVolume > 0) {
-      setPreviousVolume(normalizedVolume);
-    }
-  }
-
-  function toggleMute() {
-    changeVolume(volume === 0 ? previousVolume || DEFAULT_VOLUME : 0);
-  }
-
   return (
     <section
       aria-label={`${resolvedTrackTitle} audio player`}
@@ -439,12 +418,12 @@ export const CassettePlayer = memo(function CassettePlayer({
 
       <div className="w-full max-w-[530px]">
         <div
-          className="dark relative aspect-[1.58] w-full overflow-hidden rounded-[18px] border border-[#050505] bg-[linear-gradient(165deg,#373735_0%,#20201f_52%,#0e0e0d_100%)] shadow-[0_28px_48px_rgba(0,0,0,0.24),0_8px_16px_rgba(0,0,0,0.18),inset_0_2px_1px_rgba(255,255,255,0.2),inset_0_-3px_3px_rgba(0,0,0,0.74)] [--left-tape-scale:1] [--reel-rotation:0deg] [--right-tape-scale:0.6] max-[560px]:rounded-xl"
+          className="dark relative aspect-[1.58] w-full overflow-hidden rounded-[18px] border border-[#050505] bg-[linear-gradient(165deg,#1a1a1a_0%,#0c0c0c_52%,#020202_100%)] shadow-[0_28px_48px_rgba(0,0,0,0.3),0_8px_16px_rgba(0,0,0,0.2),inset_0_2px_2px_rgba(255,255,255,0.12),inset_0_-3px_6px_rgba(0,0,0,0.85)] [--left-tape-scale:1] [--reel-rotation:0deg] [--right-tape-scale:0.6] max-[560px]:rounded-xl"
           ref={cassetteRef}
         >
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-1.5 rounded-[13px] border border-white/[0.12] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.62)]"
+            className="pointer-events-none absolute inset-1.5 rounded-[13px] border border-white/5 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.5)]"
           />
           <div
             aria-hidden="true"
@@ -564,7 +543,7 @@ export const CassettePlayer = memo(function CassettePlayer({
             </span>
           </div>
 
-          <div className="absolute right-[27%] bottom-[3.5%] left-[27%] z-4 flex h-[16%] items-center justify-center gap-x-6 bg-[color-mix(in_srgb,#63635e_20%,transparent)] px-[12%] shadow-[inset_0_3px_8px_rgba(0,0,0,0.5)] [clip-path:polygon(13%_0,87%_0,100%_100%,0_100%)]">
+          <div className="absolute right-[27%] bottom-[3.5%] left-[27%] z-4 flex h-[16%] items-center justify-center bg-[color-mix(in_srgb,#63635e_20%,transparent)] px-[12%] shadow-[inset_0_3px_8px_rgba(0,0,0,0.5)] [clip-path:polygon(13%_0,87%_0,100%_100%,0_100%)]">
             <button
               aria-label={isPlaying ? `Pause ${resolvedTrackTitle}` : `Play ${resolvedTrackTitle}`}
               className={cn(
@@ -578,22 +557,6 @@ export const CassettePlayer = memo(function CassettePlayer({
                 <Pause aria-hidden size={18} fill="currentColor" stroke="none" />
               ) : (
                 <Play aria-hidden size={18} fill="currentColor" stroke="none" />
-              )}
-            </button>
-
-            <button
-              aria-label={volume === 0 ? "Unmute" : "Mute"}
-              className={cn(
-                BUTTON_CLASSES,
-                "w-[clamp(24px,6.5cqw,32px)] border-[#82827c] bg-[#63635e] shadow-[0_2px_5px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.2)] hover:bg-[#7c7b74]",
-              )}
-              onClick={toggleMute}
-              type="button"
-            >
-              {volume === 0 ? (
-                <VolumeX aria-hidden size={16} strokeWidth={2.5} />
-              ) : (
-                <Volume2 aria-hidden size={16} strokeWidth={2.5} />
               )}
             </button>
           </div>

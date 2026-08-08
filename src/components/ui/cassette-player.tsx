@@ -370,7 +370,7 @@ export const CassettePlayer = memo(function CassettePlayer({
       aria-label={`${resolvedTrackTitle} audio player`}
       {...sectionProps}
       className={cn(
-        "[container-type:inline-size] grid min-h-[500px] w-full place-items-center overflow-hidden rounded-[13px] border border-border bg-background px-8 py-16 text-foreground [--label-bg:#fcf8ed] [--label-border:rgba(0,0,0,0.1)] [--label-catalogue:rgba(28,25,23,0.7)] [--label-ink:#1c1917] [--label-kicker:rgba(28,25,23,0.85)] [--label-stripe-one:#f97316] [--label-stripe-three:#c2410c] [--label-stripe-two:#ea580c] [--progress-thumb-border:#e5e7eb] [--reel-teeth-stroke:#ea580c] [--reel-teeth:#2e1005] [--reel-window-color:#0c0400] max-[560px]:min-h-[480px] max-[560px]:px-3.5 max-[560px]:py-12 dark:[--label-bg:#fcf8ed] dark:[--label-border:rgba(28,25,23,0.15)] dark:[--label-stripe-one:#f97316] dark:[--label-stripe-three:#c2410c] dark:[--label-stripe-two:#ea580c] dark:[--progress-thumb-border:#ffffff] dark:[--reel-teeth-stroke:#ea580c] dark:[--reel-teeth:#2e1005]",
+        "[container-type:inline-size] grid min-h-[500px] w-full place-items-center overflow-hidden rounded-[13px] border border-border bg-background px-8 py-16 text-foreground [--label-bg:#f9fafb] [--label-border:rgba(0,0,0,0.08)] [--label-catalogue:rgba(17,24,39,0.7)] [--label-ink:#111827] [--label-kicker:rgba(17,24,39,0.85)] [--label-stripe-one:#10b981] [--label-stripe-three:#3b82f6] [--label-stripe-two:#14b8a6] [--progress-thumb-border:#e5e7eb] [--reel-teeth-stroke:#11100f] [--reel-teeth:#1b1a18] [--reel-window-color:#1b1a18] max-[560px]:min-h-[480px] max-[560px]:px-3.5 max-[560px]:py-12 dark:[--label-bg:#dc2626] dark:[--label-border:rgba(255,255,255,0.15)] dark:[--label-stripe-one:#ffffff] dark:[--label-stripe-three:#ffffff] dark:[--label-stripe-two:#ffffff] dark:[--progress-thumb-border:#ffffff] dark:[--reel-teeth-stroke:#374151] dark:[--reel-teeth:#1f2937]",
         className,
       )}
       ref={ref}
@@ -543,12 +543,12 @@ export const CassettePlayer = memo(function CassettePlayer({
             </span>
           </div>
 
-          <div className="absolute right-[27%] bottom-[3.5%] left-[27%] z-4 flex h-[16%] items-center justify-center bg-[color-mix(in_srgb,#ea580c_20%,transparent)] px-[12%] shadow-[inset_0_3px_8px_rgba(0,0,0,0.6)] [clip-path:polygon(13%_0,87%_0,100%_100%,0_100%)]">
+          <div className="absolute right-[27%] bottom-[3.5%] left-[27%] z-4 flex h-[16%] items-center justify-center bg-[color-mix(in_srgb,#63635e_20%,transparent)] px-[12%] shadow-[inset_0_3px_8px_rgba(0,0,0,0.5)] [clip-path:polygon(13%_0,87%_0,100%_100%,0_100%)]">
             <button
               aria-label={isPlaying ? `Pause ${resolvedTrackTitle}` : `Play ${resolvedTrackTitle}`}
               className={cn(
                 BUTTON_CLASSES,
-                "w-[clamp(30px,8.2cqw,43px)] border-[#ea580c]/50 bg-[#c2410c] shadow-[0_3px_8px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.25)] hover:bg-[#ea580c]",
+                "w-[clamp(30px,8.2cqw,43px)] border-[#bcbbb5]/50 bg-[#8d8d86] shadow-[0_3px_8px_rgba(0,0,0,0.32),inset_0_1px_0_rgba(255,255,255,0.25)] hover:bg-[#82827c]",
               )}
               onClick={togglePlayback}
               type="button"

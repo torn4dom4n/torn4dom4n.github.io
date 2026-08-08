@@ -122,10 +122,10 @@ function Screw({ className }: ScrewProps) {
 }
 
 export const CassettePlayer = memo(function CassettePlayer({
-  archiveLabel = "Archive 11",
+  archiveLabel = "STMPD RCRDS",
   audioSrc = DEFAULT_AUDIO_SOURCE,
   captionTracks,
-  catalogueNumber = "200769",
+  catalogueNumber = "2026",
   className,
   initialVolume = DEFAULT_VOLUME,
   loop = false,

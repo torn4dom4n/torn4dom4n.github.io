@@ -11,10 +11,6 @@ const DEFAULT_CAPTION_TRACKS = [] as const;
 const DEFAULT_TRACK_TITLE = "Repeat It";
 const DEFAULT_TRACK_ARTIST = "Martin Garrix & Ed Sheeran";
 const DEFAULT_VOLUME = 0.78;
-const DEFAULT_ALBUM_NAME = "Upcoming Second Album";
-const DEFAULT_SIDE_PROJECT = "Mesto & Osrin";
-const DEFAULT_BACKGROUND_INFO =
-  "Initially recorded in 2014 during a studio session in Nashville, the track premiered in 2015 at Ultra Music Festival. For over a decade, it remained one of EDM's most legendary unreleased anthems due to conflicts between Atlantic and Spinnin' Records. A reworked, more acoustic version was officially released on May 15, 2026, to celebrate Martin Garrix's 30th birthday.";
 const REEL_SPOKES = [0, 60, 120, 180, 240, 300] as const;
 const TAPE_WINDOW_DIVIDERS = [0, 1, 2, 3, 4] as const;
 const CASSETTE_TEXTURE =
@@ -30,9 +26,6 @@ export type CassetteCaptionTrack = {
 };
 
 export type CassettePlayerProps = Omit<ComponentPropsWithRef<"section">, "children"> & {
-  albumName?: string;
-  sideProject?: string;
-  backgroundInfo?: string;
   archiveLabel?: string;
   audioSrc?: string;
   captionTracks?: readonly CassetteCaptionTrack[];
@@ -129,13 +122,10 @@ function Screw({ className }: ScrewProps) {
 }
 
 export const CassettePlayer = memo(function CassettePlayer({
-  albumName,
-  backgroundInfo,
-  sideProject,
-  archiveLabel = "STMPD RCRDS",
+  archiveLabel = "Archive 11",
   audioSrc = DEFAULT_AUDIO_SOURCE,
   captionTracks,
-  catalogueNumber = "STMPD-2026",
+  catalogueNumber = "200769",
   className,
   initialVolume = DEFAULT_VOLUME,
   loop = false,
@@ -154,12 +144,6 @@ export const CassettePlayer = memo(function CassettePlayer({
     trackTitle ?? (audioSrc === DEFAULT_AUDIO_SOURCE ? DEFAULT_TRACK_TITLE : "Untitled track");
   const resolvedTrackArtist =
     trackArtist ?? (audioSrc === DEFAULT_AUDIO_SOURCE ? DEFAULT_TRACK_ARTIST : "");
-  const resolvedAlbumName =
-    albumName ?? (audioSrc === DEFAULT_AUDIO_SOURCE ? DEFAULT_ALBUM_NAME : "");
-  const resolvedSideProject =
-    sideProject ?? (audioSrc === DEFAULT_AUDIO_SOURCE ? DEFAULT_SIDE_PROJECT : "");
-  const resolvedBackgroundInfo =
-    backgroundInfo ?? (audioSrc === DEFAULT_AUDIO_SOURCE ? DEFAULT_BACKGROUND_INFO : "");
   const audioRef = useRef<HTMLAudioElement>(null);
   const cassetteRef = useRef<HTMLDivElement>(null);
   const durationRef = useRef(0);
@@ -577,37 +561,6 @@ export const CassettePlayer = memo(function CassettePlayer({
             </button>
           </div>
         </div>
-
-        {resolvedBackgroundInfo || resolvedAlbumName || resolvedSideProject ? (
-          <div className="mt-6 space-y-4 border-t border-border/40 pt-4 font-sans text-sm">
-            <div className="grid grid-cols-2 gap-4">
-              {resolvedAlbumName ? (
-                <div>
-                  <span className="block text-[10px] font-bold tracking-widest text-muted-foreground uppercase">
-                    Album
-                  </span>
-                  <p className="mt-1 text-sm font-medium text-foreground">{resolvedAlbumName}</p>
-                </div>
-              ) : null}
-              {resolvedSideProject ? (
-                <div>
-                  <span className="block text-[10px] font-bold tracking-widest text-muted-foreground uppercase">
-                    Co-production / Project
-                  </span>
-                  <p className="mt-1 text-sm font-medium text-foreground">{resolvedSideProject}</p>
-                </div>
-              ) : null}
-            </div>
-            {resolvedBackgroundInfo ? (
-              <div>
-                <span className="block text-[10px] font-bold tracking-widest text-muted-foreground uppercase">
-                  Background
-                </span>
-                <p className="mt-1 text-xs/5 text-muted-foreground">{resolvedBackgroundInfo}</p>
-              </div>
-            ) : null}
-          </div>
-        ) : null}
 
         {playbackError ? (
           <p className="mt-3 text-center text-sm text-red-700 dark:text-red-400" role="alert">

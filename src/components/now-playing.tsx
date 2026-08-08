@@ -34,15 +34,12 @@ const NowPlaying = memo(function NowPlaying() {
       <GridContainer className="mt-16">
         <div className="flex w-full justify-start px-2 py-12 max-sm:px-4">
           <CassettePlayer
-            archiveLabel="STMPD RCRDS"
+            archiveLabel="Archive 11"
             audioSrc="/music/repeat-it.mp3"
             trackTitle="Repeat It"
             trackArtist="Martin Garrix & Ed Sheeran"
-            catalogueNumber="STMPD-2026"
+            catalogueNumber="200769"
             sideLabel="Side A"
-            albumName="Upcoming Second Album"
-            sideProject="Mesto & Osrin"
-            backgroundInfo="Initially recorded in 2014 during a studio session in Nashville, the track premiered in 2015 at Ultra Music Festival. For over a decade, it remained one of EDM's most legendary unreleased anthems due to conflicts between Atlantic and Spinnin' Records. A reworked, more acoustic version was officially released on May 15, 2026, to celebrate Martin Garrix's 30th birthday."
           />
         </div>
       </GridContainer>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Slider } from "@base-ui/react/slider";
-import { Pause, Play, Volume2, VolumeX } from "lucide-react";
+import { Pause, Play } from "lucide-react";
 import { type ComponentPropsWithRef, useCallback, useEffect, useRef, useState, memo } from "react";
 
 import { cn } from "@/lib/utils";
@@ -16,7 +16,7 @@ const TAPE_WINDOW_DIVIDERS = [0, 1, 2, 3, 4] as const;
 const CASSETTE_TEXTURE =
   "url(\"data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 const BUTTON_CLASSES =
-  "grid aspect-square cursor-pointer place-items-center rounded-full border text-[#fdfdfc] transition-[background-color,opacity,transform] duration-150 ease-out active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-white disabled:cursor-not-allowed disabled:opacity-45 disabled:active:scale-100 motion-reduce:duration-[0.01ms]";
+  "grid aspect-square cursor-pointer place-items-center rounded-full border text-[oklch(0.99_0_0)] transition-[background-color,opacity,transform] duration-150 ease-out active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-white disabled:cursor-not-allowed disabled:opacity-45 disabled:active:scale-100 motion-reduce:duration-[0.01ms]";
 
 export type CassetteCaptionTrack = {
   default?: boolean;
@@ -105,13 +105,13 @@ type ScrewProps = {
 
 function Screw({ className }: ScrewProps) {
   const slotClasses =
-    "absolute top-1/2 right-[18%] left-[18%] h-[14%] -translate-y-1/2 rounded-full bg-[#1d1d1b] shadow-[inset_0_1px_1px_rgba(0,0,0,0.82),0_1px_rgba(255,255,255,0.1)]";
+    "absolute top-1/2 right-[18%] left-[18%] h-[14%] -translate-y-1/2 rounded-full bg-[oklch(0.19_0_0)] shadow-[inset_0_1px_1px_oklch(0_0_0_/_0.82),0_1px_oklch(1_0_0_/_0.1)]";
 
   return (
     <div
       aria-hidden="true"
       className={cn(
-        "absolute z-3 aspect-square w-[3.3%] rounded-full border border-[#060606] bg-[radial-gradient(circle_at_36%_30%,#5f5f5c,#30302e_48%,#171716_78%)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.26),0_1px_1px_rgba(0,0,0,0.38)]",
+        "absolute z-3 aspect-square w-[3.3%] rounded-full border border-[oklch(0.05_0_0)] bg-[radial-gradient(circle_at_36%_30%,oklch(0.44_0_0),oklch(0.26_0_0)_48%,oklch(0.16_0_0)_78%)] shadow-[inset_0_1px_1px_oklch(1_0_0_/_0.26),0_1px_1px_oklch(0_0_0_/_0.38)]",
         className,
       )}
     >
@@ -122,10 +122,10 @@ function Screw({ className }: ScrewProps) {
 }
 
 export const CassettePlayer = memo(function CassettePlayer({
-  archiveLabel = "Archive 11",
+  archiveLabel = "STMPD RCRDS",
   audioSrc = DEFAULT_AUDIO_SOURCE,
   captionTracks,
-  catalogueNumber = "200769",
+  catalogueNumber = "2026",
   className,
   initialVolume = DEFAULT_VOLUME,
   loop = false,
@@ -156,8 +156,7 @@ export const CassettePlayer = memo(function CassettePlayer({
   const [duration, setDuration] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackError, setPlaybackError] = useState<string | null>(null);
-  const [volume, setVolume] = useState(() => normalizeVolume(initialVolume));
-  const [previousVolume, setPreviousVolume] = useState(() => normalizeVolume(initialVolume));
+  const [volume] = useState(() => normalizeVolume(initialVolume));
 
   const updatePlaybackVisuals = useCallback((time: number) => {
     const cassette = cassetteRef.current;
@@ -366,32 +365,12 @@ export const CassettePlayer = memo(function CassettePlayer({
     }
   }
 
-  function changeVolume(nextVolume: number) {
-    const audio = audioRef.current;
-
-    if (!audio) {
-      return;
-    }
-
-    const normalizedVolume = normalizeVolume(nextVolume);
-    audio.volume = normalizedVolume;
-    setVolume(normalizedVolume);
-
-    if (normalizedVolume > 0) {
-      setPreviousVolume(normalizedVolume);
-    }
-  }
-
-  function toggleMute() {
-    changeVolume(volume === 0 ? previousVolume || DEFAULT_VOLUME : 0);
-  }
-
   return (
     <section
       aria-label={`${resolvedTrackTitle} audio player`}
       {...sectionProps}
       className={cn(
-        "[container-type:inline-size] grid min-h-[500px] w-full place-items-center overflow-hidden rounded-[13px] border border-border bg-background px-8 py-16 text-foreground [--label-bg:#f9fafb] [--label-border:rgba(0,0,0,0.08)] [--label-catalogue:rgba(17,24,39,0.7)] [--label-ink:#111827] [--label-kicker:rgba(17,24,39,0.85)] [--label-stripe-one:#10b981] [--label-stripe-three:#3b82f6] [--label-stripe-two:#14b8a6] [--progress-thumb-border:#e5e7eb] [--reel-teeth-stroke:#11100f] [--reel-teeth:#1b1a18] [--reel-window-color:#1b1a18] max-[560px]:min-h-[480px] max-[560px]:px-3.5 max-[560px]:py-12 dark:[--label-bg:#dc2626] dark:[--label-border:rgba(255,255,255,0.15)] dark:[--label-stripe-one:#ffffff] dark:[--label-stripe-three:#ffffff] dark:[--label-stripe-two:#ffffff] dark:[--progress-thumb-border:#ffffff] dark:[--reel-teeth-stroke:#374151] dark:[--reel-teeth:#1f2937]",
+        "[container-type:inline-size] grid min-h-[500px] w-full place-items-center overflow-hidden rounded-[13px] bg-background px-8 py-16 text-foreground [--label-bg:oklch(0.98_0_0)] [--label-border:oklch(0_0_0_/_0.08)] [--label-catalogue:oklch(0.20_0_0_/_0.7)] [--label-ink:oklch(0.20_0_0)] [--label-kicker:oklch(0.20_0_0_/_0.85)] [--label-stripe-one:oklch(0.70_0.19_160)] [--label-stripe-three:oklch(0.60_0.22_250)] [--label-stripe-two:oklch(0.68_0.17_195)] [--progress-thumb-border:oklch(0.92_0_0)] [--reel-teeth-stroke:oklch(0.14_0_0)] [--reel-teeth:oklch(0.18_0_0)] [--reel-window-color:oklch(0.18_0_0)] max-[560px]:min-h-[480px] max-[560px]:px-3.5 max-[560px]:py-12 dark:[--label-bg:oklch(0.58_0.23_28)] dark:[--label-border:oklch(1_0_0_/_0.15)] dark:[--label-stripe-one:oklch(1_0_0)] dark:[--label-stripe-three:oklch(1_0_0)] dark:[--label-stripe-two:oklch(1_0_0)] dark:[--progress-thumb-border:oklch(1_0_0)] dark:[--reel-teeth-stroke:oklch(0.35_0_0)] dark:[--reel-teeth:oklch(0.24_0_0)]",
         className,
       )}
       ref={ref}
@@ -439,12 +418,12 @@ export const CassettePlayer = memo(function CassettePlayer({
 
       <div className="w-full max-w-[530px]">
         <div
-          className="dark relative aspect-[1.58] w-full overflow-hidden rounded-[18px] border border-[#050505] bg-[linear-gradient(165deg,#373735_0%,#20201f_52%,#0e0e0d_100%)] shadow-[0_28px_48px_rgba(0,0,0,0.24),0_8px_16px_rgba(0,0,0,0.18),inset_0_2px_1px_rgba(255,255,255,0.2),inset_0_-3px_3px_rgba(0,0,0,0.74)] [--left-tape-scale:1] [--reel-rotation:0deg] [--right-tape-scale:0.6] max-[560px]:rounded-xl"
+          className="dark relative aspect-[1.58] w-full overflow-hidden rounded-[18px] bg-[linear-gradient(165deg,oklch(0.22_0_0)_0%,oklch(0.14_0_0)_52%,oklch(0.08_0_0)_100%)] shadow-[0_28px_48px_oklch(0_0_0_/_0.3),0_8px_16px_oklch(0_0_0_/_0.2),inset_0_2px_2px_oklch(1_0_0_/_0.12),inset_0_-3px_6px_oklch(0_0_0_/_0.85)] [--left-tape-scale:1] [--reel-rotation:0deg] [--right-tape-scale:0.6] max-[560px]:rounded-xl"
           ref={cassetteRef}
         >
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-1.5 rounded-[13px] border border-white/[0.12] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.62)]"
+            className="pointer-events-none absolute inset-1.5 rounded-[13px] border border-[oklch(1_0_0_/_0.05)] shadow-[inset_0_0_0_1px_oklch(0_0_0_/_0.5)]"
           />
           <div
             aria-hidden="true"
@@ -456,7 +435,7 @@ export const CassettePlayer = memo(function CassettePlayer({
           <Screw className="bottom-[4%] left-[2.53%]" />
           <Screw className="right-[2.53%] bottom-[4%]" />
 
-          <div className="[container-type:inline-size] absolute top-[9.5%] right-[8.5%] bottom-[34%] left-[8.5%] z-1 overflow-clip rounded-[9px] border-4 border-transparent bg-[var(--label-bg)] text-[var(--label-ink)] shadow-[inset_0_0_12px_rgba(92,74,49,0.12)] [overflow-clip-margin:border-box] max-[560px]:rounded-md">
+          <div className="[container-type:inline-size] absolute top-[9.5%] right-[8.5%] bottom-[34%] left-[8.5%] z-1 overflow-clip rounded-[9px] border-4 border-transparent bg-[var(--label-bg)] text-[var(--label-ink)] shadow-[inset_0_0_12px_oklch(0.38_0.02_75_/_0.12)] [overflow-clip-margin:border-box] max-[560px]:rounded-md">
             <div className="relative z-2 mx-4 mt-3 flex items-stretch justify-between">
               <div className="grid min-w-0 content-between gap-y-1">
                 <span className="relative z-2 flex items-baseline justify-between font-mono text-[clamp(8px,2.5cqw,11px)] leading-none font-bold tracking-[0.12em] text-[var(--label-kicker)] uppercase">
@@ -492,7 +471,7 @@ export const CassettePlayer = memo(function CassettePlayer({
                 <span className="bg-[var(--label-stripe-three)]" />
               </div>
 
-              <div className="[container-type:size] absolute inset-x-[17.5%] inset-y-0 z-3 overflow-hidden rounded-full bg-[#1b1a18] bg-[linear-gradient(rgba(255,255,255,0.13),transparent_45%)] shadow-[0_0_0_4px_var(--label-border),inset_0_3px_8px_rgba(0,0,0,0.58)] [--reel-window-color:#1b1a18]">
+              <div className="[container-type:size] absolute inset-x-[17.5%] inset-y-0 z-3 overflow-hidden rounded-full bg-[oklch(0.18_0_0)] bg-[linear-gradient(oklch(1_0_0_/_0.13),transparent_45%)] shadow-[0_0_0_4px_var(--label-border),inset_0_3px_8px_oklch(0_0_0_/_0.58)] [--reel-window-color:oklch(0.18_0_0)]">
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 opacity-25 mix-blend-multiply"
@@ -500,13 +479,13 @@ export const CassettePlayer = memo(function CassettePlayer({
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute top-[12%] right-[28%] bottom-[12%] left-[28%] z-2 flex items-center justify-evenly overflow-hidden rounded-[3px] border-2 border-[#11100f] bg-[#393631] bg-[linear-gradient(to_bottom,rgba(255,255,255,0.1),transparent_42%)] shadow-[inset_0_3px_6px_rgba(0,0,0,0.72),0_0_0_2px_rgba(255,255,255,0.08)]"
+                  className="absolute top-[12%] right-[28%] bottom-[12%] left-[28%] z-2 flex items-center justify-evenly overflow-hidden rounded-[3px] border-2 border-[oklch(0.14_0_0)] bg-[oklch(0.31_0_0)] bg-[linear-gradient(to_bottom,oklch(1_0_0_/_0.1),transparent_42%)] shadow-[inset_0_3px_6px_oklch(0_0_0_/_0.72),0_0_0_2px_oklch(1_0_0_/_0.08)]"
                 >
-                  <span className="absolute top-1/2 left-[calc(13.26%-28%)] aspect-square h-[360%] -translate-x-1/2 -translate-y-1/2 scale-[var(--left-tape-scale)] rounded-full border border-[#0d0a08] bg-[repeating-radial-gradient(circle,#050505_0_2px,#171717_2px_4px)] shadow-[inset_0_0_5px_rgba(0,0,0,0.7),0_1px_2px_rgba(0,0,0,0.5)] will-change-transform" />
-                  <span className="absolute top-1/2 left-[calc(72%-13.26%)] aspect-square h-[360%] -translate-x-1/2 -translate-y-1/2 scale-[var(--right-tape-scale)] rounded-full border border-[#0d0a08] bg-[repeating-radial-gradient(circle,#050505_0_2px,#171717_2px_4px)] shadow-[inset_0_0_5px_rgba(0,0,0,0.7),0_1px_2px_rgba(0,0,0,0.5)] will-change-transform" />
+                  <span className="absolute top-1/2 left-[calc(13.26%-28%)] aspect-square h-[360%] -translate-x-1/2 -translate-y-1/2 scale-[var(--left-tape-scale)] rounded-full border border-[oklch(0.09_0_0)] bg-[repeating-radial-gradient(circle,oklch(0.05_0_0)_0_2px,oklch(0.16_0_0)_2px_4px)] shadow-[inset_0_0_5px_oklch(0_0_0_/_0.7),0_1px_2px_oklch(0_0_0_/_0.5)] will-change-transform" />
+                  <span className="absolute top-1/2 left-[calc(72%-13.26%)] aspect-square h-[360%] -translate-x-1/2 -translate-y-1/2 scale-[var(--right-tape-scale)] rounded-full border border-[oklch(0.09_0_0)] bg-[repeating-radial-gradient(circle,oklch(0.05_0_0)_0_2px,oklch(0.16_0_0)_2px_4px)] shadow-[inset_0_0_5px_oklch(0_0_0_/_0.7),0_1px_2px_oklch(0_0_0_/_0.5)] will-change-transform" />
                   {TAPE_WINDOW_DIVIDERS.map((divider) => (
                     <span
-                      className="relative z-1 h-[42%] w-0.5 bg-[rgba(224,215,195,0.28)]"
+                      className="relative z-1 h-[42%] w-0.5 bg-[oklch(0.88_0.01_80_/_0.28)]"
                       key={divider}
                     />
                   ))}
@@ -522,7 +501,7 @@ export const CassettePlayer = memo(function CassettePlayer({
             />
           </div>
 
-          <div className="absolute right-[8.5%] bottom-[19%] left-[8.5%] z-5 flex items-center gap-x-3 font-sans text-xs leading-4 font-normal text-[#fdfdfc]/80 tabular-nums">
+          <div className="absolute right-[8.5%] bottom-[19%] left-[8.5%] z-5 flex items-center gap-x-3 font-sans text-xs leading-4 font-normal text-[oklch(0.99_0_0_/_0.8)] tabular-nums">
             <span>
               <span className="sr-only">Elapsed time </span>
               <time dateTime={formatDuration(currentTime)}>{formatTime(currentTime)}</time>
@@ -545,14 +524,14 @@ export const CassettePlayer = memo(function CassettePlayer({
                 onPointerCancel={finishScrubbing}
                 onPointerDown={startScrubbing}
               >
-                <Slider.Track className="relative h-[3px] w-full translate-y-0.5 rounded-full bg-white/20">
-                  <Slider.Indicator className="h-full rounded-full bg-white" />
+                <Slider.Track className="relative h-[3px] w-full translate-y-0.5 rounded-full bg-[oklch(1_0_0_/_0.2)]">
+                  <Slider.Indicator className="h-full rounded-full bg-[oklch(1_0_0)]" />
                   <Slider.Thumb
                     getAriaLabel={() => `Seek through ${resolvedTrackTitle}`}
                     getAriaValueText={(_formattedValue, value) =>
                       `${formatTime(value)} of ${formatTime(duration)}`
                     }
-                    className="size-[13px] rounded-full border-2 border-neutral-400 bg-white shadow-[0_1px_4px_rgba(37,33,29,0.38)] outline-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-[3px] has-[:focus-visible]:outline-neutral-950 dark:has-[:focus-visible]:outline-neutral-50"
+                    className="size-[13px] rounded-full border-2 border-neutral-400 bg-[oklch(1_0_0)] shadow-[0_1px_4px_oklch(0.24_0.01_70_/_0.38)] outline-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-[3px] has-[:focus-visible]:outline-neutral-950 dark:has-[:focus-visible]:outline-neutral-50"
                   />
                 </Slider.Track>
               </Slider.Control>
@@ -564,12 +543,12 @@ export const CassettePlayer = memo(function CassettePlayer({
             </span>
           </div>
 
-          <div className="absolute right-[27%] bottom-[3.5%] left-[27%] z-4 flex h-[16%] items-center justify-center gap-x-6 bg-[color-mix(in_srgb,#63635e_20%,transparent)] px-[12%] shadow-[inset_0_3px_8px_rgba(0,0,0,0.5)] [clip-path:polygon(13%_0,87%_0,100%_100%,0_100%)]">
+          <div className="absolute right-[27%] bottom-[3.5%] left-[27%] z-4 flex h-[16%] items-center justify-center bg-[color-mix(in_oklch,oklch(0.48_0_0)_20%,transparent)] px-[12%] shadow-[inset_0_3px_8px_oklch(0_0_0_/_0.5)] [clip-path:polygon(13%_0,87%_0,100%_100%,0_100%)]">
             <button
               aria-label={isPlaying ? `Pause ${resolvedTrackTitle}` : `Play ${resolvedTrackTitle}`}
               className={cn(
                 BUTTON_CLASSES,
-                "w-[clamp(30px,8.2cqw,43px)] border-[#bcbbb5]/50 bg-[#8d8d86] shadow-[0_3px_8px_rgba(0,0,0,0.32),inset_0_1px_0_rgba(255,255,255,0.25)] hover:bg-[#82827c]",
+                "w-[clamp(30px,8.2cqw,43px)] border-[oklch(0.79_0.01_85_/_0.5)] bg-[oklch(0.62_0.01_85)] shadow-[0_3px_8px_oklch(0_0_0_/_0.32),inset_0_1px_0_oklch(1_0_0_/_0.25)] hover:bg-[oklch(0.58_0.01_85)]",
               )}
               onClick={togglePlayback}
               type="button"
@@ -578,22 +557,6 @@ export const CassettePlayer = memo(function CassettePlayer({
                 <Pause aria-hidden size={18} fill="currentColor" stroke="none" />
               ) : (
                 <Play aria-hidden size={18} fill="currentColor" stroke="none" />
-              )}
-            </button>
-
-            <button
-              aria-label={volume === 0 ? "Unmute" : "Mute"}
-              className={cn(
-                BUTTON_CLASSES,
-                "w-[clamp(24px,6.5cqw,32px)] border-[#82827c] bg-[#63635e] shadow-[0_2px_5px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.2)] hover:bg-[#7c7b74]",
-              )}
-              onClick={toggleMute}
-              type="button"
-            >
-              {volume === 0 ? (
-                <VolumeX aria-hidden size={16} strokeWidth={2.5} />
-              ) : (
-                <Volume2 aria-hidden size={16} strokeWidth={2.5} />
               )}
             </button>
           </div>

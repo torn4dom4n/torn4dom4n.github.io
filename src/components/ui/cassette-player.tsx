@@ -370,7 +370,7 @@ export const CassettePlayer = memo(function CassettePlayer({
       aria-label={`${resolvedTrackTitle} audio player`}
       {...sectionProps}
       className={cn(
-        "[container-type:inline-size] grid min-h-[500px] w-full place-items-center overflow-hidden rounded-[13px] bg-background px-8 py-16 text-foreground [--label-bg:oklch(0.98_0_0)] [--label-border:oklch(0_0_0_/_0.08)] [--label-catalogue:oklch(0.20_0_0_/_0.7)] [--label-ink:oklch(0.20_0_0)] [--label-kicker:oklch(0.20_0_0_/_0.85)] [--label-stripe-one:oklch(0.70_0.19_160)] [--label-stripe-three:oklch(0.60_0.22_250)] [--label-stripe-two:oklch(0.68_0.17_195)] [--progress-thumb-border:oklch(0.92_0_0)] [--reel-teeth-stroke:oklch(0.14_0_0)] [--reel-teeth:oklch(0.18_0_0)] [--reel-window-color:oklch(0.18_0_0)] max-[560px]:min-h-[480px] max-[560px]:px-3.5 max-[560px]:py-12 dark:[--label-bg:oklch(0.58_0.23_28)] dark:[--label-border:oklch(1_0_0_/_0.15)] dark:[--label-stripe-one:oklch(1_0_0)] dark:[--label-stripe-three:oklch(1_0_0)] dark:[--label-stripe-two:oklch(1_0_0)] dark:[--progress-thumb-border:oklch(1_0_0)] dark:[--reel-teeth-stroke:oklch(0.35_0_0)] dark:[--reel-teeth:oklch(0.24_0_0)]",
+        "[container-type:inline-size] grid min-h-[500px] w-full place-items-center overflow-hidden rounded-[13px] bg-background px-8 py-16 text-foreground [--label-bg:oklch(0.98_0_0)] [--label-border:oklch(0_0_0_/_0.08)] [--label-catalogue:oklch(0.145_0_0_/_0.7)] [--label-ink:oklch(0.145_0_0)] [--label-kicker:oklch(0.145_0_0_/_0.85)] [--label-stripe-one:oklch(0.88_0_0)] [--label-stripe-three:oklch(0.64_0_0)] [--label-stripe-two:oklch(0.76_0_0)] [--progress-thumb-border:oklch(0.92_0_0)] [--reel-teeth-stroke:oklch(0.14_0_0)] [--reel-teeth:oklch(0.18_0_0)] [--reel-window-color:oklch(0.18_0_0)] max-[560px]:min-h-[480px] max-[560px]:px-3.5 max-[560px]:py-12 dark:[--label-bg:oklch(0.145_0_0)] dark:[--label-border:oklch(1_0_0_/_0.15)] dark:[--label-catalogue:oklch(0.985_0_0_/_0.7)] dark:[--label-ink:oklch(0.985_0_0)] dark:[--label-kicker:oklch(0.985_0_0_/_0.85)] dark:[--label-stripe-one:oklch(0.22_0_0)] dark:[--label-stripe-three:oklch(0.38_0_0)] dark:[--label-stripe-two:oklch(0.30_0_0)] dark:[--progress-thumb-border:oklch(1_0_0)] dark:[--reel-teeth-stroke:oklch(0.35_0_0)] dark:[--reel-teeth:oklch(0.24_0_0)]",
         className,
       )}
       ref={ref}
@@ -418,7 +418,7 @@ export const CassettePlayer = memo(function CassettePlayer({
 
       <div className="w-full max-w-[530px]">
         <div
-          className="dark relative aspect-[1.58] w-full overflow-hidden rounded-[18px] bg-[linear-gradient(165deg,oklch(0.22_0_0)_0%,oklch(0.14_0_0)_52%,oklch(0.08_0_0)_100%)] shadow-[0_28px_48px_oklch(0_0_0_/_0.3),0_8px_16px_oklch(0_0_0_/_0.2),inset_0_2px_2px_oklch(1_0_0_/_0.12),inset_0_-3px_6px_oklch(0_0_0_/_0.85)] [--left-tape-scale:1] [--reel-rotation:0deg] [--right-tape-scale:0.6] max-[560px]:rounded-xl"
+          className="relative aspect-[1.58] w-full overflow-hidden rounded-[18px] bg-[linear-gradient(165deg,oklch(0.22_0_0)_0%,oklch(0.14_0_0)_52%,oklch(0.08_0_0)_100%)] shadow-[0_28px_48px_oklch(0_0_0_/_0.3),0_8px_16px_oklch(0_0_0_/_0.2),inset_0_2px_2px_oklch(1_0_0_/_0.12),inset_0_-3px_6px_oklch(0_0_0_/_0.85)] [--left-tape-scale:1] [--reel-rotation:0deg] [--right-tape-scale:0.6] max-[560px]:rounded-xl"
           ref={cassetteRef}
         >
           <div
@@ -435,7 +435,7 @@ export const CassettePlayer = memo(function CassettePlayer({
           <Screw className="bottom-[4%] left-[2.53%]" />
           <Screw className="right-[2.53%] bottom-[4%]" />
 
-          <div className="[container-type:inline-size] absolute top-[9.5%] right-[8.5%] bottom-[34%] left-[8.5%] z-1 overflow-clip rounded-[9px] border-4 border-transparent bg-[var(--label-bg)] text-[var(--label-ink)] shadow-[inset_0_0_12px_oklch(0.38_0.02_75_/_0.12)] [overflow-clip-margin:border-box] max-[560px]:rounded-md">
+          <div className="[container-type:inline-size] absolute top-[9.5%] right-[8.5%] bottom-[34%] left-[8.5%] z-1 overflow-clip rounded-[9px] border-4 border-transparent bg-[var(--label-bg)] text-[var(--label-ink)] shadow-[inset_0_0_12px_oklch(0.38_0_0_/_0.12)] [overflow-clip-margin:border-box] max-[560px]:rounded-md">
             <div className="relative z-2 mx-4 mt-3 flex items-stretch justify-between">
               <div className="grid min-w-0 content-between gap-y-1">
                 <span className="relative z-2 flex items-baseline justify-between font-mono text-[clamp(8px,2.5cqw,11px)] leading-none font-bold tracking-[0.12em] text-[var(--label-kicker)] uppercase">
@@ -485,7 +485,7 @@ export const CassettePlayer = memo(function CassettePlayer({
                   <span className="absolute top-1/2 left-[calc(72%-13.26%)] aspect-square h-[360%] -translate-x-1/2 -translate-y-1/2 scale-[var(--right-tape-scale)] rounded-full border border-[oklch(0.09_0_0)] bg-[repeating-radial-gradient(circle,oklch(0.05_0_0)_0_2px,oklch(0.16_0_0)_2px_4px)] shadow-[inset_0_0_5px_oklch(0_0_0_/_0.7),0_1px_2px_oklch(0_0_0_/_0.5)] will-change-transform" />
                   {TAPE_WINDOW_DIVIDERS.map((divider) => (
                     <span
-                      className="relative z-1 h-[42%] w-0.5 bg-[oklch(0.88_0.01_80_/_0.28)]"
+                      className="relative z-1 h-[42%] w-0.5 bg-[oklch(0.88_0_0_/_0.28)]"
                       key={divider}
                     />
                   ))}
@@ -531,7 +531,7 @@ export const CassettePlayer = memo(function CassettePlayer({
                     getAriaValueText={(_formattedValue, value) =>
                       `${formatTime(value)} of ${formatTime(duration)}`
                     }
-                    className="size-[13px] rounded-full border-2 border-neutral-400 bg-[oklch(1_0_0)] shadow-[0_1px_4px_oklch(0.24_0.01_70_/_0.38)] outline-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-[3px] has-[:focus-visible]:outline-neutral-950 dark:has-[:focus-visible]:outline-neutral-50"
+                    className="size-[13px] rounded-full border-2 border-[oklch(0.64_0_0)] bg-[oklch(1_0_0)] shadow-[0_1px_4px_oklch(0.24_0_0_/_0.38)] outline-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-[3px] has-[:focus-visible]:outline-[oklch(0.145_0_0)] dark:has-[:focus-visible]:outline-[oklch(0.985_0_0)]"
                   />
                 </Slider.Track>
               </Slider.Control>
@@ -548,7 +548,7 @@ export const CassettePlayer = memo(function CassettePlayer({
               aria-label={isPlaying ? `Pause ${resolvedTrackTitle}` : `Play ${resolvedTrackTitle}`}
               className={cn(
                 BUTTON_CLASSES,
-                "w-[clamp(30px,8.2cqw,43px)] border-[oklch(0.79_0.01_85_/_0.5)] bg-[oklch(0.62_0.01_85)] shadow-[0_3px_8px_oklch(0_0_0_/_0.32),inset_0_1px_0_oklch(1_0_0_/_0.25)] hover:bg-[oklch(0.58_0.01_85)]",
+                "w-[clamp(30px,8.2cqw,43px)] border-[oklch(0.79_0_0_/_0.5)] bg-[oklch(0.62_0_0)] shadow-[0_3px_8px_oklch(0_0_0_/_0.32),inset_0_1px_0_oklch(1_0_0_/_0.25)] hover:bg-[oklch(0.58_0_0)]",
               )}
               onClick={togglePlayback}
               type="button"

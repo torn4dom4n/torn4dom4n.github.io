@@ -418,7 +418,7 @@ export const CassettePlayer = memo(function CassettePlayer({
 
       <div className="w-full max-w-[530px]">
         <div
-          className="dark relative aspect-[1.58] w-full overflow-hidden rounded-[18px] border border-[#050505] bg-[linear-gradient(165deg,#1a1a1a_0%,#0c0c0c_52%,#020202_100%)] shadow-[0_28px_48px_rgba(0,0,0,0.3),0_8px_16px_rgba(0,0,0,0.2),inset_0_2px_2px_rgba(255,255,255,0.12),inset_0_-3px_6px_rgba(0,0,0,0.85)] [--left-tape-scale:1] [--reel-rotation:0deg] [--right-tape-scale:0.6] max-[560px]:rounded-xl"
+          className="dark relative aspect-[1.58] w-full overflow-hidden rounded-[18px] bg-[linear-gradient(165deg,oklch(0.22_0_0)_0%,oklch(0.14_0_0)_52%,oklch(0.08_0_0)_100%)] shadow-[0_28px_48px_rgba(0,0,0,0.3),0_8px_16px_rgba(0,0,0,0.2),inset_0_2px_2px_rgba(255,255,255,0.12),inset_0_-3px_6px_rgba(0,0,0,0.85)] [--left-tape-scale:1] [--reel-rotation:0deg] [--right-tape-scale:0.6] max-[560px]:rounded-xl"
           ref={cassetteRef}
         >
           <div

@@ -76,7 +76,8 @@ function Reel({ className }: ReelProps) {
     >
       <svg
         aria-hidden="true"
-        className="absolute inset-0 origin-center rotate-[var(--reel-rotation)] rounded-full will-change-transform motion-reduce:!rotate-0"
+        style={{ transform: "rotate(var(--reel-rotation, 0deg))" }}
+        className="absolute inset-0 origin-center rounded-full will-change-transform motion-reduce:!rotate-0"
         viewBox="0 0 100 100"
       >
         <circle className="fill-white" cx="50" cy="50" r="48" />
@@ -105,13 +106,13 @@ type ScrewProps = {
 
 function Screw({ className }: ScrewProps) {
   const slotClasses =
-    "absolute top-1/2 right-[18%] left-[18%] h-[14%] -translate-y-1/2 rounded-full bg-[oklch(0.19_0_0)] shadow-[inset_0_1px_1px_oklch(0_0_0_/_0.82),0_1px_oklch(1_0_0_/_0.1)]";
+    "absolute top-1/2 right-[18%] left-[18%] h-[14%] -translate-y-1/2 rounded-full bg-[var(--screw-slot-bg)] shadow-[var(--screw-slot-shadow)]";
 
   return (
     <div
       aria-hidden="true"
       className={cn(
-        "absolute z-3 aspect-square w-[3.3%] rounded-full border border-[oklch(0.05_0_0)] bg-[radial-gradient(circle_at_36%_30%,oklch(0.44_0_0),oklch(0.26_0_0)_48%,oklch(0.16_0_0)_78%)] shadow-[inset_0_1px_1px_oklch(1_0_0_/_0.26),0_1px_1px_oklch(0_0_0_/_0.38)]",
+        "absolute z-3 aspect-square w-[3.3%] rounded-full border border-[var(--screw-border)] bg-[var(--screw-bg)] shadow-[var(--screw-shadow)]",
         className,
       )}
     >
@@ -370,7 +371,7 @@ export const CassettePlayer = memo(function CassettePlayer({
       aria-label={`${resolvedTrackTitle} audio player`}
       {...sectionProps}
       className={cn(
-        "[container-type:inline-size] grid min-h-[500px] w-full place-items-center overflow-hidden rounded-[13px] bg-background px-8 py-16 text-foreground [--label-bg:oklch(0.98_0_0)] [--label-border:oklch(0_0_0_/_0.08)] [--label-catalogue:oklch(0.145_0_0_/_0.7)] [--label-ink:oklch(0.145_0_0)] [--label-kicker:oklch(0.145_0_0_/_0.85)] [--label-stripe-one:oklch(0.88_0_0)] [--label-stripe-three:oklch(0.64_0_0)] [--label-stripe-two:oklch(0.76_0_0)] [--progress-thumb-border:oklch(0.92_0_0)] [--reel-teeth-stroke:oklch(0.14_0_0)] [--reel-teeth:oklch(0.18_0_0)] [--reel-window-color:oklch(0.18_0_0)] max-[560px]:min-h-[480px] max-[560px]:px-3.5 max-[560px]:py-12 dark:[--label-bg:oklch(0.145_0_0)] dark:[--label-border:oklch(1_0_0_/_0.15)] dark:[--label-catalogue:oklch(0.985_0_0_/_0.7)] dark:[--label-ink:oklch(0.985_0_0)] dark:[--label-kicker:oklch(0.985_0_0_/_0.85)] dark:[--label-stripe-one:oklch(0.22_0_0)] dark:[--label-stripe-three:oklch(0.38_0_0)] dark:[--label-stripe-two:oklch(0.30_0_0)] dark:[--progress-thumb-border:oklch(1_0_0)] dark:[--reel-teeth-stroke:oklch(0.35_0_0)] dark:[--reel-teeth:oklch(0.24_0_0)]",
+        "[container-type:inline-size] grid min-h-[500px] w-full place-items-center overflow-hidden rounded-[13px] bg-background px-8 py-16 text-foreground [--button-bg:oklch(0.145_0_0)] [--button-border:oklch(0.145_0_0_/_0.12)] [--button-hover-bg:oklch(0.25_0_0)] [--button-text:oklch(0.985_0_0)] [--casing-bg:linear-gradient(165deg,oklch(0.97_0_0)_0%,oklch(0.94_0_0)_52%,oklch(0.90_0_0)_100%)] [--casing-border:oklch(0_0_0_/_0.08)] [--casing-shadow:0_28px_48px_oklch(0_0_0_/_0.06),0_8px_16px_oklch(0_0_0_/_0.04),inset_0_2px_2px_oklch(1_0_0_/_0.8),inset_0_-3px_6px_oklch(0_0_0_/_0.15)] [--inner-casing-border:oklch(1_0_0_/_0.4)] [--inner-casing-shadow:inset_0_0_0_1px_oklch(0_0_0_/_0.06)] [--label-bg:oklch(0.98_0_0)] [--label-border:oklch(0_0_0_/_0.08)] [--label-catalogue:oklch(0.145_0_0_/_0.7)] [--label-ink:oklch(0.145_0_0)] [--label-kicker:oklch(0.145_0_0_/_0.85)] [--label-stripe-one:oklch(0.88_0_0)] [--label-stripe-three:oklch(0.64_0_0)] [--label-stripe-two:oklch(0.76_0_0)] [--progress-indicator-bg:oklch(0.145_0_0)] [--progress-text-color:oklch(0.145_0_0_/_0.8)] [--progress-thumb-border:oklch(0.92_0_0)] [--progress-track-bg:oklch(0_0_0_/_0.08)] [--reel-teeth-stroke:oklch(0.14_0_0)] [--reel-teeth:oklch(0.18_0_0)] [--reel-window-color:oklch(0.18_0_0)] [--screw-bg:radial-gradient(circle_at_36%_30%,oklch(0.85_0_0),oklch(0.75_0_0)_48%,oklch(0.65_0_0)_78%)] [--screw-border:oklch(0_0_0_/_0.08)] [--screw-shadow:inset_0_1px_1px_oklch(1_0_0_/_0.5),0_1px_1px_oklch(0_0_0_/_0.1)] [--screw-slot-bg:oklch(0.50_0_0)] [--screw-slot-shadow:inset_0_1px_1px_oklch(0_0_0_/_0.1),0_1px_oklch(1_0_0_/_0.5)] [--tape-window-casing-bg:oklch(0.97_0_0)] [--tape-window-casing-border:oklch(0_0_0_/_0.08)] [--tape-window-casing-gradient:linear-gradient(to_bottom,oklch(1_0_0_/_0.05),transparent_42%)] [--tape-window-casing-shadow:inset_0_3px_8px_oklch(0_0_0_/_0.1),0_0_0_2px_oklch(1_0_0_/_0.5)] [--trapezoid-panel-bg:color-mix(in_oklch,oklch(0.145_0_0)_8%,transparent)] max-[560px]:min-h-[480px] max-[560px]:px-3.5 max-[560px]:py-12 dark:[--button-bg:oklch(0.62_0_0)] dark:[--button-border:oklch(0.79_0_0_/_0.5)] dark:[--button-hover-bg:oklch(0.58_0_0)] dark:[--button-text:oklch(0.99_0_0)] dark:[--casing-bg:linear-gradient(165deg,oklch(0.22_0_0)_0%,oklch(0.14_0_0)_52%,oklch(0.08_0_0)_100%)] dark:[--casing-border:oklch(1_0_0_/_0.05)] dark:[--casing-shadow:0_28px_48px_oklch(0_0_0_/_0.3),0_8px_16px_oklch(0_0_0_/_0.2),inset_0_2px_2px_oklch(1_0_0_/_0.12),inset_0_-3px_6px_oklch(0_0_0_/_0.85)] dark:[--inner-casing-border:oklch(1_0_0_/_0.05)] dark:[--inner-casing-shadow:inset_0_0_0_1px_oklch(0_0_0_/_0.5)] dark:[--label-bg:oklch(0.145_0_0)] dark:[--label-border:oklch(1_0_0_/_0.15)] dark:[--label-catalogue:oklch(0.985_0_0_/_0.7)] dark:[--label-ink:oklch(0.985_0_0)] dark:[--label-kicker:oklch(0.985_0_0_/_0.85)] dark:[--label-stripe-one:oklch(0.22_0_0)] dark:[--label-stripe-three:oklch(0.38_0_0)] dark:[--label-stripe-two:oklch(0.30_0_0)] dark:[--progress-indicator-bg:oklch(1_0_0)] dark:[--progress-text-color:oklch(0.99_0_0_/_0.8)] dark:[--progress-thumb-border:oklch(1_0_0)] dark:[--progress-track-bg:oklch(1_0_0_/_0.2)] dark:[--reel-teeth-stroke:oklch(0.35_0_0)] dark:[--reel-teeth:oklch(0.24_0_0)] dark:[--screw-bg:radial-gradient(circle_at_36%_30%,oklch(0.44_0_0),oklch(0.26_0_0)_48%,oklch(0.16_0_0)_78%)] dark:[--screw-border:oklch(0.05_0_0)] dark:[--screw-shadow:inset_0_1px_1px_oklch(1_0_0_/_0.26),0_1px_1px_oklch(0_0_0_/_0.38)] dark:[--screw-slot-bg:oklch(0.19_0_0)] dark:[--screw-slot-shadow:inset_0_1px_1px_oklch(0_0_0_/_0.82),0_1px_oklch(1_0_0_/_0.1)] dark:[--tape-window-casing-bg:oklch(0.31_0_0)] dark:[--tape-window-casing-border:oklch(0.14_0_0)] dark:[--tape-window-casing-gradient:linear-gradient(to_bottom,oklch(1_0_0_/_0.1),transparent_42%)] dark:[--tape-window-casing-shadow:inset_0_3px_6px_oklch(0_0_0_/_0.72),0_0_0_2px_oklch(1_0_0_/_0.08)] dark:[--trapezoid-panel-bg:color-mix(in_oklch,oklch(0.48_0_0)_20%,transparent)]",
         className,
       )}
       ref={ref}
@@ -418,16 +419,16 @@ export const CassettePlayer = memo(function CassettePlayer({
 
       <div className="w-full max-w-[530px]">
         <div
-          className="relative aspect-[1.58] w-full overflow-hidden rounded-[18px] bg-[linear-gradient(165deg,oklch(0.22_0_0)_0%,oklch(0.14_0_0)_52%,oklch(0.08_0_0)_100%)] shadow-[0_28px_48px_oklch(0_0_0_/_0.3),0_8px_16px_oklch(0_0_0_/_0.2),inset_0_2px_2px_oklch(1_0_0_/_0.12),inset_0_-3px_6px_oklch(0_0_0_/_0.85)] [--left-tape-scale:1] [--reel-rotation:0deg] [--right-tape-scale:0.6] max-[560px]:rounded-xl"
+          className="relative aspect-[1.58] w-full overflow-hidden rounded-[18px] border border-[var(--casing-border)] bg-[var(--casing-bg)] shadow-[var(--casing-shadow)] [--left-tape-scale:1] [--reel-rotation:0deg] [--right-tape-scale:0.6] max-[560px]:rounded-xl"
           ref={cassetteRef}
         >
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-1.5 rounded-[13px] border border-[oklch(1_0_0_/_0.05)] shadow-[inset_0_0_0_1px_oklch(0_0_0_/_0.5)]"
+            className="pointer-events-none absolute inset-1.5 rounded-[13px] border border-[var(--inner-casing-border)] shadow-[var(--inner-casing-shadow)]"
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-100 mix-blend-multiply"
+            className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-multiply dark:opacity-100"
             style={{ backgroundImage: CASSETTE_TEXTURE }}
           />
           <Screw className="top-[4%] left-[2.53%]" />
@@ -471,7 +472,7 @@ export const CassettePlayer = memo(function CassettePlayer({
                 <span className="bg-[var(--label-stripe-three)]" />
               </div>
 
-              <div className="[container-type:size] absolute inset-x-[17.5%] inset-y-0 z-3 overflow-hidden rounded-full bg-[oklch(0.18_0_0)] bg-[linear-gradient(oklch(1_0_0_/_0.13),transparent_45%)] shadow-[0_0_0_4px_var(--label-border),inset_0_3px_8px_oklch(0_0_0_/_0.58)] [--reel-window-color:oklch(0.18_0_0)]">
+              <div className="[container-type:size] absolute inset-x-[17.5%] inset-y-0 z-3 overflow-hidden rounded-full bg-[var(--reel-window-color)] bg-[linear-gradient(oklch(1_0_0_/_0.13),transparent_45%)] shadow-[0_0_0_4px_var(--label-border),inset_0_3px_8px_oklch(0_0_0_/_0.58)]">
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 opacity-25 mix-blend-multiply"
@@ -479,7 +480,7 @@ export const CassettePlayer = memo(function CassettePlayer({
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute top-[12%] right-[28%] bottom-[12%] left-[28%] z-2 flex items-center justify-evenly overflow-hidden rounded-[3px] border-2 border-[oklch(0.14_0_0)] bg-[oklch(0.31_0_0)] bg-[linear-gradient(to_bottom,oklch(1_0_0_/_0.1),transparent_42%)] shadow-[inset_0_3px_6px_oklch(0_0_0_/_0.72),0_0_0_2px_oklch(1_0_0_/_0.08)]"
+                  className="absolute top-[12%] right-[28%] bottom-[12%] left-[28%] z-2 flex items-center justify-evenly overflow-hidden rounded-[3px] border-2 border-[var(--tape-window-casing-border)] bg-[var(--tape-window-casing-bg)] bg-[var(--tape-window-casing-gradient)] shadow-[var(--tape-window-casing-shadow)]"
                 >
                   <span className="absolute top-1/2 left-[calc(13.26%-28%)] aspect-square h-[360%] -translate-x-1/2 -translate-y-1/2 scale-[var(--left-tape-scale)] rounded-full border border-[oklch(0.09_0_0)] bg-[repeating-radial-gradient(circle,oklch(0.05_0_0)_0_2px,oklch(0.16_0_0)_2px_4px)] shadow-[inset_0_0_5px_oklch(0_0_0_/_0.7),0_1px_2px_oklch(0_0_0_/_0.5)] will-change-transform" />
                   <span className="absolute top-1/2 left-[calc(72%-13.26%)] aspect-square h-[360%] -translate-x-1/2 -translate-y-1/2 scale-[var(--right-tape-scale)] rounded-full border border-[oklch(0.09_0_0)] bg-[repeating-radial-gradient(circle,oklch(0.05_0_0)_0_2px,oklch(0.16_0_0)_2px_4px)] shadow-[inset_0_0_5px_oklch(0_0_0_/_0.7),0_1px_2px_oklch(0_0_0_/_0.5)] will-change-transform" />
@@ -501,7 +502,7 @@ export const CassettePlayer = memo(function CassettePlayer({
             />
           </div>
 
-          <div className="absolute right-[8.5%] bottom-[19%] left-[8.5%] z-5 flex items-center gap-x-3 font-sans text-xs leading-4 font-normal text-[oklch(0.99_0_0_/_0.8)] tabular-nums">
+          <div className="absolute right-[8.5%] bottom-[19%] left-[8.5%] z-5 flex items-center gap-x-3 font-sans text-xs leading-4 font-normal text-[var(--progress-text-color)] tabular-nums">
             <span>
               <span className="sr-only">Elapsed time </span>
               <time dateTime={formatDuration(currentTime)}>{formatTime(currentTime)}</time>
@@ -524,14 +525,14 @@ export const CassettePlayer = memo(function CassettePlayer({
                 onPointerCancel={finishScrubbing}
                 onPointerDown={startScrubbing}
               >
-                <Slider.Track className="relative h-[3px] w-full translate-y-0.5 rounded-full bg-[oklch(1_0_0_/_0.2)]">
-                  <Slider.Indicator className="h-full rounded-full bg-[oklch(1_0_0)]" />
+                <Slider.Track className="relative h-[3px] w-full translate-y-0.5 rounded-full bg-[var(--progress-track-bg)]">
+                  <Slider.Indicator className="h-full rounded-full bg-[var(--progress-indicator-bg)]" />
                   <Slider.Thumb
                     getAriaLabel={() => `Seek through ${resolvedTrackTitle}`}
                     getAriaValueText={(_formattedValue, value) =>
                       `${formatTime(value)} of ${formatTime(duration)}`
                     }
-                    className="size-[13px] rounded-full border-2 border-[oklch(0.64_0_0)] bg-[oklch(1_0_0)] shadow-[0_1px_4px_oklch(0.24_0_0_/_0.38)] outline-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-[3px] has-[:focus-visible]:outline-[oklch(0.145_0_0)] dark:has-[:focus-visible]:outline-[oklch(0.985_0_0)]"
+                    className="size-[13px] rounded-full border-2 border-[oklch(0.64_0_0)] bg-[var(--progress-indicator-bg)] shadow-[0_1px_4px_oklch(0.24_0_0_/_0.38)] outline-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-[3px] has-[:focus-visible]:outline-[oklch(0.145_0_0)] dark:has-[:focus-visible]:outline-[oklch(0.985_0_0)]"
                   />
                 </Slider.Track>
               </Slider.Control>
@@ -543,12 +544,12 @@ export const CassettePlayer = memo(function CassettePlayer({
             </span>
           </div>
 
-          <div className="absolute right-[27%] bottom-[3.5%] left-[27%] z-4 flex h-[16%] items-center justify-center bg-[color-mix(in_oklch,oklch(0.48_0_0)_20%,transparent)] px-[12%] shadow-[inset_0_3px_8px_oklch(0_0_0_/_0.5)] [clip-path:polygon(13%_0,87%_0,100%_100%,0_100%)]">
+          <div className="absolute right-[27%] bottom-[3.5%] left-[27%] z-4 flex h-[16%] items-center justify-center bg-[var(--trapezoid-panel-bg)] px-[12%] shadow-[inset_0_3px_8px_oklch(0_0_0_/_0.5)] [clip-path:polygon(13%_0,87%_0,100%_100%,0_100%)]">
             <button
               aria-label={isPlaying ? `Pause ${resolvedTrackTitle}` : `Play ${resolvedTrackTitle}`}
               className={cn(
                 BUTTON_CLASSES,
-                "w-[clamp(30px,8.2cqw,43px)] border-[oklch(0.79_0_0_/_0.5)] bg-[oklch(0.62_0_0)] shadow-[0_3px_8px_oklch(0_0_0_/_0.32),inset_0_1px_0_oklch(1_0_0_/_0.25)] hover:bg-[oklch(0.58_0_0)]",
+                "w-[clamp(30px,8.2cqw,43px)] border-[var(--button-border)] bg-[var(--button-bg)] text-[var(--button-text)] shadow-[0_3px_8px_oklch(0_0_0_/_0.32),inset_0_1px_0_oklch(1_0_0_/_0.25)] hover:bg-[var(--button-hover-bg)]",
               )}
               onClick={togglePlayback}
               type="button"

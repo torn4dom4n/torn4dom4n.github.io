@@ -39,7 +39,7 @@ const NowPlaying = memo(function NowPlaying() {
             trackTitle="Repeat It"
             trackArtist="Martin Garrix & Ed Sheeran"
             catalogueNumber="2026"
-            sideLabel="Side A"
+            sideLabel="Upcoming Album"
           />
         </div>
       </GridContainer>

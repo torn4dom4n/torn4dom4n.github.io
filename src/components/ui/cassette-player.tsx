@@ -429,7 +429,7 @@ export const CassettePlayer = memo(function CassettePlayer({
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-100 mix-blend-multiply"
+            className="pointer-events-none absolute inset-0 opacity-[0.15] mix-blend-multiply"
             style={{ backgroundImage: CASSETTE_TEXTURE }}
           />
           <Screw className="top-[4%] left-[2.53%]" />

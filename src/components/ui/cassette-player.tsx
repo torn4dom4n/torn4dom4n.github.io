@@ -14,7 +14,7 @@ const DEFAULT_VOLUME = 0.78;
 const REEL_SPOKES = [0, 60, 120, 180, 240, 300] as const;
 const TAPE_WINDOW_DIVIDERS = [0, 1, 2, 3, 4] as const;
 const CASSETTE_TEXTURE =
-  "url(\"data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.0745 0 0 0 0 0 0.2392 0 0 0 0 0 0.3020 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
+  "url(\"data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 const BUTTON_CLASSES =
   "grid aspect-square cursor-pointer place-items-center rounded-full border text-[oklch(0.99_0_0)] transition-[background-color,opacity,transform] duration-150 ease-out active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-white disabled:cursor-not-allowed disabled:opacity-45 disabled:active:scale-100 motion-reduce:duration-[0.01ms]";
 
@@ -429,7 +429,7 @@ export const CassettePlayer = memo(function CassettePlayer({
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-100 mix-blend-screen"
+            className="pointer-events-none absolute inset-0 opacity-100 mix-blend-multiply"
             style={{ backgroundImage: CASSETTE_TEXTURE }}
           />
           <Screw className="top-[4%] left-[2.53%]" />

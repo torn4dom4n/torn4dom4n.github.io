@@ -16,7 +16,7 @@ const TAPE_WINDOW_DIVIDERS = [0, 1, 2, 3, 4] as const;
 const CASSETTE_TEXTURE =
   "url(\"data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 const BUTTON_CLASSES =
-  "grid aspect-square cursor-pointer place-items-center rounded-full border text-[oklch(0.99_0_0)] transition-[background-color,opacity,transform] duration-150 ease-out active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-white disabled:cursor-not-allowed disabled:opacity-45 disabled:active:scale-100 motion-reduce:duration-[0.01ms]";
+  "grid aspect-square cursor-pointer place-items-center rounded-full border text-[oklch(0.99_0_0)] transition-[background-color,opacity,transform] duration-150 ease-out active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-white dark:focus-visible:outline-neutral-900 disabled:cursor-not-allowed disabled:opacity-45 disabled:active:scale-100 motion-reduce:duration-[0.01ms]";
 
 export type CassetteCaptionTrack = {
   default?: boolean;
@@ -371,7 +371,68 @@ export const CassettePlayer = memo(function CassettePlayer({
       aria-label={`${resolvedTrackTitle} audio player`}
       {...sectionProps}
       className={cn(
-        "[container-type:inline-size] grid min-h-[500px] w-full place-items-center overflow-hidden rounded-[13px] bg-background px-8 py-16 text-foreground [--button-bg:oklch(0.62_0_0)] [--button-border:oklch(0.79_0_0_/_0.5)] [--button-hover-bg:oklch(0.58_0_0)] [--button-text:oklch(0.99_0_0)] [--casing-bg:linear-gradient(165deg,oklch(0.22_0_0)_0%,oklch(0.14_0_0)_52%,oklch(0.08_0_0)_100%)] [--casing-border:oklch(1_0_0_/_0.05)] [--casing-shadow:0_28px_48px_oklch(0_0_0_/_0.3),0_8px_16px_oklch(0_0_0_/_0.2),inset_0_2px_2px_oklch(1_0_0_/_0.12),inset_0_-3px_6px_oklch(0_0_0_/_0.85)] [--inner-casing-border:oklch(1_0_0_/_0.05)] [--inner-casing-shadow:inset_0_0_0_1px_oklch(0_0_0_/_0.5)] [--label-bg:oklch(0.98_0_0)] [--label-border:oklch(0_0_0_/_0.08)] [--label-catalogue:oklch(0.145_0_0_/_0.7)] [--label-ink:oklch(0.145_0_0)] [--label-kicker:oklch(0.145_0_0_/_0.85)] [--label-stripe-one:oklch(0.88_0_0)] [--label-stripe-three:oklch(0.64_0_0)] [--label-stripe-two:oklch(0.76_0_0)] [--progress-indicator-bg:oklch(1_0_0)] [--progress-text-color:oklch(0.99_0_0_/_0.8)] [--progress-thumb-border:oklch(1_0_0)] [--progress-track-bg:oklch(1_0_0_/_0.2)] [--reel-teeth-stroke:oklch(0.14_0_0)] [--reel-teeth:oklch(0.18_0_0)] [--reel-window-color:oklch(0.18_0_0)] [--tape-window-casing-bg:oklch(0.31_0_0)] [--tape-window-casing-border:oklch(0.14_0_0)] [--tape-window-casing-gradient:linear-gradient(to_bottom,oklch(1_0_0_/_0.1),transparent_42%)] [--tape-window-casing-shadow:inset_0_3px_6px_oklch(0_0_0_/_0.72),0_0_0_2px_oklch(1_0_0_/_0.08)] [--trapezoid-panel-bg:color-mix(in_oklch,oklch(0.48_0_0)_20%,transparent)] max-[560px]:min-h-[480px] max-[560px]:px-3.5 max-[560px]:py-12 dark:[--label-bg:oklch(0.145_0_0)] dark:[--label-border:oklch(1_0_0_/_0.15)] dark:[--label-catalogue:oklch(0.985_0_0_/_0.7)] dark:[--label-ink:oklch(0.985_0_0)] dark:[--label-kicker:oklch(0.985_0_0_/_0.85)] dark:[--label-stripe-one:oklch(0.22_0_0)] dark:[--label-stripe-three:oklch(0.38_0_0)] dark:[--label-stripe-two:oklch(0.30_0_0)] dark:[--reel-teeth-stroke:oklch(0.35_0_0)] dark:[--reel-teeth:oklch(0.24_0_0)]",
+        "[container-type:inline-size] grid min-h-[500px] w-full place-items-center overflow-hidden rounded-[13px] bg-background px-8 py-16 text-foreground",
+        // Light mode (default) -> Premium Dark-Charcoal Casing (extremely visible against light page background)
+        "[--casing-bg:linear-gradient(165deg,oklch(0.22_0_0)_0%,oklch(0.14_0_0)_52%,oklch(0.08_0_0)_100%)]",
+        "[--casing-border:oklch(1_0_0_/_0.05)]",
+        "[--casing-shadow:0_28px_48px_oklch(0_0_0_/_0.3),0_8px_16px_oklch(0_0_0_/_0.2),inset_0_2px_2px_oklch(1_0_0_/_0.12),inset_0_-3px_6px_oklch(0_0_0_/_0.85)]",
+        "[--inner-casing-border:oklch(1_0_0_/_0.05)]",
+        "[--inner-casing-shadow:inset_0_0_0_1px_oklch(0_0_0_/_0.5)]",
+        "[--button-bg:oklch(0.62_0_0)]",
+        "[--button-border:oklch(0.79_0_0_/_0.5)]",
+        "[--button-hover-bg:oklch(0.58_0_0)]",
+        "[--button-text:oklch(0.99_0_0)]",
+        "[--progress-indicator-bg:oklch(1_0_0)]",
+        "[--progress-text-color:oklch(0.99_0_0_/_0.8)]",
+        "[--progress-thumb-border:oklch(1_0_0)]",
+        "[--progress-track-bg:oklch(1_0_0_/_0.2)]",
+        "[--reel-teeth-stroke:oklch(0.35_0_0)]",
+        "[--reel-teeth:oklch(0.24_0_0)]",
+        "[--reel-window-color:oklch(0.14_0_0)]",
+        "[--tape-window-casing-bg:oklch(0.12_0_0)]",
+        "[--tape-window-casing-border:oklch(0.09_0_0)]",
+        "[--tape-window-casing-gradient:linear-gradient(to_bottom,oklch(1_0_0_/_0.05),transparent_42%)]",
+        "[--tape-window-casing-shadow:inset_0_3px_6px_oklch(0_0_0_/_0.85),0_0_0_2px_oklch(1_0_0_/_0.05)]",
+        "[--trapezoid-panel-bg:color-mix(in_oklch,oklch(0.08_0_0)_20%,transparent)]",
+        "[--label-bg:oklch(0.98_0_0)]",
+        "[--label-border:oklch(0_0_0_/_0.08)]",
+        "[--label-catalogue:oklch(0.145_0_0_/_0.7)]",
+        "[--label-ink:oklch(0.145_0_0)]",
+        "[--label-kicker:oklch(0.145_0_0_/_0.85)]",
+        "[--label-stripe-one:oklch(0.88_0_0)]",
+        "[--label-stripe-two:oklch(0.76_0_0)]",
+        "[--label-stripe-three:oklch(0.64_0_0)]",
+        // Dark mode (inverted) -> Premium Light-White Casing (extremely visible against dark page background)
+        "dark:[--casing-bg:linear-gradient(165deg,oklch(0.99_0_0)_0%,oklch(0.95_0_0)_52%,oklch(0.91_0_0)_100%)]",
+        "dark:[--casing-border:oklch(0_0_0_/_0.08)]",
+        "dark:[--casing-shadow:0_28px_48px_oklch(0_0_0_/_0.12),0_8px_16px_oklch(0_0_0_/_0.08),inset_0_2px_2px_oklch(1_0_0),inset_0_-3px_6px_oklch(0_0_0_/_0.1)]",
+        "dark:[--inner-casing-border:oklch(0_0_0_/_0.06)]",
+        "dark:[--inner-casing-shadow:inset_0_0_0_1px_oklch(0_0_0_/_0.12)]",
+        "dark:[--button-bg:oklch(0.145_0_0)]",
+        "dark:[--button-border:oklch(0_0_0_/_0.12)]",
+        "dark:[--button-hover-bg:oklch(0.25_0_0)]",
+        "dark:[--button-text:oklch(0.99_0_0)]",
+        "dark:[--progress-indicator-bg:oklch(0.145_0_0)]",
+        "dark:[--progress-text-color:oklch(0.145_0_0_/_0.8)]",
+        "dark:[--progress-thumb-border:oklch(0.145_0_0)]",
+        "dark:[--progress-track-bg:oklch(0_0_0_/_0.15)]",
+        "dark:[--reel-teeth-stroke:oklch(0.14_0_0)]",
+        "dark:[--reel-teeth:oklch(0.18_0_0)]",
+        "dark:[--reel-window-color:oklch(0.18_0_0)]",
+        "dark:[--tape-window-casing-bg:oklch(0.31_0_0)]",
+        "dark:[--tape-window-casing-border:oklch(0.14_0_0)]",
+        "dark:[--tape-window-casing-gradient:linear-gradient(to_bottom,oklch(1_0_0_/_0.1),transparent_42%)]",
+        "dark:[--tape-window-casing-shadow:inset_0_3px_6px_oklch(0_0_0_/_0.72),0_0_0_2px_oklch(1_0_0_/_0.08)]",
+        "dark:[--trapezoid-panel-bg:color-mix(in_oklch,oklch(0.48_0_0)_20%,transparent)]",
+        "dark:[--label-bg:oklch(0.145_0_0)]",
+        "dark:[--label-border:oklch(1_0_0_/_0.15)]",
+        "dark:[--label-catalogue:oklch(0.985_0_0_/_0.7)]",
+        "dark:[--label-ink:oklch(0.985_0_0)]",
+        "dark:[--label-kicker:oklch(0.985_0_0_/_0.85)]",
+        "dark:[--label-stripe-one:oklch(0.22_0_0)]",
+        "dark:[--label-stripe-two:oklch(0.30_0_0)]",
+        "dark:[--label-stripe-three:oklch(0.38_0_0)]",
+        "max-[560px]:min-h-[480px] max-[560px]:px-3.5 max-[560px]:py-12",
         className,
       )}
       ref={ref}
@@ -419,7 +480,8 @@ export const CassettePlayer = memo(function CassettePlayer({
 
       <div className="w-full max-w-[530px]">
         <div
-          className="relative aspect-[1.58] w-full overflow-hidden rounded-[18px] border border-[var(--casing-border)] bg-[var(--casing-bg)] shadow-[var(--casing-shadow)] [--left-tape-scale:1] [--reel-rotation:0deg] [--right-tape-scale:0.6] max-[560px]:rounded-xl"
+          className="relative aspect-[1.58] w-full overflow-hidden rounded-[18px] border border-[var(--casing-border)] shadow-[var(--casing-shadow)] [--left-tape-scale:1] [--reel-rotation:0deg] [--right-tape-scale:0.6] max-[560px]:rounded-xl"
+          style={{ backgroundImage: "var(--casing-bg)" }}
           ref={cassetteRef}
         >
           <div
@@ -428,7 +490,7 @@ export const CassettePlayer = memo(function CassettePlayer({
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-100 mix-blend-multiply"
+            className="pointer-events-none absolute inset-0 opacity-[0.15] mix-blend-multiply"
             style={{ backgroundImage: CASSETTE_TEXTURE }}
           />
           <Screw className="top-[4%] left-[2.53%]" />
@@ -532,7 +594,7 @@ export const CassettePlayer = memo(function CassettePlayer({
                     getAriaValueText={(_formattedValue, value) =>
                       `${formatTime(value)} of ${formatTime(duration)}`
                     }
-                    className="size-[13px] rounded-full border-2 border-[oklch(0.64_0_0)] bg-[var(--progress-indicator-bg)] shadow-[0_1px_4px_oklch(0.24_0_0_/_0.38)] outline-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-[3px] has-[:focus-visible]:outline-[oklch(0.145_0_0)] dark:has-[:focus-visible]:outline-[oklch(0.985_0_0)]"
+                    className="size-[13px] rounded-full border-2 border-[var(--progress-thumb-border)] bg-[var(--progress-indicator-bg)] shadow-[0_1px_4px_oklch(0.24_0_0_/_0.38)] outline-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-[3px] has-[:focus-visible]:outline-[oklch(0.985_0_0)] dark:has-[:focus-visible]:outline-[oklch(0.145_0_0)]"
                   />
                 </Slider.Track>
               </Slider.Control>

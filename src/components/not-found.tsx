@@ -7,9 +7,19 @@ import SectionHeader from "@/components/ui/section-header";
 // Fallback error block for non-existent pages (404)
 export default function NotFound() {
   const [isMounted, setIsMounted] = useState(false);
+  const [isNarrow, setIsNarrow] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
+
+    const mql = window.matchMedia("(max-width: 679px)");
+    const onChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      setIsNarrow(e.matches);
+    };
+
+    onChange(mql);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
   }, []);
 
   return (
@@ -44,7 +54,18 @@ export default function NotFound() {
       <GridContainer>
         <div className="px-2 max-sm:px-4">
           <div className="relative h-[480px] w-full overflow-hidden rounded-xl border border-border bg-muted/20">
-            {isMounted && <Draw background="transparent" theme="auto" />}
+            {isMounted &&
+              (isNarrow ? (
+                <Draw
+                  background="transparent"
+                  theme="auto"
+                  placement="left"
+                  tools={["pencil", "pen", "marker", "highlighter", "brush"]}
+                  controls={{ undo: false, clear: false, opacity: false, custom: false }}
+                />
+              ) : (
+                <Draw background="transparent" theme="auto" placement="bottom" />
+              ))}
           </div>
         </div>
       </GridContainer>

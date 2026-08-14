@@ -38,18 +38,16 @@ export default function NotFound() {
         </div>
       </GridContainer>
 
-      {/* Drawesome interactive canvas area (hidden on mobile, visible on desktop/tablet) */}
-      <div className="hidden md:block">
-        <div className="h-6 sm:h-10" />
+      <div className="h-6 sm:h-10" />
 
-        <GridContainer>
-          <div className="px-2 max-sm:px-4">
-            <div className="relative h-[480px] w-full overflow-hidden rounded-xl border border-border bg-muted/20">
-              {isMounted && <Draw background="transparent" theme="auto" />}
-            </div>
+      {/* Drawesome interactive canvas area */}
+      <GridContainer>
+        <div className="px-2 max-sm:px-4">
+          <div className="relative h-[480px] w-full overflow-hidden rounded-xl border border-border bg-muted/20">
+            {isMounted && <Draw background="transparent" theme="auto" />}
           </div>
-        </GridContainer>
-      </div>
+        </div>
+      </GridContainer>
     </div>
   );
 }

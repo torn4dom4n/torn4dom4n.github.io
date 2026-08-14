@@ -29,10 +29,6 @@ export default function NotFound() {
     void drawRef.current?.download("doodle", "png", 2);
   };
 
-  const handleExportSvg = () => {
-    void drawRef.current?.download("doodle", "svg");
-  };
-
   return (
     <div className="pt-16 pb-16 sm:pt-24 sm:pb-20">
       {/* 404 Section Tag */}
@@ -49,33 +45,13 @@ export default function NotFound() {
 
       <div className="h-6 sm:h-10" />
 
-      {/* Error explanation paragraph & export action buttons */}
+      {/* Error explanation paragraph */}
       <GridContainer>
-        <div className="flex flex-col gap-4 px-2 max-sm:px-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="px-2 max-sm:px-4">
           <p className="max-w-(--breakpoint-md) text-lg/7 text-muted-foreground">
             The page you are looking for doesn't exist or has been moved. Feel free to doodle below
             while you're here.
           </p>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleExportPng}
-              className="cursor-pointer font-medium"
-            >
-              <Download />
-              Export PNG
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleExportSvg}
-              className="cursor-pointer font-medium"
-            >
-              <Download />
-              Export SVG
-            </Button>
-          </div>
         </div>
       </GridContainer>
 
@@ -92,12 +68,32 @@ export default function NotFound() {
                   background="transparent"
                   theme="auto"
                   placement="left"
+                  drawWhenMinimized
                   tools={["pencil", "pen", "marker", "highlighter", "brush"]}
                   controls={{ undo: false, clear: false, opacity: false, custom: false }}
                 />
               ) : (
-                <Draw ref={drawRef} background="transparent" theme="auto" placement="bottom" />
+                <Draw
+                  ref={drawRef}
+                  background="transparent"
+                  theme="auto"
+                  placement="bottom"
+                  drawWhenMinimized
+                />
               ))}
+          </div>
+
+          {/* Export PNG action button below canvas */}
+          <div className="mt-4 flex justify-end">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleExportPng}
+              className="cursor-pointer font-medium"
+            >
+              <Download />
+              Export PNG
+            </Button>
           </div>
         </div>
       </GridContainer>

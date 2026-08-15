@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "@fontsource-variable/geist";
 @import "@fontsource-variable/geist-mono";
+@import "drawesome/styles.css";
 
 @theme inline {
   --font-sans: "Geist Variable", "Geist fallback", "Geist", sans-serif;

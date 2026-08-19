@@ -46,14 +46,16 @@ export function ThemeProvider({
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
 
+    let effectiveTheme = targetTheme;
     if (targetTheme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-      root.classList.add(systemTheme);
-    } else {
-      root.classList.add(targetTheme);
+      effectiveTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
+    root.classList.add(effectiveTheme);
+
+    const metaThemeColorElements = window.document.querySelectorAll('meta[name="theme-color"]');
+    metaThemeColorElements.forEach((el) => {
+      el.setAttribute("content", effectiveTheme === "dark" ? "#000000" : "#ffffff");
+    });
   });
 
   useEffect(() => {

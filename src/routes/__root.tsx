@@ -43,7 +43,8 @@ export const Route = createRootRoute({
         { name: "twitter:description", content: `Welcome to ${SITE_NAME}'s website.` },
         { name: "twitter:image", content: `${SITE_URL}/og-image.jpg` },
         { name: "twitter:image:alt", content: `Hello humans, my name is ${SITE_NAME}` },
-        { name: "theme-color", content: "#ffffff" },
+        { name: "theme-color", content: "#000000", media: "(prefers-color-scheme: dark)" },
+        { name: "theme-color", content: "#ffffff", media: "(prefers-color-scheme: light)" },
       ],
       links: [
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -67,13 +68,17 @@ export const Route = createRootRoute({
                 var root = document.documentElement;
                 root.classList.remove("light", "dark");
 
+                var activeTheme = theme;
                 if (theme === "system") {
-                  var systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+                  activeTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
                     ? "dark"
                     : "light";
-                  root.classList.add(systemTheme);
-                } else {
-                  root.classList.add(theme);
+                }
+                root.classList.add(activeTheme);
+
+                var metaThemeColor = document.querySelector('meta[name="theme-color"]');
+                if (metaThemeColor) {
+                  metaThemeColor.setAttribute("content", activeTheme === "dark" ? "#000000" : "#ffffff");
                 }
               } catch (e) {}
             })();

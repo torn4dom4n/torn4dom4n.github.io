@@ -7,8 +7,6 @@ Hello, my name is Long Nhat Nguyen and this is my website.
 To get started, make sure you have [Node.js](https://nodejs.org) and [Vite+](https://viteplus.dev) installed on your system. Then, follow these steps:
 
 ```bash
-git clone https://github.com/torn4dom4n/torn4dom4n.github.io
-cd torn4dom4n.github.io
 vp install
 vp dev
 ```

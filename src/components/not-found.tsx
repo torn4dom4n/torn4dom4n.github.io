@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Draw, type DrawHandle } from "drawesome";
 import { Download } from "lucide-react";
 import { useRef, useSyncExternalStore } from "react";
@@ -52,8 +53,14 @@ export default function NotFound() {
       <GridContainer>
         <div className="px-2 max-sm:px-4">
           <p className="max-w-(--breakpoint-md) text-lg/7 text-muted-foreground">
-            The page you are looking for doesn't exist or has been moved. Feel free to doodle below
-            while you're here.
+            The page you are looking for doesn't exist or has been moved. Head{" "}
+            <Link
+              to="/"
+              className="text-foreground underline underline-offset-4 transition-colors hover:text-foreground/80"
+            >
+              back to home
+            </Link>{" "}
+            or feel free to doodle below while you're here.
           </p>
         </div>
       </GridContainer>

@@ -1,29 +1,32 @@
 import { Draw, type DrawHandle } from "drawesome";
 import { Download } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useSyncExternalStore } from "react";
 
 import { Button } from "@/components/ui/button";
 import GridContainer from "@/components/ui/grid-container";
 import SectionHeader from "@/components/ui/section-header";
 
+const emptySubscribe = () => () => {};
+
 // Fallback error block for non-existent pages (404)
 export default function NotFound() {
-  const [isMounted, setIsMounted] = useState(false);
-  const [isNarrow, setIsNarrow] = useState(false);
   const drawRef = useRef<DrawHandle>(null);
 
-  useEffect(() => {
-    setIsMounted(true);
+  const isMounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
 
-    const mql = window.matchMedia("(max-width: 679px)");
-    const onChange = (e: MediaQueryListEvent | MediaQueryList) => {
-      setIsNarrow(e.matches);
-    };
-
-    onChange(mql);
-    mql.addEventListener("change", onChange);
-    return () => mql.removeEventListener("change", onChange);
-  }, []);
+  const isNarrow = useSyncExternalStore(
+    (callback) => {
+      const mql = window.matchMedia("(max-width: 679px)");
+      mql.addEventListener("change", callback);
+      return () => mql.removeEventListener("change", callback);
+    },
+    () => window.matchMedia("(max-width: 679px)").matches,
+    () => false,
+  );
 
   const handleExportPng = () => {
     void drawRef.current?.download("doodle", "png", 2);

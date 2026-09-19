@@ -17,27 +17,27 @@
     "@base-ui/react": "^1.8.0",
     "@fontsource-variable/geist": "^5.3.0",
     "@fontsource-variable/geist-mono": "^5.3.0",
-    "@tanstack/react-router": "^1.170.35",
-    "@tanstack/react-start": "^1.168.52",
+    "@tanstack/react-router": "^1.170.38",
+    "@tanstack/react-start": "^1.168.56",
     "class-variance-authority": "^0.7.1",
-    "cn": "^0.2.6",
+    "cn": "^0.3.0",
     "drawesome": "^0.1.1",
-    "lucide-react": "^1.45.0",
+    "lucide-react": "^1.47.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
-    "@iconify-json/simple-icons": "^1.2.95",
+    "@iconify-json/simple-icons": "^1.2.96",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "@tailwindcss/vite": "^4.3.3",
-    "@types/node": "^25.9.6",
+    "@types/node": "^25.9.7",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "unplugin-icons": "^24.0.0",
-    "vite": "npm:@voidzero-dev/vite-plus-core@^0.3.1",
-    "vite-plus": "^0.3.1"
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.3.3",
+    "vite-plus": "^0.3.3"
   }
 }

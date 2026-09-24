@@ -1,8 +1,8 @@
 packages:
   - "."
-autoDedupe: true
 allowBuilds:
   esbuild: false
+autoDedupe: true
 overrides:
   vite: npm:@voidzero-dev/vite-plus-core@^0.3.3
 minimumReleaseAge: 0

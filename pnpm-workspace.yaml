@@ -1,6 +1,6 @@
 packages:
   - "."
-  autoDedupe: true
+autoDedupe: true
 allowBuilds:
   esbuild: false
 overrides:

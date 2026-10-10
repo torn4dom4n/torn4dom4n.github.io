@@ -22,12 +22,12 @@
     "class-variance-authority": "^0.7.1",
     "cn": "^0.4.0",
     "drawesome": "^0.1.2",
-    "lucide-react": "^1.50.0",
+    "lucide-react": "^1.54.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
-    "@iconify-json/simple-icons": "^1.2.98",
+    "@iconify-json/simple-icons": "^1.2.99",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "@tailwindcss/vite": "^4.3.3",
@@ -37,7 +37,7 @@
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "unplugin-icons": "^24.0.0",
-    "vite": "npm:@voidzero-dev/vite-plus-core@^1.0.0",
-    "vite-plus": "^1.0.0"
+    "vite": "npm:@voidzero-dev/vite-plus-core@^1.1.0",
+    "vite-plus": "^1.1.0"
   }
 }

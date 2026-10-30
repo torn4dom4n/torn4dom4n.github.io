@@ -39,5 +39,6 @@
     "unplugin-icons": "^24.0.0",
     "vite": "npm:@voidzero-dev/vite-plus-core@^1.4.0",
     "vite-plus": "^1.4.0"
-  }
+  },
+  "packageManager": "pnpm@12.15.0"
 }

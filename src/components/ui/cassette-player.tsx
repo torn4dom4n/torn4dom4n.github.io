@@ -1,5 +1,3 @@
-"use client";
-
 import { Slider } from "@base-ui/react/slider";
 import { Pause, Play } from "lucide-react";
 import { type ComponentPropsWithRef, useCallback, useEffect, useRef, useState, memo } from "react";

@@ -82,14 +82,4 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
-  build: {
-    rolldownOptions: {
-      onwarn(warning, defaultHandler) {
-        if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
-          return;
-        }
-        defaultHandler(warning);
-      },
-    },
-  },
 });
